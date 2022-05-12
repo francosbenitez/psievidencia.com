@@ -8,6 +8,6 @@ TO-DO:
   - Data:
     - From an Excel.
       - Each field will be a string field.
-        - Name | Specialization | Theorical discipline | Instagram | WhatsApp | Facebook | Twitter
+        - Name | Specialization | Theorical discipline | Instagram | WhatsApp | Facebook | Twitter | Avatar url
         - For WhatsApp, we can use its API.
   - 
