@@ -4,6 +4,7 @@ TO-DO:
     - Theorical discipline (TCC, ACT, etc.) (select).
     - Name (input).
   - Avatars.
+    - Avatar.
     - Name.
     - Social networks.
   - Data:
