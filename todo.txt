@@ -1,7 +1,8 @@
 TO-DO:
   - Filters.
-    - Specialization (eating disorders, self-esteem, etc.).
-    - Theorical discipline (TCC, ACT, etc.).
+    - Specialization (eating disorders, self-esteem, etc.) (select).
+    - Theorical discipline (TCC, ACT, etc.) (select).
+    - Name (input).
   - Avatars.
     - Name.
     - Social networks.
