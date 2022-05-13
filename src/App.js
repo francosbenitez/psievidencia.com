@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <PsychologistsFilter />
+      <PsychologistsFilter psychologists={psychologists} />
       <PsychologistsCards psychologists={psychologists} />
     </div>
   );
