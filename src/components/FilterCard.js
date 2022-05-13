@@ -1,4 +1,8 @@
 import React from "react";
+import { ReactComponent as Facebook } from "../assets/icons/facebook.svg";
+import { ReactComponent as Twitter } from "../assets/icons/twitter.svg";
+import { ReactComponent as WhatsApp } from "../assets/icons/whatsapp.svg";
+import { ReactComponent as Instagram } from "../assets/icons/instagram.svg";
 
 const PsychologistsCards = ({ psychologist }) => {
   return (
@@ -17,27 +21,13 @@ const PsychologistsCards = ({ psychologist }) => {
           <li>{psychologist["Specialization"]}</li>
         </ul>
       </div>
-      <footer className="text-center py-3 px-8 text-gray-500">
-        <button className="py-2 px-4 mt-5 bg-green-500 rounded-lg text-white font-semibold hover:bg-green-600">
-          FOLLOW
-        </button>
+      <footer className="text-center py-3 px-8 text-gray-500 flex">
+        <Facebook />
+        <Twitter />
+        <WhatsApp />
+        <Instagram />
       </footer>
     </div>
-
-    // <ul className="divide-y divide-gray-200">
-    //   <li className="py-4 flex">
-    //     <img
-    //       className="h-10 w-10 rounded-full"
-    //       src={psychologist["Image URL"]}
-    //       alt=""
-    //     />
-    //     <div className="ml-3">
-    //       <p>{psychologist["Name"]}</p>
-    //       <p>{psychologist["Theorical discipline"]}</p>
-    //       <p>{psychologist["Specialization"]}</p>
-    //     </div>
-    //   </li>
-    // </ul>
   );
 };
 

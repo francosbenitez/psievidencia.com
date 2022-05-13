@@ -28,11 +28,13 @@ const PsychologistsFilter = ({ psychologists }) => {
         placeholder="Search by name, specialization or theorical discipline"
         onChange={handleSearchChange}
       />
-      {filtered.map((psychologist) => {
-        return (
-          <FilterCard key={psychologist.Name} psychologist={psychologist} />
-        );
-      })}
+      <div className="flex justify-between">
+        {filtered.map((psychologist) => {
+          return (
+            <FilterCard key={psychologist.Name} psychologist={psychologist} />
+          );
+        })}
+      </div>
     </div>
   );
 };
