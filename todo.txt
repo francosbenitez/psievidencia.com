@@ -12,4 +12,4 @@ TO-DO:
       - Each field will be a string field.
         - Name | Specialization | Theorical discipline | Instagram | WhatsApp | Facebook | Twitter | Image URL
         - For WhatsApp, we can use its API.
-  - 
+  - Style the page as good as possible, so people feel attraction to fill the Google Sheet.
