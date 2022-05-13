@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import PsychologistsFilter from "./components/PsychologistsFilter";
+import PsychologistsCards from "./components/PsychologistsCards";
+import Papa from "papaparse";
+import { useState } from "react";
 
 function App() {
+  const psychologistsUrl =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSt2QOEjYsYKBqktf8Cg-Bme4L6x3vEZxU-uXD9vefspScTwi_o7UZXjDqGQplAGIjOBN_iLFSvF-ti/pub?gid=0&single=true&output=csv";
+
+  const [psychologists, setPsychologists] = useState([]);
+
+  const fetchPsychologists = () => {
+    Papa.parse(psychologistsUrl, {
+      download: true,
+      header: true,
+
+      complete: function (results) {
+        console.log(results.data);
+        setPsychologists(results.data);
+      },
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PsychologistsFilter />
+      <button onClick={fetchPsychologists}>Fetch Psychologists</button>
+
+      {psychologists.map((item) => {
+        return (
+          <div key={item.Name}>
+            <h1>{item.Name}</h1>
+          </div>
+        );
+      })}
+      <PsychologistsCards />
     </div>
   );
 }
