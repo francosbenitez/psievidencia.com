@@ -25,15 +25,7 @@ function App() {
     <div className="App">
       <PsychologistsFilter />
       <button onClick={fetchPsychologists}>Fetch Psychologists</button>
-
-      {psychologists.map((item) => {
-        return (
-          <div key={item.Name}>
-            <h1>{item.Name}</h1>
-          </div>
-        );
-      })}
-      <PsychologistsCards />
+      <PsychologistsCards psychologists={psychologists} />
     </div>
   );
 }
