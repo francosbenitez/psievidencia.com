@@ -22,22 +22,30 @@ const PsychologistsCards = ({ psychologist }) => {
         </ul>
       </div>
       <footer className="text-center py-3 px-8 text-gray-500 flex justify-between mt-auto block">
-        <a target="_blank" rel="noreferrer" href={psychologist.facebook_url}>
-          <Facebook />
-        </a>
-        <a target="_blank" rel="noreferrer" href={psychologist.twitter_url}>
-          <Twitter />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={"https://wa.me/549" + psychologist.whatsapp_url}
-        >
-          <WhatsApp />
-        </a>
-        <a target="_blank" rel="noreferrer" href={psychologist.instagram_url}>
-          <Instagram />
-        </a>
+        {psychologist.facebook_url && (
+          <a target="_blank" rel="noreferrer" href={psychologist.facebook_url}>
+            <Facebook />
+          </a>
+        )}
+        {psychologist.twitter_url && (
+          <a target="_blank" rel="noreferrer" href={psychologist.twitter_url}>
+            <Twitter />
+          </a>
+        )}
+        {psychologist.whatsapp_url && (
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={"https://wa.me/549" + psychologist.whatsapp_url}
+          >
+            <WhatsApp />
+          </a>
+        )}
+        {psychologist.instagram_url && (
+          <a target="_blank" rel="noreferrer" href={psychologist.instagram_url}>
+            <Instagram />
+          </a>
+        )}
       </footer>
     </div>
   );
