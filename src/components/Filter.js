@@ -12,13 +12,11 @@ const PsychologistsFilter = ({ psychologists }) => {
     ? psychologists
     : psychologists.filter(
         (psychologist) =>
-          psychologist.Name.toLowerCase().includes(search.toLowerCase()) ||
-          psychologist.Specialization.toLowerCase().includes(
-            search.toLowerCase()
-          ) ||
-          psychologist["Theorical discipline"]
+          psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
+          psychologist.specialization
             .toLowerCase()
-            .includes(search.toLowerCase())
+            .includes(search.toLowerCase()) ||
+          psychologist.discipline.toLowerCase().includes(search.toLowerCase())
       );
 
   return (
@@ -31,7 +29,7 @@ const PsychologistsFilter = ({ psychologists }) => {
       <div className="flex flex-wrap justify-between">
         {filtered.map((psychologist) => {
           return (
-            <FilterCard key={psychologist.Name} psychologist={psychologist} />
+            <FilterCard key={psychologist.name} psychologist={psychologist} />
           );
         })}
       </div>
