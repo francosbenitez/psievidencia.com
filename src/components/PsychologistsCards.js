@@ -6,7 +6,14 @@ const PsychologistsCards = ({ psychologists }) => {
       {psychologists.map((item) => {
         return (
           <div key={item.Name}>
-            <h1>{item.Name}</h1>
+            <h1>{item["Name"]}</h1>
+            <p>{item["Theorical discipline"]}</p>
+            <p>{item["Specialization"]}</p>
+            <img
+              className="h-10 w-10 rounded-full"
+              src={item["Image URL"]}
+              alt=""
+            />
           </div>
         );
       })}
