@@ -6,7 +6,7 @@ import { ReactComponent as Instagram } from "../assets/icons/instagram.svg";
 
 const PsychologistsCards = ({ psychologist }) => {
   return (
-    <div className="w-1/4 rounded-lg shadow-xl bg-white p-10">
+    <div className="w-1/4 rounded-lg shadow-xl bg-white p-10 flex flex-col">
       <img
         src={psychologist["Image URL"]}
         alt=""
@@ -21,8 +21,8 @@ const PsychologistsCards = ({ psychologist }) => {
           <li>{psychologist["Specialization"]}</li>
         </ul>
       </div>
-      <footer className="text-center py-3 px-8 text-gray-500 flex">
-        <Facebook />
+      <footer className="text-center py-3 px-8 text-gray-500 flex justify-between mt-auto block">
+        <Facebook className="" />
         <Twitter />
         <WhatsApp />
         <Instagram />

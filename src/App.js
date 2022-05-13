@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <div className="mt-20 mx-auto">
+    <div className="container mt-20 mx-auto">
       <Filter psychologists={psychologists} />
     </div>
   );
