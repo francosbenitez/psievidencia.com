@@ -28,7 +28,11 @@ const PsychologistsCards = ({ psychologist }) => {
         <a target="_blank" rel="noreferrer" href={psychologist["Twitter URL"]}>
           <Twitter />
         </a>
-        <a target="_blank" rel="noreferrer" href="">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={"https://wa.me/549" + psychologist["WhatsApp"]}
+        >
           <WhatsApp />
         </a>
         <a
