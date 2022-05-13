@@ -1,5 +1,4 @@
 import PsychologistsFilter from "./components/PsychologistsFilter";
-import PsychologistsCards from "./components/PsychologistsCards";
 import Papa from "papaparse";
 import { useState, useEffect } from "react";
 import "./assets/css/default.css";
@@ -29,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <PsychologistsFilter psychologists={psychologists} />
-      <PsychologistsCards psychologists={psychologists} />
+      {/* <PsychologistsCards psychologists={psychologists} /> */}
     </div>
   );
 }

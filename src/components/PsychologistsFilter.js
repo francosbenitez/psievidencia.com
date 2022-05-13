@@ -1,7 +1,8 @@
 import { useState } from "react";
+import PsychologistsCards from "./PsychologistsCards";
 
 const PsychologistsFilter = ({ psychologists }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(null);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -29,9 +30,10 @@ const PsychologistsFilter = ({ psychologists }) => {
       />
       {filtered.map((psychologist) => {
         return (
-          <p key={psychologist.Name}>
-            {psychologist.Name} - {psychologist.Name}
-          </p>
+          <PsychologistsCards
+            key={psychologist.Name}
+            psychologist={psychologist}
+          />
         );
       })}
     </div>
