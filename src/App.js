@@ -2,6 +2,7 @@ import PsychologistsFilter from "./components/PsychologistsFilter";
 import PsychologistsCards from "./components/PsychologistsCards";
 import Papa from "papaparse";
 import { useState } from "react";
+import "./assets/css/default.css";
 
 function App() {
   const psychologistsUrl =
