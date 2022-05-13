@@ -28,6 +28,18 @@ function App() {
   return (
     <div className="container mt-20 mx-auto">
       <Filter psychologists={psychologists} />
+
+      <div className="text-center w-full">
+        To be part of this collection, fill your data in{" "}
+        <a
+          className=""
+          target="_blank"
+          rel="noreferrer"
+          href="https://docs.google.com/spreadsheets/d/1xMzAnbQcJ880iswR2yszPpZkD4i3pn_3GejthV1R68s/edit#gid=0"
+        >
+          this Google Sheet.
+        </a>
+      </div>
     </div>
   );
 }
