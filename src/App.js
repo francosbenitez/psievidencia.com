@@ -1,7 +1,7 @@
 import PsychologistsFilter from "./components/PsychologistsFilter";
 import PsychologistsCards from "./components/PsychologistsCards";
 import Papa from "papaparse";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./assets/css/default.css";
 
 function App() {
@@ -22,10 +22,13 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    fetchPsychologists();
+  }, []);
+
   return (
     <div className="App">
       <PsychologistsFilter />
-      <button onClick={fetchPsychologists}>Fetch Psychologists</button>
       <PsychologistsCards psychologists={psychologists} />
     </div>
   );
