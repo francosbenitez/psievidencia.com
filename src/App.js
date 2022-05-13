@@ -26,9 +26,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="mt-20 mx-auto">
       <Filter psychologists={psychologists} />
-      {/* <PsychologistsCards psychologists={psychologists} /> */}
     </div>
   );
 }

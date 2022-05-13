@@ -24,8 +24,8 @@ const PsychologistsFilter = ({ psychologists }) => {
   return (
     <div>
       <input
-        className="border-solid border-2 border-indigo-600"
-        placeholder="Search by name"
+        className="border-solid border-2 border-indigo-600 w-full"
+        placeholder="Search by name, specialization or theorical discipline"
         onChange={handleSearchChange}
       />
       {filtered.map((psychologist) => {
