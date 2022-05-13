@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PsychologistsCards from "./PsychologistsCards";
+import FilterCard from "./FilterCard";
 
 const PsychologistsFilter = ({ psychologists }) => {
   const [search, setSearch] = useState(null);
@@ -30,10 +30,7 @@ const PsychologistsFilter = ({ psychologists }) => {
       />
       {filtered.map((psychologist) => {
         return (
-          <PsychologistsCards
-            key={psychologist.Name}
-            psychologist={psychologist}
-          />
+          <FilterCard key={psychologist.Name} psychologist={psychologist} />
         );
       })}
     </div>
