@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  background: red;
-  width: 50%;
-  margin: 0 auto;
+body {
+  background-color: red;
 }
