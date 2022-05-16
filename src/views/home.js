@@ -3,9 +3,11 @@ import Filter from "../components/Filter";
 
 const Home = ({ psychologists }) => {
   return (
-    <div className="container mx-auto flex flex-col h-screen">
-      <Filter psychologists={psychologists} />
-      <div className="text-center w-full mt-auto">
+    <>
+      <div className="container mx-auto py-28 px-5 sm:px-0">
+        <Filter psychologists={psychologists} />
+      </div>
+      <footer className="bottom-0 fixed bg-white w-full p-8 text-center">
         To be part of this collection, fill your data in{" "}
         <a
           className="underline"
@@ -16,8 +18,8 @@ const Home = ({ psychologists }) => {
           this Google Sheet
         </a>
         .
-      </div>
-    </div>
+      </footer>
+    </>
   );
 };
 
