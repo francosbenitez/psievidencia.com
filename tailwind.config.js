@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "custom-image": "url('/src/assets/icons/arrow-left.svg')",
+      },
+    },
   },
   plugins: [],
 };
