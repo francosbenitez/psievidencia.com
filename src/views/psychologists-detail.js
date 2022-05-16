@@ -17,7 +17,11 @@ const PsychologistsDetail = ({ psychologist }) => {
     "November",
     "December",
   ];
-  const d = new Date(psychologist.date);
+
+  let d = psychologist.date.split(" ");
+  d = d[0].split("/");
+  d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
+
   const formattedDate =
     d.getDay() + " de " + monthNames[d.getMonth()] + ", " + d.getFullYear();
   return (
