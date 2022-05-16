@@ -44,6 +44,15 @@ const PsychologistsCards = ({ psychologist }) => {
               </span>
             ))}
           </li>
+          {psychologist.specialization !== "" && (
+            <li className="text-left">
+              {psychologist.specialization.split(",").map((item) => (
+                <span className="bg-blue-400 text-white break-all mr-1 px-1">
+                  {item}
+                </span>
+              ))}
+            </li>
+          )}
         </ul>
       </div>
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
