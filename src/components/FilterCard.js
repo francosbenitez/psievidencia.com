@@ -30,6 +30,20 @@ const PsychologistsCards = ({ psychologist }) => {
       <div>
         <ul className="text-gray-500 text-center font-semibold break-words">
           <li>{psychologist.province}</li>
+          <li className="text-left">
+            {psychologist.therapeutic_model.split(",").map((item) => (
+              <span className="bg-indigo-400 text-white break-all mr-1 px-1">
+                {item}
+              </span>
+            ))}
+          </li>
+          <li className="text-left">
+            {psychologist.work_population.split(",").map((item) => (
+              <span className="bg-green-400 text-white break-all mr-1 px-1">
+                {item}
+              </span>
+            ))}
+          </li>
         </ul>
       </div>
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
