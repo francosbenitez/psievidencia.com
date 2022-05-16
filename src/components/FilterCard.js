@@ -3,17 +3,14 @@ import { ReactComponent as Facebook } from "../assets/icons/facebook.svg";
 import { ReactComponent as Twitter } from "../assets/icons/twitter.svg";
 import { ReactComponent as WhatsApp } from "../assets/icons/whatsapp.svg";
 import { ReactComponent as Instagram } from "../assets/icons/instagram.svg";
-import { Route } from "react-router-dom";
-import PsychologistsDetail from "../views/psychologists-detail";
+import { Link } from "react-router-dom";
 
 const PsychologistsCards = ({ psychologist }) => {
   return (
-    // <Route
-    //   exact
-    //   path={"/" + psychologist.id}
-    //   element={<PsychologistsDetail psychologist={psychologist} />}
-    // >
-    <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col">
+    <Link
+      to={`/psychologists/${psychologist.id}`}
+      className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col"
+    >
       {psychologist.image_url ? (
         <img
           src={psychologist.image_url}
@@ -78,8 +75,7 @@ const PsychologistsCards = ({ psychologist }) => {
           </a>
         )}
       </footer>
-    </div>
-    // </Route>
+    </Link>
   );
 };
 
