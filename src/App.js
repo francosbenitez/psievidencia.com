@@ -11,8 +11,10 @@ function App() {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQngt5TxTabbOavo5qHaZz5ohs9o_46sWrhQMKT5gJdedIG3Icq0qvuUX1dfdkcrmqNUxzCjOk2egSo/pub?gid=160193944&single=true&output=csv";
 
   const [psychologists, setPsychologists] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchPsychologists = () => {
+    setLoading(true);
     Papa.parse(psychologistsUrl, {
       download: true,
       beforeFirstChunk: function (chunk) {
@@ -60,6 +62,7 @@ function App() {
         console.log(results.data);
 
         setPsychologists(results.data);
+        setLoading(false);
       },
     });
   };
@@ -70,6 +73,7 @@ function App() {
 
   return (
     <div className="App">
+      {loading && <p class="grid place-items-center h-screen">Loading...</p>}
       <Routes>
         <Route path="/" element={<Home psychologists={psychologists} />} />
         <Route path="/psychologists">
