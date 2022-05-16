@@ -14,3 +14,4 @@ TO-DO:
         - For WhatsApp, we can use its API.
   - Style the page as good as possible, so people feel attraction to fill the Google Sheet.
   - To avoid issues, the ordering of the cards (psychologists who appear first, second, etc.) ALWAYS MUST BE DIFFERENT.
+  - Change repository name, from "evidence-based-psychologists" to "psievidencia".
