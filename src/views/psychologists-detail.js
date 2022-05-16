@@ -7,7 +7,7 @@ const PsychologistsDetail = ({ psychologist }) => {
       <br />
       Psychologist name: {psychologist.name}
       <br />
-      Datos adicionales: {psychologist.additional_data}
+      Additional data: {psychologist.additional_data}
     </div>
   );
 };

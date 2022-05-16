@@ -10,14 +10,8 @@ const PsychologistsFilter = ({ psychologists }) => {
 
   const filtered = !search
     ? psychologists
-    : psychologists.filter(
-        (psychologist) =>
-          psychologist.name.toLowerCase().includes(search.toLowerCase())
-        // psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
-        // psychologist.specialization
-        //   .toLowerCase()
-        //   .includes(search.toLowerCase()) ||
-        // psychologist.discipline.toLowerCase().includes(search.toLowerCase())
+    : psychologists.filter((psychologist) =>
+        psychologist.name.toLowerCase().includes(search.toLowerCase())
       );
 
   return (

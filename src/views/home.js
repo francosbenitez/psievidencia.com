@@ -8,13 +8,14 @@ const Home = ({ psychologists }) => {
       <div className="text-center w-full mt-auto">
         To be part of this collection, fill your data in{" "}
         <a
-          className=""
+          className="underline"
           target="_blank"
           rel="noreferrer"
           href="https://docs.google.com/spreadsheets/d/1xMzAnbQcJ880iswR2yszPpZkD4i3pn_3GejthV1R68s/edit#gid=0"
         >
-          this Google Sheet.
+          this Google Sheet
         </a>
+        .
       </div>
     </div>
   );
