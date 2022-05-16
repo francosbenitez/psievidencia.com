@@ -6,7 +6,8 @@ import { ReactComponent as Instagram } from "../assets/icons/instagram.svg";
 
 const PsychologistsCards = ({ psychologist }) => {
   return (
-    <div className="w-full sm:w-1/2 md:w-1/4 rounded-lg shadow-xl bg-white p-10 flex flex-col">
+    // <div className="w-full sm:w-1/2 md:w-1/4 rounded-lg shadow-xl bg-white p-10 flex flex-col">
+    <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col">
       <img
         src={psychologist.image_url}
         alt=""

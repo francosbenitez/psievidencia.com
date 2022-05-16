@@ -26,7 +26,8 @@ const PsychologistsFilter = ({ psychologists }) => {
         placeholder="Search by name, specialization or theorical discipline"
         onChange={handleSearchChange}
       />
-      <div className="flex flex-wrap justify-between">
+      {/* <div className="flex flex-wrap justify-between"> */}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((psychologist) => {
           return (
             <FilterCard key={psychologist.name} psychologist={psychologist} />
