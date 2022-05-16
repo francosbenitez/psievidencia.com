@@ -1,7 +1,14 @@
 import React from "react";
 
-const dashboard = () => {
-  return <div>dashboard</div>;
+const Dashboard = ({ psychologists }) => {
+  let counterObj = {};
+
+  for (const property of psychologists) {
+    counterObj[property.education] = 1 + (counterObj[property.education] || 0);
+  }
+  console.log(counterObj);
+
+  return <div>Dashboard</div>;
 };
 
-export default dashboard;
+export default Dashboard;

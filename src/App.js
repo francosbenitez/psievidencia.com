@@ -73,7 +73,9 @@ function App() {
 
   return (
     <div className="App">
-      {loading && <p class="grid place-items-center h-screen">Loading...</p>}
+      {loading && (
+        <p className="grid place-items-center h-screen">Loading...</p>
+      )}
       <Routes>
         <Route path="/" element={<Home psychologists={psychologists} />} />
         <Route path="/psychologists">
