@@ -6,6 +6,7 @@ const PsychologistsDetail = ({ psychologist }) => {
       Psychologist ID: {psychologist.id}
       <br />
       Psychologist name: {psychologist.name}
+      Datos adicionales: {psychologist.additional_data}
     </div>
   );
 };

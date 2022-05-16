@@ -18,12 +18,16 @@ function App() {
       download: true,
       beforeFirstChunk: function (chunk) {
         var index = chunk.match(/\r\n|\r|\n/).index;
-        var headings = chunk.substr(0, index).split(",");
+        console.log("index", index);
+        var headings = chunk
+          .substr(0, index)
+          .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
         headings[0] = "date";
-        headings[1] = "email";
-        headings[2] = "gender";
-        headings[3] = "registration_type";
-        headings[4] = "registration_number";
+        headings[1] = "name";
+        headings[2] = "email";
+        headings[3] = "gender";
+        headings[4] = "registration_type";
         headings[5] = "registration_number";
         headings[6] = "institution";
         headings[7] = "team";
@@ -32,18 +36,19 @@ function App() {
         headings[10] = "education";
         headings[11] = "therapeutic_model";
         headings[12] = "gender_perspective";
-        headings[13] = "work_population";
-        headings[14] = "work_modality";
-        headings[15] = "online";
-        headings[16] = "prepaid";
-        headings[17] = "prepaid_type";
-        headings[18] = "invoice";
-        headings[19] = "sign_language";
-        headings[20] = "session_languages";
-        headings[21] = "social_networks";
-        headings[22] = "phone_number";
-        headings[23] = "additional_data";
-        headings[25] = "name";
+        headings[13] = "specialization";
+        headings[14] = "work_population";
+        headings[15] = "work_modality";
+        headings[16] = "online";
+        headings[17] = "prepaid";
+        headings[18] = "prepaid_type";
+        headings[19] = "invoice";
+        headings[20] = "sign_language";
+        headings[21] = "session_languages";
+        headings[22] = "social_networks";
+        headings[23] = "phone_number";
+        headings[24] = "additional_data";
+        headings[25] = "name_2";
         return headings.join() + chunk.substr(index);
       },
       header: true,
