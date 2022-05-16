@@ -12,11 +12,12 @@ const PsychologistsFilter = ({ psychologists }) => {
     ? psychologists
     : psychologists.filter(
         (psychologist) =>
-          psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
-          psychologist.specialization
-            .toLowerCase()
-            .includes(search.toLowerCase()) ||
-          psychologist.discipline.toLowerCase().includes(search.toLowerCase())
+          psychologist.name.toLowerCase().includes(search.toLowerCase())
+        // psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
+        // psychologist.specialization
+        //   .toLowerCase()
+        //   .includes(search.toLowerCase()) ||
+        // psychologist.discipline.toLowerCase().includes(search.toLowerCase())
       );
 
   return (
@@ -26,11 +27,10 @@ const PsychologistsFilter = ({ psychologists }) => {
         placeholder="Search by name, specialization or theorical discipline"
         onChange={handleSearchChange}
       />
-      {/* <div className="flex flex-wrap justify-between"> */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((psychologist) => {
           return (
-            <FilterCard key={psychologist.name} psychologist={psychologist} />
+            <FilterCard key={psychologist.id} psychologist={psychologist} />
           );
         })}
       </div>

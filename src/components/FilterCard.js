@@ -29,8 +29,10 @@ const PsychologistsCards = ({ psychologist }) => {
       </header>
       <div>
         <ul className="text-gray-500 text-center font-semibold break-words">
-          <li>{psychologist.specialization}</li>
-          <li>{psychologist.discipline}</li>
+          {/* <li>{psychologist.specialization}</li>
+          <li>{psychologist.discipline}</li> */}
+          <li>{psychologist.province}</li>
+          <li>{psychologist.city}</li>
         </ul>
       </div>
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
