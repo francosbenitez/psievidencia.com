@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./assets/css/default.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/home";
+import PsychologistsDetail from "./views/psychologists-detail";
 
 function App() {
   const psychologistsUrl =
@@ -24,8 +25,8 @@ function App() {
       header: true,
 
       complete: function (results) {
-        results.data.forEach((item, i) => {
-          item.id = i + 1;
+        results.data.forEach((psychologist, i) => {
+          psychologist.id = i + 1;
         });
 
         console.log(results.data);
@@ -40,25 +41,20 @@ function App() {
   }, []);
 
   return (
-    // <Routes>
-    //   <Route path="/" elements={<Home />}>
-    <div className="container mx-auto flex flex-col h-screen">
-      <Filter psychologists={psychologists} />
-
-      <div className="text-center w-full mt-auto">
-        To be part of this collection, fill your data in{" "}
-        <a
-          className=""
-          target="_blank"
-          rel="noreferrer"
-          href="https://docs.google.com/spreadsheets/d/1xMzAnbQcJ880iswR2yszPpZkD4i3pn_3GejthV1R68s/edit#gid=0"
-        >
-          this Google Sheet.
-        </a>
-      </div>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/psychologists">
+          {psychologists.map((psychologist) => (
+            <Route
+              key={psychologist.id}
+              path={"/psychologists/" + psychologist.id}
+              element={<PsychologistsDetail psychologist={psychologist} />}
+            />
+          ))}
+        </Route>
+      </Routes>
     </div>
-    //   </Route>
-    // </Routes>
   );
 }
 
