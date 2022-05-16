@@ -18,3 +18,5 @@ TO-DO:
   - Description: 
     - "An app to help you find the best evidence-based psychologists".
     - ES: "Una red para encontrar los mejores psicólogos basados en evidencia". 
+  - Visualizations:
+    - Visualize the 'education' and 'therapeutic models' variables.

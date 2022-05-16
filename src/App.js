@@ -4,10 +4,9 @@ import "./assets/css/default.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/home";
 import PsychologistsDetail from "./views/psychologists-detail";
+import Dashboard from "./views/dashboard";
 
 function App() {
-  // const psychologistsUrl =
-  //   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSt2QOEjYsYKBqktf8Cg-Bme4L6x3vEZxU-uXD9vefspScTwi_o7UZXjDqGQplAGIjOBN_iLFSvF-ti/pub?gid=0&single=true&output=csv";
   const psychologistsUrl =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQngt5TxTabbOavo5qHaZz5ohs9o_46sWrhQMKT5gJdedIG3Icq0qvuUX1dfdkcrmqNUxzCjOk2egSo/pub?gid=160193944&single=true&output=csv";
 
@@ -82,6 +81,10 @@ function App() {
             />
           ))}
         </Route>
+        <Route
+          path="/dashboard"
+          element={<Dashboard psychologists={psychologists} />}
+        />
       </Routes>
     </div>
   );
