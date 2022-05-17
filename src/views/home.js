@@ -1,6 +1,7 @@
 import React from "react";
 import Filter from "../components/Filter";
 import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
+import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 
 const Home = ({ psychologists }) => {
   psychologists.forEach(
@@ -32,8 +33,16 @@ const Home = ({ psychologists }) => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSccyO5jICweFShGTLEEiCOYLYySlEUacI0_4IDCY10AdYqIpA/viewform"
         >
           this Google Forms
+        </a>{" "}
+        |{" "}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/francosbenitez/psievidencia"
+        >
+          <span className="underline">Source code</span>{" "}
+          <GitHub className="inline w-4 h-4 align-text-bottom" />
         </a>
-        .
       </footer>
     </>
   );
