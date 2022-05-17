@@ -9,7 +9,7 @@ const PsychologistsCards = ({ psychologist }) => {
   return (
     <Link
       to={`/psychologists/${psychologist.id}`}
-      className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col"
+      className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100"
     >
       {psychologist.image_url ? (
         <img
