@@ -5,3 +5,23 @@
 body {
   background-color: rgba(255, 0, 0, 0.07);
 }
+
+/* TO-DO: Avoid making custom classes
+.name__title::before {
+  top: -6rem;
+  height: calc(100% + 9rem);
+}
+
+.name__title::before {
+  background-image: radial-gradient(rgba(255, 0, 0, 0.269) 15%, transparent 15%),
+    radial-gradient(rgba(255, 0, 0, 0.269) 15%, transparent 15%);
+  background-size: 0.75rem 0.75rem;
+  background-position: 0 0, 0.375rem 0.375rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  content: "";
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
+} */
