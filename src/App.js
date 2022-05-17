@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./views/home";
 import PsychologistsDetail from "./views/psychologists-detail";
 import Dashboard from "./views/dashboard";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const psychologistsUrl =
@@ -74,27 +75,29 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {loading && (
-        <p className="grid place-items-center h-screen">Loading...</p>
-      )}
-      <Routes>
-        <Route path="/" element={<Home psychologists={psychologists} />} />
-        <Route path="/psychologists">
-          {psychologists.map((psychologist) => (
-            <Route
-              key={psychologist.id}
-              path={"/psychologists/" + psychologist.id}
-              element={<PsychologistsDetail psychologist={psychologist} />}
-            />
-          ))}
-        </Route>
-        <Route
-          path="/dashboard"
-          element={<Dashboard psychologists={psychologists} />}
-        />
-      </Routes>
-    </div>
+    <ScrollToTop>
+      <div className="App">
+        {loading && (
+          <p className="grid place-items-center h-screen">Loading...</p>
+        )}
+        <Routes>
+          <Route path="/" element={<Home psychologists={psychologists} />} />
+          <Route path="/psychologists">
+            {psychologists.map((psychologist) => (
+              <Route
+                key={psychologist.id}
+                path={"/psychologists/" + psychologist.id}
+                element={<PsychologistsDetail psychologist={psychologist} />}
+              />
+            ))}
+          </Route>
+          <Route
+            path="/dashboard"
+            element={<Dashboard psychologists={psychologists} />}
+          />
+        </Routes>
+      </div>
+    </ScrollToTop>
   );
 }
 
