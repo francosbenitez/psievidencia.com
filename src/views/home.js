@@ -1,5 +1,6 @@
 import React from "react";
 import Filter from "../components/Filter";
+import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
 
 const Home = ({ psychologists }) => {
   psychologists.forEach(
@@ -14,9 +15,11 @@ const Home = ({ psychologists }) => {
   return (
     <>
       <div className="container mx-auto py-28 px-5 sm:px-0">
-        <h1 className="text-center font-bold text-5xl">PsiEvidencia</h1>
+        <h1 className="text-center font-bold text-5xl">
+          <Magnifier className="inline w-12 h-12" /> PsiEvidencia
+        </h1>
         <h2 className="text-center text-2xl my-9">
-          🔎 An app to help you find the best evidence-based psychologists
+          A web app to help you find the best evidence-based psychologists
         </h2>
         <Filter psychologists={psychologists} />
       </div>
