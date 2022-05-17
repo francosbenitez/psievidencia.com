@@ -58,7 +58,7 @@ const PsychologistsCards = ({ psychologist }) => {
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
         {psychologist.online === "Sí" && (
           <p className="p-2">
-            <span className="bg-indigo-500 text-white p-2">Online</span>
+            <span className="bg-indigo-500 text-white p-2">Atiende online</span>
           </p>
         )}
         {psychologist.facebook_url && (

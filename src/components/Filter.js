@@ -28,7 +28,7 @@ const PsychologistsFilter = ({ psychologists }) => {
     <div>
       <input
         className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-16"
-        placeholder="Search by name, thereapeutic model, work population or specialization"
+        placeholder="Search by name, therapeutic model, work population or specialization"
         onChange={handleSearchChange}
       />
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
