@@ -104,7 +104,7 @@ const PsychologistsDetail = ({ psychologist }) => {
   const formattedDate =
     d.getDay() + " de " + monthNames[d.getMonth()] + ", " + d.getFullYear();
   return (
-    <div className="container mx-auto py-28">
+    <div className="container mx-auto py-28 px-5 sm:px-0">
       <button
         className="
         rounded-md
@@ -122,22 +122,26 @@ const PsychologistsDetail = ({ psychologist }) => {
         {psychologist.name}
       </h1>
       <h2 className="text-2xl text-center">{psychologist.email}</h2>
-      <h3 className="text-1xl">{formattedDate}</h3>
-      {accordionData.map(({ title, content }) => (
-        <Accordion title={title} content={psychologist[content]} />
-      ))}
+      <h3 className="text-1xl underline my-6">{formattedDate}</h3>
+      <div className="accordion">
+        {accordionData.map(({ title, content }) => (
+          <Accordion title={title} content={psychologist[content]} />
+        ))}
+      </div>
       <div>
         <p className="font-bold">Contacto:</p>
-        <p>
-          <span className="underline">Redes sociales</span>:{" "}
-          {psychologist.social_networks}
-        </p>
-        <p>
-          <span className="underline">
-            Número de teléfono o mail de contacto
-          </span>
-          : {psychologist.phone_number}
-        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <p>
+            <span className="underline">Redes sociales</span>:{" "}
+            {psychologist.social_networks}
+          </p>
+          <p className="text-right">
+            <span className="underline">
+              Número de teléfono o mail de contacto
+            </span>
+            : {psychologist.phone_number}
+          </p>
+        </div>
       </div>
     </div>
   );

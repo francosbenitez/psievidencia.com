@@ -25,3 +25,32 @@ body {
   width: 100vw;
   z-index: -1;
 } */
+
+.accordion {
+  margin: 2rem auto;
+}
+
+.accordion-item {
+  margin-bottom: 1rem;
+}
+
+.accordion-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.accordion-title:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.accordion-title,
+.accordion-content {
+  padding: 1rem;
+}
+
+.accordion-content {
+  background-color: rgba(255, 255, 255, 0.75);
+}
