@@ -26,9 +26,9 @@ const Home = ({ psychologists }) => {
           className="underline"
           target="_blank"
           rel="noreferrer"
-          href="https://docs.google.com/spreadsheets/d/1xMzAnbQcJ880iswR2yszPpZkD4i3pn_3GejthV1R68s/edit#gid=0"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSccyO5jICweFShGTLEEiCOYLYySlEUacI0_4IDCY10AdYqIpA/viewform"
         >
-          this Google Sheet
+          this Google Forms
         </a>
         .
       </footer>

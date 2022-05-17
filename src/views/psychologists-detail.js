@@ -129,7 +129,7 @@ const PsychologistsDetail = ({ psychologist }) => {
         ))}
       </div>
       <div>
-        <p className="font-bold">Contacto:</p>
+        <p className="font-bold text-lg">Contacto</p>
         <div className="grid grid-cols-2 gap-4">
           <p>
             <span className="underline">Redes sociales</span>:{" "}
