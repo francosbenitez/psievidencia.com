@@ -107,10 +107,11 @@ const PsychologistsDetail = ({ psychologist }) => {
     <div className="container mx-auto py-28 px-5 sm:px-0">
       <button
         className="
+        absolute
+        top-[2rem]
         rounded-md
         w-10
         h-10
-        relative
         overflow-hidden
         block
         before:bg-custom-image before:bg-no-repeat before:bg-cover before:bg-center 
