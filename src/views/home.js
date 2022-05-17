@@ -41,7 +41,7 @@ const Home = ({ psychologists }) => {
           href="https://github.com/francosbenitez/psievidencia"
         >
           <span className="underline">Source code</span>{" "}
-          <GitHub className="inline w-4 h-4 align-text-bottom" />
+          <GitHub className="inline w-4 h-4" />
         </a>
       </footer>
     </>
