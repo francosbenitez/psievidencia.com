@@ -59,6 +59,8 @@ function App() {
           psychologist.id = i + 1;
         });
 
+        results.data.sort(() => Math.random() - 0.5);
+
         console.log(results.data);
 
         setPsychologists(results.data);
