@@ -1,5 +1,5 @@
 # Psievidencia
-- Organized and visualized data provided by a Google Spreadsheet/Google Forms.
+This project takes data from a Google Spreadsheet/Google Forms. Based on it, it organizes and visualizes them.
 
 ## Code and Resources Used
 - **Main Technologies:** React, Tailwind.
