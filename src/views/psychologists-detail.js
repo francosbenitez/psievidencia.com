@@ -134,13 +134,22 @@ const PsychologistsDetail = ({ psychologist }) => {
         <div className="grid grid-cols-2 gap-4">
           <p>
             <span className="underline">Redes sociales</span>:{" "}
-            {psychologist.social_networks}
+            {psychologist.social_networks !== "" ? (
+              <React.Fragment>{psychologist.social_networks}</React.Fragment>
+            ) : (
+              <React.Fragment>No data</React.Fragment>
+            )}
           </p>
           <p className="text-right">
             <span className="underline">
               Número de teléfono o mail de contacto
             </span>
-            : {psychologist.phone_number}
+            :{" "}
+            {psychologist.phone_number !== "" ? (
+              <React.Fragment>{psychologist.phone_number}</React.Fragment>
+            ) : (
+              <React.Fragment>No data</React.Fragment>
+            )}
           </p>
         </div>
       </div>
