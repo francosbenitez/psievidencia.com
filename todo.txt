@@ -14,3 +14,4 @@ TO-DO:
       - 'gender_perspective' variables.
     - Pending: Define if the analysis will be carried out through .ipynb.
   - Move project to TypeScript.
+  - Tell Facundo modify the email/mobile phone variable. REMOVE IT.
