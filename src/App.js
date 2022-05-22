@@ -77,11 +77,11 @@ function App() {
   return (
     <ScrollToTop>
       <div className="App">
-        {loading && (
-          <p className="grid place-items-center h-screen">Loading...</p>
-        )}
         <Routes>
-          <Route path="/" element={<Home psychologists={psychologists} />} />
+          <Route
+            path="/"
+            element={<Home psychologists={psychologists} loading={loading} />}
+          />
           <Route path="/psychologists">
             {psychologists.map((psychologist) => (
               <Route

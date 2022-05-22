@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FilterCard from "./FilterCard";
 
-const PsychologistsFilter = ({ psychologists }) => {
+const PsychologistsFilter = ({ psychologists, loading }) => {
   const [search, setSearch] = useState(null);
 
   const handleSearchChange = (e) => {
@@ -31,6 +31,8 @@ const PsychologistsFilter = ({ psychologists }) => {
         placeholder="Search by name, therapeutic model, work population or specialization"
         onChange={handleSearchChange}
       />
+
+      {loading && <p className="grid place-items-center">Loading...</p>}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((psychologist) => {
           return (
