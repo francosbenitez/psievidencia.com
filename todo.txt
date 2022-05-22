@@ -6,4 +6,11 @@ TO-DO:
       - work population,
       given that they are not much and are specific.
   - Dashboard  view: 
-    - Visualize the 'education' and 'therapeutic models' variables. 
+    - Visualize 
+      - the 'education', 
+      - 'work_population', 
+      - 'therapeutic models', 
+      - 'specializations' and 
+      - 'gender_perspective' variables.
+    - Pending: Define if the analysis will be carried out through .ipynb.
+  - Move project to TypeScript.
