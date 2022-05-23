@@ -1,5 +1,5 @@
 # Psievidencia
-This project takes data from a Google Spreadsheet/Google Forms. Based on it, the application organizes and visualizes them.
+- Built a frontend web application using data provided by a Google Spreadsheet/Google Forms.
 
 ## Code and Resources Used
 - **Main Technologies:** React, Tailwind.
