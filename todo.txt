@@ -15,3 +15,4 @@ TO-DO:
     - Pending: Define if the analysis will be carried out through .ipynb.
   - Move project to TypeScript.
   - Tell Facundo modify the email/mobile phone variable. REMOVE IT.
+  - Change the current project name for "psievidencia-frontend".
