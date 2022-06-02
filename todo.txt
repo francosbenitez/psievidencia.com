@@ -16,3 +16,4 @@ TO-DO:
   - Move project to TypeScript.
   - Tell Facundo modify the email/mobile phone variable. REMOVE IT.
   - Change the current project name for "psievidencia-frontend".
+  - Implement paginated data from the psievidencia-backend API.
