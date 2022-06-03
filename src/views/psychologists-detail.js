@@ -120,7 +120,7 @@ const PsychologistsDetail = ({ psychologist }) => {
         onClick={() => navigate(-1)}
       ></button>
       <h1 className="text-center font-bold text-5xl mb-5">
-        {psychologist.name}
+        {psychologist.name_2}
       </h1>
       <h2 className="text-2xl text-center">{psychologist.email}</h2>
       <h3 className="text-1xl underline my-6">{formattedDate}</h3>
@@ -134,13 +134,22 @@ const PsychologistsDetail = ({ psychologist }) => {
         <div className="grid grid-cols-2 gap-4">
           <p>
             <span className="underline">Redes sociales</span>:{" "}
-            {psychologist.social_networks}
+            {psychologist.social_networks !== "" ? (
+              <React.Fragment>{psychologist.social_networks}</React.Fragment>
+            ) : (
+              <React.Fragment>No data</React.Fragment>
+            )}
           </p>
           <p className="text-right">
             <span className="underline">
               Número de teléfono o mail de contacto
             </span>
-            : {psychologist.phone_number}
+            :{" "}
+            {psychologist.phone_number !== "" ? (
+              <React.Fragment>{psychologist.phone_number}</React.Fragment>
+            ) : (
+              <React.Fragment>No data</React.Fragment>
+            )}
           </p>
         </div>
       </div>

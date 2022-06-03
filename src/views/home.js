@@ -3,10 +3,10 @@ import Filter from "../components/Filter";
 import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
 import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 
-const Home = ({ psychologists }) => {
+const Home = ({ psychologists, loading }) => {
   psychologists.forEach(
     (psychologist) =>
-      (psychologist.name = psychologist.name
+      (psychologist.name_2 = psychologist.name_2
         .toLowerCase()
         .split(" ")
         .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -22,7 +22,7 @@ const Home = ({ psychologists }) => {
         <h2 className="text-center text-2xl my-9">
           A web app to help you find the best evidence-based psychologists
         </h2>
-        <Filter psychologists={psychologists} />
+        <Filter psychologists={psychologists} loading={loading} />
       </div>
       <footer className="bottom-0 fixed bg-white w-full p-8 text-center">
         To be part of this collection, fill your data in{" "}

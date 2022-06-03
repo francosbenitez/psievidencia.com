@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FilterCard from "./FilterCard";
 
-const PsychologistsFilter = ({ psychologists }) => {
+const PsychologistsFilter = ({ psychologists, loading }) => {
   const [search, setSearch] = useState(null);
 
   const handleSearchChange = (e) => {
@@ -12,16 +12,46 @@ const PsychologistsFilter = ({ psychologists }) => {
     ? psychologists
     : psychologists.filter(
         (psychologist) =>
-          psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
+          psychologist.name_2
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.therapeutic_model
             .toLowerCase()
-            .includes(search.toLowerCase()) ||
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.work_population
             .toLowerCase()
-            .includes(search.toLowerCase()) ||
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.specialization
             .toLowerCase()
-            .includes(search.toLowerCase())
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            )
       );
 
   return (
@@ -31,6 +61,8 @@ const PsychologistsFilter = ({ psychologists }) => {
         placeholder="Search by name, therapeutic model, work population or specialization"
         onChange={handleSearchChange}
       />
+
+      {loading && <p className="grid place-items-center">Loading...</p>}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((psychologist) => {
           return (
