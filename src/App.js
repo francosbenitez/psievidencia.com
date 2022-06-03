@@ -6,6 +6,7 @@ import Home from "./views/home";
 import PsychologistsDetail from "./views/psychologists-detail";
 import Dashboard from "./views/dashboard";
 import ScrollToTop from "./components/ScrollToTop";
+import PsychologistsService from "./services/PsychologistsService";
 
 function App() {
   const psychologistsUrl =
@@ -13,6 +14,15 @@ function App() {
 
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  async function fetchData() {
+    const data = (await PsychologistsService.index(1)).data.data;
+    console.log("data from fetchData", data);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchPsychologists = () => {
     setLoading(true);
