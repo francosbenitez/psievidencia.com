@@ -3,7 +3,7 @@ import Filter from "../components/Filter";
 import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
 import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 
-const Home = ({ psychologists, loading }) => {
+const Home = ({ psychologists, loading, handlePagination }) => {
   psychologists.forEach(
     (psychologist) =>
       (psychologist.name_2 = psychologist.name_2
@@ -23,8 +23,11 @@ const Home = ({ psychologists, loading }) => {
           A web app to help you find the best evidence-based psychologists
         </h2>
         <Filter psychologists={psychologists} loading={loading} />
-        <div class="flex justify-center">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <div className="flex justify-center my-3">
+          <button
+            onClick={handlePagination}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
             Load more
           </button>
         </div>

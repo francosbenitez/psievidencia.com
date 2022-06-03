@@ -10,14 +10,15 @@ import PsychologistsService from "./services/PsychologistsService";
 function App() {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [pagination, setPagination] = useState(1);
 
   const fetchPsychologists = async () => {
     setLoading(true);
-    const data = (await PsychologistsService.index(1)).data;
+    setPagination((pagination) => pagination + 1);
 
-    console.log("data from fetchPsychologists", data);
+    const data = (await PsychologistsService.index(pagination)).data;
 
-    setPsychologists(data.results);
+    setPsychologists((psychologists) => psychologists.concat(data.results));
     setLoading(false);
   };
 
@@ -25,13 +26,23 @@ function App() {
     fetchPsychologists();
   }, []);
 
+  const handlePagination = () => {
+    fetchPsychologists();
+  };
+
   return (
     <ScrollToTop>
       <div className="App">
         <Routes>
           <Route
             path="/"
-            element={<Home psychologists={psychologists} loading={loading} />}
+            element={
+              <Home
+                psychologists={psychologists}
+                loading={loading}
+                handlePagination={handlePagination}
+              />
+            }
           />
           <Route path="/psychologists">
             {psychologists.map((psychologist) => (
