@@ -16,7 +16,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   async function fetchData() {
-    const data = (await PsychologistsService.index(1)).data.data;
+    const data = (await PsychologistsService.index(1)).data;
     console.log("data from fetchData", data);
   }
 
