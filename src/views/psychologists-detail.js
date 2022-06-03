@@ -120,7 +120,7 @@ const PsychologistsDetail = ({ psychologist }) => {
         onClick={() => navigate(-1)}
       ></button>
       <h1 className="text-center font-bold text-5xl mb-5">
-        {psychologist.name}
+        {psychologist.name_2}
       </h1>
       <h2 className="text-2xl text-center">{psychologist.email}</h2>
       <h3 className="text-1xl underline my-6">{formattedDate}</h3>

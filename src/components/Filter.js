@@ -12,16 +12,46 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
     ? psychologists
     : psychologists.filter(
         (psychologist) =>
-          psychologist.name.toLowerCase().includes(search.toLowerCase()) ||
+          psychologist.name_2
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.therapeutic_model
             .toLowerCase()
-            .includes(search.toLowerCase()) ||
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.work_population
             .toLowerCase()
-            .includes(search.toLowerCase()) ||
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            ) ||
           psychologist.specialization
             .toLowerCase()
-            .includes(search.toLowerCase())
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(
+              search
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/\p{Diacritic}/gu, "")
+            )
       );
 
   return (

@@ -6,7 +6,7 @@ import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 const Home = ({ psychologists, loading }) => {
   psychologists.forEach(
     (psychologist) =>
-      (psychologist.name = psychologist.name
+      (psychologist.name_2 = psychologist.name_2
         .toLowerCase()
         .split(" ")
         .map((s) => s.charAt(0).toUpperCase() + s.substring(1))

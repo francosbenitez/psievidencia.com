@@ -11,21 +11,15 @@ const PsychologistsCards = ({ psychologist }) => {
       to={`/psychologists/${psychologist.id}`}
       className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100"
     >
-      {psychologist.image_url ? (
+      {psychologist.image_url && (
         <img
           src={psychologist.image_url}
           alt=""
           className="rounded-full p-4 h-40 w-40 mx-auto"
         />
-      ) : (
-        <img
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-          alt=""
-          className="rounded-full p-4 h-40 w-40 mx-auto"
-        />
       )}
       <header className=" text-2xl font-extrabold py-4 px-4 text-center">
-        {psychologist.name}
+        {psychologist.name_2 !== "" ? psychologist.name_2 : "Anonymous"}
       </header>
       <div>
         <ul className="text-gray-500 text-center font-semibold break-words">
