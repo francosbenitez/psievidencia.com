@@ -23,14 +23,16 @@ const Home = ({ psychologists, loading, handlePagination }) => {
           A web app to help you find the best evidence-based psychologists
         </h2>
         <Filter psychologists={psychologists} loading={loading} />
-        <div className="flex justify-center my-3">
-          <button
-            onClick={handlePagination}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Load more
-          </button>
-        </div>
+        {!loading && (
+          <div className="flex justify-center my-3">
+            <button
+              onClick={handlePagination}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Load more
+            </button>
+          </div>
+        )}
       </div>
       <footer className="bottom-0 fixed bg-white w-full p-8 text-center">
         To be part of this collection, fill your data in{" "}
