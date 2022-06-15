@@ -12,4 +12,7 @@ export default {
       },
     });
   },
+  specializations() {
+    return Api().get("psychologists/specializations");
+  },
 };

@@ -1,8 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FilterCard from "./FilterCard";
+import PsychologistsService from "../services/PsychologistsService";
 
 const PsychologistsFilter = ({ psychologists, loading }) => {
   const [search, setSearch] = useState(null);
+  const [specialization, setSpecialization] = useState("");
+  const [specializations, setSpecializations] = useState([]);
+
+  const fetchSpecializations = async () => {
+    const data = (await PsychologistsService.specializations()).data;
+
+    setSpecializations((item) => item.concat(data));
+  };
+
+  useEffect(() => {
+    fetchSpecializations();
+  }, []);
+
+  const handleSpecializationChange = (e) => {
+    setSpecialization(e.target.value);
+  };
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -61,6 +78,14 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
         placeholder="Search by name, therapeutic model, work population or specialization"
         onChange={handleSearchChange}
       />
+
+      <select value={specialization} onChange={handleSpecializationChange}>
+        {specializations.map((option) => (
+          <option key={option.id} value={option.specialization}>
+            {option.specialization}
+          </option>
+        ))}
+      </select>
 
       {loading && <p className="grid place-items-center">Loading...</p>}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
