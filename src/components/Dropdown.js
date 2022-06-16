@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
+import DropdownList from "./DropdownList";
 
 const Dropdown = ({ data, type }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const onOptionClicked = (value) => () => {
-    setSelectedOption(value.specialization);
+    // setSelectedOptions(value.specialization);
+    setSelectedOptions((oldArray) => [...oldArray, value]);
     setIsOpen(false);
   };
 
+  // const handleUpdate = (id) => {
+  //   console.log("id from handleUpdate", id);
+  // setSelectedOptions(selectedOptions.filter((item) => item.id !== id));
+  // };
   return (
     <div className="w-1/3">
       <div className="dropdown-header" onClick={toggling}>
@@ -30,6 +37,11 @@ const Dropdown = ({ data, type }) => {
           </ul>
         </div>
       )}
+
+      <DropdownList
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+      />
     </div>
   );
 };

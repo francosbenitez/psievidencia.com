@@ -1,4 +1,3 @@
-import React from "react";
 import Filter from "../components/Filter";
 import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
 import { ReactComponent as GitHub } from "../assets/icons/github.svg";

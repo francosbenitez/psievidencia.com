@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Accordion from "../components/Accordion";
 
@@ -135,9 +134,9 @@ const PsychologistsDetail = ({ psychologist }) => {
           <p>
             <span className="underline">Redes sociales</span>:{" "}
             {psychologist.social_networks !== "" ? (
-              <React.Fragment>{psychologist.social_networks}</React.Fragment>
+              <>{psychologist.social_networks}</>
             ) : (
-              <React.Fragment>No data</React.Fragment>
+              <>No data</>
             )}
           </p>
           <p className="text-right">
@@ -146,9 +145,9 @@ const PsychologistsDetail = ({ psychologist }) => {
             </span>
             :{" "}
             {psychologist.phone_number !== "" ? (
-              <React.Fragment>{psychologist.phone_number}</React.Fragment>
+              <>{psychologist.phone_number}</>
             ) : (
-              <React.Fragment>No data</React.Fragment>
+              <>No data</>
             )}
           </p>
         </div>
