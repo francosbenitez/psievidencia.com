@@ -74,12 +74,16 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
   return (
     <div>
       <input
-        className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-16"
+        className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-6"
         placeholder="Search by name, therapeutic model, work population or specialization"
         onChange={handleSearchChange}
       />
 
-      <select value={specialization} onChange={handleSpecializationChange}>
+      <select
+        class="mb-6 w-1/4"
+        value={specialization}
+        onChange={handleSpecializationChange}
+      >
         {specializations.map((option) => (
           <option key={option.id} value={option.specialization}>
             {option.specialization}
