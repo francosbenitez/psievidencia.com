@@ -33,9 +33,10 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
         onChange={handleSearchChange}
       />
 
-      <div className="dropdown-container">
+      <div className="w-1/3">
         <div className="dropdown-header" onClick={toggling}>
-          {selectedOption || "Trastornos del estado del ánimo"}
+          {/* {selectedOption || "Trastornos del estado del ánimo"} */}
+          Filter by specializations
         </div>
         {isOpen && (
           <div>
