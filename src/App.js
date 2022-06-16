@@ -11,8 +11,18 @@ function App() {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pagination, setPagination] = useState(1);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const fetchPsychologists = async () => {
+  const fetchPsychologists = async (specializations) => {
+    setLoading(true);
+
+    const data = (await PsychologistsService.index(1, specializations)).data;
+
+    setPsychologists(data.results);
+    setLoading(false);
+  };
+
+  const fetchMorePsychologists = async () => {
     setLoading(true);
     setPagination((pagination) => pagination + 1);
 
@@ -27,7 +37,21 @@ function App() {
   }, []);
 
   const handlePagination = () => {
-    fetchPsychologists();
+    fetchMorePsychologists();
+  };
+
+  const handleUpdate = (id) => () => {
+    setSelectedOptions(
+      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
+    );
+    const selectedIds = selectedOptions.map((item) => item.id);
+    fetchPsychologists(selectedIds);
+  };
+
+  const handleAdd = (value) => () => {
+    setSelectedOptions((oldArray) => [...oldArray, value]);
+    const selectedIds = selectedOptions.map((item) => item.id);
+    fetchPsychologists(selectedIds);
   };
 
   return (
@@ -41,6 +65,9 @@ function App() {
                 psychologists={psychologists}
                 loading={loading}
                 handlePagination={handlePagination}
+                handleUpdate={handleUpdate}
+                selectedOptions={selectedOptions}
+                handleAdd={handleAdd}
               />
             }
           />

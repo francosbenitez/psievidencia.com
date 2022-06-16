@@ -1,8 +1,4 @@
-const DropdownList = ({ selectedOptions, setSelectedOptions }) => {
-  const handleUpdate = (id) => () => {
-    setSelectedOptions(selectedOptions.filter((item) => item.id !== id));
-  };
-
+const DropdownList = ({ selectedOptions, handleUpdate }) => {
   return (
     <>
       {selectedOptions.map((item) => (

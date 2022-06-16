@@ -2,7 +2,14 @@ import Filter from "../components/Filter";
 import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
 import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 
-const Home = ({ psychologists, loading, handlePagination }) => {
+const Home = ({
+  psychologists,
+  loading,
+  handlePagination,
+  handleUpdate,
+  selectedOptions,
+  handleAdd,
+}) => {
   psychologists.forEach(
     (psychologist) =>
       (psychologist.name_2 = psychologist.name_2
@@ -21,7 +28,13 @@ const Home = ({ psychologists, loading, handlePagination }) => {
         <h2 className="text-center text-2xl my-9">
           A web app to help you find the best evidence-based psychologists
         </h2>
-        <Filter psychologists={psychologists} loading={loading} />
+        <Filter
+          psychologists={psychologists}
+          loading={loading}
+          handleUpdate={handleUpdate}
+          selectedOptions={selectedOptions}
+          handleAdd={handleAdd}
+        />
         {!loading && (
           <div className="flex justify-center my-3">
             <button

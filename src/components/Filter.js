@@ -3,7 +3,13 @@ import FilterCard from "./FilterCard";
 import Dropdown from "./Dropdown";
 import PsychologistsService from "../services/PsychologistsService";
 
-const PsychologistsFilter = ({ psychologists, loading }) => {
+const PsychologistsFilter = ({
+  psychologists,
+  loading,
+  handleUpdate,
+  selectedOptions,
+  handleAdd,
+}) => {
   const [search, setSearch] = useState(null);
   const [specializations, setSpecializations] = useState([]);
 
@@ -27,7 +33,13 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
         onChange={handleSearchChange}
       />
 
-      <Dropdown data={specializations} type={"specializations"} />
+      <Dropdown
+        data={specializations}
+        type={"specializations"}
+        handleUpdate={handleUpdate}
+        selectedOptions={selectedOptions}
+        handleAdd={handleAdd}
+      />
 
       {loading && <p className="grid place-items-center">Loading...</p>}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
