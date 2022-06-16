@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
 import FilterCard from "./FilterCard";
+import Dropdown from "./Dropdown";
 import PsychologistsService from "../services/PsychologistsService";
 
 const PsychologistsFilter = ({ psychologists, loading }) => {
   const [search, setSearch] = useState(null);
   const [specializations, setSpecializations] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const toggling = () => setIsOpen(!isOpen);
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value.specialization);
-    setIsOpen(false);
-  };
 
   useEffect(() => {
     const fetchSpecializations = async () => {
       const data = (await PsychologistsService.specializations()).data;
-      setSpecializations((item) => item.concat(data));
+      setSpecializations((item) => item.concat(data.results));
     };
     fetchSpecializations();
   }, []);
@@ -33,27 +27,7 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
         onChange={handleSearchChange}
       />
 
-      <div className="w-1/3">
-        <div className="dropdown-header" onClick={toggling}>
-          {/* {selectedOption || "Trastornos del estado del ánimo"} */}
-          Filter by specializations
-        </div>
-        {isOpen && (
-          <div>
-            <ul className="dropdown-list">
-              {specializations.map((option) => (
-                <li
-                  className="list-item"
-                  onClick={onOptionClicked(option)}
-                  key={option.id}
-                >
-                  {option.specialization}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      <Dropdown data={specializations} type={"specializations"} />
 
       {loading && <p className="grid place-items-center">Loading...</p>}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
