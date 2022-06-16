@@ -38,7 +38,7 @@ const PsychologistsFilter = ({ psychologists, loading }) => {
           {selectedOption || "Trastornos del estado del ánimo"}
         </div>
         {isOpen && (
-          <div className="dropdown-list-container">
+          <div>
             <ul className="dropdown-list">
               {specializations.map((option) => (
                 <li
