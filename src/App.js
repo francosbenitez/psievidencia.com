@@ -48,7 +48,7 @@ function App() {
     fetchPsychologists(selectedIds);
   };
 
-  const handleAdd = (value) => () => {
+  const handleAdd = (value) => {
     setSelectedOptions((oldArray) => [...oldArray, value]);
     const selectedIds = selectedOptions.map((item) => item.id);
     fetchPsychologists(selectedIds);

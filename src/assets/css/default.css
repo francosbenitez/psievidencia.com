@@ -32,6 +32,7 @@ body {
   color: #3faffa;
   font-size: 1.3rem;
   font-weight: 500;
+  position: absolute;
 }
 
 .dropdown-list:first-child {
@@ -41,6 +42,12 @@ body {
 .list-item {
   list-style: none;
   margin-bottom: 0.8em;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  text-decoration: underline;
+  background-color: rgba(156, 190, 242, 0.488);
 }
 /* Accordion */
 .accordion {
