@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Dropdown = ({
   specializations,
@@ -8,6 +8,18 @@ const Dropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
+
+  const observed = useRef(null);
+
+  const handleObserved = (el) => {
+    if (el != null) {
+      el.addEventListener("scroll", () => {
+        if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
+          console.log("kasdjakdjksa");
+        }
+      });
+    }
+  };
 
   const onOptionClicked = (option) => {
     updateSpecializations(option);
@@ -21,7 +33,13 @@ const Dropdown = ({
       </div>
       {isOpen && (
         <div>
-          <ul className="dropdown-list">
+          <ul
+            className="dropdown-list"
+            ref={(el) => {
+              observed.current = el;
+              handleObserved(el);
+            }}
+          >
             {specializations.map((option) => (
               <li
                 className="list-item break-words"
