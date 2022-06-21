@@ -25,16 +25,10 @@ function App() {
   const fetchMorePsychologists = async () => {
     setLoading(true);
     setPagination((pagination) => pagination + 1);
-
     const data = (await PsychologistsService.index(pagination)).data;
-
     setPsychologists((psychologists) => psychologists.concat(data.results));
     setLoading(false);
   };
-
-  useEffect(() => {
-    fetchPsychologists();
-  }, []);
 
   const handlePagination = () => {
     fetchMorePsychologists();
@@ -44,15 +38,16 @@ function App() {
     setSelectedOptions(
       selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
     );
-    const selectedIds = selectedOptions.map((item) => item.id);
-    fetchPsychologists(selectedIds);
   };
 
   const handleAdd = (value) => {
     setSelectedOptions((oldArray) => [...oldArray, value]);
+  };
+
+  useEffect(() => {
     const selectedIds = selectedOptions.map((item) => item.id);
     fetchPsychologists(selectedIds);
-  };
+  }, [selectedOptions]);
 
   return (
     <ScrollToTop>
