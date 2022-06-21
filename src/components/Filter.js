@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import FilterCard from "./FilterCard";
 import Dropdown from "./Dropdown";
 import PsychologistsService from "../services/PsychologistsService";
+import DropdownList from "./DropdownList";
 
 const PsychologistsFilter = ({
   psychologists,
@@ -39,6 +40,11 @@ const PsychologistsFilter = ({
         handleUpdate={handleUpdate}
         selectedOptions={selectedOptions}
         handleAdd={handleAdd}
+      />
+
+      <DropdownList
+        selectedOptions={selectedOptions}
+        handleUpdate={handleUpdate}
       />
 
       {loading && <p className="grid place-items-center">Loading...</p>}

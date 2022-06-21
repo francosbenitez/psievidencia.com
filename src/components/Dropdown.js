@@ -1,7 +1,6 @@
 import { useState } from "react";
-import DropdownList from "./DropdownList";
 
-const Dropdown = ({ data, type, handleUpdate, selectedOptions, handleAdd }) => {
+const Dropdown = ({ data, type, handleAdd }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
@@ -32,10 +31,6 @@ const Dropdown = ({ data, type, handleUpdate, selectedOptions, handleAdd }) => {
           </ul>
         </div>
       )}
-      <DropdownList
-        selectedOptions={selectedOptions}
-        handleUpdate={handleUpdate}
-      />
     </div>
   );
 };
