@@ -1,10 +1,16 @@
 import { useState } from "react";
 
-const Dropdown = ({ data, type, handleAdd }) => {
+const Dropdown = ({
+  specializations,
+  type,
+  handleAdd,
+  updateSpecializations,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = () => {
+  const onOptionClicked = (option) => {
+    updateSpecializations(option);
     setIsOpen(false);
   };
 
@@ -16,11 +22,11 @@ const Dropdown = ({ data, type, handleAdd }) => {
       {isOpen && (
         <div>
           <ul className="dropdown-list">
-            {data.map((option) => (
+            {specializations.map((option) => (
               <li
                 className="list-item break-words"
                 onClick={() => {
-                  onOptionClicked();
+                  onOptionClicked(option);
                   handleAdd(option);
                 }}
                 key={option.id}

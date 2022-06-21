@@ -34,7 +34,7 @@ function App() {
     fetchMorePsychologists();
   };
 
-  const handleUpdate = (id) => () => {
+  const handleUpdate = (id) => {
     setSelectedOptions(
       selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
     );

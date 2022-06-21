@@ -26,6 +26,18 @@ const PsychologistsFilter = ({
     setSearch(e.target.value);
   };
 
+  const updateSpecializations = (option) => {
+    setSpecializations(
+      specializations.filter(
+        (specializations) => specializations.id !== option.id
+      )
+    );
+  };
+
+  const addSpecializations = (value) => {
+    setSpecializations((oldArray) => [value, ...oldArray]);
+  };
+
   return (
     <div>
       <input
@@ -35,16 +47,18 @@ const PsychologistsFilter = ({
       />
 
       <Dropdown
-        data={specializations}
+        specializations={specializations}
         type={"specializations"}
         handleUpdate={handleUpdate}
         selectedOptions={selectedOptions}
         handleAdd={handleAdd}
+        updateSpecializations={updateSpecializations}
       />
 
       <DropdownList
         selectedOptions={selectedOptions}
         handleUpdate={handleUpdate}
+        addSpecializations={addSpecializations}
       />
 
       {loading && <p className="grid place-items-center">Loading...</p>}
