@@ -10,7 +10,7 @@ const Dropdown = ({ data, type, handleAdd }) => {
 
   return (
     <div className="w-1/3 my-6">
-      <div className="dropdown-header" onClick={toggling}>
+      <div className="dropdown-header cursor-pointer" onClick={toggling}>
         Filter by {type}
       </div>
       {isOpen && (
@@ -18,7 +18,7 @@ const Dropdown = ({ data, type, handleAdd }) => {
           <ul className="dropdown-list">
             {data.map((option) => (
               <li
-                className="list-item"
+                className="list-item break-words"
                 onClick={() => {
                   onOptionClicked();
                   handleAdd(option);

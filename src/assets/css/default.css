@@ -23,9 +23,8 @@ body {
 }
 
 .dropdown-list {
-  padding: 0;
+  padding: 1rem;
   margin: 0;
-  padding-left: 1em;
   background: #ffffff;
   border: 2px solid #e5e5e5;
   box-sizing: border-box;
@@ -33,6 +32,8 @@ body {
   font-size: 1.3rem;
   font-weight: 500;
   position: absolute;
+  overflow-y: scroll;
+  height: 400px;
 }
 
 .dropdown-list:first-child {
