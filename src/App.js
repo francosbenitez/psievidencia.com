@@ -10,7 +10,7 @@ import PsychologistsService from "./services/PsychologistsService";
 function App() {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
