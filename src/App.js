@@ -54,16 +54,9 @@ function App() {
   };
 
   useEffect(() => {
-    if (name !== "") {
-      console.log("name", name);
-      fetchPsychologists(name);
-    }
-  }, [name]);
-
-  useEffect(() => {
     const selectedIds = selectedOptions.map((item) => item.id);
-    fetchPsychologists(selectedIds);
-  }, [selectedOptions]);
+    fetchPsychologists(name, selectedIds);
+  }, [name, selectedOptions]);
 
   return (
     <ScrollToTop>
