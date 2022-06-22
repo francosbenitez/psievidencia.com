@@ -7,6 +7,7 @@ import Dashboard from "./views/dashboard";
 import ScrollToTop from "./components/ScrollToTop";
 import PsychologistsService from "./services/PsychologistsService";
 import useDebounce from "./hooks/useDebounce";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [psychologists, setPsychologists] = useState([]);
@@ -67,6 +68,7 @@ function App() {
   return (
     <ScrollToTop>
       <div className="App">
+        <Sidebar />
         <Routes>
           <Route
             path="/"
