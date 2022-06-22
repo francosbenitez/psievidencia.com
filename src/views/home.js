@@ -11,15 +11,6 @@ const Home = ({
   handleAdd,
   handleNameChange,
 }) => {
-  psychologists.forEach(
-    (psychologist) =>
-      (psychologist.name_2 = psychologist.name_2
-        .toLowerCase()
-        .split(" ")
-        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-        .join(" "))
-  );
-
   return (
     <>
       <div className="container mx-auto py-28 px-5 sm:px-0">
