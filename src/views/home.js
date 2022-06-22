@@ -9,6 +9,7 @@ const Home = ({
   handleUpdate,
   selectedOptions,
   handleAdd,
+  handleNameChange,
 }) => {
   psychologists.forEach(
     (psychologist) =>
@@ -34,6 +35,7 @@ const Home = ({
           handleUpdate={handleUpdate}
           selectedOptions={selectedOptions}
           handleAdd={handleAdd}
+          handleNameChange={handleNameChange}
         />
         {!loading && (
           <div className="flex justify-center my-3">

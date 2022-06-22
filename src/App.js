@@ -10,6 +10,7 @@ import PsychologistsService from "./services/PsychologistsService";
 function App() {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -44,6 +45,14 @@ function App() {
     setSelectedOptions((oldArray) => [...oldArray, value]);
   };
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  useEffect(() => {
+    console.log("name", name);
+  }, [name]);
+
   useEffect(() => {
     const selectedIds = selectedOptions.map((item) => item.id);
     fetchPsychologists(selectedIds);
@@ -63,6 +72,7 @@ function App() {
                 handleUpdate={handleUpdate}
                 selectedOptions={selectedOptions}
                 handleAdd={handleAdd}
+                handleNameChange={handleNameChange}
               />
             }
           />

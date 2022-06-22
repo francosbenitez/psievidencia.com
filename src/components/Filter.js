@@ -10,8 +10,8 @@ const PsychologistsFilter = ({
   handleUpdate,
   selectedOptions,
   handleAdd,
+  handleNameChange,
 }) => {
-  const [search, setSearch] = useState(null);
   const [specializations, setSpecializations] = useState([]);
 
   useEffect(() => {
@@ -21,10 +21,6 @@ const PsychologistsFilter = ({
     };
     fetchSpecializations();
   }, []);
-
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
 
   const updateSpecializations = (option) => {
     setSpecializations(
@@ -43,7 +39,7 @@ const PsychologistsFilter = ({
       <input
         className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-6"
         placeholder="Search by name"
-        onChange={handleSearchChange}
+        onChange={handleNameChange}
       />
 
       <Dropdown
