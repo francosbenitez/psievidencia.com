@@ -6,6 +6,7 @@ import PsychologistsDetail from "./views/psychologists-detail";
 import Dashboard from "./views/dashboard";
 import ScrollToTop from "./components/ScrollToTop";
 import PsychologistsService from "./services/PsychologistsService";
+import useDebounce from "./hooks/useDebounce";
 
 function App() {
   const [psychologists, setPsychologists] = useState([]);
@@ -13,6 +14,8 @@ function App() {
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const debouncedName = useDebounce(name, 1000);
 
   const fetchPsychologists = async (name, specializations) => {
     setLoading(true);
@@ -51,13 +54,13 @@ function App() {
 
   useEffect(() => {
     const selectedIds = selectedOptions.map((item) => item.id);
-    fetchPsychologists(name, selectedIds);
-  }, [name, selectedOptions]);
+    fetchPsychologists(debouncedName, selectedIds);
+  }, [debouncedName, selectedOptions]);
 
   useEffect(() => {
     if (pagination > 1) {
       const selectedIds = selectedOptions.map((item) => item.id);
-      fetchMorePsychologists(name, selectedIds);
+      fetchMorePsychologists(debouncedName, selectedIds);
     }
   }, [pagination]);
 
