@@ -2,11 +2,11 @@
 import Api from "./Api";
 
 export default {
-  index(pageNumber, specialization, name, therapeutic_model, work_population) {
+  index(pageNumber, name, specialization, therapeutic_model, work_population) {
     return Api().get(`psychologists?page=${pageNumber}`, {
       params: {
-        specialization: specialization,
         name: name,
+        specialization: specialization,
         therapeutic_model: therapeutic_model,
         work_population: work_population,
       },

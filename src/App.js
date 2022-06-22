@@ -14,26 +14,30 @@ function App() {
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const fetchPsychologists = async (specializations) => {
+  const fetchPsychologists = async (name, specializations) => {
     setLoading(true);
-
-    const data = (await PsychologistsService.index(1, specializations)).data;
-
+    const data = (await PsychologistsService.index(1, name, specializations))
+      .data;
     setPsychologists(data.results);
     setLoading(false);
   };
 
   const fetchMorePsychologists = async () => {
     setLoading(true);
-    setPagination((pagination) => pagination + 1);
     const data = (await PsychologistsService.index(pagination)).data;
     setPsychologists((psychologists) => psychologists.concat(data.results));
     setLoading(false);
   };
 
   const handlePagination = () => {
-    fetchMorePsychologists();
+    setPagination((pagination) => pagination + 1);
   };
+
+  useEffect(() => {
+    if (pagination > 1) {
+      fetchMorePsychologists();
+    }
+  }, [pagination]);
 
   const handleUpdate = (id) => {
     setSelectedOptions(
@@ -50,7 +54,10 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("name", name);
+    if (name !== "") {
+      console.log("name", name);
+      fetchPsychologists(name);
+    }
   }, [name]);
 
   useEffect(() => {
