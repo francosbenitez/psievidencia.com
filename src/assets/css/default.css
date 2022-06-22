@@ -12,7 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  position: absolute;
+  /* position: absolute; */
 }
 
 .menu-bar {
@@ -24,9 +24,9 @@ body {
 }
 
 .nav-icon {
-  width: 55px;
+  /* width: 55px; */
   display: flex;
-  margin-right: 4rem;
+  /* margin-right: 4rem; */
   margin-left: 1.5rem;
   cursor: pointer;
 }

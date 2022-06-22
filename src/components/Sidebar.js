@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <header className="top-bar">
+      <header className="top-bar container mx-auto px-5 sm:px-0">
         <div className="menu-bar">
           <span
             ref={domeNode}
@@ -50,7 +50,7 @@ const Sidebar = () => {
           </span>
         </div>
         <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
-          <span
+          {/* <span
             ref={domeNode}
             className="nav-icon"
             onClick={() => {
@@ -69,7 +69,7 @@ const Sidebar = () => {
                 <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
               )}
             </svg>
-          </span>
+          </span> */}
           <Link to={"/"}>Home</Link>
           <Link to={"/dashboard"}>Dashboard</Link>
         </div>
