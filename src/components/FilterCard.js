@@ -14,7 +14,7 @@ const PsychologistsCards = ({ psychologist }) => {
         />
       )}
       <header className=" text-2xl font-extrabold py-4 px-4 text-center">
-        {psychologist.name_2}
+        {psychologist.name}
       </header>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
