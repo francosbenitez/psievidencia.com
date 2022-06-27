@@ -13,11 +13,12 @@ const PsychologistsFilter = ({
   handleNameChange,
 }) => {
   const [specializations, setSpecializations] = useState([]);
+  const [pagination, setPagination] = useState(1);
 
   useEffect(() => {
     const fetchSpecializations = async () => {
       const data = (await PsychologistsService.specializations(1)).data;
-      setSpecializations((item) => item.concat(data.results));
+      setSpecializations(data.results);
     };
     fetchSpecializations();
   }, []);
@@ -34,6 +35,16 @@ const PsychologistsFilter = ({
       )
     );
   };
+
+  const handlePagination = () => {
+    setPagination(pagination + 1);
+  };
+
+  useEffect(() => {
+    if (pagination > 1) {
+      fetchMoreSpecializations(pagination);
+    }
+  }, [pagination]);
 
   const addSpecializations = (value) => {
     setSpecializations((oldArray) => [value, ...oldArray]);
@@ -54,6 +65,7 @@ const PsychologistsFilter = ({
         selectedOptions={selectedOptions}
         handleAdd={handleAdd}
         updateSpecializations={updateSpecializations}
+        handlePagination={handlePagination}
       />
 
       <DropdownList

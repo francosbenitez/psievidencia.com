@@ -5,20 +5,18 @@ const Dropdown = ({
   type,
   handleAdd,
   updateSpecializations,
+  handlePagination,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
   const observed = useRef(null);
 
-  let count = 0;
-
   const handleObserved = (el) => {
     if (el != null) {
       el.addEventListener("scroll", () => {
         if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
-          count++;
-          console.log("count", count);
+          handlePagination();
         }
       });
     }
