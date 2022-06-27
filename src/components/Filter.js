@@ -16,11 +16,16 @@ const PsychologistsFilter = ({
 
   useEffect(() => {
     const fetchSpecializations = async () => {
-      const data = (await PsychologistsService.specializations()).data;
+      const data = (await PsychologistsService.specializations(1)).data;
       setSpecializations((item) => item.concat(data.results));
     };
     fetchSpecializations();
   }, []);
+
+  const fetchMoreSpecializations = async (pagination) => {
+    const data = (await PsychologistsService.specializations(pagination)).data;
+    setSpecializations((item) => item.concat(data.results));
+  };
 
   const updateSpecializations = (option) => {
     setSpecializations(
