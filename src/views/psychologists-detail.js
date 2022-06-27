@@ -1,7 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Accordion from "../components/Accordion";
+import PsychologistsService from "../services/PsychologistsService";
+import { useState, useEffect } from "react";
 
-const PsychologistsDetail = ({ psychologist }) => {
+const PsychologistsDetail = () => {
+  let { id } = useParams();
+
+  const [psychologist, setPsychologist] = useState({});
+
+  useEffect(() => {
+    const fetchPsychologist = async (id) => {
+      const data = (await PsychologistsService.detail(id)).data;
+      console.log("data from fetchpsychologist", data);
+      setPsychologist(data);
+    };
+    fetchPsychologist(id);
+  }, []);
+
   const accordionData = [
     {
       id: 1,
@@ -96,16 +111,20 @@ const PsychologistsDetail = ({ psychologist }) => {
     "December",
   ];
 
-  let d = psychologist.date.split(" ");
-  d = d[0].split("/");
-  d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
-
-  const formattedDate =
-    d.getDay() + " de " + monthNames[d.getMonth()] + ", " + d.getFullYear();
+  const formattedDate = () => {
+    let d = psychologist.date.split(" ");
+    d = d[0].split("/");
+    d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
+    return (
+      d.getDay() + " de " + monthNames[d.getMonth()] + ", " + d.getFullYear()
+    );
+  };
   return (
-    <div className="container mx-auto py-28 px-5 sm:px-0">
-      <button
-        className="
+    <>
+      {psychologist != null && Object.keys(psychologist).length > 0 && (
+        <div className="container mx-auto py-28 px-5 sm:px-0">
+          <button
+            className="
         absolute
         top-[2rem]
         rounded-md
@@ -116,43 +135,49 @@ const PsychologistsDetail = ({ psychologist }) => {
         before:bg-custom-image before:bg-no-repeat before:bg-cover before:bg-center 
         before:absolute before:inset-0
         before:block"
-        onClick={() => navigate(-1)}
-      ></button>
-      <h1 className="text-center font-bold text-5xl mb-5">
-        {psychologist.name}
-      </h1>
-      <h2 className="text-2xl text-center">{psychologist.email}</h2>
-      <h3 className="text-1xl underline my-6">{formattedDate}</h3>
-      <div className="accordion">
-        {accordionData.map(({ title, content }) => (
-          <Accordion title={title} content={psychologist[content]} />
-        ))}
-      </div>
-      <div>
-        <p className="font-bold text-lg">Contacto</p>
-        <div className="grid grid-cols-2 gap-4">
-          <p>
-            <span className="underline">Redes sociales</span>:{" "}
-            {psychologist.social_networks !== "" ? (
-              <>{psychologist.social_networks}</>
-            ) : (
-              <>No data</>
-            )}
-          </p>
-          <p className="text-right">
-            <span className="underline">
-              Número de teléfono o mail de contacto
-            </span>
-            :{" "}
-            {psychologist.phone_number !== "" ? (
-              <>{psychologist.phone_number}</>
-            ) : (
-              <>No data</>
-            )}
-          </p>
+            onClick={() => navigate(-1)}
+          ></button>
+          <h1 className="text-center font-bold text-5xl mb-5">
+            {psychologist.name}
+          </h1>
+          <h2 className="text-2xl text-center">{psychologist.email}</h2>
+          <h3 className="text-1xl underline my-6">{formattedDate()}</h3>
+          <div className="accordion">
+            {accordionData.map(({ title, content }) => (
+              <Accordion
+                key={title}
+                title={title}
+                content={psychologist[content]}
+              />
+            ))}
+          </div>
+          <div>
+            <p className="font-bold text-lg">Contacto</p>
+            <div className="grid grid-cols-2 gap-4">
+              <p>
+                <span className="underline">Redes sociales</span>:{" "}
+                {psychologist.social_networks !== "" ? (
+                  <>{psychologist.social_networks}</>
+                ) : (
+                  <>No data</>
+                )}
+              </p>
+              <p className="text-right">
+                <span className="underline">
+                  Número de teléfono o mail de contacto
+                </span>
+                :{" "}
+                {psychologist.phone_number !== "" ? (
+                  <>{psychologist.phone_number}</>
+                ) : (
+                  <>No data</>
+                )}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

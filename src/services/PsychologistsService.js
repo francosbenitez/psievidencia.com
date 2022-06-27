@@ -15,4 +15,7 @@ export default {
   specializations(pageNumber) {
     return Api().get(`psychologists/specializations?page=${pageNumber}`);
   },
+  detail(id) {
+    return Api().get(`psychologists/${id}`);
+  },
 };

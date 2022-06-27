@@ -84,15 +84,11 @@ function App() {
               />
             }
           />
-          <Route path="/psychologists">
-            {psychologists.map((psychologist) => (
-              <Route
-                key={psychologist.id}
-                path={"/psychologists/" + psychologist.id}
-                element={<PsychologistsDetail psychologist={psychologist} />}
-              />
-            ))}
-          </Route>
+          <Route path="/psychologists" />
+          <Route
+            path={"/psychologists/:id"}
+            element={<PsychologistsDetail />}
+          />
           <Route
             path="/dashboard"
             element={<Dashboard psychologists={psychologists} />}
