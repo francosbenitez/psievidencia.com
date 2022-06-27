@@ -36,7 +36,7 @@ function App() {
   };
 
   const handlePagination = () => {
-    setPagination((pagination) => pagination + 1);
+    setPagination(pagination + 1);
   };
 
   const handleUpdate = (id) => {
