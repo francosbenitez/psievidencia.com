@@ -11,11 +11,14 @@ const Dropdown = ({
 
   const observed = useRef(null);
 
+  let count = 0;
+
   const handleObserved = (el) => {
     if (el != null) {
       el.addEventListener("scroll", () => {
         if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
-          console.log("kasdjakdjksa");
+          count++;
+          console.log("count", count);
         }
       });
     }
