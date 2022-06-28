@@ -16,13 +16,13 @@ const PsychologistsCards = ({ psychologist }) => {
       <header className=" text-2xl font-extrabold py-4 px-4 text-center">
         {psychologist.name}
       </header>
-      <p>
+      {/* <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pulvinar proin
         gravida hendrerit lectus. Amet nisl suscipit adipiscing bibendum est
         ultricies. Lectus quam id leo in vitae turpis massa sed. Mi sit amet
         mauris commodo quis imperdiet. Elementum curabitur vitae nunc sed velit.
-      </p>
+      </p> */}
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
         {psychologist.online === "Sí" && (
           <p className="p-2">
