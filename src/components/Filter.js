@@ -58,15 +58,20 @@ const PsychologistsFilter = ({
         onChange={handleNameChange}
       />
 
-      <Dropdown
-        specializations={specializations}
-        type={"specializations"}
-        handleUpdate={handleUpdate}
-        selectedOptions={selectedOptions}
-        handleAdd={handleAdd}
-        updateSpecializations={updateSpecializations}
-        handlePagination={handlePagination}
-      />
+      <div className="flex space-x-4">
+        <Dropdown
+          specializations={specializations}
+          type={"specializations"}
+          handleUpdate={handleUpdate}
+          selectedOptions={selectedOptions}
+          handleAdd={handleAdd}
+          updateSpecializations={updateSpecializations}
+          handlePagination={handlePagination}
+        />
+
+        <Dropdown type={"therapeutic model"} />
+        <Dropdown type={"work population"} />
+      </div>
 
       <DropdownList
         selectedOptions={selectedOptions}

@@ -72,6 +72,8 @@ const Sidebar = () => {
           </span> */}
           <Link to={"/"}>Home</Link>
           <Link to={"/dashboard"}>Dashboard</Link>
+          <Link to={"/login"}>Log in</Link>
+          <Link to={"/login"}>Sign up</Link>
         </div>
       </header>
     </>
