@@ -20,3 +20,4 @@ TO-DO:
   - Implement search API via the four main variables as a queries.
   - Reorganize the components better! 
   - Build a dashboard navbar with hamburguer menu.
+  - Move project to Next.js.
