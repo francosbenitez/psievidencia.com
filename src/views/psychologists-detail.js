@@ -11,7 +11,6 @@ const PsychologistsDetail = () => {
   useEffect(() => {
     const fetchPsychologist = async (id) => {
       const data = (await PsychologistsService.detail(id)).data;
-      console.log("data from fetchpsychologist", data);
       setPsychologist(data);
     };
     fetchPsychologist(id);
@@ -121,7 +120,7 @@ const PsychologistsDetail = () => {
   };
   return (
     <>
-      {psychologist != null && Object.keys(psychologist).length > 0 && (
+      {psychologist != null && Object.keys(psychologist).length > 0 ? (
         <div className="container mx-auto py-28 px-5 sm:px-0">
           <button
             className="
@@ -176,6 +175,10 @@ const PsychologistsDetail = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <p className="grid place-items-center h-screen">
+          Loading psychologist...
+        </p>
       )}
     </>
   );
