@@ -14,15 +14,45 @@ const PsychologistsCards = ({ psychologist }) => {
         />
       )}
       <header className=" text-2xl font-extrabold py-4 px-4 text-center">
-        {psychologist.name}
+        {psychologist.name !== "" ? psychologist.name : "Anonymous"}
       </header>
-      {/* <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Pulvinar proin
-        gravida hendrerit lectus. Amet nisl suscipit adipiscing bibendum est
-        ultricies. Lectus quam id leo in vitae turpis massa sed. Mi sit amet
-        mauris commodo quis imperdiet. Elementum curabitur vitae nunc sed velit.
-      </p> */}
+      <div>
+        <ul className="text-gray-500 text-center font-semibold break-words">
+          <li>{psychologist.province}</li>
+          <li className="text-left">
+            {psychologist.therapeutic_model.split(",").map((item) => (
+              <span
+                className="bg-indigo-400 text-white break-all mr-1 px-1"
+                key={item}
+              >
+                {item}
+              </span>
+            ))}
+          </li>
+          <li className="text-left">
+            {psychologist.work_population.split(",").map((item) => (
+              <span
+                className="bg-green-400 text-white break-all mr-1 px-1"
+                key={item}
+              >
+                {item}
+              </span>
+            ))}
+          </li>
+          {psychologist.specialization !== "" && (
+            <li className="text-left">
+              {psychologist.specialization.split(",").map((item) => (
+                <span
+                  className="bg-blue-400 text-white break-all mr-1 px-1"
+                  key={item}
+                >
+                  {item}
+                </span>
+              ))}
+            </li>
+          )}
+        </ul>
+      </div>
       <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
         {psychologist.online === "Sí" && (
           <p className="p-2">
