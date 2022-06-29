@@ -1,10 +1,14 @@
-import Filter from "../components/Filter";
 import PsychologistsService from "../services/PsychologistsService";
 import useDebounce from "../hooks/useDebounce";
 import { useState, useEffect } from "react";
 import TheFooter from "../components/home/TheFooter";
 import TheHeader from "../components/home/TheHeader";
 import LoadMore from "../components/home/LoadMore";
+import SearchName from "../components/home/SearchName";
+///////////
+import FilterCard from "../components/FilterCard";
+import Dropdown from "../components/Dropdown";
+import DropdownList from "../components/DropdownList";
 
 const Home = () => {
   const [psychologists, setPsychologists] = useState([]);
@@ -12,6 +16,47 @@ const Home = () => {
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  ///////
+  const [specializations, setSpecializations] = useState([]);
+  // const [pagination, setPagination] = useState(1);
+
+  useEffect(() => {
+    const fetchSpecializations = async () => {
+      const data = (await PsychologistsService.specializations(1)).data;
+      setSpecializations(data.results);
+    };
+    fetchSpecializations();
+  }, []);
+
+  const fetchMoreSpecializations = async (pagination) => {
+    const data = (await PsychologistsService.specializations(pagination)).data;
+    setSpecializations((item) => item.concat(data.results));
+  };
+
+  const updateSpecializations = (option) => {
+    setSpecializations(
+      specializations.filter(
+        (specializations) => specializations.id !== option.id
+      )
+    );
+  };
+
+  // const handlePagination = () => {
+  //   setPagination(pagination + 1);
+  // };
+
+  useEffect(() => {
+    if (pagination > 1) {
+      fetchMoreSpecializations(pagination);
+    }
+  }, [pagination]);
+
+  const addSpecializations = (value) => {
+    setSpecializations((oldArray) => [value, ...oldArray]);
+  };
+
+  ///////
 
   const debouncedName = useDebounce(name, 1000);
 
@@ -66,14 +111,38 @@ const Home = () => {
     <>
       <div className="container mx-auto py-28 px-5 sm:px-0">
         <TheHeader />
-        <Filter
-          psychologists={psychologists}
-          loading={loading}
-          handleUpdate={handleUpdate}
+        <SearchName handleNameChange={handleNameChange} />
+
+        <div className="flex space-x-4">
+          <Dropdown type={"therapeutic model"} />
+          <Dropdown type={"work population"} />
+          <Dropdown
+            specializations={specializations}
+            type={"specializations"}
+            handleUpdate={handleUpdate}
+            selectedOptions={selectedOptions}
+            handleAdd={handleAdd}
+            updateSpecializations={updateSpecializations}
+            handlePagination={handlePagination}
+          />
+        </div>
+
+        <DropdownList
           selectedOptions={selectedOptions}
-          handleAdd={handleAdd}
-          handleNameChange={handleNameChange}
+          handleUpdate={handleUpdate}
+          addSpecializations={addSpecializations}
         />
+
+        {loading && <p className="grid place-items-center">Loading...</p>}
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {psychologists.map((psychologist) => {
+            return (
+              <FilterCard key={psychologist.id} psychologist={psychologist} />
+            );
+          })}
+        </div>
+
+        {/*  */}
         {!loading && <LoadMore handlePagination={handlePagination} />}
       </div>
       <TheFooter />
