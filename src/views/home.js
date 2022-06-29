@@ -14,9 +14,15 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedSpecializationOptions, setSelectedSpecializationOptions] =
+    useState([]);
   const [specializations, setSpecializations] = useState([]);
   const [specializationsPagination, setSpecializationsPagination] = useState(1);
+  const [therapeuticModels, setTherapeuticModels] = useState([]);
+  const [therapeuticModelsPagination, setTherapeuticModelsPagination] =
+    useState(1);
+  const [selectedTherapeuticModelOptions, setSelectedTherapeuticModelOptions] =
+    useState([]);
 
   // Name
   const debouncedName = useDebounce(name, 1000);
@@ -52,6 +58,19 @@ const Home = () => {
     setSpecializationsPagination(specializationsPagination + 1);
   };
 
+  const updateSelectedSpecializationOptions = (id) => {
+    setSelectedSpecializationOptions(
+      selectedSpecializationOptions.filter(
+        (selectedSpecializationOptions) =>
+          selectedSpecializationOptions.id !== id
+      )
+    );
+  };
+
+  const addSelectedSpecializationOptions = (value) => {
+    setSelectedSpecializationOptions((oldArray) => [...oldArray, value]);
+  };
+
   useEffect(() => {
     fetchSpecializations();
   }, []);
@@ -62,19 +81,89 @@ const Home = () => {
     }
   }, [specializationsPagination]);
 
-  // Psychologists
-  const fetchPsychologists = async (name, specializations) => {
-    setLoading(true);
-    const data = (await PsychologistsService.index(1, name, specializations))
+  // Therapeutic models
+  const fetchTherapeuticModels = async () => {
+    const data = (await PsychologistsService.therapeuticModels(1)).data;
+    setTherapeuticModels(data.results);
+  };
+
+  const fetchMoreTherapeuticModels = async (pagination) => {
+    const data = (await PsychologistsService.therapeuticModels(pagination))
       .data;
+    setTherapeuticModels((item) => item.concat(data.results));
+  };
+
+  const addTherapeuticModels = (value) => {
+    setTherapeuticModels((oldArray) => [value, ...oldArray]);
+  };
+
+  const updateTherapeuticModels = (option) => {
+    setTherapeuticModels(
+      therapeuticModels.filter(
+        (therapeuticModels) => therapeuticModels.id !== option.id
+      )
+    );
+  };
+
+  const handleTherapeuticModelsPagination = () => {
+    setTherapeuticModelsPagination(therapeuticModelsPagination + 1);
+  };
+
+  const updateSelectedTherapeuticModelOptions = (id) => {
+    setSelectedTherapeuticModelOptions(
+      selectedTherapeuticModelOptions.filter(
+        (selectedTherapeuticModelOptions) =>
+          selectedTherapeuticModelOptions.id !== id
+      )
+    );
+  };
+
+  const addSelectedTherapeuticModelOptions = (value) => {
+    setSelectedTherapeuticModelOptions((oldArray) => [...oldArray, value]);
+  };
+
+  useEffect(() => {
+    fetchTherapeuticModels();
+  }, []);
+
+  useEffect(() => {
+    if (therapeuticModelsPagination > 1) {
+      fetchMoreTherapeuticModels(therapeuticModelsPagination);
+    }
+  }, [therapeuticModelsPagination]);
+
+  // Psychologists
+  const fetchPsychologists = async (
+    name,
+    specializations,
+    therapeutic_models
+  ) => {
+    setLoading(true);
+    const data = (
+      await PsychologistsService.index(
+        1,
+        name,
+        specializations,
+        therapeutic_models
+      )
+    ).data;
     setPsychologists(data.results);
     setLoading(false);
   };
 
-  const fetchMorePsychologists = async (name, specializations) => {
+  const fetchMorePsychologists = async (
+    name,
+    specializations,
+    therapeutic_models
+  ) => {
     setLoading(true);
     const data = (
-      await PsychologistsService.index(pagination, name, specializations)
+      await PsychologistsService.index(
+        pagination,
+        name,
+        specializations,
+        therapeutic_models
+      )
     ).data;
     setPsychologists((psychologists) => psychologists.concat(data.results));
     setLoading(false);
@@ -85,27 +174,38 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const selectedIds = selectedOptions.map((item) => item.id);
-    fetchPsychologists(debouncedName, selectedIds);
-  }, [debouncedName, selectedOptions]);
+    const selectedSpecializationIds = selectedSpecializationOptions.map(
+      (item) => item.id
+    );
+    const selectedTherapeuticModelIds = selectedTherapeuticModelOptions.map(
+      (item) => item.id
+    );
+    fetchPsychologists(
+      debouncedName,
+      selectedSpecializationIds,
+      selectedTherapeuticModelIds
+    );
+  }, [
+    debouncedName,
+    selectedSpecializationOptions,
+    selectedTherapeuticModelOptions,
+  ]);
 
   useEffect(() => {
     if (pagination > 1) {
-      const selectedIds = selectedOptions.map((item) => item.id);
-      fetchMorePsychologists(debouncedName, selectedIds);
+      const selectedSpecializationIds = selectedSpecializationOptions.map(
+        (item) => item.id
+      );
+      const selectedTherapeuticModelIds = selectedTherapeuticModelOptions.map(
+        (item) => item.id
+      );
+      fetchMorePsychologists(
+        debouncedName,
+        selectedSpecializationIds,
+        selectedTherapeuticModelIds
+      );
     }
   }, [pagination]);
-
-  // Selected options
-  const handleUpdate = (id) => {
-    setSelectedOptions(
-      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
-    );
-  };
-
-  const handleAdd = (value) => {
-    setSelectedOptions((oldArray) => [...oldArray, value]);
-  };
 
   return (
     <>
@@ -114,22 +214,35 @@ const Home = () => {
         <SearchName handleNameChange={handleNameChange} />
 
         <div className="sm:flex sm:space-x-4">
-          <TheDropdown type={"therapeutic model"} />
+          <TheDropdown
+            type={"therapeutic model"}
+            data={therapeuticModels}
+            handleAdd={addSelectedTherapeuticModelOptions}
+            handleUpdate={updateTherapeuticModels}
+            handlePagination={handleTherapeuticModelsPagination}
+          />
           <TheDropdown type={"work population"} />
           <TheDropdown
             data={specializations}
             type={"specializations"}
-            handleAdd={handleAdd}
+            handleAdd={addSelectedSpecializationOptions}
             handleUpdate={updateSpecializations}
             handlePagination={handleSpecializationsPagination}
           />
         </div>
 
-        <SelectedOptions
-          selectedOptions={selectedOptions}
-          handleUpdate={handleUpdate}
-          addSpecializations={addSpecializations}
-        />
+        <div className="container my-6">
+          <SelectedOptions
+            selectedOptions={selectedSpecializationOptions}
+            handleUpdate={updateSelectedSpecializationOptions}
+            addOptions={addSpecializations}
+          />
+          <SelectedOptions
+            selectedOptions={selectedTherapeuticModelOptions}
+            handleUpdate={updateSelectedTherapeuticModelOptions}
+            addOptions={addTherapeuticModels}
+          />
+        </div>
 
         {loading && <p className="grid place-items-center">Loading...</p>}
 

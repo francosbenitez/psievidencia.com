@@ -1,10 +1,6 @@
-const DropdownList = ({
-  selectedOptions,
-  handleUpdate,
-  addSpecializations,
-}) => {
+const DropdownList = ({ selectedOptions, handleUpdate, addOptions }) => {
   return (
-    <div className="container my-6">
+    <>
       {selectedOptions.map((item) => (
         <div
           key={item.id}
@@ -14,7 +10,7 @@ const DropdownList = ({
           <button
             onClick={() => {
               handleUpdate(item.id);
-              addSpecializations(item);
+              addOptions(item);
             }}
             className="pl-2"
           >
@@ -22,7 +18,7 @@ const DropdownList = ({
           </button>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
