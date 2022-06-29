@@ -50,7 +50,7 @@ const Dropdown = ({
                 }}
                 key={option.id}
               >
-                {option.specialization}
+                {option.name}
               </li>
             ))}
           </ul>
