@@ -15,19 +15,10 @@ const Home = () => {
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState([]);
-
-  ///////
   const [specializations, setSpecializations] = useState([]);
-  // const [pagination, setPagination] = useState(1);
+  const [specializationsPagination, setSpecializationsPagination] = useState(1);
 
-  useEffect(() => {
-    const fetchSpecializations = async () => {
-      const data = (await PsychologistsService.specializations(1)).data;
-      setSpecializations(data.results);
-    };
-    fetchSpecializations();
-  }, []);
-
+  // Specializations
   const fetchMoreSpecializations = async (pagination) => {
     const data = (await PsychologistsService.specializations(pagination)).data;
     setSpecializations((item) => item.concat(data.results));
@@ -41,24 +32,36 @@ const Home = () => {
     );
   };
 
-  // const handlePagination = () => {
-  //   setPagination(pagination + 1);
-  // };
+  const handleSpecializationsPagination = () => {
+    setSpecializationsPagination(specializationsPagination + 1);
+  };
 
   useEffect(() => {
-    if (pagination > 1) {
-      fetchMoreSpecializations(pagination);
+    const fetchSpecializations = async () => {
+      const data = (await PsychologistsService.specializations(1)).data;
+      setSpecializations(data.results);
+    };
+    fetchSpecializations();
+  }, []);
+
+  useEffect(() => {
+    if (specializationsPagination > 1) {
+      fetchMoreSpecializations(specializationsPagination);
     }
-  }, [pagination]);
+  }, [specializationsPagination]);
 
   const addSpecializations = (value) => {
     setSpecializations((oldArray) => [value, ...oldArray]);
   };
 
-  ///////
-
+  // Name
   const debouncedName = useDebounce(name, 1000);
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  // Psychologists
   const fetchPsychologists = async (name, specializations) => {
     setLoading(true);
     const data = (await PsychologistsService.index(1, name, specializations))
@@ -80,20 +83,6 @@ const Home = () => {
     setPagination(pagination + 1);
   };
 
-  const handleUpdate = (id) => {
-    setSelectedOptions(
-      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
-    );
-  };
-
-  const handleAdd = (value) => {
-    setSelectedOptions((oldArray) => [...oldArray, value]);
-  };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
   useEffect(() => {
     const selectedIds = selectedOptions.map((item) => item.id);
     fetchPsychologists(debouncedName, selectedIds);
@@ -105,6 +94,17 @@ const Home = () => {
       fetchMorePsychologists(debouncedName, selectedIds);
     }
   }, [pagination]);
+
+  // Selected options
+  const handleUpdate = (id) => {
+    setSelectedOptions(
+      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
+    );
+  };
+
+  const handleAdd = (value) => {
+    setSelectedOptions((oldArray) => [...oldArray, value]);
+  };
 
   return (
     <>
@@ -122,7 +122,7 @@ const Home = () => {
             selectedOptions={selectedOptions}
             handleAdd={handleAdd}
             updateSpecializations={updateSpecializations}
-            handlePagination={handlePagination}
+            handlePagination={handleSpecializationsPagination}
           />
         </div>
 
