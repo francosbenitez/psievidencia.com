@@ -21,3 +21,4 @@ TO-DO:
   - Reorganize the components better! 
   - Build a dashboard navbar with hamburguer menu.
   - Move project to Next.js.
+  - Reuse the TheDropdown component by the three main filters.
