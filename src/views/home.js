@@ -5,10 +5,9 @@ import TheFooter from "../components/home/TheFooter";
 import TheHeader from "../components/home/TheHeader";
 import LoadMore from "../components/home/LoadMore";
 import SearchName from "../components/home/SearchName";
-///////////
-import FilterCard from "../components/FilterCard";
-import Dropdown from "../components/Dropdown";
-import DropdownList from "../components/DropdownList";
+import CardWrapper from "../components/home/CardWrapper";
+import SelectedOptions from "../components/home/SelectedOptions";
+import TheDropdown from "../components/home/TheDropdown";
 
 const Home = () => {
   const [psychologists, setPsychologists] = useState([]);
@@ -114,9 +113,9 @@ const Home = () => {
         <SearchName handleNameChange={handleNameChange} />
 
         <div className="flex space-x-4">
-          <Dropdown type={"therapeutic model"} />
-          <Dropdown type={"work population"} />
-          <Dropdown
+          <TheDropdown type={"therapeutic model"} />
+          <TheDropdown type={"work population"} />
+          <TheDropdown
             specializations={specializations}
             type={"specializations"}
             handleUpdate={handleUpdate}
@@ -127,22 +126,16 @@ const Home = () => {
           />
         </div>
 
-        <DropdownList
+        <SelectedOptions
           selectedOptions={selectedOptions}
           handleUpdate={handleUpdate}
           addSpecializations={addSpecializations}
         />
 
         {loading && <p className="grid place-items-center">Loading...</p>}
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {psychologists.map((psychologist) => {
-            return (
-              <FilterCard key={psychologist.id} psychologist={psychologist} />
-            );
-          })}
-        </div>
 
-        {/*  */}
+        <CardWrapper psychologists={psychologists} />
+
         {!loading && <LoadMore handlePagination={handlePagination} />}
       </div>
       <TheFooter />

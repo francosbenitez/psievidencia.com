@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./views/home";
 import PsychologistsDetail from "./views/psychologists-detail";
 import Dashboard from "./views/dashboard";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/global/ScrollToTop";
 // import Sidebar from "./components/Sidebar";
 
 function App() {

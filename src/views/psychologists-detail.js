@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Accordion from "../components/Accordion";
+import TheAccordion from "../components/psychologists-detail/TheAccordion";
 import PsychologistsService from "../services/PsychologistsService";
 import { useState, useEffect } from "react";
 
@@ -143,7 +143,7 @@ const PsychologistsDetail = () => {
           <h3 className="text-1xl underline my-6">{formattedDate()}</h3>
           <div className="accordion">
             {accordionData.map(({ title, content }) => (
-              <Accordion
+              <TheAccordion
                 key={title}
                 title={title}
                 content={psychologist[content]}
