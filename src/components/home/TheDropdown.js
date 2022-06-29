@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 
 const Dropdown = ({
-  specializations,
+  data,
   type,
   handleAdd,
-  updateSpecializations,
+  handleUpdate,
   handlePagination,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const Dropdown = ({
   };
 
   const onOptionClicked = (option) => {
-    updateSpecializations(option);
+    handleUpdate(option);
     setIsOpen(false);
   };
 
@@ -41,7 +41,7 @@ const Dropdown = ({
               handleObserved(el);
             }}
           >
-            {specializations.map((option) => (
+            {data.map((option) => (
               <li
                 className="list-item break-words"
                 onClick={() => {

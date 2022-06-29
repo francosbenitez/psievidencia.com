@@ -117,12 +117,10 @@ const Home = () => {
           <TheDropdown type={"therapeutic model"} />
           <TheDropdown type={"work population"} />
           <TheDropdown
-            specializations={specializations}
+            data={specializations}
             type={"specializations"}
-            handleUpdate={handleUpdate}
-            selectedOptions={selectedOptions}
             handleAdd={handleAdd}
-            updateSpecializations={updateSpecializations}
+            handleUpdate={updateSpecializations}
             handlePagination={handleSpecializationsPagination}
           />
         </div>
