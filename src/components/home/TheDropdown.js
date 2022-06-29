@@ -28,8 +28,8 @@ const Dropdown = ({
   };
 
   return (
-    <div className="w-1/3 my-6">
-      <div className="dropdown-header cursor-pointer" onClick={toggling}>
+    <div className="sm:w-1/3 my-6 w-full">
+      <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
         Filter by {type}
       </div>
       {isOpen && (

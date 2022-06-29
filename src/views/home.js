@@ -113,7 +113,7 @@ const Home = () => {
         <TheHeader />
         <SearchName handleNameChange={handleNameChange} />
 
-        <div className="flex space-x-4">
+        <div className="sm:flex sm:space-x-4">
           <TheDropdown type={"therapeutic model"} />
           <TheDropdown type={"work population"} />
           <TheDropdown
