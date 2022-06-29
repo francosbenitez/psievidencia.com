@@ -15,6 +15,9 @@ export default {
   specializations(pageNumber) {
     return Api().get(`psychologists/specializations?page=${pageNumber}`);
   },
+  therapeuticModels(pageNumber) {
+    return Api().get(`psychologists/therapeutic_models?page=${pageNumber}`);
+  },
   detail(id) {
     return Api().get(`psychologists/${id}`);
   },

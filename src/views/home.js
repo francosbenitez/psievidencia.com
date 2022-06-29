@@ -18,6 +18,13 @@ const Home = () => {
   const [specializations, setSpecializations] = useState([]);
   const [specializationsPagination, setSpecializationsPagination] = useState(1);
 
+  // Name
+  const debouncedName = useDebounce(name, 1000);
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
   // Specializations
   const fetchSpecializations = async () => {
     const data = (await PsychologistsService.specializations(1)).data;
@@ -54,13 +61,6 @@ const Home = () => {
       fetchMoreSpecializations(specializationsPagination);
     }
   }, [specializationsPagination]);
-
-  // Name
-  const debouncedName = useDebounce(name, 1000);
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
 
   // Psychologists
   const fetchPsychologists = async (name, specializations) => {

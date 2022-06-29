@@ -10,7 +10,7 @@ const DropdownList = ({
           key={item.id}
           className="bg-white text-indigo-500 p-1.5 inline mr-6 leading-10"
         >
-          <span>{item.specialization}</span>
+          <span>{item.name}</span>
           <button
             onClick={() => {
               handleUpdate(item.id);
