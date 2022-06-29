@@ -19,9 +19,18 @@ const Home = () => {
   const [specializationsPagination, setSpecializationsPagination] = useState(1);
 
   // Specializations
+  const fetchSpecializations = async () => {
+    const data = (await PsychologistsService.specializations(1)).data;
+    setSpecializations(data.results);
+  };
+
   const fetchMoreSpecializations = async (pagination) => {
     const data = (await PsychologistsService.specializations(pagination)).data;
     setSpecializations((item) => item.concat(data.results));
+  };
+
+  const addSpecializations = (value) => {
+    setSpecializations((oldArray) => [value, ...oldArray]);
   };
 
   const updateSpecializations = (option) => {
@@ -37,10 +46,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const fetchSpecializations = async () => {
-      const data = (await PsychologistsService.specializations(1)).data;
-      setSpecializations(data.results);
-    };
     fetchSpecializations();
   }, []);
 
@@ -49,10 +54,6 @@ const Home = () => {
       fetchMoreSpecializations(specializationsPagination);
     }
   }, [specializationsPagination]);
-
-  const addSpecializations = (value) => {
-    setSpecializations((oldArray) => [value, ...oldArray]);
-  };
 
   // Name
   const debouncedName = useDebounce(name, 1000);
