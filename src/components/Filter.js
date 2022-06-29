@@ -59,6 +59,8 @@ const PsychologistsFilter = ({
       />
 
       <div className="flex space-x-4">
+        <Dropdown type={"therapeutic model"} />
+        <Dropdown type={"work population"} />
         <Dropdown
           specializations={specializations}
           type={"specializations"}
@@ -68,9 +70,6 @@ const PsychologistsFilter = ({
           updateSpecializations={updateSpecializations}
           handlePagination={handlePagination}
         />
-
-        <Dropdown type={"therapeutic model"} />
-        <Dropdown type={"work population"} />
       </div>
 
       <DropdownList
