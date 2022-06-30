@@ -1,4 +1,18 @@
-const DropdownList = ({ selectedOptions, handleUpdate, addOptions }) => {
+const TheDropdownOptions = ({
+  selectedOptions,
+  setSelectedOptions,
+  setData,
+}) => {
+  const addOptions = (value) => {
+    setData((oldArray) => [value, ...oldArray]);
+  };
+
+  const removeSelectedOptions = (id) => {
+    setSelectedOptions(
+      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
+    );
+  };
+
   return (
     <>
       {selectedOptions.map((item) => (
@@ -9,7 +23,7 @@ const DropdownList = ({ selectedOptions, handleUpdate, addOptions }) => {
           <span>{item.name}</span>
           <button
             onClick={() => {
-              handleUpdate(item.id);
+              removeSelectedOptions(item.id);
               addOptions(item);
             }}
             className="pl-2"
@@ -22,4 +36,4 @@ const DropdownList = ({ selectedOptions, handleUpdate, addOptions }) => {
   );
 };
 
-export default DropdownList;
+export default TheDropdownOptions;

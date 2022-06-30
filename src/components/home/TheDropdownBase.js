@@ -1,15 +1,42 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+import PsychologistsService from "../../services/PsychologistsService";
 
-const Dropdown = ({
-  data,
-  type,
-  handleAdd,
-  handleUpdate,
-  handlePagination,
-}) => {
-  //////////////
+const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
+  const [pagination, setPagination] = useState(1);
 
-  //////////////
+  const fetchData = async () => {
+    const data = (await PsychologistsService.lists(1, type)).data;
+    setData(data.results);
+  };
+
+  const fetchMoreData = async (pagination) => {
+    const data = (await PsychologistsService.lists(pagination, type)).data;
+    setData((item) => item.concat(data.results));
+  };
+
+  const addSelectedOptions = (value) => {
+    setSelectedOptions((oldArray) => [...oldArray, value]);
+  };
+
+  const updateData = (option) => {
+    setData(data.filter((data) => data.id !== option.id));
+  };
+
+  const handlePagination = () => {
+    setPagination(pagination + 1);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (pagination > 1) {
+      fetchMoreData(pagination);
+    }
+  }, [pagination]);
+
+  ///////////
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const observed = useRef(null);
@@ -23,9 +50,10 @@ const Dropdown = ({
     }
   };
   const onOptionClicked = (option) => {
-    handleUpdate(option);
+    updateData(option);
     setIsOpen(false);
   };
+  ///////////
   return (
     <div className="sm:w-1/3 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
@@ -45,7 +73,7 @@ const Dropdown = ({
                 className="list-item break-words"
                 onClick={() => {
                   onOptionClicked(option);
-                  handleAdd(option);
+                  addSelectedOptions(option);
                 }}
                 key={option.id}
               >
@@ -59,4 +87,4 @@ const Dropdown = ({
   );
 };
 
-export default Dropdown;
+export default TheDropdownBase;

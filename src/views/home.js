@@ -13,24 +13,20 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
+  const [selectedOptionsSp, setSelectedOptionsSp] = useState([]);
+  const [selectedOptionsTm, setSelectedOptionsTm] = useState([]);
+  const [selectedOptionsWp, setSelectedOptionsWp] = useState([]);
 
-  const [selectedSpecializationOptions, setSelectedSpecializationOptions] =
-    useState([]);
-  const [selectedTherapeuticModelOptions, setSelectedTherapeuticModelOptions] =
-    useState([]);
-
-  // Name
   const debouncedName = useDebounce(name, 1000);
-
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  // Psychologists
   const fetchPsychologists = async (
     name,
     specializations,
-    therapeutic_models
+    therapeutic_models,
+    work_populations
   ) => {
     setLoading(true);
     const data = (
@@ -38,7 +34,8 @@ const Home = () => {
         1,
         name,
         specializations,
-        therapeutic_models
+        therapeutic_models,
+        work_populations
       )
     ).data;
     setPsychologists(data.results);
@@ -48,7 +45,8 @@ const Home = () => {
   const fetchMorePsychologists = async (
     name,
     specializations,
-    therapeutic_models
+    therapeutic_models,
+    work_populations
   ) => {
     setLoading(true);
     const data = (
@@ -56,7 +54,8 @@ const Home = () => {
         pagination,
         name,
         specializations,
-        therapeutic_models
+        therapeutic_models,
+        work_populations
       )
     ).data;
     setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -68,35 +67,27 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const selectedSpecializationIds = selectedSpecializationOptions.map(
-      (item) => item.id
-    );
-    const selectedTherapeuticModelIds = selectedTherapeuticModelOptions.map(
-      (item) => item.id
-    );
+    const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
+    const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
+    const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
     fetchPsychologists(
       debouncedName,
-      selectedSpecializationIds,
-      selectedTherapeuticModelIds
+      selectedOptionsIdsSp,
+      selectedOptionsIdsTm,
+      selectedOptionsIdsWp
     );
-  }, [
-    debouncedName,
-    selectedSpecializationOptions,
-    selectedTherapeuticModelOptions,
-  ]);
+  }, [debouncedName, selectedOptionsSp, selectedOptionsTm, selectedOptionsWp]);
 
   useEffect(() => {
     if (pagination > 1) {
-      const selectedSpecializationIds = selectedSpecializationOptions.map(
-        (item) => item.id
-      );
-      const selectedTherapeuticModelIds = selectedTherapeuticModelOptions.map(
-        (item) => item.id
-      );
+      const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
+      const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
+      const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
       fetchMorePsychologists(
         debouncedName,
-        selectedSpecializationIds,
-        selectedTherapeuticModelIds
+        selectedOptionsIdsSp,
+        selectedOptionsIdsTm,
+        selectedOptionsIdsWp
       );
     }
   }, [pagination]);
@@ -108,12 +99,12 @@ const Home = () => {
         <SearchName handleNameChange={handleNameChange} />
 
         <TheDropdown
-          setSelectedSpecializationOptions={setSelectedSpecializationOptions}
-          setSelectedTherapeuticModelOptions={
-            setSelectedTherapeuticModelOptions
-          }
-          selectedTherapeuticModelOptions={selectedTherapeuticModelOptions}
-          selectedSpecializationOptions={selectedSpecializationOptions}
+          setSelectedOptionsSp={setSelectedOptionsSp}
+          selectedOptionsSp={selectedOptionsSp}
+          setSelectedOptionsTm={setSelectedOptionsTm}
+          selectedOptionsTm={selectedOptionsTm}
+          setSelectedOptionsWp={setSelectedOptionsWp}
+          selectedOptionsWp={selectedOptionsWp}
         />
 
         {loading && <p className="grid place-items-center">Loading...</p>}
