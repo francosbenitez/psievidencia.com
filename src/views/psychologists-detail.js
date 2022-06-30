@@ -19,75 +19,91 @@ const PsychologistsDetail = () => {
   const accordionData = [
     {
       id: 1,
+      title: "¿En cuáles modelos terapéuticos acredita formación?",
+      content: "therapeutic_model",
+    },
+    {
+      id: 2,
+      title:
+        "Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional",
+      content: "specialization",
+    },
+    {
+      id: 3,
+      title: "Población de trabajo",
+      content: "work_population",
+    },
+    {
+      id: 4,
       title: "Identidad de Género",
       content: "gender",
     },
     {
-      id: 2,
+      id: 5,
       title: "Tipo de Matrícula",
       content: "registration_type",
     },
     {
-      id: 3,
+      id: 6,
       title:
         "Número de Matrícula (en caso de tener MN y MP, poner ambas en ese orden)",
       content: "registration_number",
     },
     {
-      id: 4,
+      id: 7,
       title:
         "Añada el nombre de la institución o servicio en salud mental en caso de formar parte",
       content: "institution",
     },
     {
-      id: 5,
+      id: 8,
       title: "¿Integra un equipo de salud con Médicx Psiquiatra?",
       content: "team",
     },
     {
-      id: 6,
+      id: 9,
       title: "Mayor grado académico alcanzado",
       content: "education",
     },
     {
-      id: 7,
+      id: 10,
       title: "Formación en Perspectiva de Género/LGBTIQ+",
       content: "gender_perspective",
     },
     {
-      id: 8,
+      id: 11,
       title: "Modalidad de Trabajo",
       content: "work_modality",
     },
     {
-      id: 9,
+      id: 12,
       title: "¿Trabaja con Obras Sociales / Prepagas?",
       content: "prepaid",
     },
     {
-      id: 10,
+      id: 13,
       title: "Especificar cuáles",
       content: "prepaid_type",
     },
     {
-      id: 11,
+      id: 14,
       title:
         "¿Facturás para realizar el reintegro en las Obras Sociales / Prepagas?",
       content: "invoice",
     },
     {
-      id: 12,
+      id: 15,
       title: "¿Utiliza Lengua de Señas? (manejo fluido para una sesión)",
       content: "sign_language",
     },
     {
-      id: 13,
+      id: 16,
       title:
         "Además de Español, ¿tiene manejo de otro/s idioma/s fluido/s para una sesión?",
       content: "session_languages",
     },
     {
-      id: 14,
+      id: 17,
       title:
         "Algún dato que quieras añadir y no se haya contemplado previamente en el cuestionario",
       content: "additional_data",
