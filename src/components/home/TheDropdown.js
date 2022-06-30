@@ -1,63 +1,155 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import TheDropdownOptions from "./TheDropdownOptions";
+import TheDropdownBase from "./TheDropdownBase";
+import PsychologistsService from "../../services/PsychologistsService";
 
-const Dropdown = ({
-  data,
-  type,
-  handleAdd,
-  handleUpdate,
-  handlePagination,
+const TheDropdown = ({
+  setSelectedTherapeuticModelOptions,
+  setSelectedSpecializationOptions,
+  selectedSpecializationOptions,
+  selectedTherapeuticModelOptions,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggling = () => setIsOpen(!isOpen);
+  const [specializations, setSpecializations] = useState([]);
+  const [specializationsPagination, setSpecializationsPagination] = useState(1);
+  const [therapeuticModels, setTherapeuticModels] = useState([]);
+  const [therapeuticModelsPagination, setTherapeuticModelsPagination] =
+    useState(1);
 
-  const observed = useRef(null);
+  // Specializations
+  const fetchSpecializations = async () => {
+    const data = (await PsychologistsService.specializations(1)).data;
+    setSpecializations(data.results);
+  };
 
-  const handleObserved = (el) => {
-    if (el != null) {
-      el.addEventListener("scroll", () => {
-        if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
-          handlePagination();
-        }
-      });
+  const fetchMoreSpecializations = async (pagination) => {
+    const data = (await PsychologistsService.specializations(pagination)).data;
+    setSpecializations((item) => item.concat(data.results));
+  };
+
+  const addSpecializations = (value) => {
+    setSpecializations((oldArray) => [value, ...oldArray]);
+  };
+
+  const updateSpecializations = (option) => {
+    setSpecializations(
+      specializations.filter(
+        (specializations) => specializations.id !== option.id
+      )
+    );
+  };
+
+  const handleSpecializationsPagination = () => {
+    setSpecializationsPagination(specializationsPagination + 1);
+  };
+
+  const updateSelectedSpecializationOptions = (id) => {
+    setSelectedSpecializationOptions(
+      selectedSpecializationOptions.filter(
+        (selectedSpecializationOptions) =>
+          selectedSpecializationOptions.id !== id
+      )
+    );
+  };
+
+  const addSelectedSpecializationOptions = (value) => {
+    setSelectedSpecializationOptions((oldArray) => [...oldArray, value]);
+  };
+
+  useEffect(() => {
+    fetchSpecializations();
+  }, []);
+
+  useEffect(() => {
+    if (specializationsPagination > 1) {
+      fetchMoreSpecializations(specializationsPagination);
     }
+  }, [specializationsPagination]);
+
+  // Therapeutic models
+  const fetchTherapeuticModels = async () => {
+    const data = (await PsychologistsService.therapeuticModels(1)).data;
+    setTherapeuticModels(data.results);
   };
 
-  const onOptionClicked = (option) => {
-    handleUpdate(option);
-    setIsOpen(false);
+  const fetchMoreTherapeuticModels = async (pagination) => {
+    const data = (await PsychologistsService.therapeuticModels(pagination))
+      .data;
+    setTherapeuticModels((item) => item.concat(data.results));
   };
+
+  const addTherapeuticModels = (value) => {
+    setTherapeuticModels((oldArray) => [value, ...oldArray]);
+  };
+
+  const updateTherapeuticModels = (option) => {
+    setTherapeuticModels(
+      therapeuticModels.filter(
+        (therapeuticModels) => therapeuticModels.id !== option.id
+      )
+    );
+  };
+
+  const handleTherapeuticModelsPagination = () => {
+    setTherapeuticModelsPagination(therapeuticModelsPagination + 1);
+  };
+
+  const updateSelectedTherapeuticModelOptions = (id) => {
+    setSelectedTherapeuticModelOptions(
+      selectedTherapeuticModelOptions.filter(
+        (selectedTherapeuticModelOptions) =>
+          selectedTherapeuticModelOptions.id !== id
+      )
+    );
+  };
+
+  const addSelectedTherapeuticModelOptions = (value) => {
+    setSelectedTherapeuticModelOptions((oldArray) => [...oldArray, value]);
+  };
+
+  useEffect(() => {
+    fetchTherapeuticModels();
+  }, []);
+
+  useEffect(() => {
+    if (therapeuticModelsPagination > 1) {
+      fetchMoreTherapeuticModels(therapeuticModelsPagination);
+    }
+  }, [therapeuticModelsPagination]);
 
   return (
-    <div className="sm:w-1/3 my-6 w-full">
-      <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
-        Filter by {type}
+    <>
+      <div className="sm:flex sm:space-x-4">
+        <TheDropdownBase
+          type={"therapeutic model"}
+          data={therapeuticModels}
+          handleAdd={addSelectedTherapeuticModelOptions}
+          handleUpdate={updateTherapeuticModels}
+          handlePagination={handleTherapeuticModelsPagination}
+        />
+        <TheDropdownBase type={"work population"} />
+        <TheDropdownBase
+          data={specializations}
+          type={"specializations"}
+          handleAdd={addSelectedSpecializationOptions}
+          handleUpdate={updateSpecializations}
+          handlePagination={handleSpecializationsPagination}
+        />
       </div>
-      {isOpen && (
-        <div>
-          <ul
-            className="dropdown-list"
-            ref={(el) => {
-              observed.current = el;
-              handleObserved(el);
-            }}
-          >
-            {data.map((option) => (
-              <li
-                className="list-item break-words"
-                onClick={() => {
-                  onOptionClicked(option);
-                  handleAdd(option);
-                }}
-                key={option.id}
-              >
-                {option.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+
+      <div className="container my-6">
+        <TheDropdownOptions
+          selectedOptions={selectedSpecializationOptions}
+          handleUpdate={updateSelectedSpecializationOptions}
+          addOptions={addSpecializations}
+        />
+        <TheDropdownOptions
+          selectedOptions={selectedTherapeuticModelOptions}
+          handleUpdate={updateSelectedTherapeuticModelOptions}
+          addOptions={addTherapeuticModels}
+        />
+      </div>
+    </>
   );
 };
 
-export default Dropdown;
+export default TheDropdown;
