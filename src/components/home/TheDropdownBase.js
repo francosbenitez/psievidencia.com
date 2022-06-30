@@ -3,6 +3,9 @@ import PsychologistsService from "../../services/PsychologistsService";
 
 const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
   const [pagination, setPagination] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggling = () => setIsOpen(!isOpen);
+  const observed = useRef(null);
 
   const fetchData = async () => {
     const data = (await PsychologistsService.lists(1, type)).data;
@@ -26,6 +29,21 @@ const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
     setPagination(pagination + 1);
   };
 
+  const handleObserved = (el) => {
+    if (el != null) {
+      el.addEventListener("scroll", () => {
+        if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
+          handlePagination();
+        }
+      });
+    }
+  };
+
+  const onOptionClicked = (option) => {
+    updateData(option);
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -36,28 +54,10 @@ const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
     }
   }, [pagination]);
 
-  ///////////
-  const [isOpen, setIsOpen] = useState(false);
-  const toggling = () => setIsOpen(!isOpen);
-  const observed = useRef(null);
-  const handleObserved = (el) => {
-    if (el != null) {
-      el.addEventListener("scroll", () => {
-        if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
-          handlePagination();
-        }
-      });
-    }
-  };
-  const onOptionClicked = (option) => {
-    updateData(option);
-    setIsOpen(false);
-  };
-  ///////////
   return (
     <div className="sm:w-1/3 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
-        Filter by {type}
+        Filter by {type.replace("_", " ")}
       </div>
       {isOpen && (
         <div>
