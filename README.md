@@ -1,5 +1,5 @@
 # Psievidencia
-This project takes data from a Google Spreadsheet/Google Forms. Based on it, the application organizes and visualizes them.
+This project takes data from a Google Forms. It uses an API which can be found on [this link](https://github.com/francosbenitez/psievidencia-backend).
 
 ## Code and Resources Used
 - **Main Technologies:** React, Tailwind.
