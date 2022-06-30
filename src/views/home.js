@@ -1,49 +1,125 @@
-import React from "react";
-import Filter from "../components/Filter";
-import { ReactComponent as Magnifier } from "../assets/icons/magnifier.svg";
-import { ReactComponent as GitHub } from "../assets/icons/github.svg";
+import PsychologistsService from "../services/PsychologistsService";
+import useDebounce from "../hooks/useDebounce";
+import { useState, useEffect } from "react";
+import TheFooter from "../components/home/TheFooter";
+import TheHeader from "../components/home/TheHeader";
+import LoadMore from "../components/home/LoadMore";
+import SearchName from "../components/home/SearchName";
+import TheCard from "../components/home/TheCard";
+import TheDropdown from "../components/home/TheDropdown";
 
-const Home = ({ psychologists, loading }) => {
-  psychologists.forEach(
-    (psychologist) =>
-      (psychologist.name_2 = psychologist.name_2
-        .toLowerCase()
-        .split(" ")
-        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-        .join(" "))
-  );
+const Home = () => {
+  const [psychologists, setPsychologists] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState(null);
+  const [pagination, setPagination] = useState(1);
+  const [selectedOptionsSp, setSelectedOptionsSp] = useState([]);
+  const [selectedOptionsTm, setSelectedOptionsTm] = useState([]);
+  const [selectedOptionsWp, setSelectedOptionsWp] = useState([]);
+
+  const debouncedName = useDebounce(name, 1000);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const fetchPsychologists = async (
+    name,
+    specializations,
+    therapeutic_models,
+    work_populations
+  ) => {
+    setLoading(true);
+    const data = (
+      await PsychologistsService.index(
+        1,
+        name,
+        specializations,
+        therapeutic_models,
+        work_populations
+      )
+    ).data;
+    setPsychologists(data.results);
+    setLoading(false);
+  };
+
+  const fetchMorePsychologists = async (
+    name,
+    specializations,
+    therapeutic_models,
+    work_populations
+  ) => {
+    setLoading(true);
+    const data = (
+      await PsychologistsService.index(
+        pagination,
+        name,
+        specializations,
+        therapeutic_models,
+        work_populations
+      )
+    ).data;
+    setPsychologists((psychologists) => psychologists.concat(data.results));
+    setLoading(false);
+  };
+
+  const handlePagination = () => {
+    setPagination(pagination + 1);
+  };
+
+  useEffect(() => {
+    const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
+    const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
+    const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+    fetchPsychologists(
+      debouncedName,
+      selectedOptionsIdsSp,
+      selectedOptionsIdsTm,
+      selectedOptionsIdsWp
+    );
+  }, [debouncedName, selectedOptionsSp, selectedOptionsTm, selectedOptionsWp]);
+
+  useEffect(() => {
+    if (pagination > 1) {
+      const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
+      const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
+      const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+      fetchMorePsychologists(
+        debouncedName,
+        selectedOptionsIdsSp,
+        selectedOptionsIdsTm,
+        selectedOptionsIdsWp
+      );
+    }
+  }, [pagination]);
 
   return (
     <>
       <div className="container mx-auto py-28 px-5 sm:px-0">
-        <h1 className="text-center font-bold text-5xl">
-          <Magnifier className="inline w-12 h-12" /> PsiEvidencia
-        </h1>
-        <h2 className="text-center text-2xl my-9">
-          A web app to help you find the best evidence-based psychologists
-        </h2>
-        <Filter psychologists={psychologists} loading={loading} />
+        <TheHeader />
+        <SearchName handleNameChange={handleNameChange} />
+
+        <TheDropdown
+          setSelectedOptionsSp={setSelectedOptionsSp}
+          selectedOptionsSp={selectedOptionsSp}
+          setSelectedOptionsTm={setSelectedOptionsTm}
+          selectedOptionsTm={selectedOptionsTm}
+          setSelectedOptionsWp={setSelectedOptionsWp}
+          selectedOptionsWp={selectedOptionsWp}
+        />
+
+        {loading && <p className="grid place-items-center">Loading...</p>}
+
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {psychologists.map((psychologist) => {
+            return (
+              <TheCard key={psychologist.id} psychologist={psychologist} />
+            );
+          })}
+        </div>
+
+        {!loading && <LoadMore handlePagination={handlePagination} />}
       </div>
-      <footer className="bottom-0 fixed bg-white w-full p-8 text-center">
-        To be part of this collection, fill your data in{" "}
-        <a
-          className="underline"
-          target="_blank"
-          rel="noreferrer"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSccyO5jICweFShGTLEEiCOYLYySlEUacI0_4IDCY10AdYqIpA/viewform"
-        >
-          this Google Forms
-        </a>{" "}
-        |{" "}
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://github.com/francosbenitez/psievidencia"
-        >
-          <span className="underline">Source code</span>{" "}
-          <GitHub className="inline w-4 h-4" />
-        </a>
-      </footer>
+      <TheFooter />
     </>
   );
 };

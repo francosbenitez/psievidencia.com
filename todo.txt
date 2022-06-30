@@ -17,5 +17,14 @@ TO-DO:
     - Next, and
     - TypeScript.
   - Tell Facundo modify the email/mobile phone variable. REMOVE IT.
-  - Change the current project name for "psievidencia-frontend".
-  - Implement paginated data from the psievidencia-backend API.
+  - Change the current project name for "psievidencia-frontend". PENDING TO REVIEW
+  - Implement paginated data from the psievidencia-backend API. DONE
+  - Implement search API via the four main variables as a queries.
+  - Reorganize the components better! 
+  - Build a dashboard navbar with hamburguer menu.
+  - Move project to Next.js.
+  - Reuse the TheDropdown component by the three main filters.
+  - Reorganize the code correctly.
+    - Make the basic functionality work well (filters). 
+    - Pass the project to Next & TypeScript in a branch called "feat/next-and-ts".
+    - Add internationalization (i18n) in EN/ES.

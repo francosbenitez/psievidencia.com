@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Accordion = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <React.Fragment>
+    <>
       {content !== "" && (
         <div className="accordion-item">
           <div
@@ -17,7 +17,7 @@ const Accordion = ({ title, content }) => {
           {isActive && <div className="accordion-content">{content}</div>}
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
