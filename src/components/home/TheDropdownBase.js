@@ -55,7 +55,7 @@ const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
   }, [pagination]);
 
   return (
-    <div className="sm:w-1/3 my-6 w-full">
+    <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
         Filter by {type.replace("_", " ")}
       </div>

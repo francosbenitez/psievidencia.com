@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TheDropdownOptions from "./TheDropdownOptions";
 import TheDropdownBase from "./TheDropdownBase";
+import TheDropdownEducation from "./TheDropdownEducation";
 
 const TheDropdown = ({
   selectedOptionsSp,
@@ -35,6 +36,7 @@ const TheDropdown = ({
           data={wp}
           setData={setWp}
         />
+        <TheDropdownEducation />
       </div>
 
       <div className="container my-6">
