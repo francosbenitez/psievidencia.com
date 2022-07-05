@@ -11,6 +11,7 @@ import TheDropdown from "../components/home/TheDropdown";
 const Home = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState(null);
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState([]);
@@ -44,6 +45,7 @@ const Home = () => {
     setPsychologists(data.results);
     setLoading(false);
     setPagination(1);
+    setNoMore(false);
   };
 
   const fetchMorePsychologists = async (
@@ -67,10 +69,12 @@ const Home = () => {
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
       setLoading(false);
+      setNoMore(false);
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
       setLoading(false);
       setPagination(1);
+      setNoMore(true);
     }
   };
 
@@ -139,7 +143,9 @@ const Home = () => {
           })}
         </div>
 
-        {!loading && <LoadMore handlePagination={handlePagination} />}
+        {!loading && (
+          <LoadMore handlePagination={handlePagination} noMore={noMore} />
+        )}
       </div>
       <TheFooter />
     </>
