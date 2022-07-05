@@ -28,3 +28,4 @@ TO-DO:
     - Make the basic functionality work well (filters). 
     - Pass the project to Next & TypeScript in a branch called "feat/next-and-ts".
     - Add internationalization (i18n) in EN/ES.
+    - Deploy the project on Vercel, and add a custom domain like "https://psievidencia.francosbenitez.com".
