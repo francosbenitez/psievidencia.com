@@ -10,10 +10,13 @@ const TheDropdown = ({
   setSelectedOptionsTm,
   selectedOptionsWp,
   setSelectedOptionsWp,
+  selectedOptionEd,
+  setSelectedOptionEd,
 }) => {
   const [sp, setSp] = useState([]);
   const [tm, setTm] = useState([]);
   const [wp, setWp] = useState([]);
+  const [ed, setEd] = useState([]);
 
   return (
     <>
@@ -36,7 +39,12 @@ const TheDropdown = ({
           data={wp}
           setData={setWp}
         />
-        <TheDropdownEducation />
+        <TheDropdownEducation
+          selectedOptionEd={selectedOptionEd}
+          setSelectedOptionEd={setSelectedOptionEd}
+          data={ed}
+          setData={setEd}
+        />
       </div>
 
       <div className="container my-6">

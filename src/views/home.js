@@ -16,6 +16,7 @@ const Home = () => {
   const [selectedOptionsSp, setSelectedOptionsSp] = useState([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState([]);
   const [selectedOptionsWp, setSelectedOptionsWp] = useState([]);
+  const [selectedOptionEd, setSelectedOptionEd] = useState("");
 
   const debouncedName = useDebounce(name, 1000);
   const handleNameChange = (e) => {
@@ -26,7 +27,8 @@ const Home = () => {
     name,
     specializations,
     therapeutic_models,
-    work_populations
+    work_populations,
+    education
   ) => {
     setLoading(true);
     const data = (
@@ -35,7 +37,8 @@ const Home = () => {
         name,
         specializations,
         therapeutic_models,
-        work_populations
+        work_populations,
+        education
       )
     ).data;
     setPsychologists(data.results);
@@ -46,7 +49,8 @@ const Home = () => {
     name,
     specializations,
     therapeutic_models,
-    work_populations
+    work_populations,
+    education
   ) => {
     setLoading(true);
     const data = (
@@ -55,7 +59,8 @@ const Home = () => {
         name,
         specializations,
         therapeutic_models,
-        work_populations
+        work_populations,
+        education
       )
     ).data;
     setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -74,9 +79,16 @@ const Home = () => {
       debouncedName,
       selectedOptionsIdsSp,
       selectedOptionsIdsTm,
-      selectedOptionsIdsWp
+      selectedOptionsIdsWp,
+      selectedOptionEd
     );
-  }, [debouncedName, selectedOptionsSp, selectedOptionsTm, selectedOptionsWp]);
+  }, [
+    debouncedName,
+    selectedOptionsSp,
+    selectedOptionsTm,
+    selectedOptionsWp,
+    selectedOptionEd,
+  ]);
 
   useEffect(() => {
     if (pagination > 1) {
@@ -87,7 +99,8 @@ const Home = () => {
         debouncedName,
         selectedOptionsIdsSp,
         selectedOptionsIdsTm,
-        selectedOptionsIdsWp
+        selectedOptionsIdsWp,
+        selectedOptionEd
       );
     }
   }, [pagination]);
@@ -99,12 +112,14 @@ const Home = () => {
         <SearchName handleNameChange={handleNameChange} />
 
         <TheDropdown
-          setSelectedOptionsSp={setSelectedOptionsSp}
           selectedOptionsSp={selectedOptionsSp}
-          setSelectedOptionsTm={setSelectedOptionsTm}
+          setSelectedOptionsSp={setSelectedOptionsSp}
           selectedOptionsTm={selectedOptionsTm}
-          setSelectedOptionsWp={setSelectedOptionsWp}
+          setSelectedOptionsTm={setSelectedOptionsTm}
           selectedOptionsWp={selectedOptionsWp}
+          setSelectedOptionsWp={setSelectedOptionsWp}
+          selectedOptionEd={selectedOptionEd}
+          setSelectedOptionEd={setSelectedOptionEd}
         />
 
         {loading && <p className="grid place-items-center">Loading...</p>}
