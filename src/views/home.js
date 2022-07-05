@@ -43,6 +43,7 @@ const Home = () => {
     ).data;
     setPsychologists(data.results);
     setLoading(false);
+    setPagination(1);
   };
 
   const fetchMorePsychologists = async (
@@ -52,19 +53,25 @@ const Home = () => {
     work_populations,
     education
   ) => {
-    setLoading(true);
-    const data = (
-      await PsychologistsService.index(
-        pagination,
-        name,
-        specializations,
-        therapeutic_models,
-        work_populations,
-        education
-      )
-    ).data;
-    setPsychologists((psychologists) => psychologists.concat(data.results));
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = (
+        await PsychologistsService.index(
+          pagination,
+          name,
+          specializations,
+          therapeutic_models,
+          work_populations,
+          education
+        )
+      ).data;
+      setPsychologists((psychologists) => psychologists.concat(data.results));
+      setLoading(false);
+    } catch (errors) {
+      console.log("errors.response.data", errors.response.data);
+      setLoading(false);
+      setPagination(1);
+    }
   };
 
   const handlePagination = () => {
