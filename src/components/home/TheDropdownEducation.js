@@ -19,10 +19,11 @@ const TheDropdownEducation = ({
     const doSomething = () =>
       setData((item) =>
         item.concat([
-          { id: 1, name: "licenciatura", slug: "Licentiate degree" },
-          { id: 2, name: "especialidad", slug: "Specialist degree" },
-          { id: 3, name: "maestria", slug: "Master's degree" },
-          { id: 4, name: "doctorado", slug: "Doctoral degree" },
+          { id: 1, name: "", slug: "All" },
+          { id: 2, name: "licenciatura", slug: "Licentiate degree" },
+          { id: 3, name: "especialidad", slug: "Specialist degree" },
+          { id: 4, name: "maestria", slug: "Master's degree" },
+          { id: 5, name: "doctorado", slug: "Doctoral degree" },
         ])
       );
     doSomething();
