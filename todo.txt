@@ -29,3 +29,9 @@ TO-DO:
     - Pass the project to Next & TypeScript in a branch called "feat/next-and-ts".
     - Add internationalization (i18n) in EN/ES.
     - Deploy the project on Vercel, and add a custom domain like "https://psievidencia.francosbenitez.com".
+- Allow filtering with checkboxs: 
+    - On the backend, the API will be: 
+      - "Identidad de Género": "/api/psychologists?gender=mujer" or "/api/psychologists?gender=hombre". 
+      - "Formación en Perspectiva de Género/LGBTIQ+": "api/psychologists?gender_perspective=lgbtiq" or "api/psychologists?gender_perspective=".
+      - "Modalidad de Trabajo": "api/psychologists/work_modality=individual" or "api/psychologists/work_modality=grupal". 
+ 
