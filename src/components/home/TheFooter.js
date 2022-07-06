@@ -17,7 +17,7 @@ const HomeFooter = () => {
       <a
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/francosbenitez/psievidencia"
+        href="https://github.com/francosbenitez/psievidencia-frontend"
       >
         <span className="underline">Source code</span>{" "}
         <GitHub className="inline w-4 h-4" />

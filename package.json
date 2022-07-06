@@ -1,6 +1,6 @@
 {
-  "name": "psievidencia",
-  "homepage": "https://francosbenitez.github.io/psievidencia/",
+  "name": "psievidencia-frontend",
+  "homepage": "https://francosbenitez.github.io/psievidencia-frontend/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
