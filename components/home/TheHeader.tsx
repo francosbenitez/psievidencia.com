@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Magnifier } from "../../assets/icons/magnifier.svg";
+import Magnifier from "../../public/icons/magnifier.svg";
 
 const TheHeader = () => {
   return (

@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import TheHeader from "../components/home/TheHeader";
 
 const Home: NextPage = () => {
   return (
@@ -8,7 +9,9 @@ const Home: NextPage = () => {
         <meta charSet="utf-8" />
         <title>PsiEvidencia</title>
       </Head>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="container mx-auto py-28 px-5 sm:px-0">
+        <TheHeader />
+      </div>
     </>
   );
 };
