@@ -4,7 +4,7 @@ import Image from "next/image";
 const PsychologistsCards = ({ psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
-      <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100">
+      <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100 cursor-pointer">
         {psychologist.image_url && (
           <Image
             src={psychologist.image_url}
