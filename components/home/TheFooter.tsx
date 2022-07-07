@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as GitHub } from "../../assets/icons/github.svg";
+import GitHub from "../../public/icons/github.svg";
 
 const HomeFooter = () => {
   return (
