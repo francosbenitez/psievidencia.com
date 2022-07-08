@@ -5,7 +5,7 @@ type Props = {
   type: string;
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
   data: Data[];
-  setData: React.Dispatch<React.SetStateAction<any[]>>;
+  setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
 type Data = {

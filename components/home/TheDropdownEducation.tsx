@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 type Props = {
   data: Data[];
-  setData: React.Dispatch<React.SetStateAction<any[]>>;
+  setData: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: string;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
 };
