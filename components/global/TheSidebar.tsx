@@ -11,6 +11,7 @@ const Sidebar = () => {
   const domeNode = useRef<HTMLSpanElement | null>(null);
 
   const updateState = (event: any) => {
+    console.log("event", event);
     if (domeNode.current!.contains(event.target)) {
       return;
     }

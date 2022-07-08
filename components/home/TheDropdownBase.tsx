@@ -1,27 +1,44 @@
 import { useEffect, useState, useRef } from "react";
 import PsychologistsService from "../../services/PsychologistsService";
 
-const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
+type Props = {
+  type: string;
+  setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
+  data: any[];
+  setData: React.Dispatch<React.SetStateAction<any[]>>;
+};
+
+type Data = {
+  id: number;
+  name: string;
+};
+
+const TheDropdownBase = ({
+  type,
+  setSelectedOptions,
+  data,
+  setData,
+}: Props) => {
   const [pagination, setPagination] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
-  const observed = useRef(null);
+  const observed = useRef<HTMLUListElement | null>(null);
 
   const fetchData = async () => {
     const data = (await PsychologistsService.lists(1, type)).data;
     setData(data.results);
   };
 
-  const fetchMoreData = async (pagination) => {
+  const fetchMoreData = async (pagination: number) => {
     const data = (await PsychologistsService.lists(pagination, type)).data;
     setData((item) => item.concat(data.results));
   };
 
-  const addSelectedOptions = (value) => {
+  const addSelectedOptions = (value: Data) => {
     setSelectedOptions((oldArray) => [...oldArray, value]);
   };
 
-  const updateData = (option) => {
+  const updateData = (option: Data) => {
     setData(data.filter((data) => data.id !== option.id));
   };
 
@@ -29,7 +46,8 @@ const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
     setPagination(pagination + 1);
   };
 
-  const handleObserved = (el) => {
+  const handleObserved = (el: HTMLUListElement | null) => {
+    console.log("el", el);
     if (el != null) {
       el.addEventListener("scroll", () => {
         if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
@@ -39,7 +57,7 @@ const TheDropdownBase = ({ type, setSelectedOptions, data, setData }) => {
     }
   };
 
-  const onOptionClicked = (option) => {
+  const onOptionClicked = (option: any) => {
     updateData(option);
     setIsOpen(false);
   };

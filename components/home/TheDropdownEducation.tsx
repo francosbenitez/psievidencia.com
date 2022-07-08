@@ -1,16 +1,29 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+type Props = {
+  data: any[];
+  setData: React.Dispatch<React.SetStateAction<any[]>>;
+  selectedOptionEd: string;
+  setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
+};
+
+type Data = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
 const TheDropdownEducation = ({
   data,
   setData,
   selectedOptionEd,
   setSelectedOptionEd,
-}) => {
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = (value) => () => {
+  const onOptionClicked = (value: Data) => () => {
     setSelectedOptionEd(value.name);
     setIsOpen(false);
   };

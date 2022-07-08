@@ -1,17 +1,46 @@
 import Link from "next/link";
-import Image from "next/image";
 
-const PsychologistsCards = ({ psychologist }) => {
+type Psychologist = {
+  additional_data: string;
+  city: string;
+  date: string;
+  education: string;
+  email: string;
+  gender: string;
+  gender_perspective: string;
+  id: number;
+  institution: string;
+  invoice: string;
+  name: string;
+  name_2: string;
+  online: string;
+  phone_number: string;
+  prepaid: string;
+  prepaid_type: string;
+  province: string;
+  registration_number: string;
+  registration_type: string;
+  session_languages: string;
+  sign_language: string;
+  social_networks: string;
+  specialization: string;
+  team: string;
+  therapeutic_model: string;
+  work_modality: string;
+  work_population: string;
+};
+
+const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
       <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100 cursor-pointer">
-        {psychologist.image_url && (
+        {/* {psychologist.image_url && (
           <Image
             src={psychologist.image_url}
             alt=""
             className="rounded-full p-4 h-40 w-40 mx-auto"
           />
-        )}
+        )} */}
         <header className=" text-2xl font-extrabold py-4 px-4 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>
@@ -84,4 +113,4 @@ const PsychologistsCards = ({ psychologist }) => {
   );
 };
 
-export default PsychologistsCards;
+export default TheCard;

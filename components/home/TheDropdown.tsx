@@ -3,6 +3,22 @@ import TheDropdownOptions from "./TheDropdownOptions";
 import TheDropdownBase from "./TheDropdownBase";
 import TheDropdownEducation from "./TheDropdownEducation";
 
+type Data = {
+  id: number;
+  name: string;
+};
+
+type Props = {
+  selectedOptionsSp: number[];
+  setSelectedOptionsSp: React.Dispatch<React.SetStateAction<Data[]>>;
+  selectedOptionsTm: number[];
+  setSelectedOptionsTm: React.Dispatch<React.SetStateAction<Data[]>>;
+  selectedOptionsWp: number[];
+  setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
+  selectedOptionEd: string;
+  setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
+};
+
 const TheDropdown = ({
   selectedOptionsSp,
   setSelectedOptionsSp,
@@ -12,11 +28,11 @@ const TheDropdown = ({
   setSelectedOptionsWp,
   selectedOptionEd,
   setSelectedOptionEd,
-}) => {
-  const [sp, setSp] = useState([]);
-  const [tm, setTm] = useState([]);
-  const [wp, setWp] = useState([]);
-  const [ed, setEd] = useState([]);
+}: Props) => {
+  const [sp, setSp] = useState<Data[]>([]);
+  const [tm, setTm] = useState<Data[]>([]);
+  const [wp, setWp] = useState<Data[]>([]);
+  const [ed, setEd] = useState<Data[]>([]);
 
   return (
     <>

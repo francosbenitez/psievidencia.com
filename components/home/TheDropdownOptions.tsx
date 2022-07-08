@@ -1,13 +1,24 @@
+type Props = {
+  selectedOptions: any[];
+  setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
+  setData: React.Dispatch<React.SetStateAction<any[]>>;
+};
+
+type Data = {
+  id: number;
+  name: string;
+};
+
 const TheDropdownOptions = ({
   selectedOptions,
   setSelectedOptions,
   setData,
-}) => {
-  const addOptions = (value) => {
+}: Props) => {
+  const addOptions = (value: Data) => {
     setData((oldArray) => [value, ...oldArray]);
   };
 
-  const removeSelectedOptions = (id) => {
+  const removeSelectedOptions = (id: number) => {
     setSelectedOptions(
       selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
     );
