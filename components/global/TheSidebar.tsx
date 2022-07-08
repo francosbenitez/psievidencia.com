@@ -10,9 +10,9 @@ const Sidebar = () => {
 
   const domeNode = useRef<HTMLSpanElement | null>(null);
 
-  const updateState = (event: any) => {
-    console.log("event", event);
-    if (domeNode.current!.contains(event.target)) {
+  const updateState = (event: Event) => {
+    const target = event.target as HTMLElement;
+    if (domeNode.current!.contains(target)) {
       return;
     }
     setIsOpen(false);

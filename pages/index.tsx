@@ -57,8 +57,8 @@ const Home: NextPage = () => {
   const [selectedOptionEd, setSelectedOptionEd] = useState<string>("");
 
   const debouncedName = useDebounce(name, 1000);
-  const handleNameChange = (e: Event) => {
-    const target = e.target as HTMLInputElement;
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
     if (target) {
       setName(target.value);
     }
