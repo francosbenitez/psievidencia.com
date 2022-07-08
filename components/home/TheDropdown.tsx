@@ -2,6 +2,7 @@ import { useState } from "react";
 import TheDropdownOptions from "./TheDropdownOptions";
 import TheDropdownBase from "./TheDropdownBase";
 import TheDropdownEducation from "./TheDropdownEducation";
+import TheDropdownOptionsEd from "./TheDropdownOptionsEd";
 import { Data } from "../../types";
 
 type Props = {
@@ -11,8 +12,8 @@ type Props = {
   setSelectedOptionsTm: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionsWp: Data[];
   setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
-  selectedOptionEd: string;
-  setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
+  selectedOptionEd: Data;
+  setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data>>;
 };
 
 const TheDropdown = ({
@@ -52,8 +53,7 @@ const TheDropdown = ({
           setData={setWp}
         />
         <TheDropdownEducation
-          selectedOptionEd={selectedOptionEd}
-          setSelectedOptionEd={setSelectedOptionEd}
+          setSelectedOption={setSelectedOptionEd}
           data={ed}
           setData={setEd}
         />
@@ -74,6 +74,11 @@ const TheDropdown = ({
           selectedOptions={selectedOptionsTm}
           setSelectedOptions={setSelectedOptionsTm}
           setData={setTm}
+        />
+        <TheDropdownOptionsEd
+          selectedOption={selectedOptionEd}
+          setSelectedOption={setSelectedOptionEd}
+          setData={setEd}
         />
       </div>
     </>

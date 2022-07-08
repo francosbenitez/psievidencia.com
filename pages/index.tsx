@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
   const [selectedOptionsWp, setSelectedOptionsWp] = useState<Data[]>([]);
-  const [selectedOptionEd, setSelectedOptionEd] = useState<string>("");
+  const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
 
   const debouncedName = useDebounce(name, 1000);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,12 +92,13 @@ const Home: NextPage = () => {
     const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
     const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
     const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+    const selectedOptionNameEd = selectedOptionEd.name;
     fetchPsychologists(
       debouncedName,
       selectedOptionsIdsSp,
       selectedOptionsIdsTm,
       selectedOptionsIdsWp,
-      selectedOptionEd
+      selectedOptionNameEd
     );
   }, [
     debouncedName,
@@ -112,12 +113,13 @@ const Home: NextPage = () => {
       const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
       const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
       const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+      const selectedOptionNameEd = selectedOptionEd.name;
       fetchMorePsychologists(
         debouncedName,
         selectedOptionsIdsSp,
         selectedOptionsIdsTm,
         selectedOptionsIdsWp,
-        selectedOptionEd
+        selectedOptionNameEd
       );
     }
   }, [pagination]);
