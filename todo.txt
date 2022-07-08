@@ -28,7 +28,7 @@ TO-DO:
     - Make the basic functionality work well (filters). 
     - Pass the project to Next & TypeScript in a branch called "feat/next-and-ts".
     - Add internationalization (i18n) in EN/ES.
-    - Deploy the project on Vercel, and add a custom domain like "https://psievidencia.francosbenitez.com".
+    - Deploy the project on Vercel, and add a custom domain like "https://psievidencia.francosbenitez.com". DONE
 - Allow filtering with checkboxs: 
     - On the backend, the API will be: 
       - "Identidad de Género": "/api/psychologists?gender=mujer" or "/api/psychologists?gender=hombre". 
