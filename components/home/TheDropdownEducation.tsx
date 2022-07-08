@@ -1,25 +1,26 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Data } from "../../types";
 
 type Props = {
+  setSelectedOption: React.Dispatch<React.SetStateAction<Data>>;
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
-  selectedOptionEd: string;
-  setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const TheDropdownEducation = ({
-  data,
-  setData,
-  selectedOptionEd,
-  setSelectedOptionEd,
-}: Props) => {
+const TheDropdownBase = ({ setSelectedOption, data, setData }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = (value: Data) => () => {
-    setSelectedOptionEd(value.name);
+  const addSelectedOptions = (value: Data) => {
+    setSelectedOption(value);
+  };
+
+  const updateData = (option: Data) => {
+    setData(data.filter((data) => data.id !== option.id));
+  };
+
+  const onOptionClicked = (option: Data) => {
+    updateData(option);
     setIsOpen(false);
   };
 
@@ -27,38 +28,33 @@ const TheDropdownEducation = ({
     const doSomething = () =>
       setData((item) =>
         item.concat([
-          { id: 1, name: "", slug: "All" },
-          { id: 2, name: "licenciatura", slug: "Licentiate degree" },
-          { id: 3, name: "especialidad", slug: "Specialist degree" },
-          { id: 4, name: "maestria", slug: "Master's degree" },
-          { id: 5, name: "doctorado", slug: "Doctoral degree" },
+          { id: 1, name: "licenciatura", slug: "Licentiate degree" },
+          { id: 2, name: "especialidad", slug: "Specialist degree" },
+          { id: 3, name: "maestria", slug: "Master's degree" },
+          { id: 4, name: "doctorado", slug: "Doctoral degree" },
         ])
       );
     doSomething();
   }, []);
 
-  const getFormattedData = () => {
-    if (selectedOptionEd) {
-      return data.filter((item) => item.name === selectedOptionEd)[0].slug;
-    }
-    return false;
-  };
-
   return (
     <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
-        {getFormattedData() || "Filter by education"}
+        Filter by education
       </div>
       {isOpen && (
-        <div className="dropdown-list-container">
+        <div>
           <ul className="dropdown-list">
-            {data.map((item) => (
+            {data.map((option) => (
               <li
-                className="list-item"
-                onClick={onOptionClicked(item)}
-                key={item.id}
+                className="list-item break-words"
+                onClick={() => {
+                  onOptionClicked(option);
+                  addSelectedOptions(option);
+                }}
+                key={option.id}
               >
-                {item.slug}
+                {option.slug}
               </li>
             ))}
           </ul>
@@ -68,4 +64,4 @@ const TheDropdownEducation = ({
   );
 };
 
-export default TheDropdownEducation;
+export default TheDropdownBase;
