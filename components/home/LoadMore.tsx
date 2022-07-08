@@ -1,6 +1,12 @@
 import React from "react";
 
-const LoadMore = ({ handlePagination, noMore }) => {
+const LoadMore = ({
+  handlePagination,
+  noMore,
+}: {
+  handlePagination: () => void;
+  noMore: boolean;
+}) => {
   return (
     <div className="flex justify-center my-3">
       <button
