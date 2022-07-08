@@ -5,7 +5,7 @@
 
 ## Code and Resources Used
 
-- **Main Technologies:** TypeScript, React, Tailwind.
+- **Main Technologies:** TypeScript, React, Next, Tailwind.
 
 ## Live Demo
 
