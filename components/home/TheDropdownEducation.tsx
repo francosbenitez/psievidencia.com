@@ -1,17 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Data } from "../../types";
 
 type Props = {
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: string;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
-};
-
-type Data = {
-  id: number;
-  name: string;
-  slug?: string;
 };
 
 const TheDropdownEducation = ({

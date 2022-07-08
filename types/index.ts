@@ -27,3 +27,9 @@ export type Psychologist = {
   work_modality: string;
   work_population: string;
 };
+
+export type Data = {
+  id: number;
+  name: string;
+  slug?: string;
+};

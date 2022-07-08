@@ -2,11 +2,7 @@ import { useState } from "react";
 import TheDropdownOptions from "./TheDropdownOptions";
 import TheDropdownBase from "./TheDropdownBase";
 import TheDropdownEducation from "./TheDropdownEducation";
-
-type Data = {
-  id: number;
-  name: string;
-};
+import { Data } from "../../types";
 
 type Props = {
   selectedOptionsSp: Data[];

@@ -1,16 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import PsychologistsService from "../../services/PsychologistsService";
+import { Data } from "../../types";
 
 type Props = {
   type: string;
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
-};
-
-type Data = {
-  id: number;
-  name: string;
 };
 
 const TheDropdownBase = ({

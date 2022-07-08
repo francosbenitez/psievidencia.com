@@ -1,12 +1,9 @@
+import { Data } from "../../types";
+
 type Props = {
   selectedOptions: Data[];
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
-};
-
-type Data = {
-  id: number;
-  name: string;
 };
 
 const TheDropdownOptions = ({
