@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 type Props = {
-  data: any[];
+  data: Data[];
   setData: React.Dispatch<React.SetStateAction<any[]>>;
   selectedOptionEd: string;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
@@ -11,7 +11,7 @@ type Props = {
 type Data = {
   id: number;
   name: string;
-  slug: string;
+  slug?: string;
 };
 
 const TheDropdownEducation = ({
