@@ -10,28 +10,66 @@ import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 
+type Data = {
+  id: number;
+  name: string;
+};
+
+type Psychologist = {
+  additional_data: string;
+  city: string;
+  date: string;
+  education: string;
+  email: string;
+  gender: string;
+  gender_perspective: string;
+  id: number;
+  institution: string;
+  invoice: string;
+  name: string;
+  name_2: string;
+  online: string;
+  phone_number: string;
+  prepaid: string;
+  prepaid_type: string;
+  province: string;
+  registration_number: string;
+  registration_type: string;
+  session_languages: string;
+  sign_language: string;
+  social_networks: string;
+  specialization: string;
+  team: string;
+  therapeutic_model: string;
+  work_modality: string;
+  work_population: string;
+};
+
 const Home: NextPage = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
   const [noMore, setNoMore] = useState(false);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState<string | null>(null);
   const [pagination, setPagination] = useState(1);
-  const [selectedOptionsSp, setSelectedOptionsSp] = useState([]);
-  const [selectedOptionsTm, setSelectedOptionsTm] = useState([]);
-  const [selectedOptionsWp, setSelectedOptionsWp] = useState([]);
-  const [selectedOptionEd, setSelectedOptionEd] = useState("");
+  const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
+  const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
+  const [selectedOptionsWp, setSelectedOptionsWp] = useState<Data[]>([]);
+  const [selectedOptionEd, setSelectedOptionEd] = useState<string>("");
 
   const debouncedName = useDebounce(name, 1000);
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleNameChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (target) {
+      setName(target.value);
+    }
   };
 
   const fetchPsychologists = async (
-    name,
-    specializations,
-    therapeutic_models,
-    work_populations,
-    education
+    name: string | null,
+    specializations: number[],
+    therapeutic_models: number[],
+    work_populations: number[],
+    education: string
   ) => {
     setLoading(true);
     const data = (
@@ -51,11 +89,11 @@ const Home: NextPage = () => {
   };
 
   const fetchMorePsychologists = async (
-    name,
-    specializations,
-    therapeutic_models,
-    work_populations,
-    education
+    name: string | null,
+    specializations: number[],
+    therapeutic_models: number[],
+    work_populations: number[],
+    education: string
   ) => {
     try {
       setLoading(true);
@@ -142,7 +180,7 @@ const Home: NextPage = () => {
         {loading && <p className="grid place-items-center">Loading...</p>}
 
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {psychologists.map((psychologist) => {
+          {psychologists.map((psychologist: Psychologist) => {
             return (
               <TheCard key={psychologist.id} psychologist={psychologist} />
             );

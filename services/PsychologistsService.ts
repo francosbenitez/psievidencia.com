@@ -3,12 +3,12 @@ import Api from "./Api";
 
 export default {
   index(
-    pageNumber,
-    name,
-    specialization,
-    therapeutic_model,
-    work_population,
-    education
+    pageNumber: number,
+    name: string | null,
+    specialization: number[],
+    therapeutic_model: number[],
+    work_population: number[],
+    education: string
   ) {
     return Api().get(`psychologists?page=${pageNumber}`, {
       params: {
@@ -20,10 +20,10 @@ export default {
       },
     });
   },
-  lists(pageNumber, type) {
+  lists(pageNumber: number, type: string) {
     return Api().get(`psychologists/${type}?page=${pageNumber}`);
   },
-  detail(id) {
+  detail(id: string | string[] | undefined) {
     return Api().get(`psychologists/${id}`);
   },
 };

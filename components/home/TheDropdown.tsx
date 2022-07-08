@@ -9,11 +9,11 @@ type Data = {
 };
 
 type Props = {
-  selectedOptionsSp: number[];
+  selectedOptionsSp: Data[];
   setSelectedOptionsSp: React.Dispatch<React.SetStateAction<Data[]>>;
-  selectedOptionsTm: number[];
+  selectedOptionsTm: Data[];
   setSelectedOptionsTm: React.Dispatch<React.SetStateAction<Data[]>>;
-  selectedOptionsWp: number[];
+  selectedOptionsWp: Data[];
   setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: string;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<string>>;
