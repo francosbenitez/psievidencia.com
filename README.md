@@ -4,7 +4,7 @@ This project takes data from a Google Forms. It uses an API which can be found o
 
 ## Code and Resources Used
 
-- **Main Technologies:** React, Tailwind.
+- **Main Technologies:** TypeScript, React, Tailwind.
 
 ## Live Demo
 

@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgba(255, 0, 0, 0.07);
+}
+
+/* Sidebar */
+.top-bar {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.menu-bar {
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.nav-icon {
+  display: flex;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+
+.side-menu {
+  left: 0;
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  background: rgb(249, 249, 249);
+  transition: all 0.35s ease-out;
+}
+
+.side-menu a {
+  display: flex;
+  align-content: flex-start;
+  text-decoration: none;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 1.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.side-menu a:hover {
+  color: rgb(40, 0, 148);
+}
+
+/* Dropdown */
+.dropdown-header {
+  margin-bottom: 0.8em;
+  padding: 0.4em 2em 0.4em 1em;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #3faffa;
+  background: #ffffff;
+}
+
+.dropdown-list {
+  padding: 1rem;
+  margin: 0;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-sizing: border-box;
+  color: #3faffa;
+  font-size: 1.3rem;
+  font-weight: 500;
+  position: absolute;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.dropdown-list:first-child {
+  padding-top: 0.8em;
+}
+
+.list-item {
+  list-style: none;
+  margin-bottom: 0.8em;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  text-decoration: underline;
+  background-color: rgba(156, 190, 242, 0.488);
+}
+
+/* Accordion */
+.accordion {
+  margin: 2rem auto;
+}
+
+.accordion-item {
+  margin-bottom: 1rem;
+}
+
+.accordion-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.accordion-title:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.accordion-title,
+.accordion-content {
+  padding: 1rem;
+}
+
+.accordion-content {
+  background-color: rgba(255, 255, 255, 0.75);
+}

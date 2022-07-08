@@ -1,9 +1,13 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       backgroundImage: {
-        "custom-image": "url('/src/assets/icons/arrow-left.svg')",
+        "custom-image": "url('/icons/arrow-left.svg')",
       },
     },
   },
