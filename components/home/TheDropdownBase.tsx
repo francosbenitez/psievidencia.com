@@ -4,7 +4,7 @@ import PsychologistsService from "../../services/PsychologistsService";
 type Props = {
   type: string;
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
-  data: any[];
+  data: Data[];
   setData: React.Dispatch<React.SetStateAction<any[]>>;
 };
 
@@ -57,7 +57,7 @@ const TheDropdownBase = ({
     }
   };
 
-  const onOptionClicked = (option: any) => {
+  const onOptionClicked = (option: Data) => {
     updateData(option);
     setIsOpen(false);
   };

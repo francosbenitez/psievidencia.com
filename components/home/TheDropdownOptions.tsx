@@ -1,5 +1,5 @@
 type Props = {
-  selectedOptions: any[];
+  selectedOptions: Data[];
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
   setData: React.Dispatch<React.SetStateAction<any[]>>;
 };
