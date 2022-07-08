@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const open = (isOpen) => {
+  const open = (isOpen: boolean) => {
     return setIsOpen(!isOpen);
   };
 
-  const domeNode = useRef();
+  const domeNode = useRef<HTMLSpanElement | null>(null);
 
-  const updateState = (event) => {
-    if (domeNode.current.contains(event.target)) {
+  const updateState = (event: any) => {
+    if (domeNode.current!.contains(event.target)) {
       return;
     }
     setIsOpen(false);
@@ -50,10 +50,10 @@ const Sidebar = () => {
           </span>
         </div>
         <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
-          <Link to={"/"}>Home</Link>
-          <Link to={"/dashboard"}>Dashboard</Link>
-          <Link to={"/login"}>Log in</Link>
-          <Link to={"/login"}>Sign up</Link>
+          <Link href={"/"}>Home</Link>
+          <Link href={"/dashboard"}>Dashboard</Link>
+          <Link href={"/login"}>Log in</Link>
+          <Link href={"/login"}>Sign up</Link>
         </div>
       </header>
     </>

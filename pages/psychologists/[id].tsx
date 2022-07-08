@@ -2,6 +2,7 @@ import TheAccordion from "../../components/psychologists-detail/TheAccordion";
 import PsychologistsService from "../../services/PsychologistsService";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const PsychologistsDetail = () => {
   const router = useRouter();
@@ -136,6 +137,12 @@ const PsychologistsDetail = () => {
   };
   return (
     <>
+      <Head>
+        <title>
+          {psychologist.name !== "" ? psychologist.name : "Unknown"}{" "}
+          | Psievidencia
+        </title>
+      </Head>
       {psychologist != null && Object.keys(psychologist).length > 0 ? (
         <div className="container mx-auto py-28 px-5 sm:px-0">
           <button
@@ -153,7 +160,7 @@ const PsychologistsDetail = () => {
             onClick={() => router.back()}
           ></button>
           <h1 className="text-center font-bold text-5xl mb-5">
-            {psychologist.name}
+            {psychologist.name !== "" ? psychologist.name : "Unknown"}
           </h1>
           <h2 className="text-2xl text-center">{psychologist.email}</h2>
           <h3 className="text-1xl underline my-6">{formattedDate()}</h3>
