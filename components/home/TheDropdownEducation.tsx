@@ -2,17 +2,30 @@ import { useEffect, useState } from "react";
 import { Data } from "../../types";
 
 type Props = {
+  selectedOption: Data;
   setSelectedOption: React.Dispatch<React.SetStateAction<Data | {}>>;
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
-const TheDropdownBase = ({ setSelectedOption, data, setData }: Props) => {
+const TheDropdownBase = ({
+  setSelectedOption,
+  data,
+  setData,
+  selectedOption,
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
 
   const addSelectedOptions = (value: Data) => {
+    if (Object.keys(selectedOption).length > 0) {
+      addOptions(selectedOption);
+    }
     setSelectedOption(value);
+  };
+
+  const addOptions = (value: Data) => {
+    setData((oldArray) => [value, ...oldArray]);
   };
 
   const updateData = (option: Data) => {

@@ -53,6 +53,7 @@ const TheDropdown = ({
           setData={setWp}
         />
         <TheDropdownEducation
+          selectedOption={selectedOptionEd}
           setSelectedOption={setSelectedOptionEd}
           data={ed}
           setData={setEd}
