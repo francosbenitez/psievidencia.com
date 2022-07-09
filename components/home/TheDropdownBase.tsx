@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import PsychologistsService from "../../services/PsychologistsService";
 import { Data } from "../../types";
+import SearchName from "./SearchName";
+import useDebounce from "../../hooks/useDebounce";
 
 type Props = {
   type: string;
@@ -19,14 +21,34 @@ const TheDropdownBase = ({
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const observed = useRef<HTMLUListElement | null>(null);
+  const [name, setName] = useState<string | null>(null);
+  const debouncedName = useDebounce(name, 1000);
 
-  const fetchData = async () => {
-    const data = (await PsychologistsService.lists(1, type)).data;
-    setData(data.results);
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("handlenamechange run");
+    const target = event.target as HTMLInputElement;
+    if (target) {
+      setName(target.value);
+    }
   };
 
-  const fetchMoreData = async (pagination: number) => {
-    const data = (await PsychologistsService.lists(pagination, type)).data;
+  const fetchData = async (
+    pagination: number,
+    type: string,
+    name: string | null
+  ) => {
+    const data = (await PsychologistsService.lists(1, type, name)).data;
+    setData(data.results);
+    setPagination(1);
+  };
+
+  const fetchMoreData = async (
+    pagination: number,
+    type: string,
+    name: string | null
+  ) => {
+    const data = (await PsychologistsService.lists(pagination, type, name))
+      .data;
     setData((item) => item.concat(data.results));
   };
 
@@ -43,7 +65,6 @@ const TheDropdownBase = ({
   };
 
   const handleObserved = (el: HTMLUListElement | null) => {
-    console.log("el", el);
     if (el != null) {
       el.addEventListener("scroll", () => {
         if (el.scrollTop + el.clientHeight >= el.scrollHeight) {
@@ -59,14 +80,18 @@ const TheDropdownBase = ({
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData(pagination, type, debouncedName);
   }, []);
 
   useEffect(() => {
     if (pagination > 1) {
-      fetchMoreData(pagination);
+      fetchMoreData(pagination, type, debouncedName);
     }
   }, [pagination]);
+
+  useEffect(() => {
+    fetchData(pagination, type, debouncedName);
+  }, [debouncedName]);
 
   return (
     <div className="sm:w-1/4 my-6 w-full">
@@ -82,6 +107,9 @@ const TheDropdownBase = ({
               handleObserved(el);
             }}
           >
+            {type === "specializations" && (
+              <SearchName handleNameChange={handleNameChange} />
+            )}
             {data.map((option) => (
               <li
                 className="list-item break-words"

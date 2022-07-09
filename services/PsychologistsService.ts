@@ -20,8 +20,12 @@ export default {
       },
     });
   },
-  lists(pageNumber: number, type: string) {
-    return Api().get(`psychologists/${type}?page=${pageNumber}`);
+  lists(pageNumber: number, type: string, name: string | null) {
+    return Api().get(`psychologists/${type}?page=${pageNumber}`, {
+      params: {
+        name: name,
+      },
+    });
   },
   detail(id: string | string[] | undefined) {
     return Api().get(`psychologists/${id}`);
