@@ -4,7 +4,7 @@ import Api from "./Api";
 export default {
   index(
     pageNumber: number,
-    name: string | null,
+    name: string | undefined,
     specialization: number[],
     therapeutic_model: number[],
     work_population: number[],

@@ -4,7 +4,7 @@ const SearchName = ({
   name,
   handleNameChange,
 }: {
-  name: string | undefined;
+  name?: string | undefined;
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (

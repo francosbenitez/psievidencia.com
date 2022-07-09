@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
   const [noMore, setNoMore] = useState(false);
-  const [name, setName] = useState<string | null>(null);
+  const [name, setName] = useState<string | undefined>(undefined);
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   };
 
   const fetchPsychologists = async (
-    name: string | null,
+    name: string | undefined,
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
   };
 
   const fetchMorePsychologists = async (
-    name: string | null,
+    name: string | undefined,
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
