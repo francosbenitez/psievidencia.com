@@ -25,7 +25,6 @@ const TheDropdownBase = ({
   const debouncedName = useDebounce(name, 1000);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("handlenamechange run");
     const target = event.target as HTMLInputElement;
     if (target) {
       setName(target.value);
