@@ -21,7 +21,7 @@ const TheDropdownBase = ({
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const observed = useRef<HTMLUListElement | null>(null);
-  const [name, setName] = useState<string | null>(null);
+  const [name, setName] = useState<string | undefined>(undefined);
   const debouncedName = useDebounce(name, 1000);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ const TheDropdownBase = ({
   const fetchData = async (
     pagination: number,
     type: string,
-    name: string | null
+    name: string | undefined
   ) => {
     const data = (await PsychologistsService.lists(1, type, name)).data;
     setData(data.results);
@@ -44,7 +44,7 @@ const TheDropdownBase = ({
   const fetchMoreData = async (
     pagination: number,
     type: string,
-    name: string | null
+    name: string | undefined
   ) => {
     const data = (await PsychologistsService.lists(pagination, type, name))
       .data;
@@ -107,7 +107,7 @@ const TheDropdownBase = ({
             }}
           >
             {type === "specializations" && (
-              <SearchName handleNameChange={handleNameChange} />
+              <SearchName name={name} handleNameChange={handleNameChange} />
             )}
             {data.map((option) => (
               <li
