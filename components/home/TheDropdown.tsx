@@ -67,14 +67,14 @@ const TheDropdown = ({
           setData={setSp}
         />
         <TheDropdownOptions
-          selectedOptions={selectedOptionsWp}
-          setSelectedOptions={setSelectedOptionsWp}
-          setData={setWp}
-        />
-        <TheDropdownOptions
           selectedOptions={selectedOptionsTm}
           setSelectedOptions={setSelectedOptionsTm}
           setData={setTm}
+        />
+        <TheDropdownOptions
+          selectedOptions={selectedOptionsWp}
+          setSelectedOptions={setSelectedOptionsWp}
+          setData={setWp}
         />
         <TheDropdownOptionsEd
           selectedOption={selectedOptionEd}
