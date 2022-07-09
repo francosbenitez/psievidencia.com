@@ -1,6 +1,10 @@
 import React from "react";
 
-const SearchName = ({ handleNameChange }: { handleNameChange: any }) => {
+const SearchName = ({
+  handleNameChange,
+}: {
+  handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}) => {
   return (
     <input
       className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-6"

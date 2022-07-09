@@ -1,45 +1,43 @@
 import { Data } from "../../types";
 
 type Props = {
-  selectedOptions: Data[];
-  setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
+  selectedOption: Data;
+  setSelectedOption: React.Dispatch<React.SetStateAction<Data | {}>>;
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
 const TheDropdownOptions = ({
-  selectedOptions,
-  setSelectedOptions,
+  selectedOption,
+  setSelectedOption,
   setData,
 }: Props) => {
   const addOptions = (value: Data) => {
     setData((oldArray) => [value, ...oldArray]);
   };
 
-  const removeSelectedOptions = (id: number) => {
-    setSelectedOptions(
-      selectedOptions.filter((selectedOptions) => selectedOptions.id !== id)
-    );
+  const removeSelectedOption = () => {
+    setSelectedOption({});
   };
 
   return (
     <>
-      {selectedOptions.map((item) => (
+      {Object.keys(selectedOption).length > 0 && (
         <div
-          key={item.id}
+          key={selectedOption.id}
           className="bg-white text-indigo-500 p-1.5 inline mr-6 leading-10"
         >
-          <span>{item.name}</span>
+          <span>{selectedOption.slug}</span>
           <button
             onClick={() => {
-              removeSelectedOptions(item.id);
-              addOptions(item);
+              removeSelectedOption();
+              addOptions(selectedOption);
             }}
             className="pl-2"
           >
             X
           </button>
         </div>
-      ))}
+      )}
     </>
   );
 };

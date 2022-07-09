@@ -1,16 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import PsychologistsService from "../../services/PsychologistsService";
+import { Data } from "../../types";
 
 type Props = {
   type: string;
   setSelectedOptions: React.Dispatch<React.SetStateAction<Data[]>>;
-  data: any[];
-  setData: React.Dispatch<React.SetStateAction<any[]>>;
-};
-
-type Data = {
-  id: number;
-  name: string;
+  data: Data[];
+  setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
 const TheDropdownBase = ({
@@ -57,7 +53,7 @@ const TheDropdownBase = ({
     }
   };
 
-  const onOptionClicked = (option: any) => {
+  const onOptionClicked = (option: Data) => {
     updateData(option);
     setIsOpen(false);
   };
