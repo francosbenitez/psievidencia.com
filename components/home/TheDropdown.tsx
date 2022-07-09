@@ -13,7 +13,7 @@ type Props = {
   selectedOptionsWp: Data[];
   setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: Data;
-  setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data>>;
+  setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
 };
 
 const TheDropdown = ({

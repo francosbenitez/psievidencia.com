@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Data } from "../../types";
 
 type Props = {
-  setSelectedOption: React.Dispatch<React.SetStateAction<Data>>;
+  setSelectedOption: React.Dispatch<React.SetStateAction<Data | {}>>;
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };

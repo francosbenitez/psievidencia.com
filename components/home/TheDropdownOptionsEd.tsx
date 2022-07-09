@@ -2,7 +2,7 @@ import { Data } from "../../types";
 
 type Props = {
   selectedOption: Data;
-  setSelectedOption: React.Dispatch<React.SetStateAction<Data>>;
+  setSelectedOption: React.Dispatch<React.SetStateAction<Data | {}>>;
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
@@ -15,11 +15,8 @@ const TheDropdownOptions = ({
     setData((oldArray) => [value, ...oldArray]);
   };
 
-  const removeSelectedOption = (id: number) => {
-    console.log("removeSelectedOption has been fired!");
-    // setSelectedOption(
-    //   selectedOption.filter((selectedOption: any) => selectedOption.id !== id)
-    // );
+  const removeSelectedOption = () => {
+    setSelectedOption({});
   };
 
   return (
@@ -32,7 +29,7 @@ const TheDropdownOptions = ({
           <span>{selectedOption.slug}</span>
           <button
             onClick={() => {
-              // removeSelectedOption(selectedOption.id);
+              removeSelectedOption();
               addOptions(selectedOption);
             }}
             className="pl-2"
