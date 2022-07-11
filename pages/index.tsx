@@ -129,6 +129,18 @@ const Home: NextPage = () => {
       <Head>
         <meta charSet="utf-8" />
         <title>PsiEvidencia</title>
+        <meta
+          name="description"
+          content="A web app to help you find the best evidence-based psychologists."
+        />
+        <meta
+          name="keywords"
+          content="psievidencia evidence-based psychology"
+        />
+        <meta
+          name="google-site-verification"
+          content="SunVWUveAt2rjkQwOP05PRn3LsPQ8T24-Aji_ACkSik"
+        />
       </Head>
       <div className="container mx-auto py-28 px-5 sm:px-0">
         <TheHeader />
