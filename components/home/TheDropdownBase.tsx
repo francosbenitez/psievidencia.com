@@ -99,31 +99,29 @@ const TheDropdownBase = ({
         <FormattedMessage id={`filter.${type}`} />
       </div>
       {isOpen && (
-        <div>
-          <ul
-            className="dropdown-list"
-            ref={(el) => {
-              observed.current = el;
-              handleObserved(el);
-            }}
-          >
-            {type === "specializations" && (
-              <SearchName name={name} handleNameChange={handleNameChange} />
-            )}
-            {data.map((option) => (
-              <li
-                className="list-item break-words"
-                onClick={() => {
-                  onOptionClicked(option);
-                  addSelectedOptions(option);
-                }}
-                key={option.id}
-              >
-                {option.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul
+          className="dropdown-list"
+          ref={(el) => {
+            observed.current = el;
+            handleObserved(el);
+          }}
+        >
+          {type === "specializations" && (
+            <SearchName name={name} handleNameChange={handleNameChange} />
+          )}
+          {data.map((option) => (
+            <li
+              className="list-item break-words"
+              onClick={() => {
+                onOptionClicked(option);
+                addSelectedOptions(option);
+              }}
+              key={option.id}
+            >
+              {option.name}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
