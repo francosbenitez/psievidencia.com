@@ -56,11 +56,19 @@ const TheDropdownBase = ({
   return (
     <div className="sm:w-1/4 my-6 w-full">
       <div
-        className="dropdown-header cursor-pointer h-full rounded shadow-md"
+        className="dropdown-header cursor-pointer h-full rounded shadow-md table w-full"
         onClick={toggling}
       >
-        <FormattedMessage id="filter.education" />
-        {isOpen ? <ArrowUp /> : <ArrowDown />}
+        <span className="table-cell w-1/2">
+          <FormattedMessage id="filter.education" />
+        </span>
+        <span className="table-cell w-1/2">
+          {isOpen ? (
+            <ArrowUp className="float-right" />
+          ) : (
+            <ArrowDown className="float-right" />
+          )}
+        </span>
       </div>
       {isOpen && (
         <div>
