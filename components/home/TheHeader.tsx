@@ -7,7 +7,7 @@ const TheHeader = () => {
     <>
       <h1 className="text-center text-5xl">
         <Magnifier className="inline w-12 h-12" />
-        <span className="px-4 text-primary font-bold">PsiEvidencia</span>
+        <span className="sm:px-4 text-primary font-bold">PsiEvidencia</span>
         <Magnifier className="inline w-12 h-12" />
       </h1>
       <h2 className="text-center text-2xl my-9 font-semibold text-secondary">
