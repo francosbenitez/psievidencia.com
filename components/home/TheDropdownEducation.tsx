@@ -54,7 +54,7 @@ const TheDropdownBase = ({
   }, []);
 
   return (
-    <div className="sm:w-1/4 my-6 w-full">
+    <div className="sm:w-1/4 w-full">
       <div
         className="dropdown-header cursor-pointer h-full rounded shadow-md table w-full"
         onClick={toggling}

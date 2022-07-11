@@ -26,7 +26,7 @@ const TheDropdownOptions = ({
       {selectedOptions.map((item) => (
         <div
           key={item.id}
-          className="bg-white text-primary p-1.5 inline mr-6 leading-10"
+          className="bg-white text-primary p-1.5 inline mr-6 leading-10 mt-6"
         >
           <span>{item.name}</span>
           <button

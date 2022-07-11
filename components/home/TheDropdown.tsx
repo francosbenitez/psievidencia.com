@@ -33,7 +33,7 @@ const TheDropdown = ({
 
   return (
     <>
-      <div className="sm:flex sm:space-x-4">
+      <div className="sm:flex sm:space-x-4 mb-6">
         <TheDropdownBase
           type={"specializations"}
           setSelectedOptions={setSelectedOptionsSp}
@@ -59,29 +59,26 @@ const TheDropdown = ({
           setData={setEd}
         />
       </div>
-
-      <div className="container my-6">
-        <TheDropdownOptions
-          selectedOptions={selectedOptionsSp}
-          setSelectedOptions={setSelectedOptionsSp}
-          setData={setSp}
-        />
-        <TheDropdownOptions
-          selectedOptions={selectedOptionsTm}
-          setSelectedOptions={setSelectedOptionsTm}
-          setData={setTm}
-        />
-        <TheDropdownOptions
-          selectedOptions={selectedOptionsWp}
-          setSelectedOptions={setSelectedOptionsWp}
-          setData={setWp}
-        />
-        <TheDropdownOptionsEd
-          selectedOption={selectedOptionEd}
-          setSelectedOption={setSelectedOptionEd}
-          setData={setEd}
-        />
-      </div>
+      <TheDropdownOptions
+        selectedOptions={selectedOptionsSp}
+        setSelectedOptions={setSelectedOptionsSp}
+        setData={setSp}
+      />
+      <TheDropdownOptions
+        selectedOptions={selectedOptionsTm}
+        setSelectedOptions={setSelectedOptionsTm}
+        setData={setTm}
+      />
+      <TheDropdownOptions
+        selectedOptions={selectedOptionsWp}
+        setSelectedOptions={setSelectedOptionsWp}
+        setData={setWp}
+      />
+      <TheDropdownOptionsEd
+        selectedOption={selectedOptionEd}
+        setSelectedOption={setSelectedOptionEd}
+        setData={setEd}
+      />
     </>
   );
 };
