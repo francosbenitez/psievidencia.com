@@ -1,5 +1,4 @@
 import React from "react";
-import GitHub from "../../public/icons/github.svg";
 import { FormattedMessage } from "react-intl";
 
 const HomeFooter = () => {
@@ -23,7 +22,6 @@ const HomeFooter = () => {
         <span className="underline">
           <FormattedMessage id="footer.source.code" />
         </span>{" "}
-        <GitHub className="inline w-4 h-4 align-text-top" />
       </a>
     </footer>
   );
