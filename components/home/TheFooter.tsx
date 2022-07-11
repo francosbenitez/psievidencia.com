@@ -23,7 +23,7 @@ const HomeFooter = () => {
         <span className="underline">
           <FormattedMessage id="footer.source.code" />
         </span>{" "}
-        <GitHub className="inline w-4 h-4" />
+        <GitHub className="inline w-4 h-4 align-text-top" />
       </a>
     </footer>
   );

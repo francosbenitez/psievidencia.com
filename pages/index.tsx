@@ -152,7 +152,10 @@ const Home: NextPage = () => {
       </Head>
       <div className="container mx-auto py-28 px-5 sm:px-0">
         <TheHeader />
-        <SearchName handleNameChange={handleNameChange} />
+
+        <div className="w-1/3">
+          <SearchName handleNameChange={handleNameChange} />
+        </div>
 
         <TheDropdown
           selectedOptionsSp={selectedOptionsSp}

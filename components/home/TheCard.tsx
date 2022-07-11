@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl";
 const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
-      <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer">
+      <div className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer">
         <header className=" text-2xl font-extrabold py-4 px-4 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>

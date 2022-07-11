@@ -12,7 +12,7 @@ const SearchName = ({
   const placeholder = intl.formatMessage({ id: "search.name" });
   return (
     <input
-      className="border-solid h-10 border-2 border-primary w-full pl-3 mb-6 outline-0"
+      className="h-10 border-primary w-full pl-3 mb-6 outline-0 rounded shadow-md"
       placeholder={placeholder}
       onChange={handleNameChange}
       value={name}

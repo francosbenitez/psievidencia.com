@@ -149,7 +149,7 @@ const PsychologistsDetail = () => {
             className="
         absolute
         top-[2rem]
-        rounded-md
+        rounded
         w-10
         h-10
         overflow-hidden

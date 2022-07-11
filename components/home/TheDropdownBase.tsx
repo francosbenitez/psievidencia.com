@@ -97,13 +97,16 @@ const TheDropdownBase = ({
 
   return (
     <div className="sm:w-1/4 my-6 w-full">
-      <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
+      <div
+        className="dropdown-header cursor-pointer h-full rounded shadow-md"
+        onClick={toggling}
+      >
         <FormattedMessage id={`filter.${type}`} />
         {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
       {isOpen && (
         <ul
-          className="dropdown-list"
+          className="dropdown-list rounded"
           ref={(el) => {
             observed.current = el;
             handleObserved(el);
