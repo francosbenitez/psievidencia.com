@@ -5,12 +5,12 @@ import { FormattedMessage } from "react-intl";
 const TheHeader = () => {
   return (
     <>
-      <h1 className="text-center font-bold text-5xl">
+      <h1 className="text-center text-5xl">
         <Magnifier className="inline w-12 h-12" />
-        <span className="px-4">PsiEvidencia</span>
+        <span className="px-4 text-primary font-bold">PsiEvidencia</span>
         <Magnifier className="inline w-12 h-12" />
       </h1>
-      <h2 className="text-center text-2xl my-9 font-semibold">
+      <h2 className="text-center text-2xl my-9 font-semibold text-secondary">
         <FormattedMessage id="title" />
       </h2>
     </>
