@@ -1,5 +1,6 @@
 import React from "react";
 import Magnifier from "../../public/icons/magnifier.svg";
+import { FormattedMessage } from "react-intl";
 
 const TheHeader = () => {
   return (
@@ -8,7 +9,7 @@ const TheHeader = () => {
         <Magnifier className="inline w-12 h-12" /> PsiEvidencia
       </h1>
       <h2 className="text-center text-2xl my-9">
-        A web app to help you find the best evidence-based psychologists
+        <FormattedMessage id="title" />
       </h2>
     </>
   );
