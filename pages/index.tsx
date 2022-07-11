@@ -150,7 +150,10 @@ const Home: NextPage = () => {
         <link rel="alternate" href="http://psievidencia.com" hrefLang="en" />
         <link rel="alternate" href="http://psievidencia.com/es" hrefLang="es" />
       </Head>
-      <div className="container mx-auto py-28 px-5 sm:px-0">
+      <div
+        className="container mx-auto px-5 sm:px-0"
+        style={{ paddingBottom: "20rem", paddingTop: "10rem" }}
+      >
         <TheHeader />
 
         <div className="w-1/3">
@@ -182,9 +185,11 @@ const Home: NextPage = () => {
           })}
         </div>
 
-        {!loading && (
-          <LoadMore handlePagination={handlePagination} noMore={noMore} />
-        )}
+        <div className="flex justify-center pt-20">
+          {!loading && (
+            <LoadMore handlePagination={handlePagination} noMore={noMore} />
+          )}
+        </div>
       </div>
       <TheFooter />
     </>
