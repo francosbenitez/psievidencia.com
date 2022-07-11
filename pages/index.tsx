@@ -156,7 +156,7 @@ const Home: NextPage = () => {
       >
         <TheHeader />
 
-        <div className="w-1/3">
+        <div className="w-full sm:w-1/3 m-auto">
           <SearchName handleNameChange={handleNameChange} />
         </div>
 
