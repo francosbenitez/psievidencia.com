@@ -9,6 +9,13 @@ module.exports = {
       backgroundImage: {
         "custom-image": "url('/icons/arrow-left.svg')",
       },
+      colors: {
+        primary: "#514B23",
+        secondary: "#656839",
+        tertiary: "#CBC9AD",
+        fourth: "#CBD0B9",
+        fifth: "#BDDBD0",
+      },
     },
   },
   plugins: [],
