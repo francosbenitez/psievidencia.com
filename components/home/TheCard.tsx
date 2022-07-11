@@ -17,7 +17,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                 (item, index) =>
                   index < 3 && (
                     <span
-                      className="bg-primary text-white break-all mr-1 px-1"
+                      className="bg-tertiary text-white break-all mr-1 px-1"
                       key={item}
                     >
                       {item}
@@ -33,7 +33,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                 (item, index) =>
                   index < 3 && (
                     <span
-                      className="bg-secondary text-white break-all mr-1 px-1"
+                      className="bg-fourth text-white break-all mr-1 px-1"
                       key={item}
                     >
                       {item}
@@ -50,7 +50,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                   (item, index) =>
                     index < 3 && (
                       <span
-                        className="bg-tertiary text-white break-all mr-1 px-1"
+                        className="bg-fifth text-white break-all mr-1 px-1"
                         key={item}
                       >
                         {item}
@@ -67,7 +67,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
         <footer className="text-center py-3 text-primary flex justify-center mt-auto block">
           {psychologist.online === "Sí" && (
             <p className="p-2">
-              <span className="bg-fourth text-white p-2">
+              <span className="bg-primary text-white p-2">
                 <FormattedMessage id="offers.online" />
               </span>
             </p>
