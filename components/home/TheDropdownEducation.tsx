@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Data } from "../../types";
+import { FormattedMessage } from "react-intl";
 
 type Props = {
   selectedOption: Data;
@@ -53,7 +54,7 @@ const TheDropdownBase = ({
   return (
     <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
-        Filter by education
+        <FormattedMessage id="filter.education" />
       </div>
       {isOpen && (
         <div>

@@ -3,6 +3,7 @@ import PsychologistsService from "../../services/PsychologistsService";
 import { Data } from "../../types";
 import SearchName from "./SearchName";
 import useDebounce from "../../hooks/useDebounce";
+import { FormattedMessage } from "react-intl";
 
 type Props = {
   type: string;
@@ -95,7 +96,7 @@ const TheDropdownBase = ({
   return (
     <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
-        Filter by {type.replace("_", " ")}
+        <FormattedMessage id={`filter.${type}`} />
       </div>
       {isOpen && (
         <div>

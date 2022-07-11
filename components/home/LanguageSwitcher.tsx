@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const LanguageSwitcher = () => {
   const router = useRouter();

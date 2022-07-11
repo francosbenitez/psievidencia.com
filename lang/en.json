@@ -1,3 +1,12 @@
 {
-  "title": "A web app to help you find the best evidence-based psychologists"
+  "title": "A web app to help you find the best evidence-based psychologists",
+  "contact": "Contact",
+  "search.name": "Search by name",
+  "filter.specializations": "Filter by specializations",
+  "filter.therapeutic_models": "Filter by therapeutic models",
+  "filter.work_populations": "Filter by work populations",
+  "filter.education": "Filter by education",
+  "footer.to.be.part": "To be part of this collection, fill your data in",
+  "footer.google.forms": "this Google Forms",
+  "footer.source.code": "Source code"
 }

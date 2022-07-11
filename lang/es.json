@@ -1,3 +1,12 @@
 {
-  "title": "Una aplicación web para ayudarte a encontrar los mejores psicólogos basados en la evidencia"
+  "title": "Una aplicación web para ayudarte a encontrar los mejores psicólogos basados en la evidencia",
+  "contact": "Contacto",
+  "search.name": "Buscá por nombre",
+  "filter.specializations": "Filtrá por especializaciones",
+  "filter.therapeutic_models": "Filtrá por modelos terapéuticos",
+  "filter.work_populations": "Filtrá por poblaciones de trabajo",
+  "filter.education": "Filtrá por educación",
+  "footer.to.be.part": "Para ser parte de esta colección, llená tus datos en",
+  "footer.google.forms": "este Google Forms",
+  "footer.source.code": "Código de fuente"
 }

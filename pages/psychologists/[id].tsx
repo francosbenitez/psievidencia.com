@@ -3,6 +3,7 @@ import PsychologistsService from "../../services/PsychologistsService";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { FormattedMessage } from "react-intl";
 
 const PsychologistsDetail = () => {
   const router = useRouter();
@@ -174,7 +175,9 @@ const PsychologistsDetail = () => {
             ))}
           </div>
           <div>
-            <p className="font-bold text-lg">Contacto</p>
+            <p className="font-bold text-lg">
+              <FormattedMessage id="contact" />
+            </p>
             <div className="grid grid-cols-2 gap-4">
               <p>
                 <span className="underline">Redes sociales</span>:{" "}
