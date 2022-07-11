@@ -24,7 +24,7 @@ const TheDropdownOptions = ({
       {Object.keys(selectedOption).length > 0 && (
         <div
           key={selectedOption.id}
-          className="bg-white text-indigo-500 p-1.5 inline mr-6 leading-10"
+          className="bg-white text-primary p-1.5 inline mr-6 leading-10"
         >
           <span>{selectedOption.slug}</span>
           <button

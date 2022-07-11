@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  --primary: #514b23;
+  --secondary: #656839;
+  --tertiary: #cbc9ad;
+  --fourth: #cbd0b9;
+  --fifth: #bddbd0;
+}
+
 body {
-  background-color: rgba(255, 0, 0, 0.07);
+  background-color: var(--fifth);
 }
 
 /* Sidebar */
@@ -58,7 +66,7 @@ body {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.3rem;
-  color: #3faffa;
+  color: var(--primary);
   background: #ffffff;
 }
 
@@ -68,7 +76,7 @@ body {
   background: #ffffff;
   border: 2px solid #e5e5e5;
   box-sizing: border-box;
-  color: #3faffa;
+  color: var(--primary);
   font-size: 1.3rem;
   font-weight: 500;
   position: absolute;
@@ -88,7 +96,6 @@ body {
 
 .list-item:hover {
   text-decoration: underline;
-  background-color: rgba(156, 190, 242, 0.488);
 }
 
 /* Accordion */

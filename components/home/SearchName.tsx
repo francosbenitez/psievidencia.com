@@ -9,7 +9,7 @@ const SearchName = ({
 }) => {
   return (
     <input
-      className="border-solid h-10 border-2 border-indigo-600 w-full pl-3 mb-6"
+      className="border-solid h-10 border-2 border-primary w-full pl-3 mb-6"
       placeholder="Search by name"
       onChange={handleNameChange}
       value={name}

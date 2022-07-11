@@ -4,7 +4,7 @@ import { Psychologist } from "../../types";
 const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
-      <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-indigo-500/100 cursor-pointer">
+      <div className="w-full rounded-lg shadow-xl bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer">
         {/* {psychologist.image_url && (
           <Image
             src={psychologist.image_url}
@@ -16,14 +16,14 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>
         <div>
-          <ul className="text-gray-500 text-center font-semibold break-words">
+          <ul className="text-primary text-center font-semibold break-words">
             <li>{psychologist.province}</li>
             <li className="text-left">
               {psychologist.therapeutic_model.split(",").map(
                 (item, index) =>
                   index < 3 && (
                     <span
-                      className="bg-indigo-400 text-white break-all mr-1 px-1"
+                      className="bg-primary text-white break-all mr-1 px-1"
                       key={item}
                     >
                       {item}
@@ -39,7 +39,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                 (item, index) =>
                   index < 3 && (
                     <span
-                      className="bg-green-400 text-white break-all mr-1 px-1"
+                      className="bg-secondary text-white break-all mr-1 px-1"
                       key={item}
                     >
                       {item}
@@ -56,7 +56,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                   (item, index) =>
                     index < 3 && (
                       <span
-                        className="bg-blue-400 text-white break-all mr-1 px-1"
+                        className="bg-tertiary text-white break-all mr-1 px-1"
                         key={item}
                       >
                         {item}
@@ -70,12 +70,10 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
             )}
           </ul>
         </div>
-        <footer className="text-center py-3 text-gray-500 flex justify-center mt-auto block">
+        <footer className="text-center py-3 text-primary flex justify-center mt-auto block">
           {psychologist.online === "Sí" && (
             <p className="p-2">
-              <span className="bg-indigo-500 text-white p-2">
-                Atiende online
-              </span>
+              <span className="bg-fourth text-white p-2">Atiende online</span>
             </p>
           )}
         </footer>
