@@ -4,7 +4,6 @@ import TheHeader from "../components/home/TheHeader";
 import PsychologistsService from "../services/PsychologistsService";
 import useDebounce from "../hooks/useDebounce";
 import { useState, useEffect } from "react";
-import TheFooter from "../components/home/TheFooter";
 import LoadMore from "../components/home/LoadMore";
 import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
@@ -193,7 +192,6 @@ const Home: NextPage = () => {
           />
         )}
       </div>
-      <TheFooter />
     </>
   );
 };
