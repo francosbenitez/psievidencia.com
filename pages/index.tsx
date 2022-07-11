@@ -132,7 +132,7 @@ const Home: NextPage = () => {
         <title>PsiEvidencia</title>
         <meta
           name="description"
-          content="A web app to help you find the best evidence-based psychologists."
+          content="A web application to help you find the best evidence-based psychologists."
         />
         <meta
           name="keywords"

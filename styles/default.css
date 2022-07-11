@@ -113,7 +113,8 @@ body {
 }
 
 .language-switcher .select-fr {
-  left: 9.14285714285px;
+  /* left: 9.14285714285px; */
+  left: 7px;
 }
 
 .language-switcher .select-en {
