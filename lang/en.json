@@ -14,5 +14,19 @@
   "footer.source.code": "Source code",
   "social.networks": "Social networks",
   "phone.or.email": "Phone number or contact email",
-  "no.data": "No data"
+  "no.data": "No data",
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
 }

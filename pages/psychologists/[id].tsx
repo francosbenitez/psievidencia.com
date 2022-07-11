@@ -132,9 +132,7 @@ const PsychologistsDetail = () => {
     let d = psychologist.date!.split(" ");
     d = d[0].split("/");
     d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
-    return (
-      d.getDay() + " de " + monthNames[d.getMonth()] + ", " + d.getFullYear()
-    );
+    return monthNames[d.getMonth()] + " " + d.getDay() + ", " + d.getFullYear();
   };
   return (
     <>
