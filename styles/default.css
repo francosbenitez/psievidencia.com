@@ -65,13 +65,13 @@ body {
 .language-switcher {
   position: relative;
   display: inline-block;
-  width: calc(64px * 2);
-  height: 64px;
-  -webkit-transform: translateY(40%);
+  width: calc(32px * 2);
+  height: 32px;
+  /* -webkit-transform: translateY(40%);
   -moz-transform: translateY(40%);
   -ms-transform: translateY(40%);
   -o-transform: translateY(40%);
-  transform: translateY(40%);
+  transform: translateY(40%); */
   -webkit-transition: transform 0.17s cubic-bezier(0.26, 0.48, 0.08, 0.9);
   -moz-transition: transform 0.17s cubic-bezier(0.26, 0.48, 0.08, 0.9);
   -ms-transition: transform 0.17s cubic-bezier(0.26, 0.48, 0.08, 0.9);
@@ -88,18 +88,18 @@ body {
 .language-switcher .select-fr,
 .language-switcher .select-en {
   position: absolute;
-  font-size: 25.6px;
-  top: 16px;
+  font-size: 12.8px;
+  top: 8px;
   color: #fff;
   mix-blend-mode: difference;
 }
 
 .language-switcher .select-fr {
-  left: 18.2857142857px;
+  left: 9.14285714285px;
 }
 
 .language-switcher .select-en {
-  right: 16px;
+  right: 8px;
 }
 
 .slider {
@@ -118,8 +118,8 @@ body {
 .slider:before {
   position: absolute;
   content: "";
-  height: 64px;
-  width: 64px;
+  height: 32px;
+  width: 32px;
   left: 0;
   bottom: 0;
   background-color: white;
@@ -137,9 +137,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(64px);
-  -ms-transform: translateX(64px);
-  transform: translateX(64px);
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
 }
 
 /* Rounded sliders */
@@ -169,7 +169,8 @@ input:checked + .slider:before {
 
 .nav-icon {
   display: flex;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
+  margin-left: 1rem;
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import LanguageSwitcher from "../home/LanguageSwitcher";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,7 @@ const Sidebar = () => {
     <>
       <header className="top-bar container mx-auto px-5 sm:px-0">
         <div className="menu-bar">
+          <LanguageSwitcher />
           <span
             ref={domeNode}
             className="nav-icon"
@@ -51,10 +53,10 @@ const Sidebar = () => {
           </span>
         </div>
         <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/dashboard"}>Dashboard</Link>
-          <Link href={"/login"}>Log in</Link>
-          <Link href={"/login"}>Sign up</Link>
+          <Link href="/">Home</Link>
+          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/login">Log in</Link>
+          <Link href="/signup">Sign up</Link>
         </div>
       </header>
     </>

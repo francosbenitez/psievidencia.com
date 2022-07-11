@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import en from "../lang/en.json";
 import es from "../lang/es.json";
+import TheSidebar from "../components/global/TheSidebar";
 
 const messages: any = {
   en,
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       messages={locale != undefined && messages[locale]}
     >
       <ScrollToTop>
+        <TheSidebar />
         <Component {...pageProps} />
       </ScrollToTop>
     </IntlProvider>

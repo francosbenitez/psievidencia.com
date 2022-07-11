@@ -10,7 +10,6 @@ import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
-import LanguageSwitcher from "../components/home/LanguageSwitcher";
 import LoadingSpinner from "../components/home/LoadingSpinner";
 
 const Home: NextPage = () => {
@@ -151,7 +150,6 @@ const Home: NextPage = () => {
         <link rel="alternate" href="http://psievidencia.com" hrefLang="en" />
         <link rel="alternate" href="http://psievidencia.com/es" hrefLang="es" />
       </Head>
-      <LanguageSwitcher />
       <div className="container mx-auto py-28 px-5 sm:px-0">
         <TheHeader />
         <SearchName handleNameChange={handleNameChange} />
