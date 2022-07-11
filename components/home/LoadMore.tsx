@@ -12,21 +12,23 @@ const LoadMore = ({
   loadingMore: boolean;
 }) => {
   return (
-    <button
-      onClick={handlePagination}
-      className={`w-36 h-12 relative bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded ${
-        noMore && "opacity-50"
-      }`}
-      disabled={noMore}
-    >
-      {noMore ? (
-        <FormattedMessage id="no.more" />
-      ) : loadingMore ? (
-        <LoadingSpinner btn={true} />
-      ) : (
-        <FormattedMessage id="load.more" />
-      )}
-    </button>
+    <div className="flex justify-center pt-20">
+      <button
+        onClick={handlePagination}
+        className={`w-36 h-12 relative bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded ${
+          noMore && "opacity-50"
+        }`}
+        disabled={noMore}
+      >
+        {noMore ? (
+          <FormattedMessage id="no.more" />
+        ) : loadingMore ? (
+          <LoadingSpinner btn={true} />
+        ) : (
+          <FormattedMessage id="load.more" />
+        )}
+      </button>
+    </div>
   );
 };
 

@@ -185,14 +185,13 @@ const Home: NextPage = () => {
             );
           })}
         </div>
-
-        <div className="flex justify-center pt-20">
+        {!loading && (
           <LoadMore
             handlePagination={handlePagination}
             noMore={noMore}
             loadingMore={loadingMore}
           />
-        </div>
+        )}
       </div>
       <TheFooter />
     </>
