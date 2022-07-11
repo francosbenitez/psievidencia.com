@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "../home/LanguageSwitcher";
+import SoonTag from "./SoonTag";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,9 +55,18 @@ const Sidebar = () => {
         </div>
         <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
           <Link href="/">Home</Link>
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/login">Log in</Link>
-          <Link href="/signup">Sign up</Link>
+          <div className="relative">
+            <Link href="/dashboard">Dashboard</Link>
+            <SoonTag />
+          </div>
+          <div className="relative">
+            <Link href="/login">Log in</Link>
+            <SoonTag />
+          </div>
+          <div className="relative">
+            <Link href="/signup">Sign up</Link>
+            <SoonTag />
+          </div>
         </div>
       </header>
     </>
