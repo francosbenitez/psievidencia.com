@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Data } from "../../types";
 import { FormattedMessage } from "react-intl";
+import ArrowDown from "../../public/icons/arrow-down.svg";
+import ArrowUp from "../../public/icons/arrow-up.svg";
 
 type Props = {
   selectedOption: Data;
@@ -55,6 +57,7 @@ const TheDropdownBase = ({
     <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
         <FormattedMessage id="filter.education" />
+        {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
       {isOpen && (
         <div>

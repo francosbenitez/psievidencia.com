@@ -4,6 +4,8 @@ import { Data } from "../../types";
 import SearchName from "./SearchName";
 import useDebounce from "../../hooks/useDebounce";
 import { FormattedMessage } from "react-intl";
+import ArrowDown from "../../public/icons/arrow-down.svg";
+import ArrowUp from "../../public/icons/arrow-up.svg";
 
 type Props = {
   type: string;
@@ -97,6 +99,7 @@ const TheDropdownBase = ({
     <div className="sm:w-1/4 my-6 w-full">
       <div className="dropdown-header cursor-pointer h-full" onClick={toggling}>
         <FormattedMessage id={`filter.${type}`} />
+        {isOpen ? <ArrowUp /> : <ArrowDown />}
       </div>
       {isOpen && (
         <ul
