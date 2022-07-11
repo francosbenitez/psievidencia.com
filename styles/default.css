@@ -68,7 +68,7 @@ body {
 }
 
 .loader {
-  z-index: 100000000;
+  z-index: 1;
   background: transparent;
   transition: 0.15s ease-in opacity;
   position: absolute;

@@ -29,7 +29,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <header className="top-bar container mx-auto px-5 sm:px-0">
+      <header className="top-bar container mx-auto px-5 sm:px-0 z-10">
         <div className="menu-bar">
           <LanguageSwitcher />
           <span
@@ -56,15 +56,15 @@ const Sidebar = () => {
         <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
           <Link href="/">Home</Link>
           <div className="relative">
-            <Link href="/dashboard">Dashboard</Link>
+            <Link href="">Dashboard</Link>
             <SoonTag />
           </div>
           <div className="relative">
-            <Link href="/login">Log in</Link>
+            <Link href="">Log in</Link>
             <SoonTag />
           </div>
           <div className="relative">
-            <Link href="/signup">Sign up</Link>
+            <Link href="">Sign up</Link>
             <SoonTag />
           </div>
         </div>
