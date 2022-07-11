@@ -16,6 +16,12 @@ module.exports = {
         fourth: "#CBD0B9",
         fifth: "#BDDBD0",
       },
+      fontFamily: {
+        regular: ["Inter Regular"],
+        medium: ["Inter Medium"],
+        bold: ["Inter Bold"],
+        semibold: ["Inter SemiBold"],
+      },
     },
   },
   plugins: [],
