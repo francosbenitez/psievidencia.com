@@ -208,9 +208,9 @@ const PsychologistsDetail = () => {
           </div>
         </div>
       ) : (
-        <p className="grid place-items-center h-screen">
+        <div className="grid place-items-center h-screen">
           <LoadingSpinner />
-        </p>
+        </div>
       )}
     </>
   );

@@ -168,9 +168,9 @@ const Home: NextPage = () => {
         />
 
         {loading && (
-          <p className="grid place-items-center">
+          <div className="grid place-items-center">
             <LoadingSpinner />
-          </p>
+          </div>
         )}
 
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
