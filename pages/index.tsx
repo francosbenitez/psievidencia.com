@@ -11,6 +11,7 @@ import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import LanguageSwitcher from "../components/home/LanguageSwitcher";
+import LoadingSpinner from "../components/home/LoadingSpinner";
 
 const Home: NextPage = () => {
   const [psychologists, setPsychologists] = useState([]);
@@ -166,7 +167,11 @@ const Home: NextPage = () => {
           setSelectedOptionEd={setSelectedOptionEd}
         />
 
-        {loading && <p className="grid place-items-center">Loading...</p>}
+        {loading && (
+          <p className="grid place-items-center">
+            <LoadingSpinner />
+          </p>
+        )}
 
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {psychologists.map((psychologist: Psychologist) => {

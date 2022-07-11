@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FormattedMessage } from "react-intl";
+import LoadingSpinner from "../../components/home/LoadingSpinner";
 
 const PsychologistsDetail = () => {
   const router = useRouter();
@@ -208,7 +209,7 @@ const PsychologistsDetail = () => {
         </div>
       ) : (
         <p className="grid place-items-center h-screen">
-          Loading psychologist...
+          <LoadingSpinner />
         </p>
       )}
     </>

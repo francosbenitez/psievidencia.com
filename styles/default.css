@@ -30,8 +30,8 @@ body {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #ccc;
-  border-color: #ccc transparent #ccc transparent;
+  border: 6px solid var(--primary);
+  border-color: var(--primary) transparent var(--primary) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
