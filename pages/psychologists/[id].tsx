@@ -144,10 +144,7 @@ const PsychologistsDetail = () => {
         </title>
       </Head>
       {psychologist != null && Object.keys(psychologist).length > 0 ? (
-        <div
-          className="container mx-auto px-5 sm:px-0"
-          style={{ paddingBottom: "20rem", paddingTop: "5rem" }}
-        >
+        <div className="container mx-auto px-5 sm:px-0 pt-40 pb-20">
           <button
             className="
         absolute

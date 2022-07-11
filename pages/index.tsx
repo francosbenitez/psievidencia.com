@@ -150,10 +150,7 @@ const Home: NextPage = () => {
         <link rel="alternate" href="http://psievidencia.com" hrefLang="en" />
         <link rel="alternate" href="http://psievidencia.com/es" hrefLang="es" />
       </Head>
-      <div
-        className="container mx-auto px-5 sm:px-0"
-        style={{ paddingBottom: "20rem", paddingTop: "5rem" }}
-      >
+      <div className="container mx-auto px-5 sm:px-0 pt-40 pb-20">
         <TheHeader />
 
         <div className="w-full sm:w-1/3 m-auto">
