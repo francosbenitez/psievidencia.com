@@ -11,5 +11,8 @@
   "filter.education": "Filter by education",
   "footer.to.be.part": "To be part of this collection, fill your data in",
   "footer.google.forms": "this Google Forms",
-  "footer.source.code": "Source code"
+  "footer.source.code": "Source code",
+  "social.networks": "Social networks",
+  "phone.or.email": "Phone number or contact email",
+  "no.data": "No data"
 }

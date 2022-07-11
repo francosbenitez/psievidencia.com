@@ -180,22 +180,29 @@ const PsychologistsDetail = () => {
             </p>
             <div className="grid grid-cols-2 gap-4">
               <p>
-                <span className="underline">Redes sociales</span>:{" "}
+                <span className="underline">
+                  <FormattedMessage id="social.networks" />
+                </span>
+                :{" "}
                 {psychologist.social_networks !== "" ? (
                   <>{psychologist.social_networks}</>
                 ) : (
-                  <>No data</>
+                  <>
+                    <FormattedMessage id="no.data" />
+                  </>
                 )}
               </p>
               <p className="text-right">
                 <span className="underline">
-                  Número de teléfono o mail de contacto
+                  <FormattedMessage id="phone.or.email" />
                 </span>
                 :{" "}
                 {psychologist.phone_number !== "" ? (
                   <>{psychologist.phone_number}</>
                 ) : (
-                  <>No data</>
+                  <>
+                    <FormattedMessage id="no.data" />
+                  </>
                 )}
               </p>
             </div>
