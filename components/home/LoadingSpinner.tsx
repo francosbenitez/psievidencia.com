@@ -1,9 +1,12 @@
 import React from "react";
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ btn }: { btn?: boolean }) => {
   return (
-    <div className="loader loader--visible">
-      <div className="lds-dual-ring"></div>
+    <div
+      className="loader loader--visible"
+      style={{ position: btn ? "relative" : "absolute" }}
+    >
+      <div className={`${btn ? "lds-dual-ring-btn" : "lds-dual-ring"}`}></div>
     </div>
   );
 };

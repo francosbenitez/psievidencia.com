@@ -15,6 +15,7 @@ import LoadingSpinner from "../components/home/LoadingSpinner";
 const Home: NextPage = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
   const [pagination, setPagination] = useState(1);
@@ -63,7 +64,7 @@ const Home: NextPage = () => {
     education: string
   ) => {
     try {
-      setLoading(true);
+      setLoadingMore(true);
       const data = (
         await PsychologistsService.index(
           pagination,
@@ -75,11 +76,11 @@ const Home: NextPage = () => {
         )
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
-      setLoading(false);
+      setLoadingMore(false);
       setNoMore(false);
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
-      setLoading(false);
+      setLoadingMore(false);
       setPagination(1);
       setNoMore(true);
     }
@@ -186,9 +187,11 @@ const Home: NextPage = () => {
         </div>
 
         <div className="flex justify-center pt-20">
-          {!loading && (
-            <LoadMore handlePagination={handlePagination} noMore={noMore} />
-          )}
+          <LoadMore
+            handlePagination={handlePagination}
+            noMore={noMore}
+            loadingMore={loadingMore}
+          />
         </div>
       </div>
       <TheFooter />
