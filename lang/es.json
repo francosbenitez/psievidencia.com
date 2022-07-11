@@ -1,6 +1,9 @@
 {
   "title": "Una aplicación web para ayudarte a encontrar los mejores psicólogos basados en la evidencia",
   "contact": "Contacto",
+  "load.more": "Cargar más",
+  "no.more": "No hay más datos",
+  "offers.online": "Atiende online",
   "search.name": "Buscá por nombre",
   "filter.specializations": "Filtrá por especializaciones",
   "filter.therapeutic_models": "Filtrá por modelos terapéuticos",

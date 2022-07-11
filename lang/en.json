@@ -1,6 +1,9 @@
 {
   "title": "A web app to help you find the best evidence-based psychologists",
   "contact": "Contact",
+  "load.more": "Load more",
+  "no.more": "No more data",
+  "offers.online": "Offers online",
   "search.name": "Search by name",
   "filter.specializations": "Filter by specializations",
   "filter.therapeutic_models": "Filter by therapeutic models",

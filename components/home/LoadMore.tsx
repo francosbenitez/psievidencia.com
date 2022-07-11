@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const LoadMore = ({
   handlePagination,
@@ -16,7 +17,11 @@ const LoadMore = ({
         }`}
         disabled={noMore}
       >
-        {!noMore ? "Load more" : "No more data"}
+        {!noMore ? (
+          <FormattedMessage id="load.more" />
+        ) : (
+          <FormattedMessage id="no.more" />
+        )}
       </button>
     </div>
   );
