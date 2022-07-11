@@ -1,7 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Inter Regular";
+  src: url("../public/fonts/Inter-Regular.woff2") format("woff2"),
+    url("../public/fonts/Inter-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter Medium";
+  src: url("../public/fonts/Inter-Medium.woff2") format("woff2"),
+    url("../public/fonts/Inter-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter SemiBold";
+  src: url("../public/fonts/Inter-SemiBold.woff2") format("woff2"),
+    url("../public/fonts/Inter-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url("../public/fonts/Inter-Bold.woff2") format("woff2"),
+    url("../public/fonts/Inter-Bold.woff") format("woff");
+}
 
 * {
   --primary: #514b23;
@@ -13,7 +36,7 @@
 
 body {
   background-color: var(--fifth);
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Inter Regular", Arial, Helvetica, sans-serif;
 }
 
 /* Loading spinner */
