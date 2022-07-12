@@ -5,11 +5,13 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { FormattedMessage } from "react-intl";
 import LoadingSpinner from "../../components/home/LoadingSpinner";
+import { useIntl } from "react-intl";
 
 const PsychologistsDetail = () => {
   const router = useRouter();
   let { id } = router.query;
-
+  const intl = useIntl();
+  const { locale }: { locale?: any } = useRouter();
   const [psychologist, setPsychologist] = useState<any>({});
 
   useEffect(() => {
@@ -115,25 +117,42 @@ const PsychologistsDetail = () => {
   ];
 
   const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
   ];
 
   const formattedDate = () => {
     let d = psychologist.date!.split(" ");
     d = d[0].split("/");
     d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
-    return monthNames[d.getMonth()] + " " + d.getDay() + ", " + d.getFullYear();
+
+    if (locale === "es") {
+      return (
+        d.getDay() +
+        " de " +
+        intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
+        " de " +
+        d.getFullYear()
+      );
+    }
+
+    return (
+      intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
+      " " +
+      d.getDay() +
+      ", " +
+      d.getFullYear()
+    );
   };
   return (
     <>

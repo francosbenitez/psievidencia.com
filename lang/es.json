@@ -15,18 +15,16 @@
   "social.networks": "Redes sociales",
   "phone.or.email": "Número de teléfono o email de contacto",
   "no.data": "No hay datos",
-  "months": [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosot",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre"
-  ]
+  "months.january": "Enero",
+  "months.february": "Febrero",
+  "months.march": "Marzo",
+  "months.april": "Abril",
+  "months.may": "Mayo",
+  "months.june": "Junio",
+  "months.july": "Julio",
+  "months.august": "Agosto",
+  "months.september": "Septiembre",
+  "months.october": "Octubre",
+  "months.november": "Noviembre",
+  "months.december": "Deciembre"
 }
