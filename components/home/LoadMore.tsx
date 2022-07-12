@@ -15,7 +15,7 @@ const LoadMore = ({
     <div className="flex justify-center pt-20">
       <button
         onClick={handlePagination}
-        className={`w-36 h-12 relative bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded ${
+        className={`w-48 h-12 relative bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded ${
           noMore && "opacity-50"
         }`}
         disabled={noMore}
