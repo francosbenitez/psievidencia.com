@@ -7,6 +7,7 @@ import en from "../lang/en.json";
 import es from "../lang/es.json";
 import TheSidebar from "../components/global/TheSidebar";
 import TheFooter from "../components/home/TheFooter";
+import { useState } from "react";
 
 const messages: any = {
   en,
@@ -15,6 +16,7 @@ const messages: any = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale }: { locale?: any } = useRouter();
+  const [showFooter, setShowFooter] = useState<boolean>(true);
 
   return (
     <IntlProvider
@@ -24,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ScrollToTop>
         <TheSidebar />
         <Component {...pageProps} />
-        <TheFooter />
+        {showFooter && <TheFooter setShowFooter={setShowFooter} />}
       </ScrollToTop>
     </IntlProvider>
   );
