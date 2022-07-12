@@ -59,7 +59,7 @@ const TheDropdownBase = ({
         className="dropdown-header cursor-pointer h-full rounded shadow-md table w-full"
         onClick={toggling}
       >
-        <span className="table-cell w-1/2">
+        <span className="table-cell w-1/2 font-semibold">
           <FormattedMessage id="filter.education" />
         </span>
         <span className="table-cell w-1/2">
