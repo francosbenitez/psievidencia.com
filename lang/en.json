@@ -30,5 +30,6 @@
   "education.licentiate": "Licentiate degree",
   "education.specialist": "Specialist degree",
   "education.master": "Master's degree",
-  "education.doctoral": "Doctoral degree"
+  "education.doctoral": "Doctoral degree",
+  "no.results": "No results found"
 }

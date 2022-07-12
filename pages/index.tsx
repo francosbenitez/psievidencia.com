@@ -9,6 +9,7 @@ import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
+import { FormattedMessage } from "react-intl";
 
 const Home = ({
   loading,
@@ -169,19 +170,27 @@ const Home = ({
           setSelectedOptionEd={setSelectedOptionEd}
         />
 
-        <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {psychologists.map((psychologist: Psychologist) => {
-            return (
-              <TheCard key={psychologist.id} psychologist={psychologist} />
-            );
-          })}
-        </div>
-        {!loading && (
-          <LoadMore
-            handlePagination={handlePagination}
-            noMore={noMore}
-            loadingMore={loadingMore}
-          />
+        {psychologists != null && psychologists.length > 0 ? (
+          <>
+            <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {psychologists.map((psychologist: Psychologist) => {
+                return (
+                  <TheCard key={psychologist.id} psychologist={psychologist} />
+                );
+              })}
+            </div>
+            {!loading && (
+              <LoadMore
+                handlePagination={handlePagination}
+                noMore={noMore}
+                loadingMore={loadingMore}
+              />
+            )}
+          </>
+        ) : (
+          <div className="grid place-items-center font-bold text-2xl h-56">
+            <FormattedMessage id="no.results" />
+          </div>
         )}
       </div>
     </>

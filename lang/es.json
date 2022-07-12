@@ -30,5 +30,6 @@
   "education.licentiate": "Licenciatura",
   "education.specialist": "Especialización",
   "education.master": "Master",
-  "education.doctoral": "Doctorado"
+  "education.doctoral": "Doctorado",
+  "no.results": "No se han encontrado resultados"
 }
