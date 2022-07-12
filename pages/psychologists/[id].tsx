@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FormattedMessage } from "react-intl";
-import LoadingSpinner from "../../components/home/LoadingSpinner";
 import { useIntl } from "react-intl";
 
 const PsychologistsDetail = () => {
@@ -162,7 +161,7 @@ const PsychologistsDetail = () => {
           | Psievidencia
         </title>
       </Head>
-      {psychologist != null && Object.keys(psychologist).length > 0 ? (
+      {psychologist != null && Object.keys(psychologist).length > 0 && (
         <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
           <button
             className="
@@ -225,10 +224,6 @@ const PsychologistsDetail = () => {
               </p>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="grid place-items-center h-screen">
-          <LoadingSpinner />
         </div>
       )}
     </>
