@@ -32,17 +32,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <IntlProvider
-      locale={locale}
-      messages={locale != undefined && messages[locale]}
-    >
-      <ScrollToTop>
-        {loading ? <LoadingBar /> : ""}
-        <TheSidebar />
-        <Component {...pageProps} loading={loading} setLoading={setLoading} />
-        {showFooter && <TheFooter setShowFooter={setShowFooter} />}
-      </ScrollToTop>
-    </IntlProvider>
+    <>
+      {loading ? <LoadingBar /> : ""}
+      <IntlProvider
+        locale={locale}
+        messages={locale != undefined && messages[locale]}
+      >
+        <ScrollToTop>
+          <TheSidebar />
+          <Component {...pageProps} loading={loading} setLoading={setLoading} />
+          {showFooter && <TheFooter setShowFooter={setShowFooter} />}
+        </ScrollToTop>
+      </IntlProvider>
+    </>
   );
 }
 
