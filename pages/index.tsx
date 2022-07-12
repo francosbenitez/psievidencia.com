@@ -132,12 +132,9 @@ const Home: NextPage = () => {
         <title>PsiEvidencia</title>
         <meta
           name="description"
-          content="A web application to help you find the best evidence-based psychologists."
+          content="Una aplicación web para ayudarte a encontrar a los mejores psicólogos basados en la evidencia."
         />
-        <meta
-          name="keywords"
-          content="psievidencia evidence-based psychology"
-        />
+        <meta name="keywords" content="psievidencia psicologia evidencia" />
         <meta
           name="google-site-verification"
           content="SunVWUveAt2rjkQwOP05PRn3LsPQ8T24-Aji_ACkSik"
@@ -147,8 +144,8 @@ const Home: NextPage = () => {
           href="http://psievidencia.com"
           hrefLang="x-default"
         />
-        <link rel="alternate" href="http://psievidencia.com" hrefLang="en" />
-        <link rel="alternate" href="http://psievidencia.com/es" hrefLang="es" />
+        <link rel="alternate" href="http://psievidencia.com" hrefLang="es" />
+        <link rel="alternate" href="http://psievidencia.com/en" hrefLang="en" />
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
         <TheHeader />

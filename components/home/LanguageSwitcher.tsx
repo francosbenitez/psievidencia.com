@@ -12,9 +12,9 @@ const LanguageSwitcher = () => {
 
   useEffect(() => {
     if (isChecked) {
-      router.push("/es", undefined, { locale: "es" });
+      router.push("/en", undefined, { locale: "en" });
     } else {
-      router.push("/", undefined, { locale: "en" });
+      router.push("/", undefined, { locale: "es" });
     }
   }, [isChecked]);
 
@@ -22,8 +22,8 @@ const LanguageSwitcher = () => {
     <label className="language-switcher cursor-pointer">
       <input type="checkbox" onChange={handleChange} />
       <span className="slider round"></span>
-      <span className="select-fr">EN</span>
-      <span className="select-en">ES</span>
+      <span className="select-fr">ES</span>
+      <span className="select-en">EN</span>
     </label>
   );
 };
