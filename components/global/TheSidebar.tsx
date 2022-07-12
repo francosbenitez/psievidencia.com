@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "../home/LanguageSwitcher";
 import SoonTag from "./SoonTag";
+import { FormattedMessage } from "react-intl";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,11 +61,19 @@ const Sidebar = () => {
             <SoonTag />
           </div>
           <div className="relative">
-            <Link href="">Log in</Link>
+            <Link href="">
+              <a>
+                <FormattedMessage id="log.in" />
+              </a>
+            </Link>
             <SoonTag />
           </div>
           <div className="relative">
-            <Link href="">Sign up</Link>
+            <Link href="">
+              <a>
+                <FormattedMessage id="sign.up" />
+              </a>
+            </Link>
             <SoonTag />
           </div>
         </div>

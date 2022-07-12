@@ -31,5 +31,8 @@
   "education.specialist": "Specialist degree",
   "education.master": "Master's degree",
   "education.doctoral": "Doctoral degree",
-  "no.results": "No results found"
+  "no.results": "No results found",
+  "soon": "Soon",
+  "log.in": "Log in",
+  "sign.up": "Sign up"
 }

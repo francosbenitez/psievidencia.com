@@ -31,5 +31,8 @@
   "education.specialist": "Especialización",
   "education.master": "Master",
   "education.doctoral": "Doctorado",
-  "no.results": "No se han encontrado resultados"
+  "no.results": "No se han encontrado resultados",
+  "soon": "Pronto",
+  "log.in": "Ingresar",
+  "sign.up": "Registrarse"
 }
