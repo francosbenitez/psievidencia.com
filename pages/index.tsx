@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+// import type { NextPage } from "next";
 import Head from "next/head";
 import TheHeader from "../components/home/TheHeader";
 import PsychologistsService from "../services/PsychologistsService";
@@ -9,11 +9,15 @@ import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
-import LoadingSpinner from "../components/home/LoadingSpinner";
 
-const Home: NextPage = () => {
+const Home = ({
+  loading,
+  setLoading,
+}: {
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [psychologists, setPsychologists] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
@@ -164,12 +168,6 @@ const Home: NextPage = () => {
           selectedOptionEd={selectedOptionEd}
           setSelectedOptionEd={setSelectedOptionEd}
         />
-
-        {loading && (
-          <div className="grid place-items-center">
-            <LoadingSpinner />
-          </div>
-        )}
 
         <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {psychologists.map((psychologist: Psychologist) => {
