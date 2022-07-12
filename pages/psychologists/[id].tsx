@@ -135,20 +135,20 @@ const PsychologistsDetail = () => {
     d = d[0].split("/");
     d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
 
-    if (locale === "es") {
+    if (locale === "en") {
       return (
-        d.getDay() +
-        " de " +
         intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
-        " de " +
+        " " +
+        d.getDay() +
+        ", " +
         d.getFullYear()
       );
     }
 
     return (
-      intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
-      " " +
       d.getDay() +
+      " de " +
+      intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
       ", " +
       d.getFullYear()
     );
@@ -180,8 +180,10 @@ const PsychologistsDetail = () => {
           <h1 className="text-center font-bold text-5xl mb-5">
             {psychologist.name !== "" ? psychologist.name : "Unknown"}
           </h1>
-          <h2 className="text-2xl text-center">{psychologist.email}</h2>
-          <h3 className="text-1xl underline my-6">{formattedDate()}</h3>
+          <h2 className="text-2xl text-center font-semibold">
+            {psychologist.email}
+          </h2>
+          <h3 className="text-1xl my-6 font-medium">{formattedDate()}</h3>
           <div className="accordion">
             {accordionData.map(({ title, content }) => (
               <TheAccordion
