@@ -26,5 +26,9 @@
   "months.september": "September",
   "months.october": "October",
   "months.november": "November",
-  "months.december": "December"
+  "months.december": "December",
+  "education.licentiate": "Licentiate degree",
+  "education.specialist": "Specialist degree",
+  "education.master": "Master's degree",
+  "education.doctoral": "Doctoral degree"
 }

@@ -3,6 +3,8 @@ import { Data } from "../../types";
 import { FormattedMessage } from "react-intl";
 import ArrowDown from "../../public/icons/arrow-down.svg";
 import ArrowUp from "../../public/icons/arrow-up.svg";
+import { useIntl } from "react-intl";
+import { useRouter } from "next/router";
 
 type Props = {
   selectedOption: Data;
@@ -19,6 +21,8 @@ const TheDropdownBase = ({
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
+  const intl = useIntl();
+  const { locale }: { locale?: any } = useRouter();
 
   const addSelectedOptions = (value: Data) => {
     if (Object.keys(selectedOption).length > 0) {
@@ -42,16 +46,30 @@ const TheDropdownBase = ({
 
   useEffect(() => {
     const doSomething = () =>
-      setData((item) =>
-        item.concat([
-          { id: 1, name: "licenciatura", slug: "Licentiate degree" },
-          { id: 2, name: "especialidad", slug: "Specialist degree" },
-          { id: 3, name: "maestria", slug: "Master's degree" },
-          { id: 4, name: "doctorado", slug: "Doctoral degree" },
-        ])
-      );
+      setData([
+        {
+          id: 1,
+          name: "licenciatura",
+          slug: intl.formatMessage({ id: "education.licentiate" }),
+        },
+        {
+          id: 2,
+          name: "especialidad",
+          slug: intl.formatMessage({ id: "education.specialist" }),
+        },
+        {
+          id: 3,
+          name: "maestria",
+          slug: intl.formatMessage({ id: "education.master" }),
+        },
+        {
+          id: 4,
+          name: "doctorado",
+          slug: intl.formatMessage({ id: "education.doctoral" }),
+        },
+      ]);
     doSomething();
-  }, []);
+  }, [locale]);
 
   return (
     <div className="sm:w-1/4 w-full">

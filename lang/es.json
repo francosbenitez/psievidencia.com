@@ -26,5 +26,9 @@
   "months.september": "Septiembre",
   "months.october": "Octubre",
   "months.november": "Noviembre",
-  "months.december": "Deciembre"
+  "months.december": "Deciembre",
+  "education.licentiate": "Licenciatura",
+  "education.specialist": "Especialización",
+  "education.master": "Master",
+  "education.doctoral": "Doctorado"
 }
