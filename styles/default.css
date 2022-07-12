@@ -29,13 +29,16 @@
 * {
   --primary: #514b23;
   --secondary: #656839;
-  --tertiary: #cbc9ad;
-  --fourth: #cbd0b9;
-  --fifth: #bddbd0;
+  --tertiary-800: #cbc9ad;
+  --tertiary-900: #d0c860;
+  --fourth-800: #cbd0b9;
+  --fourth-900: #b1c959;
+  --fifth-800: #bddbd0;
+  --fifth-900: #a5dfca;
 }
 
 body {
-  background-color: var(--fifth);
+  background-color: var(--fifth-800);
   font-family: "Inter Regular", Arial, Helvetica, sans-serif;
 }
 

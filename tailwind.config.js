@@ -12,9 +12,18 @@ module.exports = {
       colors: {
         primary: "#514B23",
         secondary: "#656839",
-        tertiary: "#CBC9AD",
-        fourth: "#CBD0B9",
-        fifth: "#BDDBD0",
+        tertiary: {
+          800: "#CBC9AD",
+          900: "#d0c860",
+        },
+        fourth: {
+          800: "#CBD0B9",
+          900: "#b1c959",
+        },
+        fifth: {
+          800: "#BDDBD0",
+          900: "#a5dfca",
+        },
       },
       fontFamily: {
         regular: ["Inter Regular"],
