@@ -22,7 +22,7 @@ const HomeFooter = ({ setShowFooter }: Props) => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/francosbenitez/psievidencia-frontend"
+          href="https://github.com/francosbenitez/psievidencia-com"
         >
           <span className="underline">
             <FormattedMessage id="footer.source.code" />

@@ -17,7 +17,7 @@ TO-DO:
     - Next, and
     - TypeScript.
   - Tell Facundo modify the email/mobile phone variable. REMOVE IT.
-  - Change the current project name for "psievidencia-frontend". DONE
+  - Change the current project name for "psievidencia-com". DONE
   - Implement paginated data from the psievidencia-backend API. DONE
   - Implement search API via the four main variables as a queries.
   - Reorganize the components better! 
@@ -34,4 +34,15 @@ TO-DO:
       - "Identidad de Género": "/api/psychologists?gender=mujer" or "/api/psychologists?gender=hombre". 
       - "Formación en Perspectiva de Género/LGBTIQ+": "api/psychologists?gender_perspective=lgbtiq" or "api/psychologists?gender_perspective=".
       - "Modalidad de Trabajo": "api/psychologists/work_modality=individual" or "api/psychologists/work_modality=grupal". 
+- Add a cover, like "Superprof".
+  - And a link to redirect you to the filters part (another section). Like: "
+  <div>
+    <h1>Psievidencia.</h1>
+    <h2>Una aplicación web para ayudarte a encontrar a los mejores psicólogos basados en la evidencia.</h2>
+  </div>
+
+  <a href="/psychologists">
+    Ir a buscar a mi psicólogue basado en la evidencia ->
+  </a>.
+  "
  
