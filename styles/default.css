@@ -262,6 +262,8 @@ input:checked + .slider:before {
   position: absolute;
   overflow-y: scroll;
   height: 400px;
+  width: 100%;
+  z-index: 1;
 }
 
 .dropdown-list:first-child {
