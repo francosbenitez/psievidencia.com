@@ -45,7 +45,7 @@
 .loaderElement:before {
   content: "";
   display: block;
-  background-color: #514b23;
+  background-color: #313131;
   height: 3px;
   width: 0;
   animation: getWidth 2s ease-in infinite;

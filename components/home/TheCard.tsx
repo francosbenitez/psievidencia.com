@@ -16,7 +16,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
               (item, index) =>
                 index < 3 && (
                   <span
-                    className="bg-tertiary-900 text-white break-all mr-1 px-1"
+                    className="bg-primary text-white break-all mr-1 px-1"
                     key={item}
                   >
                     {item}
@@ -32,7 +32,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
               (item, index) =>
                 index < 3 && (
                   <span
-                    className="bg-fourth-900 text-white break-all mr-1 px-1"
+                    className="bg-primary text-white break-all mr-1 px-1"
                     key={item}
                   >
                     {item}
@@ -49,7 +49,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
                 (item, index) =>
                   index < 3 && (
                     <span
-                      className="bg-fifth-900 text-white break-all mr-1 px-1"
+                      className="bg-primary text-white break-all mr-1 px-1"
                       key={item}
                     >
                       {item}

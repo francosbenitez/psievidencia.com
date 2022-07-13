@@ -10,7 +10,7 @@ const TheHeader = () => {
         <span className="sm:px-4 text-primary font-bold">Psievidencia</span>
         <Magnifier className="inline w-12 h-12" />
       </h1>
-      <h2 className="text-center text-2xl my-9 font-semibold text-secondary">
+      <h2 className="text-center text-2xl my-9 font-semibold text-primary">
         <FormattedMessage id="title" />
       </h2>
     </>
