@@ -29,6 +29,7 @@
 * {
   --primary: #313131;
   --body: rgb(244, 247, 245);
+  font-family: "Inter Regular" !important;
 }
 
 body {
