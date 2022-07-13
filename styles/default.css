@@ -211,7 +211,7 @@ input:checked + .slider:before {
   height: 100%;
   width: 260px;
   position: fixed;
-  background: var(--body);
+  background: white;
   z-index: 1;
   transition: all 0.35s ease-out;
 }

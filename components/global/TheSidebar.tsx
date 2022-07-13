@@ -54,7 +54,10 @@ const Sidebar = () => {
             </svg>
           </span>
         </div>
-        <div className="side-menu" style={{ left: isOpen ? "0" : "-265px" }}>
+        <div
+          className="side-menu shadow-md"
+          style={{ left: isOpen ? "0" : "-265px" }}
+        >
           <Link href="/">Home</Link>
           <div className="relative">
             <Link href="">Dashboard</Link>
