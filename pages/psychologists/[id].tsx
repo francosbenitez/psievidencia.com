@@ -1,25 +1,25 @@
 import TheAccordion from "../../components/psychologists-detail/TheAccordion";
-import PsychologistsService from "../../services/PsychologistsService";
-import { useState, useEffect } from "react";
+// import PsychologistsService from "../../services/PsychologistsService";
+// import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FormattedMessage } from "react-intl";
 import { useIntl } from "react-intl";
 
-const PsychologistsDetail = () => {
+const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
   const router = useRouter();
-  let { id } = router.query;
+  // let { id } = router.query;
   const intl = useIntl();
   const { locale }: { locale?: any } = useRouter();
-  const [psychologist, setPsychologist] = useState<any>({});
+  // const [psychologist, setPsychologist] = useState<any>({});
 
-  useEffect(() => {
-    const fetchPsychologist = async (id: string | string[] | undefined) => {
-      const data = (await PsychologistsService.detail(id)).data;
-      setPsychologist(data);
-    };
-    fetchPsychologist(id);
-  }, []);
+  // useEffect(() => {
+  //   const fetchPsychologist = async (id: string | string[] | undefined) => {
+  //     const data = (await PsychologistsService.detail(id)).data;
+  //     setPsychologist(data);
+  //   };
+  //   fetchPsychologist(id);
+  // }, []);
 
   const accordionData = [
     {
@@ -156,10 +156,7 @@ const PsychologistsDetail = () => {
   return (
     <>
       <Head>
-        <title>
-          {psychologist.name !== "" ? psychologist.name : "Unknown"}{" "}
-          | Psievidencia
-        </title>
+        <title>{`${psychologist.name} | Psievidencia`}</title>
       </Head>
       {psychologist != null && Object.keys(psychologist).length > 0 && (
         <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
@@ -229,5 +226,42 @@ const PsychologistsDetail = () => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const res = await fetch(
+    "https://secret-hamlet-81810.herokuapp.com/api/psychologists"
+  );
+  const { results }: any = await res.json();
+
+  return {
+    paths: results.map((psychologist: any) => {
+      return {
+        params: {
+          id: String(psychologist.id),
+        },
+      };
+    }),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({
+  params,
+}: {
+  params: {
+    id: string;
+  };
+}) {
+  const res = await fetch(
+    `https://secret-hamlet-81810.herokuapp.com/api/psychologists/${params.id}`
+  );
+  const psychologist = await res.json();
+
+  return {
+    props: {
+      psychologist,
+    },
+  };
+}
 
 export default PsychologistsDetail;
