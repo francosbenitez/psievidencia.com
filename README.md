@@ -11,4 +11,4 @@ _A web application to help you find the best evidence-based psychologists_
 
 ## Live Demo
 
-- [Link](https://psievidencia.com)
+- <a href="https://psievidencia.com" target="_blank">Link</a>
