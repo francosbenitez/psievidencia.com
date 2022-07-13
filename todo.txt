@@ -45,4 +45,4 @@ TO-DO:
     Ir a buscar a mi psicólogue basado en la evidencia ->
   </a>.
   "
- 
+- Implement getServerSideProps & getStaticProps/getStaticPaths functions.
