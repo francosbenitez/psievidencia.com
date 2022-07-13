@@ -6,10 +6,10 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
       <div className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer">
-        <header className="font-bold text-xl mb-3 text-center">
+        <header className="text-xl mb-3 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>
-        <ul className="text-primary text-center font-semibold break-words">
+        <ul className="text-primary text-center break-words">
           <li className="mb-3">{psychologist.province}</li>
           <li className="text-left">
             {psychologist.therapeutic_model.split(",").map(
@@ -65,7 +65,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
         <footer className="text-center py-3 text-primary flex justify-center mt-auto block">
           {psychologist.online === "Sí" && (
             <p className="p-2">
-              <span className="bg-primary text-white p-2 font-medium">
+              <span className="bg-primary text-white p-2">
                 <FormattedMessage id="offers.online" />
               </span>
             </p>

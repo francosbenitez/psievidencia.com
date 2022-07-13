@@ -188,7 +188,7 @@ const Home = ({
             )}
           </>
         ) : (
-          <div className="grid place-items-center font-bold text-2xl h-56">
+          <div className="grid place-items-center text-2xl h-56">
             <FormattedMessage id="no.results" />
           </div>
         )}

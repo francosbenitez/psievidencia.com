@@ -7,10 +7,10 @@ const TheHeader = () => {
     <>
       <h1 className="text-center text-5xl">
         <Magnifier className="inline w-12 h-12" />
-        <span className="sm:px-4 text-primary font-bold">Psievidencia</span>
+        <span className="sm:px-4 text-primary">Psievidencia</span>
         <Magnifier className="inline w-12 h-12" />
       </h1>
-      <h2 className="text-center text-2xl my-9 font-semibold text-primary">
+      <h2 className="text-center text-2xl my-9 text-primary">
         <FormattedMessage id="title" />
       </h2>
     </>

@@ -177,13 +177,11 @@ const PsychologistsDetail = () => {
         before:block"
             onClick={() => router.back()}
           ></button>
-          <h1 className="text-center font-bold text-5xl mb-5">
+          <h1 className="text-center text-5xl mb-5">
             {psychologist.name !== "" ? psychologist.name : "Unknown"}
           </h1>
-          <h2 className="text-2xl text-center font-semibold">
-            {psychologist.email}
-          </h2>
-          <h3 className="text-1xl my-6 font-medium">{formattedDate()}</h3>
+          <h2 className="text-2xl text-center">{psychologist.email}</h2>
+          <h3 className="text-1xl my-6">{formattedDate()}</h3>
           <div className="accordion">
             {accordionData.map(({ title, content }) => (
               <TheAccordion
@@ -194,7 +192,7 @@ const PsychologistsDetail = () => {
             ))}
           </div>
           <div>
-            <p className="font-bold text-lg">
+            <p className="text-lg">
               <FormattedMessage id="contact" />
             </p>
             <div className="grid grid-cols-2 gap-4">
