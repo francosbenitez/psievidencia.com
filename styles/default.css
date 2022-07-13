@@ -222,7 +222,7 @@ input:checked + .slider:before {
   align-content: flex-start;
   text-decoration: none;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--primary);
   padding: 1rem 1.6rem;
   /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
 }
