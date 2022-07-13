@@ -1,6 +1,5 @@
 import TheAccordion from "../../components/psychologists-detail/TheAccordion";
-// import PsychologistsService from "../../services/PsychologistsService";
-// import { useState, useEffect } from "react";
+import PsychologistsService from "../../services/PsychologistsService";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FormattedMessage } from "react-intl";
@@ -8,10 +7,8 @@ import { useIntl } from "react-intl";
 
 const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
   const router = useRouter();
-  // let { id } = router.query;
   const intl = useIntl();
   const { locale }: { locale?: any } = useRouter();
-  // const [psychologist, setPsychologist] = useState<any>({});
 
   // useEffect(() => {
   //   const fetchPsychologist = async (id: string | string[] | undefined) => {
@@ -252,11 +249,7 @@ export async function getStaticProps({
     id: string;
   };
 }) {
-  const res = await fetch(
-    `https://secret-hamlet-81810.herokuapp.com/api/psychologists/${params.id}`
-  );
-  const psychologist = await res.json();
-
+  const psychologist = (await PsychologistsService.detail(params.id)).data;
   return {
     props: {
       psychologist,
