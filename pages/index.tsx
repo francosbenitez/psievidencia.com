@@ -27,6 +27,7 @@ const Home = ({
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
   const [selectedOptionsWp, setSelectedOptionsWp] = useState<Data[]>([]);
   const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
+  const [selectedOptionGi, setSelectedOptionGi] = useState<any>({});
 
   const debouncedName = useDebounce(name, 1000);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +42,8 @@ const Home = ({
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
-    education: string
+    education: string,
+    gender_identity: string
   ) => {
     setLoading(true);
     const data = (
@@ -51,7 +53,8 @@ const Home = ({
         specializations,
         therapeutic_models,
         work_populations,
-        education
+        education,
+        gender_identity
       )
     ).data;
     setPsychologists(data.results);
@@ -65,7 +68,8 @@ const Home = ({
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
-    education: string
+    education: string,
+    gender_identity: string
   ) => {
     try {
       setLoadingMore(true);
@@ -76,7 +80,8 @@ const Home = ({
           specializations,
           therapeutic_models,
           work_populations,
-          education
+          education,
+          gender_identity
         )
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -99,12 +104,14 @@ const Home = ({
     const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
     const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
     const selectedOptionNameEd = selectedOptionEd.name;
+    const selectedOptionNameGi = selectedOptionGi.name;
     fetchPsychologists(
       debouncedName,
       selectedOptionsIdsSp,
       selectedOptionsIdsTm,
       selectedOptionsIdsWp,
-      selectedOptionNameEd
+      selectedOptionNameEd,
+      selectedOptionNameGi
     );
   }, [
     debouncedName,
@@ -112,6 +119,7 @@ const Home = ({
     selectedOptionsTm,
     selectedOptionsWp,
     selectedOptionEd,
+    selectedOptionGi,
   ]);
 
   useEffect(() => {
@@ -120,12 +128,14 @@ const Home = ({
       const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
       const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
       const selectedOptionNameEd = selectedOptionEd.name;
+      const selectedOptionNameGi = selectedOptionGi.name;
       fetchMorePsychologists(
         debouncedName,
         selectedOptionsIdsSp,
         selectedOptionsIdsTm,
         selectedOptionsIdsWp,
-        selectedOptionNameEd
+        selectedOptionNameEd,
+        selectedOptionNameGi
       );
     }
   }, [pagination]);
@@ -155,8 +165,24 @@ const Home = ({
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
         <TheHeader />
 
-        <div className="w-full sm:w-1/3 m-auto">
-          <SearchName handleNameChange={handleNameChange} />
+        <div className="flex space-x-4 mb-6">
+          <div className="w-full sm:w-1/3">
+            <SearchName handleNameChange={handleNameChange} />
+          </div>
+
+          <div className="w-full sm:w-1/3">
+            <div
+              className="bg-white rounded shadow-md w-full h-full flex items-center"
+              style={{ padding: "0.4em 2em 0.4em 1em" }}
+            >
+              <span className="w-1/2">Perspectiva de género</span>
+              <span className="w-1/2">
+                <label className="cursor-pointer float-right">
+                  <input type="checkbox" />
+                </label>
+              </span>
+            </div>
+          </div>
         </div>
 
         <TheDropdown
@@ -168,6 +194,8 @@ const Home = ({
           setSelectedOptionsWp={setSelectedOptionsWp}
           selectedOptionEd={selectedOptionEd}
           setSelectedOptionEd={setSelectedOptionEd}
+          selectedOptionGi={selectedOptionGi}
+          setSelectedOptionGi={setSelectedOptionGi}
         />
 
         {psychologists != null && psychologists.length > 0 ? (

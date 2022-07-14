@@ -14,6 +14,8 @@ type Props = {
   setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: Data;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
+  selectedOptionGi: Data;
+  setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
 };
 
 const TheDropdown = ({
@@ -25,11 +27,14 @@ const TheDropdown = ({
   setSelectedOptionsWp,
   selectedOptionEd,
   setSelectedOptionEd,
+  selectedOptionGi,
+  setSelectedOptionGi,
 }: Props) => {
   const [sp, setSp] = useState<Data[]>([]);
   const [tm, setTm] = useState<Data[]>([]);
   const [wp, setWp] = useState<Data[]>([]);
   const [ed, setEd] = useState<Data[]>([]);
+  const [gi, setGi] = useState<Data[]>([]);
 
   return (
     <>
@@ -53,10 +58,18 @@ const TheDropdown = ({
           setData={setWp}
         />
         <TheDropdownEducation
+          type={"education"}
           selectedOption={selectedOptionEd}
           setSelectedOption={setSelectedOptionEd}
           data={ed}
           setData={setEd}
+        />
+        <TheDropdownEducation
+          type={"gender_identity"}
+          selectedOption={selectedOptionGi}
+          setSelectedOption={setSelectedOptionGi}
+          data={gi}
+          setData={setGi}
         />
       </div>
       <TheDropdownOptions
@@ -78,6 +91,11 @@ const TheDropdown = ({
         selectedOption={selectedOptionEd}
         setSelectedOption={setSelectedOptionEd}
         setData={setEd}
+      />
+      <TheDropdownOptionsEd
+        selectedOption={selectedOptionGi}
+        setSelectedOption={setSelectedOptionGi}
+        setData={setGi}
       />
     </>
   );

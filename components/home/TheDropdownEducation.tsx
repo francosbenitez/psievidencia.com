@@ -7,6 +7,7 @@ import { useIntl } from "react-intl";
 import { useRouter } from "next/router";
 
 type Props = {
+  type: string;
   selectedOption: Data;
   setSelectedOption: React.Dispatch<React.SetStateAction<Data | {}>>;
   data: Data[];
@@ -14,6 +15,7 @@ type Props = {
 };
 
 const TheDropdownBase = ({
+  type,
   setSelectedOption,
   data,
   setData,
@@ -45,29 +47,50 @@ const TheDropdownBase = ({
   };
 
   useEffect(() => {
-    const doSomething = () =>
-      setData([
-        {
-          id: 1,
-          name: "licenciatura",
-          slug: intl.formatMessage({ id: "education.licentiate" }),
-        },
-        {
-          id: 2,
-          name: "especialidad",
-          slug: intl.formatMessage({ id: "education.specialist" }),
-        },
-        {
-          id: 3,
-          name: "maestria",
-          slug: intl.formatMessage({ id: "education.master" }),
-        },
-        {
-          id: 4,
-          name: "doctorado",
-          slug: intl.formatMessage({ id: "education.doctoral" }),
-        },
-      ]);
+    const doSomething = () => {
+      if (type === "education") {
+        setData([
+          {
+            id: 1,
+            name: "licenciatura",
+            slug: intl.formatMessage({ id: "education.licentiate" }),
+          },
+          {
+            id: 2,
+            name: "especialidad",
+            slug: intl.formatMessage({ id: "education.specialist" }),
+          },
+          {
+            id: 3,
+            name: "maestria",
+            slug: intl.formatMessage({ id: "education.master" }),
+          },
+          {
+            id: 4,
+            name: "doctorado",
+            slug: intl.formatMessage({ id: "education.doctoral" }),
+          },
+        ]);
+      } else {
+        setData([
+          {
+            id: 1,
+            name: "varon",
+            slug: intl.formatMessage({ id: "gender.man" }),
+          },
+          {
+            id: 2,
+            name: "mujer",
+            slug: intl.formatMessage({ id: "gender.woman" }),
+          },
+          {
+            id: 3,
+            name: "no_binarie",
+            slug: intl.formatMessage({ id: "gender.non_binary" }),
+          },
+        ]);
+      }
+    };
     doSomething();
   }, [locale]);
 
@@ -78,7 +101,7 @@ const TheDropdownBase = ({
         onClick={toggling}
       >
         <span className="table-cell w-1/2">
-          <FormattedMessage id="filter.education" />
+          <FormattedMessage id={`filter.${type}`} />
         </span>
         <span className="table-cell w-1/2">
           {isOpen ? (

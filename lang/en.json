@@ -9,6 +9,7 @@
   "filter.therapeutic_models": "Therapeutic models",
   "filter.work_populations": "Work populations",
   "filter.education": "Education",
+  "filter.gender_identity": "Gender identity",
   "footer.to.be.part": "To be part of this collection, fill your data in",
   "footer.google.forms": "this Google Forms",
   "footer.source.code": "Source code",
@@ -34,5 +35,8 @@
   "no.results": "No results found",
   "soon": "Soon",
   "log.in": "Log in",
-  "sign.up": "Sign up"
+  "sign.up": "Sign up",
+  "gender.man": "Man",
+  "gender.woman": "Woman",
+  "gender.non_binary": "Non binary"
 }
