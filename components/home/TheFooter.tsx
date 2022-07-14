@@ -17,8 +17,9 @@ const HomeFooter = ({ setShowFooter }: Props) => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSccyO5jICweFShGTLEEiCOYLYySlEUacI0_4IDCY10AdYqIpA/viewform"
         >
           <FormattedMessage id="footer.google.forms" />
-        </a>{" "}
-        |{" "}
+        </a>
+        .
+        {/* |{" "}
         <a
           target="_blank"
           rel="noreferrer"
@@ -27,7 +28,7 @@ const HomeFooter = ({ setShowFooter }: Props) => {
           <span className="underline">
             <FormattedMessage id="footer.source.code" />
           </span>{" "}
-        </a>
+        </a> */}
         <span
           className="absolute right-2 top-2 cursor-pointer"
           onClick={() => {
