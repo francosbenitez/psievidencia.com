@@ -24,7 +24,7 @@ const Home = ({
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
   const [hasPerspective, setHasPerspective] = useState<string | undefined>(
-    undefined
+    "si"
   );
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
@@ -44,7 +44,6 @@ const Home = ({
   const handleHpChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     if (target) {
-      console.log("target.checked", target.checked);
       if (target.checked) {
         setHasPerspective("si");
       } else {
@@ -195,7 +194,10 @@ const Home = ({
           </div>
 
           <div className="w-full sm:w-1/3">
-            <TheCheckbox handleHpChange={handleHpChange} />
+            <TheCheckbox
+              handleHpChange={handleHpChange}
+              hasPerspective={hasPerspective}
+            />
           </div>
         </div>
 

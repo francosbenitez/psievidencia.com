@@ -2,9 +2,19 @@ import React from "react";
 
 const TheCheckbox = ({
   handleHpChange,
+  hasPerspective,
 }: {
   handleHpChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  hasPerspective: string | undefined;
 }) => {
+  let isChecked = false;
+
+  if (hasPerspective === "si") {
+    isChecked = true;
+  } else {
+    isChecked = false;
+  }
+
   return (
     <div
       className="bg-white rounded shadow-md w-full h-full flex items-center"
@@ -13,7 +23,11 @@ const TheCheckbox = ({
       <span className="w-1/2">Perspectiva de género</span>
       <span className="w-1/2">
         <label className="cursor-pointer float-right">
-          <input type="checkbox" onChange={handleHpChange} />
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleHpChange}
+          />
         </label>
       </span>
     </div>
