@@ -121,7 +121,11 @@ const TheDropdownBase = ({
           }}
         >
           {type === "specializations" && (
-            <SearchName name={name} handleNameChange={handleNameChange} />
+            <SearchName
+              name={name}
+              handleNameChange={handleNameChange}
+              fixedHeight={true}
+            />
           )}
           {data.map((option) => (
             <li
