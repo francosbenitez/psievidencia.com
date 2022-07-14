@@ -14,9 +14,9 @@ const SearchName = ({
   const placeholder = intl.formatMessage({ id: "search.name" });
   return (
     <input
-      className={`${
-        fixedHeight ? "h-10" : "h-full"
-      } border-primary w-full pl-3 mb-6 outline-0 rounded shadow-md`}
+      className={`h-10 ${
+        fixedHeight ? "sm:h-10" : "sm:h-full"
+      } border-primary w-full pl-3 outline-0 rounded shadow-md dropdown-header`}
       placeholder={placeholder}
       onChange={handleNameChange}
       value={name}

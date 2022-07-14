@@ -16,12 +16,9 @@ const TheCheckbox = ({
   }
 
   return (
-    <div
-      className="bg-white rounded shadow-md w-full h-full flex items-center"
-      style={{ padding: "0.4em 2em 0.4em 1em" }}
-    >
-      <span className="w-1/2">Perspectiva de género</span>
-      <span className="w-1/2">
+    <div className="bg-white rounded shadow-md w-full h-full sm:flex items-center dropdown-header">
+      <span className="w-3/4">Perspectiva de género</span>
+      <span className="w-1/4">
         <label className="cursor-pointer float-right">
           <input
             type="checkbox"
