@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 
 const LanguageSwitcher = () => {
   const router = useRouter();
@@ -19,11 +20,11 @@ const LanguageSwitcher = () => {
   }, [isChecked]);
 
   return (
-    <label className="language-switcher cursor-pointer">
+    <label className={`${styles["language-switcher"]} cursor-pointer`}>
       <input type="checkbox" onChange={handleChange} />
-      <span className="slider round"></span>
-      <span className="select-fr">ES</span>
-      <span className="select-en">EN</span>
+      <span className={`${styles["slider"]} ${styles["round"]}`}></span>
+      <span className={styles["select-fr"]}>ES</span>
+      <span className={styles["select-en"]}>EN</span>
     </label>
   );
 };
