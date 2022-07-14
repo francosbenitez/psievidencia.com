@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TheDropdownOptions from "./TheDropdownOptions";
-import TheDropdownBase from "./TheDropdownBase";
+import TheDropdownBaseIds from "./TheDropdownBaseIds";
 import TheDropdownBaseName from "./TheDropdownBaseName";
 import TheDropdownOptionsEd from "./TheDropdownOptionsEd";
 import { Data } from "../../types";
@@ -39,19 +39,19 @@ const TheDropdown = ({
   return (
     <>
       <div className="sm:flex sm:space-x-4 mb-6">
-        <TheDropdownBase
+        <TheDropdownBaseIds
           type={"specializations"}
           setSelectedOptions={setSelectedOptionsSp}
           data={sp}
           setData={setSp}
         />
-        <TheDropdownBase
+        <TheDropdownBaseIds
           type={"therapeutic_models"}
           setSelectedOptions={setSelectedOptionsTm}
           data={tm}
           setData={setTm}
         />
-        <TheDropdownBase
+        <TheDropdownBaseIds
           type={"work_populations"}
           setSelectedOptions={setSelectedOptionsWp}
           data={wp}

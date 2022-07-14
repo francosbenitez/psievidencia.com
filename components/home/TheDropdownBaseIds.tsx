@@ -14,7 +14,7 @@ type Props = {
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
-const TheDropdownBase = ({
+const TheDropdownBaseIds = ({
   type,
   setSelectedOptions,
   data,
@@ -145,4 +145,4 @@ const TheDropdownBase = ({
   );
 };
 
-export default TheDropdownBase;
+export default TheDropdownBaseIds;
