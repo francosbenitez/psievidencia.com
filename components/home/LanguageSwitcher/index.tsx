@@ -51,18 +51,14 @@ const LanguageSwitcher = () => {
         </div>
         <div className={`select-area ${open && "active"}`}>
           <div
-            className={` flag-wrapper ${isClicked !== "en" && "active"}`}
+            className={`flag-wrapper ${isClicked !== "en" && "active"}`}
             onClick={() => handleClick("es")}
           >
-            <Argentina
-              width="30"
-              className={`flag-svg ${isClicked !== "en" && "active"}`}
-              onClick={() => handleClick("es")}
-            />
+            <Argentina width="30" className="flag-svg" />
           </div>
 
           <div
-            className={` flag-wrapper ${isClicked === "en" && "active"}`}
+            className={`flag-wrapper ${isClicked === "en" && "active"}`}
             onClick={() => handleClick("en")}
           >
             <Usa width="30" className="flag-svg" />
