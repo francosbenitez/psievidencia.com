@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TheDropdownOptions from "./TheDropdownOptions";
 import TheDropdownBase from "./TheDropdownBase";
-import TheDropdownEducation from "./TheDropdownEducation";
+import TheDropdownBaseName from "./TheDropdownBaseName";
 import TheDropdownOptionsEd from "./TheDropdownOptionsEd";
 import { Data } from "../../types";
 
@@ -57,14 +57,14 @@ const TheDropdown = ({
           data={wp}
           setData={setWp}
         />
-        <TheDropdownEducation
+        <TheDropdownBaseName
           type={"education"}
           selectedOption={selectedOptionEd}
           setSelectedOption={setSelectedOptionEd}
           data={ed}
           setData={setEd}
         />
-        <TheDropdownEducation
+        <TheDropdownBaseName
           type={"gender_identity"}
           selectedOption={selectedOptionGi}
           setSelectedOption={setSelectedOptionGi}
