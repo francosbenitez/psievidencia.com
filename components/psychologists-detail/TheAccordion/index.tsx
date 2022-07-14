@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./styles.module.css";
 
 const Accordion = ({ title, content }: { title: string; content: string }) => {
   const [isActive, setIsActive] = useState(false);
@@ -6,15 +7,17 @@ const Accordion = ({ title, content }: { title: string; content: string }) => {
   return (
     <>
       {content !== "" && (
-        <div className="accordion-item">
+        <div className={styles["accordion-item"]}>
           <div
-            className="accordion-title"
+            className={styles["accordion-title"]}
             onClick={() => setIsActive(!isActive)}
           >
             <div>{title}</div>
             <div>{isActive ? "-" : "+"}</div>
           </div>
-          {isActive && <div className="accordion-content">{content}</div>}
+          {isActive && (
+            <div className={styles["accordion-content"]}>{content}</div>
+          )}
         </div>
       )}
     </>
