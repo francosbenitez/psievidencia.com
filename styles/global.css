@@ -140,16 +140,6 @@ body {
 }
 
 /* Checkbox */
-body
-  .filter
-  .content
-  .filter-container
-  .filter-item.active
-  ~ .filter-control
-  * {
-  opacity: 1;
-}
-
 .fake-checkbox {
   display: inline-block;
   width: 50px;
@@ -158,14 +148,6 @@ body
   -webkit-border-radius: 100px;
   border-radius: 100px;
   position: relative;
-}
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .fake-checkbox:before {
@@ -188,24 +170,6 @@ body
   transition: left 0.3s ease;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body
-  .filter
-  .content
-  .filter-container
-  .filter-item.active
-  ~ .filter-control
-  * {
-  opacity: 1;
-}
-
 .fake-checkbox input {
   position: absolute;
   width: 100%;
@@ -213,15 +177,8 @@ body
   cursor: pointer;
 }
 
-input {
-  opacity: 0 !important;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0;
+.fake-checkbox input {
+  opacity: 0;
 }
 
 .fake-checkbox.active {
