@@ -1,4 +1,4 @@
-import "../styles/default.css";
+import "../styles/global.css";
 import type { AppProps } from "next/app";
 import ScrollToTop from "../components/global/ScrollToTop";
 import { useRouter } from "next/router";
