@@ -1,8 +1,8 @@
 import { useState } from "react";
-import TheDropdownOptions from "./TheDropdownOptions";
+import TheDropdownOptionsIds from "./TheDropdownOptionsIds";
 import TheDropdownBaseIds from "./TheDropdownBaseIds";
 import TheDropdownBaseName from "./TheDropdownBaseName";
-import TheDropdownOptionsEd from "./TheDropdownOptionsEd";
+import TheDropdownOptionsName from "./TheDropdownOptionsName";
 import { Data } from "../../types";
 
 type Props = {
@@ -72,27 +72,27 @@ const TheDropdown = ({
           setData={setGi}
         />
       </div>
-      <TheDropdownOptions
+      <TheDropdownOptionsIds
         selectedOptions={selectedOptionsSp}
         setSelectedOptions={setSelectedOptionsSp}
         setData={setSp}
       />
-      <TheDropdownOptions
+      <TheDropdownOptionsIds
         selectedOptions={selectedOptionsTm}
         setSelectedOptions={setSelectedOptionsTm}
         setData={setTm}
       />
-      <TheDropdownOptions
+      <TheDropdownOptionsIds
         selectedOptions={selectedOptionsWp}
         setSelectedOptions={setSelectedOptionsWp}
         setData={setWp}
       />
-      <TheDropdownOptionsEd
+      <TheDropdownOptionsName
         selectedOption={selectedOptionEd}
         setSelectedOption={setSelectedOptionEd}
         setData={setEd}
       />
-      <TheDropdownOptionsEd
+      <TheDropdownOptionsName
         selectedOption={selectedOptionGi}
         setSelectedOption={setSelectedOptionGi}
         setData={setGi}
