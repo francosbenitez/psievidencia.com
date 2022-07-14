@@ -17,7 +17,6 @@ const messages: any = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale }: { locale?: any } = useRouter();
-  const [showFooter, setShowFooter] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
@@ -41,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ScrollToTop>
           <TheSidebar />
           <Component {...pageProps} loading={loading} setLoading={setLoading} />
-          {showFooter && <TheFooter setShowFooter={setShowFooter} />}
+          <TheFooter />
         </ScrollToTop>
       </IntlProvider>
     </>
