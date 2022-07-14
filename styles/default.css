@@ -184,52 +184,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Sidebar */
-.top-bar {
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.menu-bar {
-  display: flex;
-  align-items: center;
-  color: white;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.nav-icon {
-  display: flex;
-  margin-left: 1rem;
-  cursor: pointer;
-}
-
-.side-menu {
-  left: 0;
-  height: 100%;
-  width: 260px;
-  position: fixed;
-  background: white;
-  z-index: 1;
-  transition: all 0.35s ease-out;
-}
-
-.side-menu a {
-  display: flex;
-  align-content: flex-start;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--primary);
-  padding: 1rem 1.6rem;
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
-}
-
-.side-menu a:hover {
-  color: var(--primary);
-}
-
 /* Dropdown */
 .dropdown-header {
   margin-bottom: 0.8em;

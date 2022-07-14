@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import LanguageSwitcher from "../home/LanguageSwitcher";
-import SoonTag from "./SoonTag";
+import LanguageSwitcher from "../../home/LanguageSwitcher";
+import SoonTag from "../SoonTag";
 import { FormattedMessage } from "react-intl";
+import styles from "./styles.module.css";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,12 +31,14 @@ const Sidebar = () => {
 
   return (
     <>
-      <header className="top-bar container mx-auto px-5 sm:px-0 z-10">
-        <div className="menu-bar">
+      <header
+        className={`${styles.topBar} container mx-auto px-5 sm:px-0 z-10`}
+      >
+        <div className={styles.menuBar}>
           <LanguageSwitcher />
           <span
             ref={domeNode}
-            className="nav-icon"
+            className={styles.navIcon}
             onClick={() => {
               open(isOpen);
             }}
@@ -55,7 +58,7 @@ const Sidebar = () => {
           </span>
         </div>
         <div
-          className="side-menu shadow-md"
+          className={`${styles.sideMenu} side-menu shadow-md`}
           style={{ left: isOpen ? "0" : "-265px" }}
         >
           <Link href="/">Home</Link>

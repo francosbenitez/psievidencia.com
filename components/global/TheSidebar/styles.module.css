@@ -1,0 +1,43 @@
+.topBar {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.menuBar {
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.navIcon {
+  display: flex;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.sideMenu {
+  left: 0;
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  background: white;
+  z-index: 1;
+  transition: all 0.35s ease-out;
+}
+
+.sideMenu a {
+  display: flex;
+  align-content: flex-start;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 1rem 1.6rem;
+}
+
+.sideMenu a:hover {
+  color: var(--primary);
+}
