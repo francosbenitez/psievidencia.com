@@ -80,3 +80,61 @@ body {
 .list-item:hover {
   text-decoration: underline;
 }
+
+/* Language switcher */
+.switcher-area .flag-svg div {
+  display: flex;
+  justify-content: center;
+}
+
+.switcher-area .lang-switcher {
+  position: relative;
+}
+
+.switcher-area .lang-switcher .flag-container {
+  width: fit-content;
+  padding: 0.05rem 0.2rem;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1pt solid black;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.switcher-area .lang-switcher .flag-container .triangle {
+  transition: transform 0.5s ease-in-out;
+}
+
+.switcher-area .lang-switcher .flag-container.active {
+  background-color: black;
+}
+
+.switcher-area .lang-switcher .flag-container.active .triangle {
+  fill: white;
+  transform: rotate(-180deg);
+}
+
+.switcher-area .lang-switcher .select-area {
+  position: absolute;
+  transform: scaleY(0);
+  top: 2.5rem;
+  left: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  transform-origin: top;
+  transition: all 0.25s ease-in-out;
+  padding: 0.25rem;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px 2px;
+}
+
+.switcher-area .lang-switcher .select-area.active {
+  pointer-events: all;
+  transform: scaleY(1);
+}
+
+.switcher-area .lang-switcher .select-area.active svg {
+  filter: saturate(0.25);
+}
