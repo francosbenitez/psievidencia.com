@@ -46,3 +46,5 @@ TO-DO:
   </a>.
   "
 - Implement getServerSideProps & getStaticProps/getStaticPaths functions.
+- Improve the mobile version:
+  - Adding a "Filter" option, which shows a pop-up with all the filters. E. g., as in Mercado Libre.
