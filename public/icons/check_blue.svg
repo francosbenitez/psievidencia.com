@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>check_blue</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="7.8904158 0.5 3.61474855 6.27303026 1.36244593 4.96160512 3.43428989e-14 6.97523664 4.33275461 9.5 10 1.84682042"></polygon>
+    </defs>
+    <g id="MOTEUR-NEW" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05-MOTEUR---MOBILE" transform="translate(-338.000000, -624.000000)">
+            <g id="Group-15" transform="translate(20.000000, 534.000000)">
+                <g id="Group-11" transform="translate(0.000000, 83.000000)">
+                    <g id="Group-5-Copy-5" transform="translate(285.000000, 0.000000)">
+                        <g id="icon-/-check" transform="translate(33.000000, 7.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="check" fill="#157DFE" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

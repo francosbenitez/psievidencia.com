@@ -37,8 +37,8 @@ const LanguageSwitcher = () => {
             <Argentina width="30" className="flag-svg" />
           )}
           <svg
-            stroke="black"
-            fill="black"
+            stroke="#313131"
+            fill="#313131"
             strokeWidth="0"
             viewBox="0 0 1024 1024"
             className="triangle"
