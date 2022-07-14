@@ -74,10 +74,10 @@ input:checked + .slider:before {
   transform: translateX(32px);
 }
 
-/* .slider.round {
+.slider.round {
   border-radius: 64px;
 }
 
 .slider.round:before {
   border-radius: 50%;
-} */
+}
