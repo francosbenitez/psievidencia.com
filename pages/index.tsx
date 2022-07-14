@@ -23,6 +23,9 @@ const Home = ({
   const [loadingMore, setLoadingMore] = useState(false);
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
+  const [hasPerspective, setHasPerspective] = useState<string | undefined>(
+    undefined
+  );
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
@@ -38,13 +41,26 @@ const Home = ({
     }
   };
 
+  const handleHpChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    if (target) {
+      console.log("target.checked", target.checked);
+      if (target.checked) {
+        setHasPerspective("si");
+      } else {
+        setHasPerspective("no");
+      }
+    }
+  };
+
   const fetchPsychologists = async (
     name: string | undefined,
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
     education: string,
-    gender_identity: string
+    gender_identity: string,
+    has_perspective: string | undefined
   ) => {
     setLoading(true);
     const data = (
@@ -55,7 +71,8 @@ const Home = ({
         therapeutic_models,
         work_populations,
         education,
-        gender_identity
+        gender_identity,
+        has_perspective
       )
     ).data;
     setPsychologists(data.results);
@@ -70,7 +87,8 @@ const Home = ({
     therapeutic_models: number[],
     work_populations: number[],
     education: string,
-    gender_identity: string
+    gender_identity: string,
+    has_perspective: string | undefined
   ) => {
     try {
       setLoadingMore(true);
@@ -82,7 +100,8 @@ const Home = ({
           therapeutic_models,
           work_populations,
           education,
-          gender_identity
+          gender_identity,
+          has_perspective
         )
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -112,7 +131,8 @@ const Home = ({
       selectedOptionsIdsTm,
       selectedOptionsIdsWp,
       selectedOptionNameEd,
-      selectedOptionNameGi
+      selectedOptionNameGi,
+      hasPerspective
     );
   }, [
     debouncedName,
@@ -121,6 +141,7 @@ const Home = ({
     selectedOptionsWp,
     selectedOptionEd,
     selectedOptionGi,
+    hasPerspective,
   ]);
 
   useEffect(() => {
@@ -130,13 +151,15 @@ const Home = ({
       const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
       const selectedOptionNameEd = selectedOptionEd.name;
       const selectedOptionNameGi = selectedOptionGi.name;
+      hasPerspective;
       fetchMorePsychologists(
         debouncedName,
         selectedOptionsIdsSp,
         selectedOptionsIdsTm,
         selectedOptionsIdsWp,
         selectedOptionNameEd,
-        selectedOptionNameGi
+        selectedOptionNameGi,
+        hasPerspective
       );
     }
   }, [pagination]);
@@ -172,7 +195,7 @@ const Home = ({
           </div>
 
           <div className="w-full sm:w-1/3">
-            <TheCheckbox />
+            <TheCheckbox handleHpChange={handleHpChange} />
           </div>
         </div>
 

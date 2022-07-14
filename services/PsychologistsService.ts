@@ -9,7 +9,8 @@ export default {
     therapeutic_model: number[],
     work_population: number[],
     education: string,
-    gender_identity: string
+    gender_identity: string,
+    has_perspective: string | undefined
   ) {
     return Api().get(`psychologists?page=${pageNumber}`, {
       params: {
@@ -19,6 +20,7 @@ export default {
         work_population: work_population,
         education: education,
         gender_identity: gender_identity,
+        has_perspective: has_perspective,
       },
     });
   },

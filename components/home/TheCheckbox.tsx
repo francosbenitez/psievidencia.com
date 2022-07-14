@@ -1,6 +1,10 @@
 import React from "react";
 
-const TheCheckbox = () => {
+const TheCheckbox = ({
+  handleHpChange,
+}: {
+  handleHpChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}) => {
   return (
     <div
       className="bg-white rounded shadow-md w-full h-full flex items-center"
@@ -9,7 +13,7 @@ const TheCheckbox = () => {
       <span className="w-1/2">Perspectiva de género</span>
       <span className="w-1/2">
         <label className="cursor-pointer float-right">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={handleHpChange} />
         </label>
       </span>
     </div>
