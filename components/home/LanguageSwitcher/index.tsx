@@ -25,7 +25,7 @@ const LanguageSwitcher = () => {
   }, [isClicked]);
 
   return (
-    <div className="switcher-area">
+    <div className="switcher-area cursor-pointer">
       <div className="lang-switcher">
         <div
           className={`flag-container ${open && "active"}`}
