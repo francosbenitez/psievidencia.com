@@ -1,33 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+// import React, { useState, useEffect, useRef } from "react";
+// import Link from "next/link";
 import LanguageSwitcher from "../../home/LanguageSwitcher";
-import SoonTag from "../SoonTag";
-import { FormattedMessage } from "react-intl";
+// import SoonTag from "../SoonTag";
+// import { FormattedMessage } from "react-intl";
 import styles from "./styles.module.css";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const open = (isOpen: boolean) => {
-    return setIsOpen(!isOpen);
-  };
+  // const open = (isOpen: boolean) => {
+  //   return setIsOpen(!isOpen);
+  // };
 
-  const domeNode = useRef<HTMLSpanElement | null>(null);
+  // const domeNode = useRef<HTMLSpanElement | null>(null);
 
-  const updateState = (event: Event) => {
-    const target = event.target as HTMLElement;
-    if (domeNode.current!.contains(target)) {
-      return;
-    }
-    setIsOpen(false);
-  };
+  // const updateState = (event: Event) => {
+  //   const target = event.target as HTMLElement;
+  //   if (domeNode.current!.contains(target)) {
+  //     return;
+  //   }
+  //   setIsOpen(false);
+  // };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", updateState);
-    return () => {
-      document.removeEventListener("mousedown", updateState);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", updateState);
+  //   return () => {
+  //     document.removeEventListener("mousedown", updateState);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -36,7 +36,7 @@ const Sidebar = () => {
       >
         <div className={styles.menuBar}>
           <LanguageSwitcher />
-          <span
+          {/* <span
             ref={domeNode}
             className={styles.navIcon}
             onClick={() => {
@@ -55,9 +55,9 @@ const Sidebar = () => {
                 <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
               )}
             </svg>
-          </span>
+          </span> */}
         </div>
-        <div
+        {/* <div
           className={`${styles.sideMenu} side-menu shadow-md`}
           style={{ left: isOpen ? "0" : "-265px" }}
         >
@@ -82,7 +82,7 @@ const Sidebar = () => {
             </Link>
             <SoonTag />
           </div>
-        </div>
+        </div> */}
       </header>
     </>
   );
