@@ -5,24 +5,24 @@ import Usa from "../../../public/icons/usa.svg";
 
 const LanguageSwitcher = () => {
   const router = useRouter();
-  const [isChecked, setChecked] = useState(false);
+  const [isClicked, setIsClicked] = useState("es");
 
   const [open, setOpen] = useState(false);
   const switchOpen = () => {
     setOpen(!open);
   };
 
-  const handleClick = () => {
-    setChecked(!isChecked);
+  const handleClick = (value: string) => {
+    setIsClicked(value);
   };
 
   useEffect(() => {
-    if (isChecked) {
+    if (isClicked === "en") {
       router.push("/en", undefined, { locale: "en" });
     } else {
       router.push("/", undefined, { locale: "es" });
     }
-  }, [isChecked]);
+  }, [isClicked]);
 
   return (
     <div className="switcher-area">
@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
           className={`flag-container ${open && "active"}`}
           onClick={switchOpen}
         >
-          {isChecked ? (
+          {isClicked === "en" ? (
             <Usa size="30" className="flag-svg" />
           ) : (
             <Argentina width="30" className="flag-svg" />
@@ -51,19 +51,19 @@ const LanguageSwitcher = () => {
         </div>
         <div className={`select-area ${open && "active"}`}>
           <div
-            className={` flag-wrapper ${!isChecked && "active"}`}
-            onClick={() => handleClick()}
+            className={` flag-wrapper ${isClicked !== "en" && "active"}`}
+            onClick={() => handleClick("es")}
           >
             <Argentina
               width="30"
-              className={`flag-svg ${!isChecked && "active"}`}
-              onClick={() => handleClick()}
+              className={`flag-svg ${isClicked !== "en" && "active"}`}
+              onClick={() => handleClick("es")}
             />
           </div>
 
           <div
-            className={` flag-wrapper ${isChecked && "active"}`}
-            onClick={() => handleClick()}
+            className={` flag-wrapper ${isClicked === "en" && "active"}`}
+            onClick={() => handleClick("en")}
           >
             <Usa width="30" className="flag-svg" />
           </div>
