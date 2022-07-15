@@ -167,7 +167,7 @@ const Home = ({
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>Home | Psievidencia</title>
+        <title>Psievidencia</title>
         <meta
           name="description"
           content="Una aplicación web para ayudarte a encontrar a los mejores psicólogos basados en la evidencia."
