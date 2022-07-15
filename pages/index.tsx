@@ -24,7 +24,7 @@ const Home = ({
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
   const [hasPerspective, setHasPerspective] = useState<string | undefined>(
-    "si"
+    "no"
   );
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
