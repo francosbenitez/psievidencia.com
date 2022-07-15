@@ -183,7 +183,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
               <FormattedMessage id="contact" />
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <p>
+              <p className="break-words">
                 <span className="underline">
                   <FormattedMessage id="social.networks" />
                 </span>
@@ -196,7 +196,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
                   </>
                 )}
               </p>
-              <p className="text-right">
+              <p className="text-right break-words">
                 <span className="underline">
                   <FormattedMessage id="phone.or.email" />
                 </span>
