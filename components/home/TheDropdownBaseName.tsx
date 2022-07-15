@@ -114,9 +114,10 @@ const TheDropdownBaseName = ({
       {isOpen && (
         <div>
           <ul className="dropdown-list">
-            {data.map((option) => (
+            {data.map((option, i) => (
               <li
                 className="list-item break-words"
+                style={{ marginBottom: `${i === data.length - 1 && "0px"}` }}
                 onClick={() => {
                   onOptionClicked(option);
                   addSelectedOptions(option);
