@@ -62,7 +62,6 @@ body {
   font-weight: 500;
   position: absolute;
   overflow-y: scroll;
-  height: 400px;
   width: 100%;
   z-index: 1;
 }

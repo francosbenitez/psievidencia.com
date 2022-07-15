@@ -115,6 +115,7 @@ const TheDropdownBaseIds = ({
       {isOpen && (
         <ul
           className="dropdown-list rounded"
+          style={{ height: `${type === "specializations" && "400px"}` }}
           ref={(el) => {
             observed.current = el;
             handleObserved(el);
