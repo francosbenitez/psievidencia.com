@@ -185,7 +185,7 @@ const Home = ({
         <link rel="alternate" href="http://psievidencia.com" hrefLang="es" />
         <link rel="alternate" href="http://psievidencia.com/en" hrefLang="en" />
       </Head>
-      <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
+      <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheHeader />
 
         <div className="sm:flex sm:space-x-4 sm:mb-6">
