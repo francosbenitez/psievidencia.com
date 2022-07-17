@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-// import UsersService from "../services/UsersService";
+import UsersService from "../services/UsersService";
 
 const Suggestions = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
-  const handleSubmit = (event: React.FormEvent) => {
-    console.log("title", title);
-    console.log("description", description);
-
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    try {
+      console.log("title", title);
+      console.log("description", description);
+
+      const form = {
+        title: title,
+        description: description,
+      };
+
+      let formData = new FormData();
+      Object.entries(form).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      const response = (await UsersService.create(formData)).data.data;
+    } catch (errors) {
+      console.log("errors.response.data", errors.response.data);
+    }
   };
 
   return (
