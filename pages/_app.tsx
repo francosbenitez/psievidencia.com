@@ -3,16 +3,16 @@ import type { AppProps } from "next/app";
 import ScrollToTop from "../components/global/ScrollToTop";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
-import en from "../lang/en.json";
+// import en from "../lang/en.json";
 import es from "../lang/es.json";
-import TheSidebar from "../components/global/TheSidebar";
+// import TheSidebar from "../components/global/TheSidebar";
 import TheFooter from "../components/home/TheFooter";
 import { useState, useEffect } from "react";
 import LoadingBar from "../components/home/LoadingBar";
 
 const messages: any = {
-  en,
   es,
+  // en,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         messages={locale != undefined && messages[locale]}
       >
         <ScrollToTop>
-          <TheSidebar />
+          {/* <TheSidebar /> */}
           <Component {...pageProps} loading={loading} setLoading={setLoading} />
           <TheFooter />
         </ScrollToTop>
