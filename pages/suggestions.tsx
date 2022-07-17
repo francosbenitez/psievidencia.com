@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
-const suggestions = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const Suggestions = () => {
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     console.log("title", title);
     console.log("description", description);
+
     event.preventDefault();
   };
 
   return (
-    <div className="main-content flex">
+    <div className="main-content">
+      <h2 className="text-3xl">Suggestions</h2>
       <form className="m-auto w-1/2" onSubmit={handleSubmit}>
         <label>
           Title:
@@ -29,10 +31,15 @@ const suggestions = () => {
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
 };
 
-export default suggestions;
+export default Suggestions;
