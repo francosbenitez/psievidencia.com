@@ -5,4 +5,7 @@ export default {
   create(form: any) {
     return Api2().post("/suggestions/create", form);
   },
+  suggestions() {
+    return Api2().get("/suggestions");
+  },
 };
