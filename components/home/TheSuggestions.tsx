@@ -43,10 +43,7 @@ const TheSuggestions = () => {
           onChange={(event) => setDescription(event.target.value)}
         />
       </label>
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
+      <button type="submit" className="bg-primary text-white py-2 px-4 rounded">
         Submit
       </button>
     </form>
