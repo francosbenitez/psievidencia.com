@@ -8,6 +8,7 @@ export default {
     specialization: number[],
     therapeutic_model: number[],
     work_population: number[],
+    work_modality: number[],
     education: string,
     gender_identity: string,
     has_perspective: string | undefined
@@ -18,6 +19,7 @@ export default {
         specialization: specialization,
         therapeutic_model: therapeutic_model,
         work_population: work_population,
+        work_modality: work_modality,
         education: education,
         gender_identity: gender_identity,
         has_perspective: has_perspective,

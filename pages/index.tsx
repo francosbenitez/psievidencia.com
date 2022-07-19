@@ -30,6 +30,7 @@ const Home = ({
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
   const [selectedOptionsWp, setSelectedOptionsWp] = useState<Data[]>([]);
+  const [selectedOptionsWm, setSelectedOptionsWm] = useState<Data[]>([]);
   const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
   const [selectedOptionGi, setSelectedOptionGi] = useState<any>({});
 
@@ -57,6 +58,7 @@ const Home = ({
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
+    work_modalities: number[],
     education: string,
     gender_identity: string,
     has_perspective: string | undefined
@@ -69,6 +71,7 @@ const Home = ({
         specializations,
         therapeutic_models,
         work_populations,
+        work_modalities,
         education,
         gender_identity,
         has_perspective
@@ -85,6 +88,7 @@ const Home = ({
     specializations: number[],
     therapeutic_models: number[],
     work_populations: number[],
+    work_modalities: number[],
     education: string,
     gender_identity: string,
     has_perspective: string | undefined
@@ -98,6 +102,7 @@ const Home = ({
           specializations,
           therapeutic_models,
           work_populations,
+          work_modalities,
           education,
           gender_identity,
           has_perspective
@@ -122,6 +127,7 @@ const Home = ({
     const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
     const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
     const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+    const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
     const selectedOptionNameEd = selectedOptionEd.name;
     const selectedOptionNameGi = selectedOptionGi.name;
     fetchPsychologists(
@@ -129,6 +135,7 @@ const Home = ({
       selectedOptionsIdsSp,
       selectedOptionsIdsTm,
       selectedOptionsIdsWp,
+      selectedOptionsIdsWm,
       selectedOptionNameEd,
       selectedOptionNameGi,
       hasPerspective
@@ -138,6 +145,7 @@ const Home = ({
     selectedOptionsSp,
     selectedOptionsTm,
     selectedOptionsWp,
+    selectedOptionsWm,
     selectedOptionEd,
     selectedOptionGi,
     hasPerspective,
@@ -148,6 +156,7 @@ const Home = ({
       const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
       const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
       const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+      const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
       const selectedOptionNameEd = selectedOptionEd.name;
       const selectedOptionNameGi = selectedOptionGi.name;
       hasPerspective;
@@ -156,6 +165,7 @@ const Home = ({
         selectedOptionsIdsSp,
         selectedOptionsIdsTm,
         selectedOptionsIdsWp,
+        selectedOptionsIdsWm,
         selectedOptionNameEd,
         selectedOptionNameGi,
         hasPerspective
@@ -208,6 +218,8 @@ const Home = ({
           setSelectedOptionsTm={setSelectedOptionsTm}
           selectedOptionsWp={selectedOptionsWp}
           setSelectedOptionsWp={setSelectedOptionsWp}
+          selectedOptionsWm={selectedOptionsWm}
+          setSelectedOptionsWm={setSelectedOptionsWm}
           selectedOptionEd={selectedOptionEd}
           setSelectedOptionEd={setSelectedOptionEd}
           selectedOptionGi={selectedOptionGi}

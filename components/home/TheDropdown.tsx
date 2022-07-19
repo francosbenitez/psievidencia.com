@@ -12,6 +12,8 @@ type Props = {
   setSelectedOptionsTm: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionsWp: Data[];
   setSelectedOptionsWp: React.Dispatch<React.SetStateAction<Data[]>>;
+  selectedOptionsWm: Data[];
+  setSelectedOptionsWm: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: Data;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
   selectedOptionGi: Data;
@@ -25,6 +27,8 @@ const TheDropdown = ({
   setSelectedOptionsTm,
   selectedOptionsWp,
   setSelectedOptionsWp,
+  selectedOptionsWm,
+  setSelectedOptionsWm,
   selectedOptionEd,
   setSelectedOptionEd,
   selectedOptionGi,
@@ -33,6 +37,24 @@ const TheDropdown = ({
   const [sp, setSp] = useState<Data[]>([]);
   const [tm, setTm] = useState<Data[]>([]);
   const [wp, setWp] = useState<Data[]>([]);
+  const [wm, setWm] = useState<Data[]>([
+    {
+      id: 1,
+      name: "Individual",
+    },
+    {
+      id: 2,
+      name: "Pareja",
+    },
+    {
+      id: 3,
+      name: "Familiar",
+    },
+    {
+      id: 4,
+      name: "Grupal",
+    },
+  ]);
   const [ed, setEd] = useState<Data[]>([]);
   const [gi, setGi] = useState<Data[]>([]);
 
@@ -56,6 +78,12 @@ const TheDropdown = ({
           setSelectedOptions={setSelectedOptionsWp}
           data={wp}
           setData={setWp}
+        />
+        <TheDropdownBaseIds
+          type={"work_modalities"}
+          setSelectedOptions={setSelectedOptionsWm}
+          data={wm}
+          setData={setWm}
         />
       </div>
       <div className="sm:flex sm:space-x-4 sm:mb-6">
@@ -88,6 +116,11 @@ const TheDropdown = ({
         selectedOptions={selectedOptionsWp}
         setSelectedOptions={setSelectedOptionsWp}
         setData={setWp}
+      />
+      <TheDropdownOptionsIds
+        selectedOptions={selectedOptionsWm}
+        setSelectedOptions={setSelectedOptionsWm}
+        setData={setWm}
       />
       <TheDropdownOptionsName
         selectedOption={selectedOptionEd}
