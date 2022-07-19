@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Suggestions from "../../public/icons/suggestions.svg";
 
 type Props = {
   btnText: string;
@@ -15,12 +16,11 @@ const TheModal = ({ btnText, title, content }: Props) => {
 
   return (
     <>
-      <button
-        className="toggle-button"
-        id="centered-toggle-button"
-        onClick={showModal}
-      >
-        {btnText}
+      <button className="w-1/2 flex" onClick={showModal}>
+        <div className="ml-auto">
+          <span className="mr-1 bg-gray-100 text-sm md:text-md">{btnText}</span>
+          <Suggestions className="inline w-3 h-3 align-text-top" />
+        </div>
       </button>
       {show && (
         <div className="modal" id="modal">

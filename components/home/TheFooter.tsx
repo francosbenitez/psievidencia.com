@@ -1,6 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import Suggestions from "../../public/icons/suggestions.svg";
+import TheModal from "./TheModal";
+import TheSuggestions from "./TheSuggestions";
 
 const HomeFooter = () => {
   return (
@@ -21,14 +22,11 @@ const HomeFooter = () => {
               .
             </span>
           </div>
-          <button className="w-1/2 flex">
-            <div className="ml-auto">
-              <span className="mr-1 bg-gray-100 text-sm md:text-md">
-                Sugerencias
-              </span>
-              <Suggestions className="inline w-3 h-3 align-text-top" />
-            </div>
-          </button>
+          <TheModal
+            btnText={"Sugerencias"}
+            title={"Sugerencias"}
+            content={<TheSuggestions />}
+          />
         </div>
       </div>
     </footer>

@@ -212,6 +212,11 @@ body {
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+  /*  */
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  /*  */
 }
 .modal.off {
   opacity: 0;
