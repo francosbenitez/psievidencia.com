@@ -3,8 +3,6 @@ import UsersService from "../services/UsersService";
 import { GetServerSideProps } from "next";
 
 const Suggestions = ({ suggestions }: { suggestions: any }) => {
-  console.log("suggestions", suggestions);
-
   return (
     <div className="main-content">
       <h2 className="text-3xl">Suggestions</h2>

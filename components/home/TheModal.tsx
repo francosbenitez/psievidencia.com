@@ -3,7 +3,7 @@ import React, { useState } from "react";
 type Props = {
   btnText: string;
   title: string;
-  content: string;
+  content: string | React.ReactNode;
 };
 
 const TheModal = ({ btnText, title, content }: Props) => {

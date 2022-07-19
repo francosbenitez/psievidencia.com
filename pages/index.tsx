@@ -12,6 +12,7 @@ import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import TheCheckbox from "../components/home/TheCheckbox";
 import TheModal from "../components/home/TheModal";
+import TheSuggestions from "../components/home/TheSuggestions";
 
 const Home = ({
   loading,
@@ -188,11 +189,9 @@ const Home = ({
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheModal
-          btnText={"show Modal"}
-          title={"Modal Window"}
-          content={
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non fuga omnis a sed impedit explicabo accusantium nihil doloremque consequuntur."
-          }
+          btnText={"Sugerencias"}
+          title={"Sugerencias"}
+          content={<TheSuggestions />}
         />
         <TheHeader />
 
