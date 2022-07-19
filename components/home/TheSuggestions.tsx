@@ -18,7 +18,7 @@ const TheSuggestions = () => {
         formData.append(key, value);
       });
 
-      const response = (await UsersService.create(formData)).data.data;
+      (await UsersService.create(formData)).data.data;
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
