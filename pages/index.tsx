@@ -11,6 +11,7 @@ import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import TheCheckbox from "../components/home/TheCheckbox";
+import TheModal from "../components/home/TheModal";
 
 const Home = ({
   loading,
@@ -186,6 +187,7 @@ const Home = ({
         <link rel="alternate" href="http://psievidencia.com/en" hrefLang="en" />
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
+        <TheModal />
         <TheHeader />
 
         <div className="sm:flex sm:space-x-4 sm:mb-6">
