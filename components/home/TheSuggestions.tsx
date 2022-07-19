@@ -24,11 +24,12 @@ const TheSuggestions = () => {
     }
   };
   return (
-    <form className="m-auto w-1/2" onSubmit={handleSubmit}>
+    <form className="w-full" onSubmit={handleSubmit}>
       <label>
         Title:
         <input
           type="text"
+          className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
@@ -37,6 +38,7 @@ const TheSuggestions = () => {
         Description
         <input
           type="text"
+          className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
