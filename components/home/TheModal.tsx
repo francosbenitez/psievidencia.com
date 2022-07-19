@@ -34,7 +34,7 @@ const TheModal = ({ btnText, title, content }: Props) => {
             ¿Tenés alguna sugerencia, no te gustó algo, o simplemente te
             gustaría que se implementara algo en particular? ¡Genial! Esta la
             app la hacemos entre todes, por lo cual te invitamos a dejar tu
-            comentario debajo ↓
+            comentario debajo (es completamente anónimo) ↓
           </p>
           <div className="content">{content}</div>
           {/* <div className="actions">
