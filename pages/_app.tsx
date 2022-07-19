@@ -9,6 +9,7 @@ import es from "../lang/es.json";
 import TheFooter from "../components/home/TheFooter";
 import { useState, useEffect } from "react";
 import LoadingBar from "../components/home/LoadingBar";
+import TheNavbar from "../components/global/TheNavbar";
 
 const messages: any = {
   es,
@@ -38,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         messages={locale != undefined && messages[locale]}
       >
         <ScrollToTop>
-          {/* <TheSidebar /> */}
+          <TheNavbar />
           <Component {...pageProps} loading={loading} setLoading={setLoading} />
           <TheFooter />
         </ScrollToTop>
