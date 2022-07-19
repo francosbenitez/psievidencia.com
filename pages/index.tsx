@@ -187,7 +187,13 @@ const Home = ({
         <link rel="alternate" href="http://psievidencia.com/en" hrefLang="en" />
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
-        <TheModal />
+        <TheModal
+          btnText={"show Modal"}
+          title={"Modal Window"}
+          content={
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non fuga omnis a sed impedit explicabo accusantium nihil doloremque consequuntur."
+          }
+        />
         <TheHeader />
 
         <div className="sm:flex sm:space-x-4 sm:mb-6">

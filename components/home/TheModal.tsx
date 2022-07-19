@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
-const TheModal = () => {
-  const [show, setShow] = useState(false);
+type Props = {
+  btnText: string;
+  title: string;
+  content: string;
+};
+
+const TheModal = ({ btnText, title, content }: Props) => {
+  const [show, setShow] = useState<boolean>(false);
 
   const showModal = () => {
-    console.log("run showModal");
     setShow(!show);
   };
 
@@ -15,18 +20,12 @@ const TheModal = () => {
         id="centered-toggle-button"
         onClick={showModal}
       >
-        {" "}
-        show Modal{" "}
+        {btnText}
       </button>
       {show && (
         <div className="modal" id="modal">
-          <h2>Modal Window</h2>
-          <div className="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-            deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus
-            non fuga omnis a sed impedit explicabo accusantium nihil doloremque
-            consequuntur.
-          </div>
+          <h2>{title}</h2>
+          <div className="content">{content}</div>
           <div className="actions">
             <button className="toggle-button" onClick={showModal}>
               Close
