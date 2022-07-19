@@ -26,7 +26,7 @@ const TheSuggestions = () => {
   return (
     <form className="w-full" onSubmit={handleSubmit}>
       <label>
-        Title:
+        Título:
         <input
           type="text"
           className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
@@ -35,7 +35,7 @@ const TheSuggestions = () => {
         />
       </label>
       <label>
-        Description
+        Descripción
         <input
           type="text"
           className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
@@ -44,7 +44,7 @@ const TheSuggestions = () => {
         />
       </label>
       <button type="submit" className="bg-primary text-white py-2 px-4 rounded">
-        Submit
+        Enviar
       </button>
     </form>
   );
