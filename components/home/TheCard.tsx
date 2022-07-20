@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Psychologist } from "../../types";
 import { FormattedMessage } from "react-intl";
+import Heart from "../../public/icons/heart.svg";
 
 const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
-      <div className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer">
+      <div className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
+        <Heart className="absolute right-0 top-0 mr-3 mt-3" />
         <header className="text-xl mb-3 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>
