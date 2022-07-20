@@ -30,18 +30,7 @@ const TheModal = ({ btnText, title, content }: Props) => {
               X
             </button>
           </h2>
-          <p className="px-4 pt-4">
-            ¿Tenés alguna sugerencia, no te gustó algo, o simplemente te
-            gustaría que se implementara algo en particular? ¡Genial! Esta la
-            app la hacemos entre todes, por lo cual te invitamos a dejar tu
-            comentario debajo (es completamente anónimo) ↓
-          </p>
           <div className="content">{content}</div>
-          {/* <div className="actions">
-            <button className="toggle-button" onClick={showModal}>
-              Close
-            </button>
-          </div> */}
         </div>
       )}
     </>
