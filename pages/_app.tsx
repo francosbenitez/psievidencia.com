@@ -6,7 +6,7 @@ import { IntlProvider } from "react-intl";
 // import en from "../lang/en.json";
 import es from "../lang/es.json";
 // import TheSidebar from "../components/global/TheSidebar";
-import TheFooter from "../components/home/TheFooter";
+import TheFooter from "../components/global/TheFooter";
 import { useState, useEffect } from "react";
 import LoadingBar from "../components/home/LoadingBar";
 import TheNavbar from "../components/global/TheNavbar";
