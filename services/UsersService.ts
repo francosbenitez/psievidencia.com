@@ -8,4 +8,10 @@ export default {
   suggestions() {
     return Api().get("/suggestions");
   },
+  register(form: any) {
+    return Api().get("/register");
+  },
+  login(form: any) {
+    return Api().get("/login");
+  },
 };
