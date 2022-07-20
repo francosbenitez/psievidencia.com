@@ -1,11 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-import Api2 from "./Api2";
+import Api from "./Api";
 
 export default {
   create(form: any) {
-    return Api2().post("/suggestions/create", form);
+    return Api().post("/suggestions/create", form);
   },
   suggestions() {
-    return Api2().get("/suggestions");
+    return Api().get("/suggestions");
   },
 };
