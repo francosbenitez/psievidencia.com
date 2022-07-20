@@ -9,9 +9,9 @@ export default {
     return Api().get("/suggestions");
   },
   register(form: any) {
-    return Api().get("/register");
+    return Api().post("/register", form);
   },
   login(form: any) {
-    return Api().get("/login");
+    return Api().post("/login", form);
   },
 };

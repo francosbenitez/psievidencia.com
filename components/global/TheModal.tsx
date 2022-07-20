@@ -1,29 +1,22 @@
-import React, { useState } from "react";
-import Suggestions from "../../public/icons/suggestions.svg";
+import React from "react";
 
 type Props = {
-  btnText: string;
+  button: React.ReactNode;
   title: string;
   content: string | React.ReactNode;
+  show: boolean;
+  showModal: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const TheModal = ({ btnText, title, content }: Props) => {
-  const [show, setShow] = useState<boolean>(false);
-
-  const showModal = () => {
-    setShow(!show);
-  };
-
+const TheModal = ({ button, title, content, show, showModal }: Props) => {
   return (
     <>
-      <button className="w-1/2 flex" onClick={showModal}>
-        <div className="ml-auto">
-          <span className="mr-1 bg-gray-100 text-sm md:text-md">{btnText}</span>
-          <Suggestions className="inline w-3 h-3 align-text-top" />
-        </div>
-      </button>
+      {button}
       {show && (
-        <div className="modal" id="modal">
+        <div
+          className={`modal ${title === "Ingresar" && "modal-centered"}`}
+          id="modal"
+        >
           <h2>
             {title}
             <button className="float-right" onClick={showModal}>

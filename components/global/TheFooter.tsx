@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import TheModal from "./TheModal";
 import TheSuggestions from "./TheSuggestions";
+import SuggestionsBtn from "./SuggestionsBtn";
 
 const HomeFooter = () => {
+  const [show, setShow] = useState<boolean>(false);
+
+  const showModal = () => {
+    setShow(!show);
+  };
+
   return (
     <footer className="bottom-0 w-full mx-auto p-5 sm:px-0 md:py-8 footer">
       <div className="container relative text-center m-auto">
@@ -23,9 +30,11 @@ const HomeFooter = () => {
             </span>
           </div>
           <TheModal
-            btnText={"Sugerencias"}
+            button={<SuggestionsBtn showModal={showModal} />}
             title={"Sugerencias"}
             content={<TheSuggestions />}
+            showModal={showModal}
+            show={show}
           />
         </div>
       </div>

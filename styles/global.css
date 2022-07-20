@@ -219,6 +219,12 @@ body {
   z-index: 10;
 }
 
+.modal-centered {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  bottom: auto;
+}
+
 @media (min-width: 768px) {
   .modal {
     width: auto;
