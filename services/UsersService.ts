@@ -14,4 +14,7 @@ export default {
   login(form: any) {
     return Api().post("/login", form);
   },
+  favorites() {
+    return Api().get("/favorites");
+  },
 };
