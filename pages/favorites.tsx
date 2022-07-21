@@ -8,10 +8,10 @@ const Favorites = ({ favorites }: { favorites: any }) => {
     <div className="main-content">
       <h2 className="text-3xl">Favorites</h2>
       {favorites.length > 0 &&
-        favorites.map((suggestion: any) => (
-          <div key={suggestion.id}>
-            <p>{suggestion.title}</p>
-            <p>{suggestion.description}</p>
+        favorites.map((favorite: any) => (
+          <div key={favorite.id}>
+            <p>{favorite.psychologist_id}</p>
+            <p>{favorite.user_id}</p>
           </div>
         ))}
     </div>
