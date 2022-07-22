@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
-  button: React.ReactNode;
+  button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   title: string;
   content: string | React.ReactNode;
-  show: boolean;
-  showModal: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const TheModal = ({ button, title, content, show, showModal }: Props) => {
+const TheModal = ({ button, title, content }: Props) => {
+  const [show, setShow] = useState<boolean>(false);
+
+  const showModal = () => {
+    setShow(!show);
+  };
+
   return (
     <>
-      {button}
+      {React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div
           className={`modal ${title === "Ingresar" && "modal-centered"}`}

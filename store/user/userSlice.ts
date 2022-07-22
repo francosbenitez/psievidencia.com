@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser, userLogin } from "./userActions";
 
-const userToken = localStorage.getItem("userToken")
-  ? localStorage.getItem("userToken")
-  : null;
+const userToken =
+  typeof window !== "undefined"
+    ? localStorage.getItem("userToken")
+      ? localStorage.getItem("userToken")
+      : null
+    : null;
 
 const initialState = {
   loading: false,
