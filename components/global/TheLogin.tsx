@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import UsersService from "../../services/UsersService";
-import { setToken, getToken } from "../../utils/helper";
+// import UsersService from "../../services/UsersService";
+// import { setToken, getToken } from "../../utils/helper";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../../store/user/userActions";
 
 const TheLogin = () => {
+  const { loading, error } = useSelector((state: any) => state.userReducer);
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -19,9 +24,10 @@ const TheLogin = () => {
         formData.append(key, value);
       });
 
-      const response = (await UsersService.login(formData)).data;
-      setToken(response.token);
-      console.log(getToken());
+      // const response = (await UsersService.login(formData)).data;
+      // setToken(response.token);
+      // console.log(getToken());
+      dispatch(userLogin(form));
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }

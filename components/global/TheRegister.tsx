@@ -8,7 +8,9 @@ const TheRegister = () => {
     console.log(state);
   });
 
-  const { loading, error } = useSelector((state: any) => state.userReducer);
+  const { loading, userInfo, error, success } = useSelector(
+    (state: any) => state.userReducer
+  );
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState<string>("");

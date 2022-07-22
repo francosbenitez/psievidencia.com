@@ -1,11 +1,14 @@
-// userSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "./userActions";
+import { registerUser, userLogin } from "./userActions";
+
+const userToken = localStorage.getItem("userToken")
+  ? localStorage.getItem("userToken")
+  : null;
 
 const initialState = {
   loading: false,
   userInfo: null,
-  userToken: null,
+  userToken,
   error: null,
   success: false,
 };
@@ -15,6 +18,22 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    // Login
+    [userLogin.pending]: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    [userLogin.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.userInfo = payload;
+      state.userToken = payload.userToken;
+    },
+    [userLogin.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+
+    // Register
     [registerUser.pending]: (state) => {
       state.loading = true;
       state.error = null;
