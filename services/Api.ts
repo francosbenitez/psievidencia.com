@@ -4,9 +4,9 @@ import { getToken } from "../utils/helper";
 
 const API_URL = "https://secret-hamlet-81810.herokuapp.com/api/";
 
-const token: string | null = typeof window !== "undefined" ? getToken() : "";
-
 export default () => {
+  const token: string | null = typeof window !== "undefined" ? getToken() : "";
+
   const API = axios.create({
     baseURL: `${API_URL}`,
     headers: {
