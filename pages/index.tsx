@@ -11,7 +11,7 @@ import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import TheCheckbox from "../components/home/TheCheckbox";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 const Home = ({
   loading,
@@ -174,9 +174,6 @@ const Home = ({
     }
   }, [pagination]);
 
-  const dispatch = useDispatch();
-  const counter = useSelector((state: any) => state.counter.count);
-
   return (
     <>
       <Head>
@@ -199,14 +196,6 @@ const Home = ({
         <link rel="alternate" href="http://psievidencia.com" hrefLang="es" />
         <link rel="alternate" href="http://psievidencia.com/en" hrefLang="en" />
       </Head>
-      <div>
-        <h1>
-          Counter: <span>{counter}</span>
-        </h1>
-        <button onClick={() => dispatch({ type: "INCREMENT" })}>
-          Add To Count
-        </button>
-      </div>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheHeader />
 
