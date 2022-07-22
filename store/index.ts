@@ -2,7 +2,7 @@ import { createWrapper } from "next-redux-wrapper";
 import masterReducer from "./reducers/masterReducer";
 import { configureStore } from "@reduxjs/toolkit";
 
-const store = configureStore({ reducer: masterReducer });
+export const store = configureStore({ reducer: masterReducer });
 
 const makeStore = () => store;
 

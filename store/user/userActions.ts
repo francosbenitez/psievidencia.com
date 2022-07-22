@@ -1,23 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import UsersService from "../../services/UsersService";
 
 export const registerUser = createAsyncThunk(
   "user/register",
-  async (
-    { email, username, password }: { email: any; username: any; password: any },
-    { rejectWithValue }
-  ) => {
+  async (formData: any, { rejectWithValue }) => {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      await axios.post(
-        "https://secret-hamlet-81810.herokuapp.com/api/register",
-        { email, username, password },
-        config
-      );
+      (await UsersService.register(formData)).data.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -30,25 +18,11 @@ export const registerUser = createAsyncThunk(
 
 export const userLogin = createAsyncThunk(
   "user/login",
-  async (
-    { username, password }: { username: any; password: any },
-    { rejectWithValue }
-  ) => {
+  async (formData: any, { rejectWithValue }) => {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const { data } = await axios.post(
-        "https://secret-hamlet-81810.herokuapp.com/api/login",
-        { username, password },
-        config
-      );
-
-      localStorage.setItem("Token", data.token);
-
-      return data;
+      const response = (await UsersService.login(formData)).data;
+      localStorage.setItem("Token", response.token);
+      return response;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);

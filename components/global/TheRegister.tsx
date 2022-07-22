@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import UsersService from "../../services/UsersService";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/user/userActions";
 
@@ -11,6 +10,7 @@ const TheRegister = () => {
   const { loading, userInfo, error, success } = useSelector(
     (state: any) => state.userReducer
   );
+
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState<string>("");
@@ -31,8 +31,7 @@ const TheRegister = () => {
         formData.append(key, value);
       });
 
-      // (await UsersService.register(formData)).data.data;
-      dispatch(registerUser(form));
+      dispatch(registerUser(formData));
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }

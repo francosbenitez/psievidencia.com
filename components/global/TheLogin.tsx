@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import UsersService from "../../services/UsersService";
-// import { setToken, getToken } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../store/user/userActions";
 
@@ -24,10 +22,7 @@ const TheLogin = () => {
         formData.append(key, value);
       });
 
-      // const response = (await UsersService.login(formData)).data;
-      // setToken(response.token);
-      // console.log(getToken());
-      dispatch(userLogin(form));
+      dispatch(userLogin(formData));
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
