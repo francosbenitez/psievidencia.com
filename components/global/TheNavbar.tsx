@@ -9,8 +9,10 @@ import TheRegister from "./TheRegister";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/user/userSlice";
 import UsersService from "../../services/UsersService";
+import { useRouter } from "next/router";
 
 const TheNavbar = () => {
+  const router = useRouter();
   const { userInfo, userToken } = useSelector(
     (state: any) => state.userReducer
   );
@@ -18,6 +20,7 @@ const TheNavbar = () => {
   const handleLogout = async () => {
     await UsersService.logout();
     dispatch(logout());
+    router.push("/");
   };
   return (
     <div className="container mx-auto px-5 sm:px-0">
