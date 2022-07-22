@@ -10,6 +10,7 @@ import TheFooter from "../components/global/TheFooter";
 import { useState, useEffect } from "react";
 import LoadingBar from "../components/home/LoadingBar";
 import TheNavbar from "../components/global/TheNavbar";
+import { wrapper } from "../store";
 
 const messages: any = {
   es,
@@ -48,4 +49,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
