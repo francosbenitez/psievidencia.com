@@ -10,7 +10,9 @@ export default () => {
 
   const state = store.getState();
   const token =
-    state.userReducer.userInfo != null
+    state.userReducer.userToken != null
+      ? state.userReducer.userToken
+      : state.userReducer.userInfo != null
       ? state.userReducer.userInfo.token
       : null;
 
