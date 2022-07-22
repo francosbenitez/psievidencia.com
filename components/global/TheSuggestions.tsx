@@ -38,7 +38,7 @@ const TheSuggestions = () => {
           </p>
           <form className="w-full" onSubmit={handleSubmit}>
             <label>
-              Título:
+              Título
               <input
                 type="text"
                 className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
