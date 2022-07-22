@@ -4,16 +4,21 @@ import TheModal from "./TheModal";
 import TheLogin from "./TheLogin";
 import LoginBtn from "./LoginBtn";
 import RegisterBtn from "./RegisterBtn";
-import LogoutBtn from "./LogoutBtn";
+// import LogoutBtn from "./LogoutBtn";
 import TheRegister from "./TheRegister";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/user/userSlice";
+import UsersService from "../../services/UsersService";
 
 const TheNavbar = () => {
   const { userInfo, userToken } = useSelector(
     (state: any) => state.userReducer
   );
   const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await UsersService.logout();
+    dispatch(logout());
+  };
   return (
     <div className="container mx-auto px-5 sm:px-0">
       <ul className="flex justify-end mt-5">
@@ -28,7 +33,7 @@ const TheNavbar = () => {
             <li>
               <button
                 className="rounded btn bg-primary text-white p-2 border-white"
-                onClick={() => dispatch(logout())}
+                onClick={() => handleLogout()}
               >
                 Salir
               </button>
