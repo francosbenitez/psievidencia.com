@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../store/user/userActions";
+import type { AppDispatch } from "../../store";
 
 const TheLogin = () => {
   const { loading, error } = useSelector((state: any) => state.userReducer);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");

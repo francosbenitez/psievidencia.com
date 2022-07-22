@@ -6,4 +6,6 @@ export const store = configureStore({ reducer: masterReducer });
 
 const makeStore = () => store;
 
+export type AppDispatch = typeof store.dispatch;
+
 export const wrapper = createWrapper(makeStore);

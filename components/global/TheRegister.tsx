@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/user/userActions";
+import type { AppDispatch } from "../../store";
 
 const TheRegister = () => {
   useSelector((state: any) => {
@@ -11,7 +12,7 @@ const TheRegister = () => {
     (state: any) => state.userReducer
   );
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");

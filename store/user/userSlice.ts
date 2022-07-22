@@ -28,35 +28,34 @@ const userSlice = createSlice({
       state.error = null;
     },
   },
-  extraReducers: {
+  extraReducers: (builder) => {
     // Login
-    [userLogin.pending]: (state) => {
+    builder.addCase(userLogin.pending, (state) => {
       state.loading = true;
       state.error = null;
-    },
-    [userLogin.fulfilled]: (state, { payload }) => {
-      state.loading = false;
-      state.userInfo = payload;
-      state.userToken = payload.userToken;
-    },
-    [userLogin.rejected]: (state, { payload }) => {
-      state.loading = false;
-      state.error = payload;
-    },
-
-    // Register
-    [registerUser.pending]: (state) => {
-      state.loading = true;
-      state.error = null;
-    },
-    [registerUser.fulfilled]: (state, { payload }) => {
-      state.loading = false;
-      state.success = true;
-    },
-    [registerUser.rejected]: (state, { payload }) => {
-      state.loading = false;
-      state.error = payload;
-    },
+    }),
+      builder.addCase(userLogin.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.userInfo = payload;
+        state.userToken = payload.userToken;
+      }),
+      builder.addCase(userLogin.rejected, (state, { payload }) => {
+        state.loading = false;
+        // state.error = payload;
+      }),
+      // Register
+      builder.addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      }),
+      builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.success = true;
+      }),
+      builder.addCase(registerUser.rejected, (state, { payload }) => {
+        state.loading = false;
+        // state.error = payload;
+      });
   },
 });
 
