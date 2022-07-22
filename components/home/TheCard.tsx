@@ -2,12 +2,24 @@ import Link from "next/link";
 import { Psychologist } from "../../types";
 import { FormattedMessage } from "react-intl";
 import Heart from "../../public/icons/heart.svg";
+import UsersService from "../../services/UsersService";
 
 const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
+  const handleClick = async (id: any) => {
+    console.log("id", id);
+    try {
+      (await UsersService.favoritesCreate(id)).data.data;
+    } catch (errors) {
+      console.log("errors.response.data", errors.response.data);
+    }
+  };
+
   return (
-    <Link href={`/psychologists/${psychologist.id}`}>
-      <div className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
-        <Heart className="absolute right-0 top-0 mr-3 mt-3" />
+    <Link href={`/psychologists/${psychologist.id}`} className="z-10">
+      <a className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
+        <button onClick={() => handleClick(psychologist.id)} className="z-20">
+          <Heart className="absolute right-0 top-0 mr-3 mt-3" />
+        </button>
         <header className="text-xl mb-3 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
         </header>
@@ -73,7 +85,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
             </p>
           )}
         </footer>
-      </div>
+      </a>
     </Link>
   );
 };
