@@ -17,4 +17,10 @@ export default {
   favorites() {
     return Api().get("/favorites");
   },
+  favoritesCreate(psychologistId: any) {
+    return Api().post(`favorites/${psychologistId}/create`);
+  },
+  favoritesDelete(psychologistId: any) {
+    return Api().delete(`favorites/${psychologistId}/delete`);
+  },
 };

@@ -15,6 +15,11 @@ const TheNavbar = () => {
     <div className="container mx-auto px-5 sm:px-0">
       <ul className="flex justify-end mt-5">
         {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
+        <li className="p-2 flex">
+          <Link href="/favorites">
+            <p className="self-center underline">Mis favoritos</p>
+          </Link>
+        </li>
         <li className="p-2">
           <TheModal
             button={<LoginBtn showModal={showModal} />}

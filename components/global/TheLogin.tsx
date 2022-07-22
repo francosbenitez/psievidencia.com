@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UsersService from "../../services/UsersService";
-import { setToken } from "../../utils/helper";
+import { setToken, getToken } from "../../utils/helper";
 
 const TheLogin = () => {
   const [username, setUsername] = useState<string>("");
@@ -21,6 +21,7 @@ const TheLogin = () => {
 
       const response = (await UsersService.login(formData)).data;
       setToken(response.token);
+      console.log(getToken());
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
