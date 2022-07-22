@@ -18,7 +18,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
     <Link href={`/psychologists/${psychologist.id}`}>
       <a className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
         <button onClick={() => handleClick(psychologist.id)}>
-          <Heart className="absolute right-0 top-0 mr-3 mt-3" />
+          <Heart className="absolute right-0 top-0 mr-3 mt-3 hover:fill-gray-200" />
         </button>
         <header className="text-xl mb-3 text-center">
           {psychologist.name !== "" ? psychologist.name : "Unknown"}
