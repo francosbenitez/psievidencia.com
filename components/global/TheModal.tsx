@@ -19,7 +19,7 @@ const TheModal = ({ button, title, content }: Props) => {
       {show && (
         <div
           className={`modal ${
-            title === "Ingresar" ||
+            (title === "Ingresar" && "modal-centered") ||
             (title === "Registrarse" && "modal-centered")
           }`}
           id="modal"
