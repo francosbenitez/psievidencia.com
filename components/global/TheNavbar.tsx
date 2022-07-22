@@ -3,6 +3,8 @@ import Link from "next/link";
 import TheModal from "./TheModal";
 import TheLogin from "./TheLogin";
 import LoginBtn from "./LoginBtn";
+import RegisterBtn from "./RegisterBtn";
+import TheRegister from "./TheRegister";
 
 const TheNavbar = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -30,11 +32,13 @@ const TheNavbar = () => {
           />
         </li>
         <li className="p-2">
-          <Link href="">
-            <button className="rounded btn bg-primary text-white p-2 border-white">
-              Registrarse
-            </button>
-          </Link>
+          <TheModal
+            button={<RegisterBtn showModal={showModal} />}
+            title={"Registrarse"}
+            content={<TheRegister />}
+            showModal={showModal}
+            show={show}
+          />
         </li>
       </ul>
     </div>

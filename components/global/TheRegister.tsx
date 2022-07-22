@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import UsersService from "../../services/UsersService";
+// import UsersService from "../../services/UsersService";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../store/user/userActions";
 
 const TheRegister = () => {
+  useSelector((state: any) => {
+    console.log(state);
+  });
+
+  const { loading, error } = useSelector((state: any) => state.userReducer);
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -20,7 +29,8 @@ const TheRegister = () => {
         formData.append(key, value);
       });
 
-      (await UsersService.register(formData)).data.data;
+      // (await UsersService.register(formData)).data.data;
+      dispatch(registerUser(form));
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
