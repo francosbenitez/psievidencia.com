@@ -10,8 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/user/userSlice";
 import UsersService from "../../services/UsersService";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const TheNavbar = () => {
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const { userInfo, userToken } = useSelector(
     (state: any) => state.userReducer
@@ -22,53 +24,58 @@ const TheNavbar = () => {
     dispatch(logout());
     router.push("/");
   };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
-    <div className="container mx-auto px-5 sm:px-0">
-      <ul className="flex justify-end mt-5">
-        {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
-        {userToken || userInfo ? (
-          <>
-            <li className="p-2 flex">
-              {router.pathname === "/favorites" ? (
-                <Link href="/">
-                  <a className="self-center underline">Home</a>
-                </Link>
-              ) : (
-                <Link href="/favorites">
-                  <a className="self-center underline">Mis favoritos</a>
-                </Link>
-              )}
-            </li>
-            <li>
-              <button
-                className="rounded btn bg-primary text-white p-2 border-white"
-                onClick={() => handleLogout()}
-              >
-                Salir
-              </button>
-              {/* <LogoutBtn logout={dispatch(logout())} /> */}
-            </li>
-          </>
-        ) : (
-          <>
-            <li className="p-2">
-              <TheModal
-                button={<LoginBtn />}
-                title={"Ingresar"}
-                content={<TheLogin />}
-              />
-            </li>
-            <li className="p-2">
-              <TheModal
-                button={<RegisterBtn />}
-                title={"Registrarse"}
-                content={<TheRegister />}
-              />
-            </li>
-          </>
-        )}
-      </ul>
-    </div>
+    mounted && (
+      <div className="container mx-auto px-5 sm:px-0">
+        <ul className="flex justify-end mt-5">
+          {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
+          {userToken || userInfo ? (
+            <>
+              <li className="p-2 flex">
+                {router.pathname === "/favorites" ? (
+                  <Link href="/">
+                    <a className="self-center underline">Home</a>
+                  </Link>
+                ) : (
+                  <Link href="/favorites">
+                    <a className="self-center underline">Mis favoritos</a>
+                  </Link>
+                )}
+              </li>
+              <li>
+                <button
+                  className="rounded btn bg-primary text-white p-2 border-white"
+                  onClick={() => handleLogout()}
+                >
+                  Salir
+                </button>
+                {/* <LogoutBtn logout={dispatch(logout())} /> */}
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="p-2">
+                <TheModal
+                  button={<LoginBtn />}
+                  title={"Ingresar"}
+                  content={<TheLogin />}
+                />
+              </li>
+              <li className="p-2">
+                <TheModal
+                  button={<RegisterBtn />}
+                  title={"Registrarse"}
+                  content={<TheRegister />}
+                />
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    )
   );
 };
 
