@@ -1,28 +1,18 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { HYDRATE, createWrapper } from "next-redux-wrapper";
+import { createStore, applyMiddleware } from "redux";
+import { createWrapper } from "next-redux-wrapper";
 import { composeWithDevTools } from "redux-devtools-extension";
-import counter from "./counter/reducer";
+import masterReducer from "./reducers/masterReducer";
+import thunk from "redux-thunk";
 
-const combinedReducer = combineReducers({
-  counter,
-});
+const initalState = {};
+const middleware = [thunk];
 
-const masterReducer = (state: any, action: any) => {
-  if (action.type === HYDRATE) {
-    const nextState = {
-      ...state,
-      counter: {
-        count: state.counter.count + action.payload.counter.count,
-      },
-    };
-    return nextState;
-  } else {
-    return combinedReducer(state, action);
-  }
-};
+export const store = createStore(
+  masterReducer,
+  initalState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
-const initStore = () => {
-  return createStore(masterReducer, composeWithDevTools(applyMiddleware()));
-};
+const makeStore = () => store;
 
-export const wrapper = createWrapper(initStore);
+export const wrapper = createWrapper(makeStore);
