@@ -29,9 +29,15 @@ const TheNavbar = () => {
         {userToken || userInfo ? (
           <>
             <li className="p-2 flex">
-              <Link href="/favorites">
-                <p className="self-center underline">Mis favoritos</p>
-              </Link>
+              {router.pathname === "/favorites" ? (
+                <Link href="/">
+                  <a className="self-center underline">Home</a>
+                </Link>
+              ) : (
+                <Link href="/favorites">
+                  <a className="self-center underline">Mis favoritos</a>
+                </Link>
+              )}
             </li>
             <li>
               <button
