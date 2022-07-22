@@ -3,8 +3,8 @@ import { registerUser, userLogin } from "./userActions";
 
 const userToken =
   typeof window !== "undefined"
-    ? localStorage.getItem("userToken")
-      ? localStorage.getItem("userToken")
+    ? localStorage.getItem("Token")
+      ? localStorage.getItem("Token")
       : null
     : null;
 
@@ -21,7 +21,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem("userToken");
+      localStorage.removeItem("Token");
       state.loading = false;
       state.userInfo = null;
       state.userToken = null;
