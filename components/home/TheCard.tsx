@@ -15,9 +15,9 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   };
 
   return (
-    <Link href={`/psychologists/${psychologist.id}`} className="z-10">
+    <Link href={`/psychologists/${psychologist.id}`}>
       <a className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
-        <button onClick={() => handleClick(psychologist.id)} className="z-20">
+        <button onClick={() => handleClick(psychologist.id)}>
           <Heart className="absolute right-0 top-0 mr-3 mt-3" />
         </button>
         <header className="text-xl mb-3 text-center">
