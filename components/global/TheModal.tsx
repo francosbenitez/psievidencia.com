@@ -18,7 +18,10 @@ const TheModal = ({ button, title, content }: Props) => {
       {React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div
-          className={`modal ${title === "Ingresar" && "modal-centered"}`}
+          className={`modal ${
+            title === "Ingresar" ||
+            (title === "Registrarse" && "modal-centered")
+          }`}
           id="modal"
         >
           <h2>
