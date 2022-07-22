@@ -5,7 +5,8 @@ import Heart from "../../public/icons/heart.svg";
 import UsersService from "../../services/UsersService";
 
 const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
-  const handleClick = async (id: any) => {
+  const handleClick = async (id: any, e: React.FormEvent) => {
+    e.preventDefault();
     console.log("id", id);
     try {
       (await UsersService.favoritesCreate(id)).data.data;
@@ -17,7 +18,7 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
       <a className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
-        <button onClick={() => handleClick(psychologist.id)}>
+        <button onClick={(e) => handleClick(psychologist.id, e)}>
           <Heart className="absolute right-0 top-0 mr-3 mt-3 hover:fill-gray-200" />
         </button>
         <header className="text-xl mb-3 text-center">
