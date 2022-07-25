@@ -194,6 +194,11 @@ body {
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 5px;
 }
 
+/* Navbar */
+.navbar {
+  box-shadow: rgb(0 0 0 / 25%) 0px 0px 5px;
+}
+
 /* Home */
 .main-content {
   min-height: 100vh;

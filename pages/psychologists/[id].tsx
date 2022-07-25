@@ -152,14 +152,14 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
           <button
             className="
-        absolute
-        top-[2rem]
+        relative
+        bottom-[2rem]
         rounded
         w-10
         h-10
         overflow-hidden
         block
-        before:bg-custom-image before:bg-no-repeat before:bg-cover before:bg-center 
+        before:bg-arrow-left before:bg-no-repeat before:bg-cover before:bg-center 
         before:absolute before:inset-0
         before:block"
             onClick={() => router.back()}

@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "custom-image": "url('/icons/arrow-left.svg')",
+        "arrow-left": "url('/icons/arrow-left.svg')",
       },
       colors: {
         primary: "#313131",

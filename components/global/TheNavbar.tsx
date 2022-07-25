@@ -30,52 +30,54 @@ const TheNavbar = () => {
   return (
     <>
       {mounted && (
-        <div className="container mx-auto px-5 sm:px-0">
-          <ul className="flex justify-end mt-5">
-            {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
-            {userToken || userInfo ? (
-              <>
-                <li className="p-2 flex">
-                  {router.pathname === "/favorites" ? (
-                    <Link href="/">
-                      <a className="self-center underline">Home</a>
-                    </Link>
-                  ) : (
-                    <Link href="/favorites">
-                      <a className="self-center underline">Mis favoritos</a>
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  <button
-                    className="rounded btn bg-primary text-white p-2 border-white"
-                    onClick={() => handleLogout()}
-                  >
-                    Salir
-                  </button>
-                  {/* <LogoutBtn logout={dispatch(logout())} /> */}
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="p-2">
-                  <TheModal
-                    button={<LoginBtn />}
-                    title={"Ingresar"}
-                    content={<TheLogin />}
-                  />
-                </li>
-                <li className="p-2">
-                  <TheModal
-                    button={<RegisterBtn />}
-                    title={"Registrarse"}
-                    content={<TheRegister />}
-                  />
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
+        <header className="w-full mx-auto p-5 sm:px-0 navbar">
+          <div className="container relative m-auto">
+            <ul className="flex justify-end">
+              {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
+              {userToken || userInfo ? (
+                <>
+                  <li className="p-2 flex">
+                    {router.pathname === "/favorites" ? (
+                      <Link href="/">
+                        <a className="self-center underline">Home</a>
+                      </Link>
+                    ) : (
+                      <Link href="/favorites">
+                        <a className="self-center underline">Mis favoritos</a>
+                      </Link>
+                    )}
+                  </li>
+                  <li>
+                    <button
+                      className="rounded btn bg-primary text-white p-2 border-white"
+                      onClick={() => handleLogout()}
+                    >
+                      Salir
+                    </button>
+                    {/* <LogoutBtn logout={dispatch(logout())} /> */}
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="p-2">
+                    <TheModal
+                      button={<LoginBtn />}
+                      title={"Ingresar"}
+                      content={<TheLogin />}
+                    />
+                  </li>
+                  <li className="p-2">
+                    <TheModal
+                      button={<RegisterBtn />}
+                      title={"Registrarse"}
+                      content={<TheRegister />}
+                    />
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </header>
       )}
     </>
   );
