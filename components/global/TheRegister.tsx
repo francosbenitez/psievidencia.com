@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/user/userActions";
 import type { AppDispatch } from "../../store";
 
-const TheRegister = ({ showModal }: { showModal: any }) => {
+const TheRegister = ({ showModal }: { showModal?: any }) => {
   useSelector((state: any) => {
     console.log(state);
   });
