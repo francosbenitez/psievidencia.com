@@ -35,7 +35,7 @@ const TheLogin = ({ showModal }: { showModal?: any }) => {
       <p className="pb-4">
         ¿No estás registrado?{" "}
         <button onClick={showModal} className="underline">
-          Registrate
+          Registrarse
         </button>
       </p>
       <form className="w-full" onSubmit={handleSubmit}>
