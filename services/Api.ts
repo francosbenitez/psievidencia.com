@@ -30,6 +30,7 @@ export default () => {
     },
     (error) => {
       if (error.response.status === 401) {
+        localStorage.removeItem("Token");
         console.log("error.reponse", error.response);
       }
       return Promise.reject(error);
