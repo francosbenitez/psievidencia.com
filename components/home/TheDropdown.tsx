@@ -60,7 +60,7 @@ const TheDropdown = ({
 
   return (
     <>
-      <div className="sm:flex sm:space-x-4 sm:mb-6">
+      <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
         <TheDropdownBaseIds
           type={"specializations"}
           setSelectedOptions={setSelectedOptionsSp}
@@ -86,7 +86,7 @@ const TheDropdown = ({
           setData={setWm}
         />
       </div>
-      <div className="sm:flex sm:space-x-4 sm:mb-6">
+      <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
         <TheDropdownBaseName
           type={"education"}
           selectedOption={selectedOptionEd}

@@ -199,7 +199,7 @@ const Home = ({
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheHeader />
 
-        <div className="sm:flex sm:space-x-4 sm:mb-6">
+        <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
           <div className="w-full sm:w-1/3">
             <SearchName handleNameChange={handleNameChange} />
           </div>
