@@ -31,7 +31,7 @@ const TheNavbar = () => {
     <>
       {mounted && (
         <header className="w-full mx-auto p-5 sm:px-0 navbar">
-          <div className="container relative m-auto">
+          <div className="container m-auto">
             <ul className="flex justify-end">
               {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
               {userToken || userInfo ? (
