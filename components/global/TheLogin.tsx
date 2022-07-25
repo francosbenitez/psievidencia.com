@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../store/user/userActions";
 import type { AppDispatch } from "../../store";
 
-const TheLogin = () => {
+const TheLogin = ({ showModal }: { showModal: any }) => {
   const { loading, error } = useSelector((state: any) => state.userReducer);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -24,6 +24,7 @@ const TheLogin = () => {
       });
 
       dispatch(userLogin(formData));
+      showModal();
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }

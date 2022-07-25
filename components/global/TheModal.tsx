@@ -3,7 +3,7 @@ import React, { useState } from "react";
 type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   title: string;
-  content: string | React.ReactNode;
+  content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 };
 
 const TheModal = ({ button, title, content }: Props) => {
@@ -30,7 +30,9 @@ const TheModal = ({ button, title, content }: Props) => {
               X
             </button>
           </h2>
-          <div className="content">{content}</div>
+          <div className="content">
+            {React.cloneElement(content, { showModal: showModal })}
+          </div>
         </div>
       )}
     </>
