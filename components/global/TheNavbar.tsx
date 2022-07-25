@@ -28,7 +28,8 @@ const TheNavbar = () => {
     setMounted(true);
   }, []);
   return (
-    mounted && (
+    <>
+      mounted && (
       <div className="container mx-auto px-5 sm:px-0">
         <ul className="flex justify-end mt-5">
           {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
@@ -75,7 +76,8 @@ const TheNavbar = () => {
           )}
         </ul>
       </div>
-    )
+      )
+    </>
   );
 };
 
