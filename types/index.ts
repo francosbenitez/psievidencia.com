@@ -26,6 +26,7 @@ export type Psychologist = {
   therapeutic_model: string;
   work_modality: string;
   work_population: string;
+  liked: boolean;
 };
 
 export type Data = {

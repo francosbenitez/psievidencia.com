@@ -3,38 +3,29 @@ import { Psychologist } from "../../types";
 import { FormattedMessage } from "react-intl";
 import Heart from "../../public/icons/heart.svg";
 import UsersService from "../../services/UsersService";
-import { useState, useEffect } from "react";
 
-const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
-  const [favorites, setFavorites] = useState([]);
-
-  const fetchFavorites = async () => {
-    const result = (await UsersService.favorites()).data;
-    setFavorites(result);
-  };
-
-  useEffect(() => {
-    fetchFavorites();
-  }, []);
-
-  const wasLiked = (id: any) => {
-    const even = (element: any) => element.id === id;
-    if (favorites.some(even)) {
-      return true;
-    }
-    return false;
-  };
-
-  const handleClick = async (id: any, e: React.FormEvent) => {
+const TheCard = ({
+  psychologist,
+  update,
+}: {
+  psychologist: Psychologist;
+  update: any;
+}) => {
+  const handleCreate = async (id: any, e: React.FormEvent) => {
     e.preventDefault();
     try {
-      if (wasLiked(id)) {
-        (await UsersService.favoritesDelete(id)).data.data;
-        fetchFavorites();
-      } else {
-        (await UsersService.favoritesCreate(id)).data.data;
-        fetchFavorites();
-      }
+      (await UsersService.favoritesCreate(id)).data.data;
+      update();
+    } catch (errors) {
+      console.log("errors.response.data", errors.response.data);
+    }
+  };
+
+  const handleDelete = async (id: any, e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      (await UsersService.favoritesDelete(id)).data.data;
+      update();
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
@@ -43,10 +34,16 @@ const TheCard = ({ psychologist }: { psychologist: Psychologist }) => {
   return (
     <Link href={`/psychologists/${psychologist.id}`}>
       <a className="w-full rounded shadow-md bg-white p-10 flex flex-col border-2 hover:border-primary cursor-pointer relative">
-        <button onClick={(e) => handleClick(psychologist.id, e)}>
+        <button
+          onClick={
+            psychologist.liked
+              ? (e) => handleDelete(psychologist.id, e)
+              : (e) => handleCreate(psychologist.id, e)
+          }
+        >
           <Heart
             className={`absolute right-0 top-0 mr-3 mt-3 hover:fill-gray-200 ${
-              wasLiked(psychologist.id) ? "fill-gray-500" : ""
+              psychologist.liked ? "fill-gray-500" : ""
             }`}
           />
         </button>
