@@ -24,5 +24,17 @@ export default () => {
     },
   });
 
+  API.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      if (error.response.status === 401) {
+        console.log("error.reponse", error.response);
+      }
+      return Promise.reject(error);
+    }
+  );
+
   return API;
 };
