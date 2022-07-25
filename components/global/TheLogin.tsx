@@ -32,7 +32,12 @@ const TheLogin = ({ showModal }: { showModal?: any }) => {
 
   return (
     <>
-      <p className="pb-4">¿No estás registrado? Registrate</p>
+      <p className="pb-4">
+        ¿No estás registrado?{" "}
+        <button onClick={showModal} className="underline">
+          Registrate
+        </button>
+      </p>
       <form className="w-full" onSubmit={handleSubmit}>
         <label>
           Usuario
@@ -56,7 +61,7 @@ const TheLogin = ({ showModal }: { showModal?: any }) => {
           type="submit"
           className="bg-primary text-white py-2 px-4 rounded"
         >
-          Loguearse
+          Enviar
         </button>
       </form>
     </>

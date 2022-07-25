@@ -41,7 +41,12 @@ const TheRegister = ({ showModal }: { showModal?: any }) => {
 
   return (
     <>
-      <p className="pb-4">¿Ya estás registrado? Logueate</p>
+      <p className="pb-4">
+        ¿Ya estás registrado?{" "}
+        <button onClick={showModal} className="underline">
+          Ingresar
+        </button>
+      </p>
       <form className="w-full" onSubmit={handleSubmit}>
         <label>
           Usuario
@@ -74,7 +79,7 @@ const TheRegister = ({ showModal }: { showModal?: any }) => {
           type="submit"
           className="bg-primary text-white py-2 px-4 rounded"
         >
-          Registrarse
+          Enviar
         </button>
       </form>
     </>
