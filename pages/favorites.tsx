@@ -25,17 +25,23 @@ const Favorites = () => {
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <h2 className="text-3xl text-center underline">Mis favoritos</h2>
-        <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {favorites.map((psychologist: any) => {
-            return (
-              <TheCard
-                key={psychologist.id}
-                psychologist={psychologist}
-                update={fetchFavorites}
-              />
-            );
-          })}
-        </div>
+        {favorites != null && favorites.length > 0 ? (
+          <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {favorites.map((psychologist: any) => {
+              return (
+                <TheCard
+                  key={psychologist.id}
+                  psychologist={psychologist}
+                  update={fetchFavorites}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid place-items-center text-2xl h-56">
+            No favorites found
+          </div>
+        )}
       </div>
     </>
   );
