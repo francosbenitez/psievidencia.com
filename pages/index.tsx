@@ -11,7 +11,7 @@ import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import TheCheckbox from "../components/home/TheCheckbox";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Home = ({
   loading,
@@ -34,6 +34,8 @@ const Home = ({
   const [selectedOptionsWm, setSelectedOptionsWm] = useState<Data[]>([]);
   const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
   const [selectedOptionGi, setSelectedOptionGi] = useState<any>({});
+
+  const { userInfo } = useSelector((state: any) => state.userReducer);
 
   const debouncedName = useDebounce(name, 1000);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -143,6 +145,7 @@ const Home = ({
     selectedOptionEd,
     selectedOptionGi,
     hasPerspective,
+    userInfo,
   ]);
 
   useEffect(() => {
