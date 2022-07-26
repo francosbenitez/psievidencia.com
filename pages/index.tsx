@@ -54,28 +54,45 @@ const Home = ({
     }
   };
 
-  const fetchPsychologists = async (
-    name: string | undefined,
-    specializations: number[],
-    therapeutic_models: number[],
-    work_populations: number[],
-    work_modalities: number[],
-    education: string,
-    gender_identity: string,
-    has_perspective: string | undefined
-  ) => {
+  const createVariables = () => {
+    const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
+    const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
+    const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
+    const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
+    const selectedOptionNameEd = selectedOptionEd.name;
+    const selectedOptionNameGi = selectedOptionGi.name;
+    return {
+      selectedOptionsIdsSp,
+      selectedOptionsIdsTm,
+      selectedOptionsIdsWp,
+      selectedOptionsIdsWm,
+      selectedOptionNameEd,
+      selectedOptionNameGi,
+    };
+  };
+
+  const {
+    selectedOptionsIdsSp,
+    selectedOptionsIdsTm,
+    selectedOptionsIdsWp,
+    selectedOptionsIdsWm,
+    selectedOptionNameEd,
+    selectedOptionNameGi,
+  } = createVariables();
+
+  const fetchPsychologists = async () => {
     setLoading(true);
     const data = (
       await PsychologistsService.index(
         1,
-        name,
-        specializations,
-        therapeutic_models,
-        work_populations,
-        work_modalities,
-        education,
-        gender_identity,
-        has_perspective
+        debouncedName,
+        selectedOptionsIdsSp,
+        selectedOptionsIdsTm,
+        selectedOptionsIdsWp,
+        selectedOptionsIdsWm,
+        selectedOptionNameEd,
+        selectedOptionNameGi,
+        hasPerspective
       )
     ).data;
     setPsychologists(data.results);
@@ -84,29 +101,20 @@ const Home = ({
     setNoMore(false);
   };
 
-  const fetchMorePsychologists = async (
-    name: string | undefined,
-    specializations: number[],
-    therapeutic_models: number[],
-    work_populations: number[],
-    work_modalities: number[],
-    education: string,
-    gender_identity: string,
-    has_perspective: string | undefined
-  ) => {
+  const fetchMorePsychologists = async () => {
     try {
       setLoadingMore(true);
       const data = (
         await PsychologistsService.index(
           pagination,
-          name,
-          specializations,
-          therapeutic_models,
-          work_populations,
-          work_modalities,
-          education,
-          gender_identity,
-          has_perspective
+          debouncedName,
+          selectedOptionsIdsSp,
+          selectedOptionsIdsTm,
+          selectedOptionsIdsWp,
+          selectedOptionsIdsWm,
+          selectedOptionNameEd,
+          selectedOptionNameGi,
+          hasPerspective
         )
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -125,22 +133,7 @@ const Home = ({
   };
 
   useEffect(() => {
-    const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
-    const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
-    const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
-    const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
-    const selectedOptionNameEd = selectedOptionEd.name;
-    const selectedOptionNameGi = selectedOptionGi.name;
-    fetchPsychologists(
-      debouncedName,
-      selectedOptionsIdsSp,
-      selectedOptionsIdsTm,
-      selectedOptionsIdsWp,
-      selectedOptionsIdsWm,
-      selectedOptionNameEd,
-      selectedOptionNameGi,
-      hasPerspective
-    );
+    fetchPsychologists();
   }, [
     debouncedName,
     selectedOptionsSp,
@@ -154,23 +147,7 @@ const Home = ({
 
   useEffect(() => {
     if (pagination > 1) {
-      const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
-      const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
-      const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
-      const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
-      const selectedOptionNameEd = selectedOptionEd.name;
-      const selectedOptionNameGi = selectedOptionGi.name;
-      hasPerspective;
-      fetchMorePsychologists(
-        debouncedName,
-        selectedOptionsIdsSp,
-        selectedOptionsIdsTm,
-        selectedOptionsIdsWp,
-        selectedOptionsIdsWm,
-        selectedOptionNameEd,
-        selectedOptionNameGi,
-        hasPerspective
-      );
+      fetchMorePsychologists();
     }
   }, [pagination]);
 
