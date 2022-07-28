@@ -1,8 +1,5 @@
-import { useState } from "react";
-import TheDropdownOptionsIds from "./TheDropdownOptionsIds";
 import TheDropdownBaseIds from "./TheDropdownBaseIds";
 import TheDropdownBaseName from "./TheDropdownBaseName";
-import TheDropdownOptionsName from "./TheDropdownOptionsName";
 import { Data } from "../../types";
 
 type Props = {
@@ -19,6 +16,18 @@ type Props = {
   selectedOptionGi: Data;
   setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
   className?: string;
+  sp: Data[];
+  setSp: React.Dispatch<React.SetStateAction<Data[]>>;
+  tm: Data[];
+  setTm: React.Dispatch<React.SetStateAction<Data[]>>;
+  wp: Data[];
+  setWp: React.Dispatch<React.SetStateAction<Data[]>>;
+  wm: Data[];
+  setWm: React.Dispatch<React.SetStateAction<Data[]>>;
+  ed: Data[];
+  setEd: React.Dispatch<React.SetStateAction<Data[]>>;
+  gi: Data[];
+  setGi: React.Dispatch<React.SetStateAction<Data[]>>;
 };
 
 const TheDropdown = ({
@@ -35,31 +44,19 @@ const TheDropdown = ({
   selectedOptionGi,
   setSelectedOptionGi,
   className,
+  sp,
+  setSp,
+  tm,
+  setTm,
+  wp,
+  setWp,
+  wm,
+  setWm,
+  ed,
+  setEd,
+  gi,
+  setGi,
 }: Props) => {
-  const [sp, setSp] = useState<Data[]>([]);
-  const [tm, setTm] = useState<Data[]>([]);
-  const [wp, setWp] = useState<Data[]>([]);
-  const [wm, setWm] = useState<Data[]>([
-    {
-      id: 1,
-      name: "Individual",
-    },
-    {
-      id: 2,
-      name: "Pareja",
-    },
-    {
-      id: 3,
-      name: "Familiar",
-    },
-    {
-      id: 4,
-      name: "Grupal",
-    },
-  ]);
-  const [ed, setEd] = useState<Data[]>([]);
-  const [gi, setGi] = useState<Data[]>([]);
-
   return (
     <div className={`${className ? className : ""}`}>
       <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
@@ -104,36 +101,6 @@ const TheDropdown = ({
           setData={setGi}
         />
       </div>
-      <TheDropdownOptionsIds
-        selectedOptions={selectedOptionsSp}
-        setSelectedOptions={setSelectedOptionsSp}
-        setData={setSp}
-      />
-      <TheDropdownOptionsIds
-        selectedOptions={selectedOptionsTm}
-        setSelectedOptions={setSelectedOptionsTm}
-        setData={setTm}
-      />
-      <TheDropdownOptionsIds
-        selectedOptions={selectedOptionsWp}
-        setSelectedOptions={setSelectedOptionsWp}
-        setData={setWp}
-      />
-      <TheDropdownOptionsIds
-        selectedOptions={selectedOptionsWm}
-        setSelectedOptions={setSelectedOptionsWm}
-        setData={setWm}
-      />
-      <TheDropdownOptionsName
-        selectedOption={selectedOptionEd}
-        setSelectedOption={setSelectedOptionEd}
-        setData={setEd}
-      />
-      <TheDropdownOptionsName
-        selectedOption={selectedOptionGi}
-        setSelectedOption={setSelectedOptionGi}
-        setData={setGi}
-      />
     </div>
   );
 };

@@ -21,6 +21,18 @@ const AllFilters = ({
   selectedOptionGi,
   setSelectedOptionGi,
   className,
+  sp,
+  setSp,
+  tm,
+  setTm,
+  wp,
+  setWp,
+  wm,
+  setWm,
+  ed,
+  setEd,
+  gi,
+  setGi,
 }: {
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleHpChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -38,6 +50,18 @@ const AllFilters = ({
   selectedOptionGi: Data;
   setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
   className?: string;
+  sp: Data[];
+  setSp: React.Dispatch<React.SetStateAction<Data[]>>;
+  tm: Data[];
+  setTm: React.Dispatch<React.SetStateAction<Data[]>>;
+  wp: Data[];
+  setWp: React.Dispatch<React.SetStateAction<Data[]>>;
+  wm: Data[];
+  setWm: React.Dispatch<React.SetStateAction<Data[]>>;
+  ed: Data[];
+  setEd: React.Dispatch<React.SetStateAction<Data[]>>;
+  gi: Data[];
+  setGi: React.Dispatch<React.SetStateAction<Data[]>>;
 }) => {
   return (
     <div className={`${className ? className : ""}`}>
@@ -66,6 +90,18 @@ const AllFilters = ({
         setSelectedOptionEd={setSelectedOptionEd}
         selectedOptionGi={selectedOptionGi}
         setSelectedOptionGi={setSelectedOptionGi}
+        sp={sp}
+        setSp={setSp}
+        tm={tm}
+        setTm={setTm}
+        wp={wp}
+        setWp={setWp}
+        wm={wp}
+        setWm={setWm}
+        ed={ed}
+        setEd={setEd}
+        gi={gi}
+        setGi={setGi}
       />
     </div>
   );

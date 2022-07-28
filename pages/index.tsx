@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import TheModal from "../components/global/TheModal";
 import DropdownBtn from "../components/global/DropdownBtn";
 import AllFilters from "../components/home/AllFilters";
+import TheDropdownOptionsIds from "../components/home/TheDropdownOptionsIds";
+import TheDropdownOptionsName from "../components/home/TheDropdownOptionsName";
 
 const Home = ({
   loading,
@@ -34,6 +36,30 @@ const Home = ({
   const [selectedOptionsWm, setSelectedOptionsWm] = useState<Data[]>([]);
   const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
   const [selectedOptionGi, setSelectedOptionGi] = useState<any>({});
+
+  const [sp, setSp] = useState<Data[]>([]);
+  const [tm, setTm] = useState<Data[]>([]);
+  const [wp, setWp] = useState<Data[]>([]);
+  const [wm, setWm] = useState<Data[]>([
+    {
+      id: 1,
+      name: "Individual",
+    },
+    {
+      id: 2,
+      name: "Pareja",
+    },
+    {
+      id: 3,
+      name: "Familiar",
+    },
+    {
+      id: 4,
+      name: "Grupal",
+    },
+  ]);
+  const [ed, setEd] = useState<Data[]>([]);
+  const [gi, setGi] = useState<Data[]>([]);
 
   const { userInfo } = useSelector((state: any) => state.userReducer);
 
@@ -192,6 +218,18 @@ const Home = ({
           setSelectedOptionEd={setSelectedOptionEd}
           selectedOptionGi={selectedOptionGi}
           setSelectedOptionGi={setSelectedOptionGi}
+          sp={sp}
+          setSp={setSp}
+          tm={tm}
+          setTm={setTm}
+          wp={wp}
+          setWp={setWp}
+          wm={wp}
+          setWm={setWm}
+          ed={ed}
+          setEd={setEd}
+          gi={gi}
+          setGi={setGi}
         />
 
         <div className="sm:hidden flex justify-end">
@@ -216,10 +254,53 @@ const Home = ({
                 setSelectedOptionEd={setSelectedOptionEd}
                 selectedOptionGi={selectedOptionGi}
                 setSelectedOptionGi={setSelectedOptionGi}
+                sp={sp}
+                setSp={setSp}
+                tm={tm}
+                setTm={setTm}
+                wp={wp}
+                setWp={setWp}
+                wm={wp}
+                setWm={setWm}
+                ed={ed}
+                setEd={setEd}
+                gi={gi}
+                setGi={setGi}
               />
             }
           />
         </div>
+
+        <TheDropdownOptionsIds
+          selectedOptions={selectedOptionsSp}
+          setSelectedOptions={setSelectedOptionsSp}
+          setData={setSp}
+        />
+        <TheDropdownOptionsIds
+          selectedOptions={selectedOptionsTm}
+          setSelectedOptions={setSelectedOptionsTm}
+          setData={setTm}
+        />
+        <TheDropdownOptionsIds
+          selectedOptions={selectedOptionsWp}
+          setSelectedOptions={setSelectedOptionsWp}
+          setData={setWp}
+        />
+        <TheDropdownOptionsIds
+          selectedOptions={selectedOptionsWm}
+          setSelectedOptions={setSelectedOptionsWm}
+          setData={setWm}
+        />
+        <TheDropdownOptionsName
+          selectedOption={selectedOptionEd}
+          setSelectedOption={setSelectedOptionEd}
+          setData={setEd}
+        />
+        <TheDropdownOptionsName
+          selectedOption={selectedOptionGi}
+          setSelectedOption={setSelectedOptionGi}
+          setData={setGi}
+        />
 
         {psychologists != null && psychologists.length > 0 ? (
           <>
