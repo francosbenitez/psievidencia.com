@@ -6,7 +6,6 @@ import useDebounce from "../hooks/useDebounce";
 import { useState, useEffect } from "react";
 import LoadMore from "../components/home/LoadMore";
 import TheCard from "../components/home/TheCard";
-import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import { useSelector } from "react-redux";
@@ -177,13 +176,10 @@ const Home = ({
         <TheHeader />
 
         <AllFilters
+          className="hidden sm:block"
           handleNameChange={handleNameChange}
           handleHpChange={handleHpChange}
           hasPerspective={hasPerspective}
-        />
-
-        <TheDropdown
-          className="hidden sm:block"
           selectedOptionsSp={selectedOptionsSp}
           setSelectedOptionsSp={setSelectedOptionsSp}
           selectedOptionsTm={selectedOptionsTm}
@@ -198,13 +194,16 @@ const Home = ({
           setSelectedOptionGi={setSelectedOptionGi}
         />
 
-        <div className="sm:hidden">
+        <div className="sm:hidden flex justify-end">
           <TheModal
             modalCentered={true}
             button={<DropdownBtn />}
             title={"Filtrar"}
             content={
-              <TheDropdown
+              <AllFilters
+                handleNameChange={handleNameChange}
+                handleHpChange={handleHpChange}
+                hasPerspective={hasPerspective}
                 selectedOptionsSp={selectedOptionsSp}
                 setSelectedOptionsSp={setSelectedOptionsSp}
                 selectedOptionsTm={selectedOptionsTm}
