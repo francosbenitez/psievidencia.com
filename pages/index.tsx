@@ -5,15 +5,14 @@ import PsychologistsService from "../services/PsychologistsService";
 import useDebounce from "../hooks/useDebounce";
 import { useState, useEffect } from "react";
 import LoadMore from "../components/home/LoadMore";
-import SearchName from "../components/home/SearchName";
 import TheCard from "../components/home/TheCard";
 import TheDropdown from "../components/home/TheDropdown";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
-import TheCheckbox from "../components/home/TheCheckbox";
 import { useSelector } from "react-redux";
 import TheModal from "../components/global/TheModal";
 import DropdownBtn from "../components/global/DropdownBtn";
+import AllFilters from "../components/home/AllFilters";
 
 const Home = ({
   loading,
@@ -177,18 +176,11 @@ const Home = ({
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheHeader />
 
-        <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
-          <div className="w-full sm:w-1/3">
-            <SearchName handleNameChange={handleNameChange} />
-          </div>
-
-          <div className="w-full sm:w-1/3">
-            <TheCheckbox
-              handleHpChange={handleHpChange}
-              hasPerspective={hasPerspective}
-            />
-          </div>
-        </div>
+        <AllFilters
+          handleNameChange={handleNameChange}
+          handleHpChange={handleHpChange}
+          hasPerspective={hasPerspective}
+        />
 
         <TheDropdown
           className="hidden sm:block"
