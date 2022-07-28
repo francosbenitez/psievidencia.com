@@ -206,28 +206,29 @@ const Home = ({
           setSelectedOptionGi={setSelectedOptionGi}
         />
 
-        <TheModal
-          modalCentered={true}
-          className="sm:hidden"
-          button={<DropdownBtn />}
-          title={"Filtrar"}
-          content={
-            <TheDropdown
-              selectedOptionsSp={selectedOptionsSp}
-              setSelectedOptionsSp={setSelectedOptionsSp}
-              selectedOptionsTm={selectedOptionsTm}
-              setSelectedOptionsTm={setSelectedOptionsTm}
-              selectedOptionsWp={selectedOptionsWp}
-              setSelectedOptionsWp={setSelectedOptionsWp}
-              selectedOptionsWm={selectedOptionsWm}
-              setSelectedOptionsWm={setSelectedOptionsWm}
-              selectedOptionEd={selectedOptionEd}
-              setSelectedOptionEd={setSelectedOptionEd}
-              selectedOptionGi={selectedOptionGi}
-              setSelectedOptionGi={setSelectedOptionGi}
-            />
-          }
-        />
+        <div className="sm:hidden">
+          <TheModal
+            modalCentered={true}
+            button={<DropdownBtn />}
+            title={"Filtrar"}
+            content={
+              <TheDropdown
+                selectedOptionsSp={selectedOptionsSp}
+                setSelectedOptionsSp={setSelectedOptionsSp}
+                selectedOptionsTm={selectedOptionsTm}
+                setSelectedOptionsTm={setSelectedOptionsTm}
+                selectedOptionsWp={selectedOptionsWp}
+                setSelectedOptionsWp={setSelectedOptionsWp}
+                selectedOptionsWm={selectedOptionsWm}
+                setSelectedOptionsWm={setSelectedOptionsWm}
+                selectedOptionEd={selectedOptionEd}
+                setSelectedOptionEd={setSelectedOptionEd}
+                selectedOptionGi={selectedOptionGi}
+                setSelectedOptionGi={setSelectedOptionGi}
+              />
+            }
+          />
+        </div>
 
         {psychologists != null && psychologists.length > 0 ? (
           <>

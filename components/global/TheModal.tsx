@@ -4,17 +4,10 @@ type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   title: string;
   content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-  className?: string;
   modalCentered?: boolean;
 };
 
-const TheModal = ({
-  button,
-  title,
-  content,
-  className,
-  modalCentered,
-}: Props) => {
+const TheModal = ({ button, title, content, modalCentered }: Props) => {
   const [show, setShow] = useState<boolean>(false);
 
   const showModal = () => {
@@ -22,7 +15,7 @@ const TheModal = ({
   };
 
   return (
-    <div className={`${className ? className : ""}`}>
+    <>
       {React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div className={`${modalCentered ? "modal-wrapper" : ""}`}>
@@ -42,7 +35,7 @@ const TheModal = ({
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
