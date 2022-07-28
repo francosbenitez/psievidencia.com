@@ -27,6 +27,10 @@ const TheNavbar = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const check =
+    userToken != null ? userToken : userInfo != null ? userInfo.token : null;
+
   return (
     <>
       {mounted && (
@@ -34,7 +38,7 @@ const TheNavbar = () => {
           <div className="container m-auto">
             <ul className="flex justify-end">
               {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
-              {userToken || userInfo ? (
+              {check != null ? (
                 <>
                   <li className="p-2 flex">
                     {router.pathname === "/favorites" ? (
