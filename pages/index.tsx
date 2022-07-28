@@ -12,6 +12,8 @@ import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import TheCheckbox from "../components/home/TheCheckbox";
 import { useSelector } from "react-redux";
+import TheModal from "../components/global/TheModal";
+import DropdownBtn from "../components/global/DropdownBtn";
 
 const Home = ({
   loading,
@@ -189,6 +191,7 @@ const Home = ({
         </div>
 
         <TheDropdown
+          className="hidden sm:block"
           selectedOptionsSp={selectedOptionsSp}
           setSelectedOptionsSp={setSelectedOptionsSp}
           selectedOptionsTm={selectedOptionsTm}
@@ -201,6 +204,29 @@ const Home = ({
           setSelectedOptionEd={setSelectedOptionEd}
           selectedOptionGi={selectedOptionGi}
           setSelectedOptionGi={setSelectedOptionGi}
+        />
+
+        <TheModal
+          modalCentered={true}
+          className="sm:hidden"
+          button={<DropdownBtn />}
+          title={"Filtrar"}
+          content={
+            <TheDropdown
+              selectedOptionsSp={selectedOptionsSp}
+              setSelectedOptionsSp={setSelectedOptionsSp}
+              selectedOptionsTm={selectedOptionsTm}
+              setSelectedOptionsTm={setSelectedOptionsTm}
+              selectedOptionsWp={selectedOptionsWp}
+              setSelectedOptionsWp={setSelectedOptionsWp}
+              selectedOptionsWm={selectedOptionsWm}
+              setSelectedOptionsWm={setSelectedOptionsWm}
+              selectedOptionEd={selectedOptionEd}
+              setSelectedOptionEd={setSelectedOptionEd}
+              selectedOptionGi={selectedOptionGi}
+              setSelectedOptionGi={setSelectedOptionGi}
+            />
+          }
         />
 
         {psychologists != null && psychologists.length > 0 ? (

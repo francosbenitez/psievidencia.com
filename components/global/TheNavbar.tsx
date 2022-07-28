@@ -64,6 +64,7 @@ const TheNavbar = () => {
                       button={<LoginBtn />}
                       title={"Ingresar"}
                       content={<TheLogin />}
+                      modalCentered={true}
                     />
                   </li>
                   <li className="p-2">
@@ -71,6 +72,7 @@ const TheNavbar = () => {
                       button={<RegisterBtn />}
                       title={"Registrarse"}
                       content={<TheRegister />}
+                      modalCentered={true}
                     />
                   </li>
                 </>

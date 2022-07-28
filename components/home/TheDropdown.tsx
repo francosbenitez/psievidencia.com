@@ -18,6 +18,7 @@ type Props = {
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
   selectedOptionGi: Data;
   setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
+  className?: string;
 };
 
 const TheDropdown = ({
@@ -33,6 +34,7 @@ const TheDropdown = ({
   setSelectedOptionEd,
   selectedOptionGi,
   setSelectedOptionGi,
+  className,
 }: Props) => {
   const [sp, setSp] = useState<Data[]>([]);
   const [tm, setTm] = useState<Data[]>([]);
@@ -59,7 +61,7 @@ const TheDropdown = ({
   const [gi, setGi] = useState<Data[]>([]);
 
   return (
-    <>
+    <div className={`${className ? className : ""}`}>
       <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
         <TheDropdownBaseIds
           type={"specializations"}
@@ -132,7 +134,7 @@ const TheDropdown = ({
         setSelectedOption={setSelectedOptionGi}
         setData={setGi}
       />
-    </>
+    </div>
   );
 };
 

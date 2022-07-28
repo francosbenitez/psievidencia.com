@@ -289,3 +289,17 @@ body {
 #centered-toggle-button {
   position: absolute;
 }
+
+.modal-wrapper {
+  display: block;
+  height: 100%;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  transition: opacity 0.15s linear;
+}
