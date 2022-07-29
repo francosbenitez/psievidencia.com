@@ -29,10 +29,10 @@ const TheLogin = ({
         formData.append(key, value);
       });
 
-      dispatch(userLogin(formData));
+      await dispatch(userLogin(formData)).unwrap();
       showModal();
-    } catch (errors) {
-      console.log("errors.response.data", errors.response.data);
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
@@ -59,6 +59,15 @@ const TheLogin = ({
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
+        {error !== null && error.username && (
+          <>
+            {error.username.map((item: string) => (
+              <p key={item} className="text-red-500 text-center">
+                {item}
+              </p>
+            ))}
+          </>
+        )}
         <label>
           Contraseña
           <input
@@ -68,6 +77,15 @@ const TheLogin = ({
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
+        {error !== null && error.password && (
+          <>
+            {error.password.map((item: string) => (
+              <p key={item} className="text-red-500 text-center">
+                {item}
+              </p>
+            ))}
+          </>
+        )}
         <button
           type="submit"
           className="bg-primary text-white py-2 px-4 rounded"
