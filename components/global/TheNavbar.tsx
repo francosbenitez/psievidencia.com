@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/user/userSlice";
 import UsersService from "../../services/UsersService";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const TheNavbar = () => {
   const [mounted, setMounted] = useState(false);
@@ -30,6 +30,19 @@ const TheNavbar = () => {
 
   const check =
     userToken != null ? userToken : userInfo != null ? userInfo.token : null;
+
+  const loginRef = useRef();
+  const registerRef = useRef();
+
+  const showRegister = () => {
+    console.log("showRegister");
+    registerRef.current.getAlert();
+  };
+
+  const showLogin = () => {
+    console.log("showLogin");
+    loginRef.current.getAlert();
+  };
 
   return (
     <>
@@ -65,20 +78,30 @@ const TheNavbar = () => {
                 <>
                   <li className="p-2">
                     <TheModal
+                      ref={loginRef}
                       button={<LoginBtn />}
                       title={"Ingresar"}
                       content={<TheLogin />}
                       modalCentered={true}
+                      showRegister={showRegister}
                     />
                   </li>
+                  {/* <button onClick={() => loginRef.current.getAlert()}>
+                    Click
+                  </button> */}
                   <li className="p-2">
                     <TheModal
+                      ref={registerRef}
                       button={<RegisterBtn />}
                       title={"Registrarse"}
                       content={<TheRegister />}
                       modalCentered={true}
+                      showLogin={showLogin}
                     />
                   </li>
+                  {/* <button onClick={() => registerRef.current.getAlert()}>
+                    Click
+                  </button> */}
                 </>
               )}
             </ul>

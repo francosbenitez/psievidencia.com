@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, {
+  useState,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from "react";
 
 type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   title: string;
   content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   modalCentered?: boolean;
+  ref: any;
+  showRegister: any;
+  showLogin: any;
 };
 
-const TheModal = ({ button, title, content, modalCentered }: Props) => {
+const TheModal = (props: any, ref: any) => {
   const [show, setShow] = useState<boolean>(false);
+
+  const {
+    button,
+    title,
+    content,
+    modalCentered,
+    showRegister,
+    showLogin,
+  }: Props = props;
 
   const showModal = () => {
     setShow(!show);
   };
+
+  useImperativeHandle(ref, () => ({
+    getAlert() {
+      showModal();
+    },
+  }));
 
   return (
     <>
@@ -30,7 +53,11 @@ const TheModal = ({ button, title, content, modalCentered }: Props) => {
               </button>
             </h2>
             <div className="content">
-              {React.cloneElement(content, { showModal: showModal })}
+              {React.cloneElement(content, {
+                showModal: showModal,
+                showLogin: showLogin,
+                showRegister: showRegister,
+              })}
             </div>
           </div>
         </div>
@@ -39,4 +66,4 @@ const TheModal = ({ button, title, content, modalCentered }: Props) => {
   );
 };
 
-export default TheModal;
+export default React.forwardRef(TheModal);

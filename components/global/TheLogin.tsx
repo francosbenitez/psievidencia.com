@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../store/user/userActions";
 import type { AppDispatch } from "../../store";
 
-const TheLogin = ({ showModal }: { showModal?: any }) => {
+const TheLogin = ({
+  showModal,
+  showRegister,
+}: {
+  showModal?: any;
+  showRegister: any;
+}) => {
   const { loading, error } = useSelector((state: any) => state.userReducer);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -34,7 +40,12 @@ const TheLogin = ({ showModal }: { showModal?: any }) => {
     <>
       <p className="pb-4">
         ¿No estás registrado?{" "}
-        <button onClick={showModal} className="underline">
+        <button
+          onClick={() => {
+            showModal(), showRegister();
+          }}
+          className="underline"
+        >
           Registrarse
         </button>
       </p>

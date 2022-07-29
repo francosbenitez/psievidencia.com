@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/user/userActions";
 import type { AppDispatch } from "../../store";
 
-const TheRegister = ({ showModal }: { showModal?: any }) => {
+const TheRegister = ({
+  showModal,
+  showLogin,
+}: {
+  showModal?: any;
+  showLogin: any;
+}) => {
   useSelector((state: any) => {
     console.log(state);
   });
@@ -43,7 +49,12 @@ const TheRegister = ({ showModal }: { showModal?: any }) => {
     <>
       <p className="pb-4">
         ¿Ya estás registrado?{" "}
-        <button onClick={showModal} className="underline">
+        <button
+          onClick={() => {
+            showModal(), showLogin();
+          }}
+          className="underline"
+        >
           Ingresar
         </button>
       </p>
