@@ -251,6 +251,7 @@ const Home = (props: any, ref: any) => {
         <div className="sm:hidden flex justify-end">
           <TheModal
             modalCentered={true}
+            modalMask={true}
             button={<DropdownBtn />}
             title={"Filtrar"}
             content={
