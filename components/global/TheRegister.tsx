@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/user/userActions";
 import type { AppDispatch } from "../../store";
+import EyeLined from "../../public/icons/eye-lined.svg";
+import EyeOffLined from "../../public/icons/eye-off-lined.svg";
 
 const TheRegister = ({
   showModal,
@@ -10,9 +12,13 @@ const TheRegister = ({
   showModal?: any;
   showLogin: any;
 }) => {
-  useSelector((state: any) => {
-    console.log(state);
-  });
+  // useSelector((state: any) => {
+  //   console.log(state);
+  // });
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const { loading, userInfo, error, success } = useSelector(
     (state: any) => state.userReducer
@@ -106,12 +112,23 @@ const TheRegister = ({
             )}
             <label>
               Contraseña
-              <input
+              {/* <input
                 type="text"
                 className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-              />
+              /> */}
+              <div className="pass-wrapper">
+                <input
+                  className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded"
+                  value={password}
+                  type={passwordShown ? "text" : "password"}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+                <i onClick={togglePasswordVisiblity}>
+                  {!passwordShown ? <EyeLined /> : <EyeOffLined />}
+                </i>{" "}
+              </div>
             </label>
             {error !== null && error.password && (
               <>

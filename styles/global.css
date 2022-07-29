@@ -303,3 +303,27 @@ body {
   z-index: 1050;
   transition: opacity 0.15s linear;
 }
+
+/* Password */
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 0.8em;
+}
+
+.pass-wrapper input {
+  font-weight: 500;
+  color: var(--primary);
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+.pass-wrapper i {
+  position: absolute;
+  top: 20%;
+  right: 2.5%;
+}
+
+.pass-wrapper i:hover {
+  cursor: pointer;
+}
