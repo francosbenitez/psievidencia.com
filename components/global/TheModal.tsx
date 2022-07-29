@@ -10,7 +10,6 @@ type Props = {
   title: string;
   content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   modalCentered?: boolean;
-  ref: any;
   showRegister: any;
   showLogin: any;
 };

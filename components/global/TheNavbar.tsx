@@ -10,9 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/user/userSlice";
 import UsersService from "../../services/UsersService";
 import { useRouter } from "next/router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
-const TheNavbar = () => {
+const TheNavbar = (props: any) => {
+  const { showLogin, showRegister, loginRef, registerRef }: any = props;
+
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const { userInfo, userToken } = useSelector(
@@ -30,21 +32,6 @@ const TheNavbar = () => {
 
   const check =
     userToken != null ? userToken : userInfo != null ? userInfo.token : null;
-
-  const loginRef = useRef();
-  const registerRef = useRef();
-
-  const showLogin = () => {
-    console.log("showLogin");
-    const flag = loginRef.current as unknown as any;
-    flag.getAlert();
-  };
-
-  const showRegister = () => {
-    console.log("showRegister");
-    const flag = registerRef.current as unknown as any;
-    flag.getAlert();
-  };
 
   return (
     <>

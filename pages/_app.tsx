@@ -7,7 +7,7 @@ import { IntlProvider } from "react-intl";
 import es from "../lang/es.json";
 // import TheSidebar from "../components/global/TheSidebar";
 import TheFooter from "../components/global/TheFooter";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import LoadingBar from "../components/home/LoadingBar";
 import TheNavbar from "../components/global/TheNavbar";
 import { wrapper } from "../store";
@@ -32,6 +32,21 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, [router.events]);
 
+  const loginRef = useRef();
+  const registerRef = useRef();
+
+  const showLogin = () => {
+    console.log("showLogin");
+    const flag = loginRef.current as unknown as any;
+    flag.getAlert();
+  };
+
+  const showRegister = () => {
+    console.log("showRegister");
+    const flag = registerRef.current as unknown as any;
+    flag.getAlert();
+  };
+
   return (
     <>
       {loading ? <LoadingBar /> : ""}
@@ -40,8 +55,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         messages={locale != undefined && messages[locale]}
       >
         <ScrollToTop>
-          <TheNavbar />
-          <Component {...pageProps} loading={loading} setLoading={setLoading} />
+          <TheNavbar
+            loginRef={loginRef}
+            showLogin={showLogin}
+            registerRef={registerRef}
+            showRegister={showRegister}
+          />
+          <Component
+            {...pageProps}
+            loading={loading}
+            setLoading={setLoading}
+            loginRef={loginRef}
+            showLogin={showLogin}
+          />
           <TheFooter />
         </ScrollToTop>
       </IntlProvider>

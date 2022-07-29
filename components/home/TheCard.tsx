@@ -7,9 +7,11 @@ import UsersService from "../../services/UsersService";
 const TheCard = ({
   psychologist,
   update,
+  showLogin,
 }: {
   psychologist: Psychologist;
   update: any;
+  showLogin?: any;
 }) => {
   const handleCreate = async (id: any, e: React.FormEvent) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const TheCard = ({
       (await UsersService.favoritesCreate(id)).data.data;
       update();
     } catch (errors) {
+      showLogin();
       console.log("errors.response.data", errors.response.data);
     }
   };

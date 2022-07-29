@@ -3,7 +3,6 @@ import Head from "next/head";
 import TheHeader from "../components/home/TheHeader";
 import PsychologistsService from "../services/PsychologistsService";
 import useDebounce from "../hooks/useDebounce";
-import { useState, useEffect } from "react";
 import LoadMore from "../components/home/LoadMore";
 import TheCard from "../components/home/TheCard";
 import { Psychologist, Data } from "../types";
@@ -14,14 +13,31 @@ import DropdownBtn from "../components/global/DropdownBtn";
 import AllFilters from "../components/home/AllFilters";
 import TheDropdownOptionsIds from "../components/home/TheDropdownOptionsIds";
 import TheDropdownOptionsName from "../components/home/TheDropdownOptionsName";
+import React, {
+  useState,
+  useEffect,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from "react";
 
-const Home = ({
-  loading,
-  setLoading,
-}: {
-  loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Home = (props: any, ref: any) => {
+  const {
+    loading,
+    setLoading,
+    showLogin,
+  }: {
+    loading: boolean;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    showLogin: any;
+  } = props;
+
+  useImperativeHandle(ref, () => ({
+    getAlert() {
+      showLogin();
+    },
+  }));
+
   const [psychologists, setPsychologists] = useState([]);
   const [loadingMore, setLoadingMore] = useState(false);
   const [noMore, setNoMore] = useState(false);
@@ -311,6 +327,7 @@ const Home = ({
                     key={psychologist.id}
                     psychologist={psychologist}
                     update={fetchPsychologists}
+                    showLogin={showLogin}
                   />
                 );
               })}
@@ -333,4 +350,4 @@ const Home = ({
   );
 };
 
-export default Home;
+export default React.forwardRef(Home);
