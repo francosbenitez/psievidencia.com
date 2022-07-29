@@ -39,7 +39,7 @@ const Favorites = () => {
           </div>
         ) : (
           <div className="grid place-items-center text-2xl h-56">
-            No favorites found
+            No se han encontrado resultados
           </div>
         )}
       </div>
