@@ -77,13 +77,33 @@ const TheLogin = ({
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        {error !== null && error.password && (
+        {error !== null && (
           <>
-            {error.password.map((item: string) => (
-              <p key={item} className="text-red-500 text-center">
-                {item}
-              </p>
-            ))}
+            {error.password && (
+              <>
+                {error.password.map((item: string) => (
+                  <p key={item} className="text-red-500 text-center">
+                    {item}
+                  </p>
+                ))}
+              </>
+            )}
+            {error.detail && (
+              <>
+                {/* {error.detail.map((item: string) => ( */}
+                <p className="text-red-500 text-center">{error.detail}</p>
+                {/* ))} */}
+              </>
+            )}
+            {error.non_field_errors && (
+              <>
+                {error.non_field_errors.map((item: string) => (
+                  <p key={item} className="text-red-500 text-center">
+                    {item}
+                  </p>
+                ))}
+              </>
+            )}
           </>
         )}
         <button
