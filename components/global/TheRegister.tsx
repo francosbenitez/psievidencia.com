@@ -40,17 +40,21 @@ const TheRegister = ({
         formData.append(key, value);
       });
 
-      dispatch(registerUser(formData));
+      await dispatch(registerUser(formData)).unwrap();
       // showModal();
       setVerificationSent(true);
-    } catch (errors) {
-      console.log("errors.response.data", errors.response.data);
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
   return (
     <>
-      {!verificationSent ? (
+      {verificationSent ? (
+        <div className="grid place-items-center text-2xl h-56">
+          ¡Un paso más! Revisá tu correo para verificar tu cuenta.
+        </div>
+      ) : (
         <>
           <p className="pb-4">
             ¿Ya estás registrado?{" "}
@@ -73,6 +77,15 @@ const TheRegister = ({
                 onChange={(event) => setUsername(event.target.value)}
               />
             </label>
+            {error !== null && error.username && (
+              <>
+                {error.username.map((item: string) => (
+                  <p key={item} className="text-red-500 text-center">
+                    {item}
+                  </p>
+                ))}
+              </>
+            )}
             <label>
               Email
               <input
@@ -91,6 +104,15 @@ const TheRegister = ({
                 onChange={(event) => setPassword(event.target.value)}
               />
             </label>
+            {error !== null && error.password && (
+              <>
+                {error.password.map((item: string) => (
+                  <p key={item} className="text-red-500 text-center">
+                    {item}
+                  </p>
+                ))}
+              </>
+            )}
             <button
               type="submit"
               className="bg-primary text-white py-2 px-4 rounded"
@@ -99,10 +121,6 @@ const TheRegister = ({
             </button>
           </form>
         </>
-      ) : (
-        <div className="grid place-items-center text-2xl h-56">
-          ¡Un paso más! Revisá tu correo para verificar tu cuenta.
-        </div>
       )}
     </>
   );

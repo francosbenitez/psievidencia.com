@@ -39,9 +39,9 @@ const userSlice = createSlice({
         state.userInfo = payload;
         state.userToken = payload.userToken;
       }),
-      builder.addCase(userLogin.rejected, (state, { payload }) => {
+      builder.addCase(userLogin.rejected, (state, { payload }: any) => {
         state.loading = false;
-        // state.error = payload;
+        state.error = payload;
       }),
       // Register
       builder.addCase(registerUser.pending, (state) => {
@@ -54,9 +54,9 @@ const userSlice = createSlice({
         state.userInfo = payload;
         state.userToken = payload.userToken;
       }),
-      builder.addCase(registerUser.rejected, (state, { payload }) => {
+      builder.addCase(registerUser.rejected, (state, { payload }: any) => {
         state.loading = false;
-        // state.error = payload;
+        state.error = payload;
       });
   },
 });
