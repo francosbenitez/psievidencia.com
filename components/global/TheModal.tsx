@@ -12,6 +12,7 @@ type Props = {
   modalCentered?: boolean;
   showRegister: any;
   showLogin: any;
+  modalMask?: boolean;
 };
 
 const TheModal = (props: any, ref: any) => {
@@ -24,6 +25,7 @@ const TheModal = (props: any, ref: any) => {
     modalCentered,
     showRegister,
     showLogin,
+    modalMask,
   }: Props = props;
 
   const showModal = () => {
@@ -41,6 +43,7 @@ const TheModal = (props: any, ref: any) => {
       {React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div className={`${modalCentered ? "modal-wrapper" : ""}`}>
+          {modalMask && <div className="modal-mask"></div>}
           <div
             className={`modal ${modalCentered ? "modal-centered" : ""}`}
             id="modal"

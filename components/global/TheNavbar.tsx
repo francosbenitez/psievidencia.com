@@ -72,6 +72,7 @@ const TheNavbar = (props: any) => {
                       title={"Ingresar"}
                       content={<TheLogin showRegister={showRegister} />}
                       modalCentered={true}
+                      modalMask={true}
                       showRegister={showRegister}
                     />
                   </li>
@@ -85,6 +86,7 @@ const TheNavbar = (props: any) => {
                       title={"Registrarse"}
                       content={<TheRegister showLogin={showLogin} />}
                       modalCentered={true}
+                      modalMask={true}
                       showLogin={showLogin}
                     />
                   </li>
