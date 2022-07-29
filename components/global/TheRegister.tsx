@@ -95,6 +95,15 @@ const TheRegister = ({
                 onChange={(event) => setEmail(event.target.value)}
               />
             </label>
+            {error !== null && error.email && (
+              <>
+                {error.email.map((item: string) => (
+                  <p key={item} className="text-red-500 text-center">
+                    {item}
+                  </p>
+                ))}
+              </>
+            )}
             <label>
               Contraseña
               <input
