@@ -34,14 +34,16 @@ const TheNavbar = () => {
   const loginRef = useRef();
   const registerRef = useRef();
 
-  const showRegister = () => {
-    console.log("showRegister");
-    registerRef.current.getAlert();
-  };
-
   const showLogin = () => {
     console.log("showLogin");
-    loginRef.current.getAlert();
+    const flag = loginRef.current as unknown as any;
+    flag.getAlert();
+  };
+
+  const showRegister = () => {
+    console.log("showRegister");
+    const flag = registerRef.current as unknown as any;
+    flag.getAlert();
   };
 
   return (
@@ -81,7 +83,7 @@ const TheNavbar = () => {
                       ref={loginRef}
                       button={<LoginBtn />}
                       title={"Ingresar"}
-                      content={<TheLogin />}
+                      content={<TheLogin showRegister={showRegister} />}
                       modalCentered={true}
                       showRegister={showRegister}
                     />
@@ -94,7 +96,7 @@ const TheNavbar = () => {
                       ref={registerRef}
                       button={<RegisterBtn />}
                       title={"Registrarse"}
-                      content={<TheRegister />}
+                      content={<TheRegister showLogin={showLogin} />}
                       modalCentered={true}
                       showLogin={showLogin}
                     />
