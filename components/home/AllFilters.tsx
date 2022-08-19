@@ -18,6 +18,8 @@ const AllFilters = ({
   setSelectedOptionsWm,
   selectedOptionEd,
   setSelectedOptionEd,
+  selectedOptionPr,
+  setSelectedOptionPr,
   selectedOptionGi,
   setSelectedOptionGi,
   className,
@@ -31,6 +33,8 @@ const AllFilters = ({
   setWm,
   ed,
   setEd,
+  pr,
+  setPr,
   gi,
   setGi,
 }: {
@@ -47,6 +51,8 @@ const AllFilters = ({
   setSelectedOptionsWm: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: Data;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
+  selectedOptionPr: Data;
+  setSelectedOptionPr: React.Dispatch<React.SetStateAction<Data | {}>>;
   selectedOptionGi: Data;
   setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
   className?: string;
@@ -60,6 +66,8 @@ const AllFilters = ({
   setWm: React.Dispatch<React.SetStateAction<Data[]>>;
   ed: Data[];
   setEd: React.Dispatch<React.SetStateAction<Data[]>>;
+  pr: Data[];
+  setPr: React.Dispatch<React.SetStateAction<Data[]>>;
   gi: Data[];
   setGi: React.Dispatch<React.SetStateAction<Data[]>>;
 }) => {
@@ -88,6 +96,8 @@ const AllFilters = ({
         setSelectedOptionsWm={setSelectedOptionsWm}
         selectedOptionEd={selectedOptionEd}
         setSelectedOptionEd={setSelectedOptionEd}
+        selectedOptionPr={selectedOptionPr}
+        setSelectedOptionPr={setSelectedOptionPr}
         selectedOptionGi={selectedOptionGi}
         setSelectedOptionGi={setSelectedOptionGi}
         sp={sp}
@@ -100,6 +110,8 @@ const AllFilters = ({
         setWm={setWm}
         ed={ed}
         setEd={setEd}
+        pr={pr}
+        setPr={setPr}
         gi={gi}
         setGi={setGi}
       />

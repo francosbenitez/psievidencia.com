@@ -51,6 +51,7 @@ const Home = (props: any, ref: any) => {
   const [selectedOptionsWp, setSelectedOptionsWp] = useState<Data[]>([]);
   const [selectedOptionsWm, setSelectedOptionsWm] = useState<Data[]>([]);
   const [selectedOptionEd, setSelectedOptionEd] = useState<any>({});
+  const [selectedOptionPr, setSelectedOptionPr] = useState<any>({});
   const [selectedOptionGi, setSelectedOptionGi] = useState<any>({});
 
   const [sp, setSp] = useState<Data[]>([]);
@@ -75,6 +76,7 @@ const Home = (props: any, ref: any) => {
     },
   ]);
   const [ed, setEd] = useState<Data[]>([]);
+  const [pr, setPr] = useState<Data[]>([]);
   const [gi, setGi] = useState<Data[]>([]);
 
   const { userInfo } = useSelector((state: any) => state.userReducer);
@@ -104,6 +106,7 @@ const Home = (props: any, ref: any) => {
     const selectedOptionsIdsWp = selectedOptionsWp.map((item) => item.id);
     const selectedOptionsIdsWm = selectedOptionsWm.map((item) => item.id);
     const selectedOptionNameEd = selectedOptionEd.name;
+    const selectedOptionNamePr = selectedOptionPr.name;
     const selectedOptionNameGi = selectedOptionGi.name;
     return {
       selectedOptionsIdsSp,
@@ -111,6 +114,7 @@ const Home = (props: any, ref: any) => {
       selectedOptionsIdsWp,
       selectedOptionsIdsWm,
       selectedOptionNameEd,
+      selectedOptionNamePr,
       selectedOptionNameGi,
     };
   };
@@ -121,6 +125,7 @@ const Home = (props: any, ref: any) => {
     selectedOptionsIdsWp,
     selectedOptionsIdsWm,
     selectedOptionNameEd,
+    selectedOptionNamePr,
     selectedOptionNameGi,
   } = createVariables();
 
@@ -135,6 +140,7 @@ const Home = (props: any, ref: any) => {
         selectedOptionsIdsWp,
         selectedOptionsIdsWm,
         selectedOptionNameEd,
+        selectedOptionNamePr,
         selectedOptionNameGi,
         hasPerspective
       )
@@ -157,6 +163,7 @@ const Home = (props: any, ref: any) => {
           selectedOptionsIdsWp,
           selectedOptionsIdsWm,
           selectedOptionNameEd,
+          selectedOptionNamePr,
           selectedOptionNameGi,
           hasPerspective
         )
@@ -185,6 +192,7 @@ const Home = (props: any, ref: any) => {
     selectedOptionsWp,
     selectedOptionsWm,
     selectedOptionEd,
+    selectedOptionPr,
     selectedOptionGi,
     hasPerspective,
     userInfo,
@@ -244,6 +252,8 @@ const Home = (props: any, ref: any) => {
           setWm={setWm}
           ed={ed}
           setEd={setEd}
+          pr={pr}
+          setPr={setPr}
           gi={gi}
           setGi={setGi}
         />
@@ -281,6 +291,8 @@ const Home = (props: any, ref: any) => {
                 setWm={setWm}
                 ed={ed}
                 setEd={setEd}
+                pr={pr}
+                setPr={setPr}
                 gi={gi}
                 setGi={setGi}
               />
@@ -317,6 +329,11 @@ const Home = (props: any, ref: any) => {
           selectedOption={selectedOptionGi}
           setSelectedOption={setSelectedOptionGi}
           setData={setGi}
+        />
+        <TheDropdownOptionsName
+          selectedOption={selectedOptionPr}
+          setSelectedOption={setSelectedOptionPr}
+          setData={setPr}
         />
 
         {psychologists != null && psychologists.length > 0 ? (

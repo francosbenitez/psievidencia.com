@@ -41,6 +41,8 @@ const TheDropdown = ({
   setSelectedOptionsWm,
   selectedOptionEd,
   setSelectedOptionEd,
+  selectedOptionPr,
+  setSelectedOptionPr,
   selectedOptionGi,
   setSelectedOptionGi,
   className,
@@ -54,6 +56,8 @@ const TheDropdown = ({
   setWm,
   ed,
   setEd,
+  pr,
+  setPr,
   gi,
   setGi,
 }: Props) => {
@@ -92,6 +96,13 @@ const TheDropdown = ({
           setSelectedOption={setSelectedOptionEd}
           data={ed}
           setData={setEd}
+        />
+        <TheDropdownBaseName
+          type={"province"}
+          selectedOption={selectedOptionPr}
+          setSelectedOption={setSelectedOptionPr}
+          data={pr}
+          setData={setPr}
         />
         <TheDropdownBaseName
           type={"gender_identity"}

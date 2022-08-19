@@ -10,6 +10,7 @@ export default {
     work_population: number[],
     work_modality: number[],
     education: string,
+    province: string,
     gender_identity: string,
     has_perspective: string | undefined
   ) {
@@ -21,6 +22,7 @@ export default {
         work_population: work_population,
         work_modality: work_modality,
         education: education,
+        province: province,
         gender_identity: gender_identity,
         has_perspective: has_perspective,
       },
