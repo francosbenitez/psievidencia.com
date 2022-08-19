@@ -20,7 +20,6 @@ const HomeFooter = () => {
               >
                 <FormattedMessage id="footer.google.forms" />
               </a>
-              .
             </span>
           </div>
           <TheModal
