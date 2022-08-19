@@ -13,6 +13,8 @@ type Props = {
   setSelectedOptionsWm: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionEd: Data;
   setSelectedOptionEd: React.Dispatch<React.SetStateAction<Data | {}>>;
+  selectedOptionPr: Data;
+  setSelectedOptionPr: React.Dispatch<React.SetStateAction<Data | {}>>;
   selectedOptionGi: Data;
   setSelectedOptionGi: React.Dispatch<React.SetStateAction<Data | {}>>;
   className?: string;
@@ -26,6 +28,8 @@ type Props = {
   setWm: React.Dispatch<React.SetStateAction<Data[]>>;
   ed: Data[];
   setEd: React.Dispatch<React.SetStateAction<Data[]>>;
+  pr: Data[];
+  setPr: React.Dispatch<React.SetStateAction<Data[]>>;
   gi: Data[];
   setGi: React.Dispatch<React.SetStateAction<Data[]>>;
 };

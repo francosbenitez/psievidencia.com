@@ -386,6 +386,8 @@ const Home = (props: any, ref: any) => {
                 setSelectedOptionsWm={setSelectedOptionsWm}
                 selectedOptionEd={selectedOptionEd}
                 setSelectedOptionEd={setSelectedOptionEd}
+                selectedOptionPr={selectedOptionPr}
+                setSelectedOptionPr={setSelectedOptionPr}
                 selectedOptionGi={selectedOptionGi}
                 setSelectedOptionGi={setSelectedOptionGi}
                 sp={sp}
