@@ -240,7 +240,7 @@ const Home = (props: any, ref: any) => {
           setTm={setTm}
           wp={wp}
           setWp={setWp}
-          wm={wp}
+          wm={wm}
           setWm={setWm}
           ed={ed}
           setEd={setEd}
@@ -277,7 +277,7 @@ const Home = (props: any, ref: any) => {
                 setTm={setTm}
                 wp={wp}
                 setWp={setWp}
-                wm={wp}
+                wm={wm}
                 setWm={setWm}
                 ed={ed}
                 setEd={setEd}
