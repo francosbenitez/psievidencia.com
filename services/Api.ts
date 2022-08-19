@@ -2,6 +2,7 @@
 import axios from "axios";
 // import { getToken } from "../utils/helper";
 import { store } from "../store";
+import Router from "next/router";
 
 const API_URL = "https://secret-hamlet-81810.herokuapp.com/api/";
 
@@ -32,6 +33,7 @@ export default () => {
       if (error.response.status === 401) {
         localStorage.removeItem("Token");
         console.log("error.reponse", error.response);
+        Router.push("/");
       }
       return Promise.reject(error);
     }
