@@ -20,8 +20,10 @@ import React, {
   useRef,
   useImperativeHandle,
 } from "react";
+import { useIntl } from "react-intl";
 
 const Home = (props: any, ref: any) => {
+  const intl = useIntl();
   const {
     loading,
     setLoading,
@@ -75,9 +77,46 @@ const Home = (props: any, ref: any) => {
       name: "Grupal",
     },
   ]);
-  const [ed, setEd] = useState<Data[]>([]);
+  const [ed, setEd] = useState<Data[]>([
+    {
+      id: 1,
+      name: "licenciatura",
+      slug: intl.formatMessage({ id: "education.licentiate" }),
+    },
+    {
+      id: 2,
+      name: "especialidad",
+      slug: intl.formatMessage({ id: "education.specialist" }),
+    },
+    {
+      id: 3,
+      name: "maestria",
+      slug: intl.formatMessage({ id: "education.master" }),
+    },
+    {
+      id: 4,
+      name: "doctorado",
+      slug: intl.formatMessage({ id: "education.doctoral" }),
+    },
+  ]);
   const [pr, setPr] = useState<Data[]>([]);
-  const [gi, setGi] = useState<Data[]>([]);
+  const [gi, setGi] = useState<Data[]>([
+    {
+      id: 1,
+      name: "varon",
+      slug: intl.formatMessage({ id: "gender.man" }),
+    },
+    {
+      id: 2,
+      name: "mujer",
+      slug: intl.formatMessage({ id: "gender.woman" }),
+    },
+    {
+      id: 3,
+      name: "no_binarie",
+      slug: intl.formatMessage({ id: "gender.non_binary" }),
+    },
+  ]);
 
   const { userInfo } = useSelector((state: any) => state.userReducer);
 
