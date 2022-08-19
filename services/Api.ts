@@ -4,7 +4,9 @@ import axios from "axios";
 import { store } from "../store";
 import Router from "next/router";
 
-const API_URL = "https://secret-hamlet-81810.herokuapp.com/api/";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  "https://secret-hamlet-81810.herokuapp.com/api/";
 
 export default () => {
   // const token: string | null = typeof window !== "undefined" ? getToken() : "";
