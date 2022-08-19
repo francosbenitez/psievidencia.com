@@ -99,7 +99,73 @@ const Home = (props: any, ref: any) => {
       slug: intl.formatMessage({ id: "education.doctoral" }),
     },
   ]);
-  const [pr, setPr] = useState<Data[]>([]);
+  const [pr, setPr] = useState<Data[]>([
+    {
+      id: 0,
+      name: "jujuy",
+      slug: "Jujuy",
+    },
+    {
+      id: 1,
+      name: "cordoba",
+      slug: "Córdoba",
+    },
+    {
+      id: 2,
+      name: "salta",
+      slug: "Salta",
+    },
+    {
+      id: 3,
+      name: "chubut",
+      slug: "Chubut",
+    },
+    {
+      id: 4,
+      name: "gba",
+      slug: "Gran Buenos Aires",
+    },
+    {
+      id: 5,
+      name: "caba",
+      slug: "Ciudad Autónoma de Buenos Aires",
+    },
+    {
+      id: 6,
+      name: "san_luis",
+      slug: "San Luis",
+    },
+    {
+      id: 7,
+      name: "entre_rios",
+      slug: "Entre Ríos",
+    },
+    {
+      id: 8,
+      name: "neuquen",
+      slug: "Neuquén",
+    },
+    {
+      id: 9,
+      name: "mendoza",
+      slug: "Mendoza",
+    },
+    {
+      id: 10,
+      name: "corrientes",
+      slug: "Corrientes",
+    },
+    {
+      id: 11,
+      name: "santiago",
+      slug: "Santiago del Estero",
+    },
+    {
+      id: 12,
+      name: "santa_fe",
+      slug: "Santa Fé",
+    },
+  ]);
   const [gi, setGi] = useState<Data[]>([
     {
       id: 1,
@@ -279,6 +345,8 @@ const Home = (props: any, ref: any) => {
           setSelectedOptionsWm={setSelectedOptionsWm}
           selectedOptionEd={selectedOptionEd}
           setSelectedOptionEd={setSelectedOptionEd}
+          selectedOptionPr={selectedOptionPr}
+          setSelectedOptionPr={setSelectedOptionPr}
           selectedOptionGi={selectedOptionGi}
           setSelectedOptionGi={setSelectedOptionGi}
           sp={sp}
