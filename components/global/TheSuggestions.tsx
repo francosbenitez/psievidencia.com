@@ -39,21 +39,25 @@ const TheSuggestions = () => {
           <form className="w-full" onSubmit={handleSubmit}>
             <label>
               Título
-              <input
-                type="text"
-                className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-              />
+              <div className="relative flex mb-3">
+                <input
+                  type="text"
+                  className="h-10 sm:h-full border border-primary w-full outline-0 rounded p-2"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
             </label>
             <label>
               Descripción
-              <input
-                type="text"
-                className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-              />
+              <div className="relative flex mb-3">
+                <input
+                  type="text"
+                  className="h-10 sm:h-full border border-primary w-full outline-0 rounded p-2"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                />
+              </div>
             </label>
             <button
               type="submit"
