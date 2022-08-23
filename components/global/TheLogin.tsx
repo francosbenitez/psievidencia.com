@@ -59,12 +59,14 @@ const TheLogin = ({
       <form className="w-full" onSubmit={handleSubmit}>
         <label>
           Usuario
-          <input
-            type="text"
-            className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded dropdown-header"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
+          <div className="relative flex mb-3">
+            <input
+              type="text"
+              className="h-10 sm:h-full border border-primary w-full outline-0 rounded p-2"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
         </label>
         {error !== null && error.username && (
           <>
@@ -77,9 +79,9 @@ const TheLogin = ({
         )}
         <label>
           Contraseña
-          <div className="pass-wrapper">
+          <div className="pass-wrapper mb-3">
             <input
-              className="h-10 sm:h-full border border-primary w-full pl-3 outline-0 rounded"
+              className="h-10 sm:h-full border border-primary w-full outline-0 rounded"
               value={password}
               type={passwordShown ? "text" : "password"}
               onChange={(event) => setPassword(event.target.value)}

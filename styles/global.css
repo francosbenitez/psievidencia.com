@@ -317,7 +317,7 @@ body {
 .pass-wrapper {
   position: relative;
   display: flex;
-  margin-bottom: 0.8em;
+  /* margin-bottom: 0.8em; */
 }
 
 .pass-wrapper input {
