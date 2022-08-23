@@ -209,6 +209,7 @@ body {
 /* Modal */
 .modal {
   width: fit-content;
+  min-width: 320px;
   background: white;
   border: 1px solid var(--primary);
   transition: 1.1s ease-out;
