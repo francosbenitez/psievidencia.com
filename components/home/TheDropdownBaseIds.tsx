@@ -137,9 +137,9 @@ const TheDropdownBaseIds = ({
                   <li
                     ref={lastBookElementRef}
                     className="list-item break-words"
-                    style={{
-                      marginBottom: `${index === data.length - 1 && "0px"}`,
-                    }}
+                    // style={{
+                    //   marginBottom: `${index === data.length - 1 && "0px"}`,
+                    // }}
                     onClick={() => {
                       onOptionClicked(option);
                       addSelectedOptions(option);
