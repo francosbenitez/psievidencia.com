@@ -50,9 +50,11 @@ const TheCard = ({
             }`}
           />
         </button>
-        <header className="text-xl mb-3 text-center">
-          {psychologist.name !== "" ? psychologist.name : "Unknown"}
-        </header>
+        {psychologist.name !== "" && (
+          <header className="text-xl mb-3 text-center">
+            {psychologist.name}
+          </header>
+        )}
         <ul className="text-primary text-center break-words">
           <li className="mb-3">{psychologist.province}</li>
           <li className="text-left">

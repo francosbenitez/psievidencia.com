@@ -164,9 +164,9 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         before:block"
             onClick={() => router.back()}
           ></button>
-          <h1 className="text-center text-5xl mb-5">
-            {psychologist.name !== "" ? psychologist.name : "Unknown"}
-          </h1>
+          {psychologist.name !== "" && (
+            <h1 className="text-center text-5xl mb-5">{psychologist.name}</h1>
+          )}
           <h2 className="text-2xl text-center">{psychologist.email}</h2>
           <h3 className="text-1xl my-6">{formattedDate()}</h3>
           <div className="accordion">
