@@ -317,15 +317,15 @@ const Home = (props: any, ref: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Una aplicación web para ayudarte a encontrar a los mejores psicólogos basados en la evidencia."
+          content="Una aplicación web para encontrar a tu mejor psicólogue basado en evidencia."
         />
         <meta name="keywords" content="psievidencia psicologia evidencia" />
+        <meta name="twitter:image:src" content="/images/cover.png" />
+        <meta property="og:image" content="/images/cover.png" />
         <meta
           name="google-site-verification"
           content="SunVWUveAt2rjkQwOP05PRn3LsPQ8T24-Aji_ACkSik"
         />
-        {/* <meta name="twitter:image:src" content="" />
-        <meta property="og:image" content="" /> */}
       </Head>
       <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
         <TheHeader />
