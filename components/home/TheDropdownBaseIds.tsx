@@ -29,7 +29,7 @@ const TheDropdownBaseIds = ({
 
   const observer = useRef<any>();
 
-  const lastBookElementRef = useCallback(
+  const lastElementRef = useCallback(
     (node: any) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
@@ -135,11 +135,8 @@ const TheDropdownBaseIds = ({
               if (data.length === index + 1) {
                 return (
                   <li
-                    ref={lastBookElementRef}
+                    ref={lastElementRef}
                     className="list-item break-words"
-                    // style={{
-                    //   marginBottom: `${index === data.length - 1 && "0px"}`,
-                    // }}
                     onClick={() => {
                       onOptionClicked(option);
                       addSelectedOptions(option);

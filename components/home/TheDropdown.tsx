@@ -1,5 +1,6 @@
 import TheDropdownBaseIds from "./TheDropdownBaseIds";
 import TheDropdownBaseName from "./TheDropdownBaseName";
+import TheDropdownBaseNamePr from "./TheDropdownBaseNamePr";
 import { Data } from "../../types";
 
 type Props = {
@@ -101,7 +102,7 @@ const TheDropdown = ({
           data={ed}
           setData={setEd}
         />
-        <TheDropdownBaseName
+        <TheDropdownBaseNamePr
           type={"province"}
           selectedOption={selectedOptionPr}
           setSelectedOption={setSelectedOptionPr}
