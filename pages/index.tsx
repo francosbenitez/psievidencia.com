@@ -41,6 +41,7 @@ const Home = (props: any, ref: any) => {
   }));
 
   const [psychologists, setPsychologists] = useState([]);
+  const [count, setCount] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
@@ -187,6 +188,7 @@ const Home = (props: any, ref: any) => {
       )
     ).data;
     setPsychologists(data.results);
+    setCount(data.count);
     setLoading(false);
     setPagination(1);
     setNoMore(false);
@@ -253,7 +255,7 @@ const Home = (props: any, ref: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Una aplicación web para encontrar a tu mejor psicólogue basado en evidencia."
+          content="Una aplicación web para encontrar a tu mejor psicólogo basado en evidencia."
         />
         <meta name="keywords" content="psievidencia psicologia evidencia" />
         <meta name="twitter:image:src" content="/images/cover.png" />
@@ -342,6 +344,7 @@ const Home = (props: any, ref: any) => {
                 setGi={setGi}
               />
             }
+            count={count}
           />
         </div>
 

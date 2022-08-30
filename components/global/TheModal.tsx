@@ -13,6 +13,7 @@ type Props = {
   showRegister: any;
   showLogin: any;
   modalMask?: boolean;
+  count?: number;
 };
 
 const TheModal = (props: any, ref: any) => {
@@ -26,6 +27,7 @@ const TheModal = (props: any, ref: any) => {
     showRegister,
     showLogin,
     modalMask,
+    count,
   }: Props = props;
 
   const showModal = () => {
@@ -47,6 +49,10 @@ const TheModal = (props: any, ref: any) => {
           <div
             className={`modal ${modalCentered ? "modal-centered" : ""}`}
             id="modal"
+            style={{
+              height: `${count && "100%"}`,
+              width: `${count && "100%"}`,
+            }}
           >
             <h2>
               {title}
@@ -61,6 +67,14 @@ const TheModal = (props: any, ref: any) => {
                 showRegister: showRegister,
               })}
             </div>
+            {count && (
+              <button
+                className="btn bg-primary text-white rounded px-6 py-3 flex m-auto"
+                onClick={showModal}
+              >
+                <p>Ver {count} psicólogos</p>
+              </button>
+            )}
           </div>
         </div>
       )}
