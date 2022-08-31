@@ -31,7 +31,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
     {
       id: 4,
       title: "Identidad de Género",
-      content: "gender",
+      content: "gender_identity",
     },
     {
       id: 5,
