@@ -36,8 +36,8 @@ const TheNavbar = (props: any) => {
   return (
     <>
       {mounted && (
-        <header className="w-full mx-auto p-5 sm:px-0 navbar">
-          <div className="container m-auto">
+        <header className="w-full mx-auto py-5 navbar">
+          <div className="container w-11/12 mx-auto">
             <ul className="flex justify-end">
               {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
               {check != null ? (

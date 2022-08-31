@@ -278,7 +278,7 @@ const Home = (props: any, ref: any) => {
           content="SunVWUveAt2rjkQwOP05PRn3LsPQ8T24-Aji_ACkSik"
         />
       </Head>
-      <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
+      <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
         <TheHeader />
 
         <AllFilters

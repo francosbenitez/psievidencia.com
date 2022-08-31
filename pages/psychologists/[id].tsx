@@ -148,7 +148,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         <title>{`${psychologist.name} | Psievidencia`}</title>
       </Head>
       {psychologist != null && Object.keys(psychologist).length > 0 && (
-        <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40">
+        <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
           <button
             className="
         relative

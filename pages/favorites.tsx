@@ -23,7 +23,7 @@ const Favorites = () => {
         <title>Mis favoritos | Psievidencia</title>
         <meta name="description" content="Mis favoritos | Psievidencia" />
       </Head>
-      <div className="container mx-auto px-5 sm:px-0 pt-20 pb-40 main-content">
+      <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
         <h2 className="text-3xl text-center underline">Mis favoritos</h2>
         {favorites != null && favorites.length > 0 ? (
           <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
