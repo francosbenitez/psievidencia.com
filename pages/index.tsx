@@ -46,7 +46,7 @@ const Home = (props: any, ref: any) => {
   const [noMore, setNoMore] = useState(false);
   const [name, setName] = useState<string | undefined>(undefined);
   const [hasPerspective, setHasPerspective] = useState<string | undefined>(
-    "si"
+    "all"
   );
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
@@ -137,7 +137,7 @@ const Home = (props: any, ref: any) => {
       if (target.checked) {
         setHasPerspective("si");
       } else {
-        setHasPerspective("no");
+        setHasPerspective("all");
       }
     }
   };
