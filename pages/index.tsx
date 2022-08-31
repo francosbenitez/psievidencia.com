@@ -222,6 +222,19 @@ const Home = (props: any, ref: any) => {
     }
   };
 
+  const updatePsychologist = async (psychologistId: any) => {
+    const data = (await PsychologistsService.detail(psychologistId)).data;
+
+    const newState: any = psychologists.map((obj: any) => {
+      if (obj.id === psychologistId) {
+        return { ...obj, liked: data.liked };
+      }
+
+      return obj;
+    });
+    setPsychologists(newState);
+  };
+
   const handlePagination = () => {
     setPagination(pagination + 1);
   };
@@ -392,7 +405,7 @@ const Home = (props: any, ref: any) => {
                   <TheCard
                     key={psychologist.id}
                     psychologist={psychologist}
-                    update={fetchPsychologists}
+                    update={updatePsychologist}
                     showLogin={showLogin}
                   />
                 );

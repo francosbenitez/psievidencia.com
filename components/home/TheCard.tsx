@@ -17,7 +17,7 @@ const TheCard = ({
     e.preventDefault();
     try {
       (await UsersService.favoritesCreate(id)).data.data;
-      update();
+      update(id);
     } catch (errors) {
       showLogin();
       console.log("errors.response.data", errors.response.data);
@@ -28,7 +28,7 @@ const TheCard = ({
     e.preventDefault();
     try {
       (await UsersService.favoritesDelete(id)).data.data;
-      update();
+      update(id);
     } catch (errors) {
       console.log("errors.response.data", errors.response.data);
     }
