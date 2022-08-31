@@ -122,21 +122,20 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
 
   const formattedDate = () => {
     let d = psychologist.date!.split(" ");
-    d = d[0].split("/");
-    d = new Date(d[2] + "/" + d[1] + "/" + d[0]);
+    d = new Date(d);
 
     if (locale === "en") {
       return (
         intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
         " " +
-        d.getDay() +
+        d.getDate() +
         ", " +
         d.getFullYear()
       );
     }
 
     return (
-      d.getDay() +
+      d.getDate() +
       " de " +
       intl.formatMessage({ id: `months.${monthNames[d.getMonth()]}` }) +
       ", " +
