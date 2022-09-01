@@ -4,6 +4,7 @@ import React, {
   useRef,
   useImperativeHandle,
 } from "react";
+import { useScrollBlock } from "@/hooks/useScrollBlock";
 
 type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
@@ -30,7 +31,10 @@ const TheModal = (props: any, ref: any) => {
     count,
   }: Props = props;
 
+  const [blockScroll, allowScroll] = useScrollBlock();
+
   const showModal = () => {
+    !show ? blockScroll() : allowScroll();
     setShow(!show);
   };
 
