@@ -40,6 +40,10 @@ const Home = (props: any, ref: any) => {
     },
   }));
 
+  const reinitialise = () => {
+    console.log("reinitialise from index.tsx!");
+  };
+
   const [psychologists, setPsychologists] = useState([]);
   const [count, setCount] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -318,6 +322,7 @@ const Home = (props: any, ref: any) => {
 
         <div className="sm:hidden flex justify-end">
           <TheModalFull
+            reinitialise={reinitialise}
             modalCentered={true}
             button={<DropdownBtn />}
             title={"Filtrar"}

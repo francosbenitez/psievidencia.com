@@ -4,16 +4,15 @@ import Reinitialiser from "@/public/icons/reinitialiser.svg";
 
 type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-  title: string;
   content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-  modalCentered?: boolean;
   count?: number;
+  reinitialise: any;
 };
 
 const TheModalFull = (props: any, ref: any) => {
   const [show, setShow] = useState<boolean>(false);
 
-  const { button, title, content, modalCentered, count }: Props = props;
+  const { button, content, count, reinitialise }: Props = props;
 
   const [blockScroll, allowScroll] = useScrollBlock();
 
@@ -58,10 +57,9 @@ const TheModalFull = (props: any, ref: any) => {
                 zIndex: "100",
               }}
             >
-              {/* {title} */}
               <button
                 className="flex items-center"
-                onClick={() => console.log("test!")}
+                onClick={() => reinitialise()}
               >
                 <Reinitialiser className="mr-2" /> Reiniciar
               </button>
