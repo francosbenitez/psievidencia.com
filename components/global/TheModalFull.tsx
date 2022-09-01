@@ -27,7 +27,11 @@ const TheModalFull = (props: any, ref: any) => {
       {show && (
         <div
           className={`${modalCentered ? "modal-wrapper" : ""}`}
-          style={{ background: "white" }}
+          style={{
+            background: "white",
+            border: "1px solid #313131",
+            borderRadius: "0.25rem",
+          }}
         >
           <div
             className={`modal ${modalCentered ? "modal-centered" : ""}`}
