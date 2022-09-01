@@ -49,7 +49,7 @@ const TheModalFull = (props: any, ref: any) => {
             }}
           >
             <h2
-              className="flex items-center"
+              className="flex"
               style={{
                 position: "sticky",
                 width: "100%",
@@ -59,7 +59,12 @@ const TheModalFull = (props: any, ref: any) => {
               }}
             >
               {/* {title} */}
-              <Reinitialiser className="mr-2" /> Reiniciar
+              <button
+                className="flex items-center"
+                onClick={() => console.log("test!")}
+              >
+                <Reinitialiser className="mr-2" /> Reiniciar
+              </button>
               <button className="ml-auto" onClick={showModal}>
                 X
               </button>
