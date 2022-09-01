@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useScrollBlock } from "@/hooks/useScrollBlock";
+import Reinitialiser from "@/public/icons/reinitialiser.svg";
 
 type Props = {
   button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
@@ -26,7 +27,7 @@ const TheModalFull = (props: any, ref: any) => {
       {React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div
-          className={`${modalCentered ? "modal-wrapper" : ""}`}
+          className="modal-wrapper"
           style={{
             background: "white",
             border: "1px solid #313131",
@@ -34,37 +35,51 @@ const TheModalFull = (props: any, ref: any) => {
           }}
         >
           <div
-            className={`modal ${modalCentered ? "modal-centered" : ""}`}
+            className="modal"
             id="modal"
             style={{
-              height: `${count && "100%"}`,
-              width: `${count && "100%"}`,
+              height: "100%",
+              width: "100%",
               border: "none",
               boxShadow: "none",
               zIndex: "9999",
+              bottom: "0",
+              filter: "inherit",
+              transform: "inherit",
             }}
           >
-            <h2>
-              {title}
-              <button className="float-right" onClick={showModal}>
+            <h2
+              className="flex items-center"
+              style={{
+                position: "sticky",
+                width: "100%",
+                background: "white",
+                top: "0",
+                zIndex: "100",
+              }}
+            >
+              {/* {title} */}
+              <Reinitialiser className="mr-2" /> Reiniciar
+              <button className="ml-auto" onClick={showModal}>
                 X
               </button>
             </h2>
-            <div className="content">
+            <div className="content" style={{ paddingBottom: "60px" }}>
               {React.cloneElement(content, {
                 showModal: showModal,
               })}
             </div>
-            {count && (
-              <div className="pb-8">
-                <button
-                  className="btn bg-primary text-white rounded px-6 py-3 flex m-auto"
-                  onClick={showModal}
-                >
-                  <p>Ver {count} psicólogos</p>
-                </button>
-              </div>
-            )}
+            <div
+              className="py-3 bg-white border-t-2 border-primary bottom-0 w-full fixed"
+              style={{ zIndex: "100" }}
+            >
+              <button
+                className="btn bg-primary text-white rounded px-6 py-2 flex m-auto"
+                onClick={showModal}
+              >
+                <p>Ver {count} psicólogos</p>
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -82,7 +82,7 @@ body {
 
 @media (max-width: 639px) {
   .drop:first-child {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
   .drop > .dropdown-header {
     margin-bottom: 2rem;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>reinitialiser</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6.5,11.1427333 C3.9403,11.1427333 1.85726667,9.0597 1.85726667,6.5 C1.85726667,3.93986667 3.9403,1.85726667 6.5,1.85726667 C7.98416667,1.85726667 9.34613333,2.55926667 10.2102,3.7089 L8.3577,5.57136667 L13,5.57136667 L12.9757333,0.928633333 L11.5297,2.38203333 C10.3163667,0.897433333 8.48596667,0 6.5,0 C2.91633333,0 0,2.91633333 0,6.5 C0,10.0836667 2.91633333,13 6.5,13 C9.0077,13 11.3173667,11.5336 12.3855333,9.2638 L10.7042,8.4734 C9.94153333,10.0945 8.2914,11.1427333 6.5,11.1427333" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="header_filtres_on" transform="translate(-245.000000, -24.000000)">
+            <g id="icon-/-load" transform="translate(245.000000, 24.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="load" fill="#313131" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
