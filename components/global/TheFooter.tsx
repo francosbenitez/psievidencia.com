@@ -6,8 +6,8 @@ import SuggestionsBtn from "./SuggestionsBtn";
 
 const HomeFooter = () => {
   return (
-    <footer className="bottom-0 w-full mx-auto p-5 sm:px-0 md:py-8 footer">
-      <div className="container relative text-center m-auto">
+    <footer className="bottom-0 w-full mx-auto py-5 md:py-16 footer">
+      <div className="container w-11/12 mx-auto">
         <div className="relative text-center m-auto flex">
           <div className="w-1/2 flex">
             <span className="text-left text-sm md:text-md">
