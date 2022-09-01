@@ -124,7 +124,7 @@ const TheLogin = ({
           type="submit"
           className="bg-primary text-white py-2 px-4 rounded"
         >
-          Enviar
+          Ingresar
         </button>
       </form>
     </>

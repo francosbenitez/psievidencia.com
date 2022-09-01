@@ -147,7 +147,7 @@ const TheRegister = ({
               type="submit"
               className="bg-primary text-white py-2 px-4 rounded"
             >
-              Enviar
+              Registrarse
             </button>
           </form>
         </>
