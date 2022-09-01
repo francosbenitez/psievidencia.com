@@ -87,9 +87,9 @@ const TheDropdownBaseIds = ({
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    fetchData(pagination, type, debouncedName);
-  }, []);
+  // useEffect(() => {
+  //   fetchData(pagination, type, debouncedName);
+  // }, []);
 
   useEffect(() => {
     if (pagination > 1) {
