@@ -17,7 +17,7 @@ const SearchName = ({
       className={`h-10 ${
         fixedHeight ? "sm:h-10" : "sm:h-full"
       } border-primary w-full pl-3 outline-0 rounded shadow-md dropdown-header`}
-      style={{ marginBottom: `${fixedHeight && "1rem"}` }}
+      style={{ marginBottom: `${fixedHeight ? "1rem" : ""}` }}
       placeholder={placeholder}
       onChange={handleNameChange}
       value={name}
