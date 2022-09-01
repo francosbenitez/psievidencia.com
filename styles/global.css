@@ -80,6 +80,15 @@ body {
   text-decoration: underline;
 }
 
+@media (max-width: 639px) {
+  .drop:first-child {
+    margin-top: 2rem;
+  }
+  .drop > .dropdown-header {
+    margin-bottom: 2rem;
+  }
+}
+
 /* Language switcher */
 .switcher-area .flag-svg div {
   display: flex;

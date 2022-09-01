@@ -88,7 +88,7 @@ const TheDropdownBaseNamePr = ({
   );
 
   return (
-    <div className="sm:w-1/4 w-full relative">
+    <div className="sm:w-1/4 w-full relative drop">
       <div
         className="dropdown-header cursor-pointer h-full rounded shadow-md table w-full"
         onClick={toggling}

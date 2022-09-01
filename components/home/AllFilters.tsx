@@ -74,11 +74,11 @@ const AllFilters = ({
   return (
     <div className={`${className ? className : ""}`}>
       <div className="sm:flex sm:space-x-4 sm:mb-6 justify-center">
-        <div className="w-full sm:w-1/3">
+        <div className="w-full sm:w-1/3 drop">
           <SearchName handleNameChange={handleNameChange} />
         </div>
 
-        <div className="w-full sm:w-1/3">
+        <div className="w-full sm:w-1/3 drop">
           <TheCheckbox
             handleHpChange={handleHpChange}
             hasPerspective={hasPerspective}
