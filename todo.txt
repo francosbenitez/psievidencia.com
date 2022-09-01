@@ -1,0 +1,7 @@
+- Verify token.
+  - If 
+    - true, don't remove the token in the local storage.
+    - false, remove the token in the local storage.
+  - No matter the result, wait for the checking and ONLY AFTER THAT continue with the remaining API calls.
+- Create a /team page, to mention every person who collaborated with the website, directly and indirectly.
+  - With photos hosted on Google Drive.
