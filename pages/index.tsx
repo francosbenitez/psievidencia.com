@@ -8,7 +8,7 @@ import TheCard from "../components/home/TheCard";
 import { Psychologist, Data } from "../types";
 import { FormattedMessage } from "react-intl";
 import { useSelector } from "react-redux";
-import TheModal from "../components/global/TheModal";
+import TheModalFull from "../components/global/TheModalFull";
 import DropdownBtn from "../components/global/DropdownBtn";
 import AllFilters from "../components/home/AllFilters";
 import TheDropdownOptionsIds from "../components/home/TheDropdownOptionsIds";
@@ -317,9 +317,8 @@ const Home = (props: any, ref: any) => {
         />
 
         <div className="sm:hidden flex justify-end">
-          <TheModal
+          <TheModalFull
             modalCentered={true}
-            modalMask={true}
             button={<DropdownBtn />}
             title={"Filtrar"}
             content={
