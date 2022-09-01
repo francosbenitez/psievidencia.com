@@ -73,7 +73,7 @@ const TheModalFull = (props: any, ref: any) => {
               })}
             </div>
             <div
-              className="py-3 bg-white border-t-2 border-primary bottom-0 w-full fixed"
+              className="py-3 bg-white border-r-2 border-primary bottom-0 w-full fixed"
               style={{ zIndex: "100" }}
             >
               <button
