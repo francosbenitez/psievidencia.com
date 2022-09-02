@@ -346,3 +346,20 @@ body {
 .pass-wrapper i:hover {
   cursor: pointer;
 }
+
+/* Dots */
+.dots::before {
+  top: -8rem;
+  height: calc(100% + 11rem);
+  background-image: radial-gradient(var(--primary) 15%, transparent 15%),
+    radial-gradient(var(--primary) 15%, transparent 15%);
+  background-size: 0.75rem 0.75rem;
+  background-position: 0 0, 0.375rem 0.375rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  content: "";
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
+}

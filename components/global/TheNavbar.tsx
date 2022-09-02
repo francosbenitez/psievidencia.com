@@ -36,13 +36,13 @@ const TheNavbar = (props: any) => {
   return (
     <>
       {mounted && (
-        <header className="w-full mx-auto py-5 navbar">
+        <header className="w-full mx-auto py-5 navbar bg-body">
           <div className="container w-11/12 mx-auto">
             <ul className="flex justify-end">
               {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
               {check != null ? (
                 <>
-                  <li className="p-2 flex">
+                  <li className="p-2 flex z-10">
                     {router.pathname === "/favorites" ? (
                       <Link href="/">
                         <a className="self-center underline">Home</a>
@@ -53,19 +53,18 @@ const TheNavbar = (props: any) => {
                       </Link>
                     )}
                   </li>
-                  <li>
+                  <li className="z-10">
                     <button
                       className="rounded btn bg-primary text-white p-2 border-white"
                       onClick={() => handleLogout()}
                     >
                       Salir
                     </button>
-                    {/* <LogoutBtn logout={dispatch(logout())} /> */}
                   </li>
                 </>
               ) : (
                 <>
-                  <li className="p-2">
+                  <li className="p-2 z-10">
                     <TheModal
                       ref={loginRef}
                       button={<LoginBtn />}
@@ -76,10 +75,7 @@ const TheNavbar = (props: any) => {
                       showRegister={showRegister}
                     />
                   </li>
-                  {/* <button onClick={() => loginRef.current.getAlert()}>
-                    Click
-                  </button> */}
-                  <li className="p-2">
+                  <li className="p-2 z-10">
                     <TheModal
                       ref={registerRef}
                       button={<RegisterBtn />}
@@ -90,9 +86,6 @@ const TheNavbar = (props: any) => {
                       showLogin={showLogin}
                     />
                   </li>
-                  {/* <button onClick={() => registerRef.current.getAlert()}>
-                    Click
-                  </button> */}
                 </>
               )}
             </ul>

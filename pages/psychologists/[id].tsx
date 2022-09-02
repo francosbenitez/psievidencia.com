@@ -156,6 +156,8 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         rounded
         w-10
         h-10
+        before:bg-body
+        before:rounded
         overflow-hidden
         block
         before:bg-arrow-left before:bg-no-repeat before:bg-cover before:bg-center 
@@ -163,14 +165,20 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         before:block"
             onClick={() => router.back()}
           ></button>
-          <h1 className="text-center text-5xl mb-5">
-            {psychologist.name !== "" ? (
-              psychologist.name
-            ) : (
-              <span className="italic">Sin nombre</span>
-            )}
-          </h1>
-          <h2 className="text-2xl text-center">{psychologist.email}</h2>
+          <div className="dots relative mb-16 text-center">
+            <h1 className="text-5xl mb-5 break-words">
+              <span className="bg-body">
+                {psychologist.name !== "" ? (
+                  psychologist.name
+                ) : (
+                  <span className="italic break-words">Sin nombre</span>
+                )}
+              </span>
+            </h1>
+            <h2 className="text-2xl break-words">
+              <span className="bg-body">{psychologist.email}</span>
+            </h2>
+          </div>
           <h3 className="text-1xl my-6">{formattedDate()}</h3>
           <div className="accordion">
             {accordionData.map(({ title, content }) => (
@@ -181,7 +189,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
               />
             ))}
           </div>
-          <div>
+          <div className="mt-12">
             <p className="text-lg">
               <FormattedMessage id="contact" />
             </p>

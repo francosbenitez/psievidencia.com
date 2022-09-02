@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         primary: "#313131",
         white: "#ffffff",
+        body: "#f4f7f5",
       },
       fontFamily: {
         regular: ["Inter Regular"],
