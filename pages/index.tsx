@@ -21,6 +21,8 @@ import React, {
   useImperativeHandle,
 } from "react";
 import { useIntl } from "react-intl";
+import UsersService from "@/services/UsersService";
+import LoadingSpinner from "@/components/home/LoadingSpinner";
 
 const Home = (props: any, ref: any) => {
   const intl = useIntl();
@@ -40,6 +42,8 @@ const Home = (props: any, ref: any) => {
     },
   }));
 
+  const [hasDataLoaded, setHasDataLoaded] = useState(false);
+  const [hasVerifiedToken, setHasVerifiedToken] = useState<boolean>(false);
   const [psychologists, setPsychologists] = useState([]);
   const [count, setCount] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -192,6 +196,7 @@ const Home = (props: any, ref: any) => {
     setLoading(false);
     setPagination(1);
     setNoMore(false);
+    setHasDataLoaded(true);
   };
 
   const fetchMorePsychologists = async () => {
@@ -252,6 +257,26 @@ const Home = (props: any, ref: any) => {
   };
 
   useEffect(() => {
+    const verifyToken = async () => {
+      try {
+        const response = (await UsersService.verifyToken()).data;
+        if (response.valid) {
+          console.log("everything is ok, doesn't remove the token!");
+        } else {
+          console.log("remove the token v1!");
+          localStorage.removeItem("Token");
+        }
+        setHasVerifiedToken(true);
+      } catch (err) {
+        console.log("remove the token v2!");
+        localStorage.removeItem("Token");
+        setHasVerifiedToken(true);
+      }
+    };
+    verifyToken();
+  }, []);
+
+  useEffect(() => {
     fetchPsychologists();
   }, [
     debouncedName,
@@ -291,150 +316,156 @@ const Home = (props: any, ref: any) => {
         />
       </Head>
       <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
-        <TheHeader />
-
-        <AllFilters
-          className="hidden sm:block"
-          handleNameChange={handleNameChange}
-          handleHpChange={handleHpChange}
-          hasPerspective={hasPerspective}
-          selectedOptionsSp={selectedOptionsSp}
-          setSelectedOptionsSp={setSelectedOptionsSp}
-          selectedOptionsTm={selectedOptionsTm}
-          setSelectedOptionsTm={setSelectedOptionsTm}
-          selectedOptionsWp={selectedOptionsWp}
-          setSelectedOptionsWp={setSelectedOptionsWp}
-          selectedOptionsWm={selectedOptionsWm}
-          setSelectedOptionsWm={setSelectedOptionsWm}
-          selectedOptionEd={selectedOptionEd}
-          setSelectedOptionEd={setSelectedOptionEd}
-          selectedOptionPr={selectedOptionPr}
-          setSelectedOptionPr={setSelectedOptionPr}
-          selectedOptionGi={selectedOptionGi}
-          setSelectedOptionGi={setSelectedOptionGi}
-          sp={sp}
-          setSp={setSp}
-          tm={tm}
-          setTm={setTm}
-          wp={wp}
-          setWp={setWp}
-          wm={wm}
-          setWm={setWm}
-          ed={ed}
-          setEd={setEd}
-          pr={pr}
-          setPr={setPr}
-          gi={gi}
-          setGi={setGi}
-        />
-
-        <div className="sm:hidden flex justify-end">
-          <TheModalFull
-            reinitialise={reinitialise}
-            modalCentered={true}
-            button={<DropdownBtn />}
-            title={"Filtrar"}
-            content={
-              <AllFilters
-                handleNameChange={handleNameChange}
-                handleHpChange={handleHpChange}
-                hasPerspective={hasPerspective}
-                selectedOptionsSp={selectedOptionsSp}
-                setSelectedOptionsSp={setSelectedOptionsSp}
-                selectedOptionsTm={selectedOptionsTm}
-                setSelectedOptionsTm={setSelectedOptionsTm}
-                selectedOptionsWp={selectedOptionsWp}
-                setSelectedOptionsWp={setSelectedOptionsWp}
-                selectedOptionsWm={selectedOptionsWm}
-                setSelectedOptionsWm={setSelectedOptionsWm}
-                selectedOptionEd={selectedOptionEd}
-                setSelectedOptionEd={setSelectedOptionEd}
-                selectedOptionPr={selectedOptionPr}
-                setSelectedOptionPr={setSelectedOptionPr}
-                selectedOptionGi={selectedOptionGi}
-                setSelectedOptionGi={setSelectedOptionGi}
-                sp={sp}
-                setSp={setSp}
-                tm={tm}
-                setTm={setTm}
-                wp={wp}
-                setWp={setWp}
-                wm={wm}
-                setWm={setWm}
-                ed={ed}
-                setEd={setEd}
-                pr={pr}
-                setPr={setPr}
-                gi={gi}
-                setGi={setGi}
-              />
-            }
-            count={count}
-          />
-        </div>
-
-        <TheDropdownOptionsIds
-          selectedOptions={selectedOptionsSp}
-          setSelectedOptions={setSelectedOptionsSp}
-          setData={setSp}
-        />
-        <TheDropdownOptionsIds
-          selectedOptions={selectedOptionsTm}
-          setSelectedOptions={setSelectedOptionsTm}
-          setData={setTm}
-        />
-        <TheDropdownOptionsIds
-          selectedOptions={selectedOptionsWp}
-          setSelectedOptions={setSelectedOptionsWp}
-          setData={setWp}
-        />
-        <TheDropdownOptionsIds
-          selectedOptions={selectedOptionsWm}
-          setSelectedOptions={setSelectedOptionsWm}
-          setData={setWm}
-        />
-        <TheDropdownOptionsName
-          selectedOption={selectedOptionEd}
-          setSelectedOption={setSelectedOptionEd}
-          setData={setEd}
-        />
-        <TheDropdownOptionsName
-          selectedOption={selectedOptionGi}
-          setSelectedOption={setSelectedOptionGi}
-          setData={setGi}
-        />
-        <TheDropdownOptionsName
-          selectedOption={selectedOptionPr}
-          setSelectedOption={setSelectedOptionPr}
-          setData={setPr}
-        />
-
-        {psychologists != null && psychologists.length > 0 ? (
+        {hasDataLoaded && hasVerifiedToken ? (
           <>
-            <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {psychologists.map((psychologist: Psychologist) => {
-                return (
-                  <TheCard
-                    key={psychologist.id}
-                    psychologist={psychologist}
-                    update={updatePsychologist}
-                    showLogin={showLogin}
+            <TheHeader />
+
+            <AllFilters
+              className="hidden sm:block"
+              handleNameChange={handleNameChange}
+              handleHpChange={handleHpChange}
+              hasPerspective={hasPerspective}
+              selectedOptionsSp={selectedOptionsSp}
+              setSelectedOptionsSp={setSelectedOptionsSp}
+              selectedOptionsTm={selectedOptionsTm}
+              setSelectedOptionsTm={setSelectedOptionsTm}
+              selectedOptionsWp={selectedOptionsWp}
+              setSelectedOptionsWp={setSelectedOptionsWp}
+              selectedOptionsWm={selectedOptionsWm}
+              setSelectedOptionsWm={setSelectedOptionsWm}
+              selectedOptionEd={selectedOptionEd}
+              setSelectedOptionEd={setSelectedOptionEd}
+              selectedOptionPr={selectedOptionPr}
+              setSelectedOptionPr={setSelectedOptionPr}
+              selectedOptionGi={selectedOptionGi}
+              setSelectedOptionGi={setSelectedOptionGi}
+              sp={sp}
+              setSp={setSp}
+              tm={tm}
+              setTm={setTm}
+              wp={wp}
+              setWp={setWp}
+              wm={wm}
+              setWm={setWm}
+              ed={ed}
+              setEd={setEd}
+              pr={pr}
+              setPr={setPr}
+              gi={gi}
+              setGi={setGi}
+            />
+
+            <div className="sm:hidden flex justify-end">
+              <TheModalFull
+                reinitialise={reinitialise}
+                modalCentered={true}
+                button={<DropdownBtn />}
+                title={"Filtrar"}
+                content={
+                  <AllFilters
+                    handleNameChange={handleNameChange}
+                    handleHpChange={handleHpChange}
+                    hasPerspective={hasPerspective}
+                    selectedOptionsSp={selectedOptionsSp}
+                    setSelectedOptionsSp={setSelectedOptionsSp}
+                    selectedOptionsTm={selectedOptionsTm}
+                    setSelectedOptionsTm={setSelectedOptionsTm}
+                    selectedOptionsWp={selectedOptionsWp}
+                    setSelectedOptionsWp={setSelectedOptionsWp}
+                    selectedOptionsWm={selectedOptionsWm}
+                    setSelectedOptionsWm={setSelectedOptionsWm}
+                    selectedOptionEd={selectedOptionEd}
+                    setSelectedOptionEd={setSelectedOptionEd}
+                    selectedOptionPr={selectedOptionPr}
+                    setSelectedOptionPr={setSelectedOptionPr}
+                    selectedOptionGi={selectedOptionGi}
+                    setSelectedOptionGi={setSelectedOptionGi}
+                    sp={sp}
+                    setSp={setSp}
+                    tm={tm}
+                    setTm={setTm}
+                    wp={wp}
+                    setWp={setWp}
+                    wm={wm}
+                    setWm={setWm}
+                    ed={ed}
+                    setEd={setEd}
+                    pr={pr}
+                    setPr={setPr}
+                    gi={gi}
+                    setGi={setGi}
                   />
-                );
-              })}
-            </div>
-            {!loading && (
-              <LoadMore
-                handlePagination={handlePagination}
-                noMore={noMore}
-                loadingMore={loadingMore}
+                }
+                count={count}
               />
+            </div>
+
+            <TheDropdownOptionsIds
+              selectedOptions={selectedOptionsSp}
+              setSelectedOptions={setSelectedOptionsSp}
+              setData={setSp}
+            />
+            <TheDropdownOptionsIds
+              selectedOptions={selectedOptionsTm}
+              setSelectedOptions={setSelectedOptionsTm}
+              setData={setTm}
+            />
+            <TheDropdownOptionsIds
+              selectedOptions={selectedOptionsWp}
+              setSelectedOptions={setSelectedOptionsWp}
+              setData={setWp}
+            />
+            <TheDropdownOptionsIds
+              selectedOptions={selectedOptionsWm}
+              setSelectedOptions={setSelectedOptionsWm}
+              setData={setWm}
+            />
+            <TheDropdownOptionsName
+              selectedOption={selectedOptionEd}
+              setSelectedOption={setSelectedOptionEd}
+              setData={setEd}
+            />
+            <TheDropdownOptionsName
+              selectedOption={selectedOptionGi}
+              setSelectedOption={setSelectedOptionGi}
+              setData={setGi}
+            />
+            <TheDropdownOptionsName
+              selectedOption={selectedOptionPr}
+              setSelectedOption={setSelectedOptionPr}
+              setData={setPr}
+            />
+
+            {psychologists != null && psychologists.length > 0 ? (
+              <>
+                <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                  {psychologists.map((psychologist: Psychologist) => {
+                    return (
+                      <TheCard
+                        key={psychologist.id}
+                        psychologist={psychologist}
+                        update={updatePsychologist}
+                        showLogin={showLogin}
+                      />
+                    );
+                  })}
+                </div>
+                {!loading && (
+                  <LoadMore
+                    handlePagination={handlePagination}
+                    noMore={noMore}
+                    loadingMore={loadingMore}
+                  />
+                )}
+              </>
+            ) : (
+              <div className="grid place-items-center text-2xl h-56">
+                <FormattedMessage id="no.results" />
+              </div>
             )}
           </>
         ) : (
-          <div className="grid place-items-center text-2xl h-56">
-            <FormattedMessage id="no.results" />
-          </div>
+          <LoadingSpinner />
         )}
       </div>
     </>

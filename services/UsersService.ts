@@ -26,4 +26,7 @@ export default {
   favoritesDelete(psychologistId: any) {
     return Api().delete(`favorites/${psychologistId}/delete`);
   },
+  verifyToken() {
+    return Api().get("/verify-token");
+  },
 };

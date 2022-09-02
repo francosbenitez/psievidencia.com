@@ -5,3 +5,4 @@
   - No matter the result, wait for the checking and ONLY AFTER THAT continue with the remaining API calls.
 - Create a /team page, to mention every person who collaborated with the website, directly and indirectly.
   - With photos hosted on Google Drive.
+- Implement skeletons.
