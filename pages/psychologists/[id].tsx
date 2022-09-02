@@ -166,7 +166,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
             onClick={() => router.back()}
           ></button>
           <div className="dots relative mb-16 text-center">
-            <h1 className="text-5xl mb-5 break-words">
+            <h1 className="text-5xl mb-12 break-words">
               <span className="bg-body">
                 {psychologist.name !== "" ? (
                   psychologist.name
