@@ -40,10 +40,6 @@ const Home = (props: any, ref: any) => {
     },
   }));
 
-  const reinitialise = () => {
-    console.log("reinitialise from index.tsx!");
-  };
-
   const [psychologists, setPsychologists] = useState([]);
   const [count, setCount] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -241,6 +237,18 @@ const Home = (props: any, ref: any) => {
 
   const handlePagination = () => {
     setPagination(pagination + 1);
+  };
+
+  const reinitialise = () => {
+    setName(undefined);
+    setHasPerspective("all");
+    setSelectedOptionsSp([]);
+    setSelectedOptionsTm([]);
+    setSelectedOptionsWp([]);
+    setSelectedOptionsWm([]);
+    setSelectedOptionEd({});
+    setSelectedOptionPr({});
+    setSelectedOptionGi({});
   };
 
   useEffect(() => {
