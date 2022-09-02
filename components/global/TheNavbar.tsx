@@ -36,13 +36,12 @@ const TheNavbar = (props: any) => {
   return (
     <>
       {mounted && (
-        <header className="w-full mx-auto py-5 navbar bg-body">
+        <header className="w-full mx-auto py-5 navbar">
           <div className="container w-11/12 mx-auto">
             <ul className="flex justify-end">
-              {/* if logged ? ['Ingresar', 'Registrarse'] : ['Mis favoritos' 'Salir'] */}
               {check != null ? (
                 <>
-                  <li className="p-2 flex z-10">
+                  <li className="p-2 flex">
                     {router.pathname === "/favorites" ? (
                       <Link href="/">
                         <a className="self-center underline">Home</a>
@@ -53,7 +52,7 @@ const TheNavbar = (props: any) => {
                       </Link>
                     )}
                   </li>
-                  <li className="z-10">
+                  <li>
                     <button
                       className="rounded btn bg-primary text-white p-2 border-white"
                       onClick={() => handleLogout()}
@@ -64,7 +63,7 @@ const TheNavbar = (props: any) => {
                 </>
               ) : (
                 <>
-                  <li className="p-2 z-10">
+                  <li className="p-2">
                     <TheModal
                       ref={loginRef}
                       button={<LoginBtn />}
@@ -75,7 +74,7 @@ const TheNavbar = (props: any) => {
                       showRegister={showRegister}
                     />
                   </li>
-                  <li className="p-2 z-10">
+                  <li className="p-2">
                     <TheModal
                       ref={registerRef}
                       button={<RegisterBtn />}
