@@ -21,8 +21,10 @@ import React, {
   useImperativeHandle,
 } from "react";
 import { useIntl } from "react-intl";
-import UsersService from "@/services/UsersService";
-import LoadingSpinner from "@/components/home/LoadingSpinner";
+// import UsersService from "@/services/UsersService";
+// import LoadingSpinner from "@/components/home/LoadingSpinner";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Home = (props: any, ref: any) => {
   const intl = useIntl();
@@ -458,9 +460,13 @@ const Home = (props: any, ref: any) => {
               />
             )}
           </>
-        ) : (
+        ) : count === 0 ? (
           <div className="grid place-items-center text-2xl h-56">
             <FormattedMessage id="no.results" />
+          </div>
+        ) : (
+          <div className="mt-6">
+            <Skeleton height={30} />
           </div>
         )}
         {/* </>
