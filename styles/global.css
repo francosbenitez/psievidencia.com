@@ -349,7 +349,7 @@ body {
 
 /* Dots */
 .dots::before {
-  top: -7.5rem;
+  top: -7rem;
   height: calc(100% + 10rem);
   background-image: radial-gradient(var(--primary) 15%, transparent 15%),
     radial-gradient(var(--primary) 15%, transparent 15%);
