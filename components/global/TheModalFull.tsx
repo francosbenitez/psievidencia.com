@@ -29,7 +29,7 @@ const TheModalFull = (props: any, ref: any) => {
           className="modal-wrapper"
           style={{
             background: "white",
-            border: "1px solid #313131",
+            // border: "1px solid #313131",
             borderRadius: "0.25rem",
           }}
         >
@@ -55,6 +55,7 @@ const TheModalFull = (props: any, ref: any) => {
                 background: "white",
                 top: "0",
                 zIndex: "100",
+                border: "none",
               }}
             >
               <button
