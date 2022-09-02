@@ -63,7 +63,7 @@ body {
   position: absolute;
   overflow-y: scroll;
   width: 100%;
-  z-index: 1;
+  z-index: 105;
 }
 
 .dropdown-list:first-child {
