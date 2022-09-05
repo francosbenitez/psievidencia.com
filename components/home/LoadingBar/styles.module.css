@@ -1,7 +1,7 @@
 .loaderBar {
   overflow: hidden;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  /* background: rgba(255, 255, 255, 0.8); */
   height: 100vh;
   position: fixed;
   top: 0;
@@ -18,7 +18,7 @@
   .loaderBar {
     overflow: hidden;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    /* background: rgba(255, 255, 255, 0.8); */
     height: 100vh;
     position: fixed;
     top: 0 !important;
