@@ -145,7 +145,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
   return (
     <>
       <Head>
-        <title>{`${psychologist.name} | Psievidencia`}</title>
+        <title>{`${psychologist.name || "Sin nombre"} | Psievidencia`}</title>
       </Head>
       {psychologist != null && Object.keys(psychologist).length > 0 && (
         <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
