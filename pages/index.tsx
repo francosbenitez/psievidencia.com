@@ -307,7 +307,7 @@ const Home = (props: any, ref: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Una aplicación web para encontrar a tu mejor psicólogo basado en evidencia."
+          content="Una aplicación web para encontrar a tu mejor psicoterapeuta con formación basada en evidencia."
         />
         <meta name="keywords" content="psievidencia psicologia evidencia" />
         <meta name="twitter:image:src" content="/images/cover.png" />
