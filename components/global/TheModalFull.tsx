@@ -81,7 +81,7 @@ const TheModalFull = (props: any, ref: any) => {
                 className="btn bg-primary text-white rounded px-6 py-2 flex m-auto"
                 onClick={showModal}
               >
-                <p>Ver {count} psicólogos</p>
+                <p>Ver {count} psicoterapeutas</p>
               </button>
             </div>
           </div>
