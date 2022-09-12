@@ -45,7 +45,9 @@ const TheNavbar = (props: any) => {
             <ul className="flex w-full">
               <li className="flex my-auto">
                 <Link href="/">
-                  <Magnifier className="w-8 h-8 flex" />
+                  <a>
+                    <Magnifier className="w-8 h-8 flex" />
+                  </a>
                 </Link>
               </li>
               <div className="flex ml-auto">
