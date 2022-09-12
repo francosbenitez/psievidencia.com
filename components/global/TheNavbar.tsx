@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import User from "@/public/icons/user.svg";
 import Power from "@/public/icons/power.svg";
 import Star from "@/public/icons/star.svg";
+import Pencil from "@/public/icons/pencil.svg";
 
 const TheNavbar = (props: any) => {
   const { showLogin, showRegister, loginRef, registerRef }: any = props;
@@ -53,17 +54,18 @@ const TheNavbar = (props: any) => {
                         className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                       >
                         <li>
-                          {/* {router.pathname === "/favorites" ? (
-                            <Link href="/">
-                              <a className="underline">Home</a>
-                            </Link>
-                          ) : ( */}
                           <Link href="/favorites">
                             <a className="underline">
                               <Star className="w-6 h-6" /> Mis favoritos
                             </a>
                           </Link>
-                          {/* )} */}
+                        </li>
+                        <li>
+                          <Link href="/edit">
+                            <a className="underline">
+                              <Pencil className="w-6 h-6" /> Editar perfil
+                            </a>
+                          </Link>
                         </li>
                         <li>
                           <button
