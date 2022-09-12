@@ -20,31 +20,43 @@ const Edit = () => {
       <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
         <h2 className="text-3xl">Editá tus datos</h2>
         <div className="flex">
-          <ul className="w-1/3">
+          <ul className="w-1/4">
             <li
               onClick={() => setActiveComponent("profile")}
               className="cursor-pointer my-4"
             >
-              <Profile className="inline" />{" "}
-              <span className="align-middle">Perfil</span>
+              <div
+                className={`inline p-2 rounded-xl ${
+                  activeComponent === "profile" ? "bg-white" : ""
+                }`}
+              >
+                <Profile className="inline" />{" "}
+                <span className="align-middle">Perfil</span>
+              </div>
             </li>
             <li
               onClick={() => setActiveComponent("account")}
               className="cursor-pointer my-4"
             >
-              <Account className="inline" />{" "}
-              <span className="align-middle">Cuenta</span>
+              <div
+                className={`inline p-2 rounded-xl ${
+                  activeComponent === "account" ? "bg-white" : ""
+                }`}
+              >
+                <Account className="inline" />{" "}
+                <span className="align-middle">Cuenta</span>
+              </div>
             </li>
           </ul>
 
           <SwitchComponents active={activeComponent}>
-            <form className="w-1/3" name="profile">
+            <form className="w-3/4" name="profile">
               {Object.keys(EditProfileComponents).map((item) => {
                 const Item: any = ProfileComponents[item];
                 return <Item key={item} />;
               })}
             </form>
-            <form className="w-1/3" name="account">
+            <form className="w-3/4" name="account">
               {Object.keys(EditAccountComponents).map((item) => {
                 const Item: any = AccountComponents[item];
                 return <Item key={item} />;
