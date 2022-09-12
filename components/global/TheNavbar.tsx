@@ -55,8 +55,12 @@ const TheNavbar = (props: any) => {
                   <>
                     <li className="p-2 flex">
                       <div className="dropdown dropdown-left">
-                        <label tabIndex={0} className="cursor-pointer">
-                          <User />
+                        <label
+                          tabIndex={0}
+                          className="cursor-pointer bg-white p-2 rounded-lg"
+                        >
+                          <User className="inline" />{" "}
+                          <span className="align-middle">francosbenitez</span>
                         </label>
                         <ul
                           tabIndex={0}
