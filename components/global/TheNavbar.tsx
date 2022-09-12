@@ -64,25 +64,25 @@ const TheNavbar = (props: any) => {
                         </label>
                         <ul
                           tabIndex={0}
-                          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                          className="dropdown-content menu p-2 shadow bg-white rounded-box w-52"
                         >
                           <li>
                             <Link href="/favorites">
-                              <a className="underline">
+                              <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Star className="w-6 h-6" /> Mis favoritos
                               </a>
                             </Link>
                           </li>
                           <li>
                             <Link href="/edit">
-                              <a className="underline">
+                              <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Pencil className="w-6 h-6" /> Editar perfil
                               </a>
                             </Link>
                           </li>
                           <li>
                             <button
-                              className="underline"
+                              className="bg-white hover:bg-transparent active:bg-transparent active:text-primary"
                               onClick={() => handleLogout()}
                             >
                               <Power className="w-6 h-6" /> Cerrar sesión
