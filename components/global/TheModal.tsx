@@ -51,7 +51,7 @@ const TheModal = (props: any, ref: any) => {
         <div className={`${modalCentered ? "modal-wrapper" : ""}`}>
           {modalMask && <div className="modal-mask"></div>}
           <div
-            className={`modal ${modalCentered ? "modal-centered" : ""}`}
+            className={`modal-custom ${modalCentered ? "modal-centered" : ""}`}
             id="modal"
             style={{
               height: `${count && "100%"}`,
@@ -73,7 +73,7 @@ const TheModal = (props: any, ref: any) => {
             </div>
             {count && (
               <button
-                className="btn bg-primary text-white rounded px-6 py-3 flex m-auto"
+                className="bg-primary text-white rounded px-6 py-3 flex m-auto"
                 onClick={showModal}
               >
                 <p>Ver {count} psicoterapeutas</p>

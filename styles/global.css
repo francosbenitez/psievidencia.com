@@ -199,7 +199,7 @@ body {
 }
 
 /* Footer */
-.footer {
+.footer-custom {
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 5px;
 }
 
@@ -216,7 +216,7 @@ body {
 }
 
 /* Modal */
-.modal {
+.modal-custom {
   width: fit-content;
   min-width: 320px;
   background: white;
@@ -242,13 +242,13 @@ body {
 }
 
 @media (min-width: 768px) {
-  .modal {
+  .modal-custom {
     width: auto;
     left: 50%;
   }
 }
 
-.modal.off {
+.modal-custom.off {
   opacity: 0;
   visibility: hidden;
   filter: blur(8px);
@@ -259,34 +259,34 @@ body {
 @supports (offset-rotation: 0deg) {
   offset-rotation: 0deg;
   offset-path: path("M 250,100 S -300,500 -700,-200");
-  .modal.off {
+  .modal-custom.off {
     offset-distance: 100%;
   }
 }
 
 @media (prefers-reduced-motion) {
-  .modal {
+  .modal-custom {
     offset-path: none;
   }
 }
 
-.modal h2 {
+.modal-custom h2 {
   border-bottom: 1px solid var(--primary);
   padding: 1rem;
   margin: 0;
 }
 
-.modal .content {
+.modal-custom .content {
   padding: 1rem;
 }
 
-.modal .actions {
+.modal-custom .actions {
   border-top: 1px solid var(--primary);
   background: #eee;
   padding: 0.5rem 1rem;
 }
 
-.modal .actions button {
+.modal-custom .actions button {
   border: 0;
   background: var(--primary);
   border-radius: 5px;

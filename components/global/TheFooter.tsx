@@ -6,9 +6,9 @@ import SuggestionsBtn from "./SuggestionsBtn";
 
 const HomeFooter = () => {
   return (
-    <footer className="bottom-0 w-full mx-auto py-16 footer">
+    <footer className="bottom-0 w-full mx-auto py-16 footer-custom">
       <div className="container w-11/12 mx-auto">
-        <div className="relative text-center m-auto flex">
+        <div className="relative text-center m-auto flex w-full">
           <div className="w-1/2 flex">
             <span className="text-left text-sm md:text-md">
               <FormattedMessage id="footer.to.be.part" />{" "}

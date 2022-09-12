@@ -1,5 +1,5 @@
 import React from "react";
-import Suggestions from "../../public/icons/suggestions.svg";
+import Suggestions from "@/public/icons/suggestions.svg";
 
 const SuggestionsBtn = ({ showModal }: any) => {
   return (
