@@ -1,14 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import TheModal from "./TheModal";
-import TheLogin from "./TheLogin";
-import LoginBtn from "./LoginBtn";
-import RegisterBtn from "./RegisterBtn";
-// import LogoutBtn from "./LogoutBtn";
-import TheRegister from "./TheRegister";
+import TheModal from "@/components/global/TheModal";
+import TheLogin from "@/components/global/TheLogin";
+import LoginBtn from "@/components/global/LoginBtn";
+import RegisterBtn from "@/components/global/RegisterBtn";
+import TheRegister from "@/components/global/TheRegister";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/user/userSlice";
-import UsersService from "../../services/UsersService";
+import { logout } from "@/store/user/userSlice";
+import UsersService from "@/services/UsersService";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
