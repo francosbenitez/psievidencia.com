@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import * as EditComponents from "@/components/edit";
+import * as EditComponents from "@/components/edit/profile";
 
 const Edit = () => {
   const Components: Record<string, any> = EditComponents;
