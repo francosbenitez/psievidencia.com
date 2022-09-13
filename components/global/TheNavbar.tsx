@@ -10,11 +10,11 @@ import { logout } from "@/store/user/userSlice";
 import UsersService from "@/services/UsersService";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import User from "@/public/icons/user.svg";
 import Power from "@/public/icons/power.svg";
 import Star from "@/public/icons/star.svg";
 import Pencil from "@/public/icons/pencil.svg";
 import Magnifier from "@/public/icons/magnifier.svg";
+import Avatar from "boring-avatars";
 
 const TheNavbar = (props: any) => {
   const { showLogin, showRegister, loginRef, registerRef }: any = props;
@@ -59,7 +59,20 @@ const TheNavbar = (props: any) => {
                           tabIndex={0}
                           className="cursor-pointer bg-white p-2 rounded-lg"
                         >
-                          <User className="inline" />{" "}
+                          <span className="avatar-custom">
+                            <Avatar
+                              size={25}
+                              name={userInfo.user.username}
+                              variant="beam"
+                              colors={[
+                                "#92A1C6",
+                                "#146A7C",
+                                "#F0AB3D",
+                                "#C271B4",
+                                "#C20D90",
+                              ]}
+                            />
+                          </span>
                           <span className="align-middle">
                             {userInfo.user.username}
                           </span>

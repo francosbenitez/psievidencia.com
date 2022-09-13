@@ -363,3 +363,9 @@ body {
   width: 100vw;
   z-index: -1;
 }
+
+/* Avatar */
+.avatar-custom > svg {
+  display: inline;
+  margin-right: 0.5rem;
+}
