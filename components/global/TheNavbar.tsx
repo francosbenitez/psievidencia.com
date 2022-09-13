@@ -60,7 +60,9 @@ const TheNavbar = (props: any) => {
                           className="cursor-pointer bg-white p-2 rounded-lg"
                         >
                           <User className="inline" />{" "}
-                          <span className="align-middle">francosbenitez</span>
+                          <span className="align-middle">
+                            {userInfo.user.username}
+                          </span>
                         </label>
                         <ul
                           tabIndex={0}
