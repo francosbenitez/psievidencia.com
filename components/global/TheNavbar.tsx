@@ -9,12 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/store/user/userSlice";
 import UsersService from "@/services/UsersService";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Power from "@/public/icons/power.svg";
 import Star from "@/public/icons/star.svg";
 import Pencil from "@/public/icons/pencil.svg";
 import Magnifier from "@/public/icons/magnifier.svg";
 import Avatar from "boring-avatars";
+import ArrowDown from "@/public/icons/arrow-down.svg";
+import ArrowUp from "@/public/icons/arrow-up.svg";
 
 const TheNavbar = (props: any) => {
   const { showLogin, showRegister, loginRef, registerRef }: any = props;
@@ -37,6 +39,21 @@ const TheNavbar = (props: any) => {
   const check =
     userToken != null ? userToken : userInfo != null ? userInfo.token : null;
 
+  const [themeMenuOpened, setThemeMenuOpened] = useState(false);
+  const themeMenu = useRef(null);
+  const themeMenuButton = useRef(null);
+
+  useEffect(() => {
+    if (!themeMenuOpened) {
+      document.activeElement.blur();
+    } else if (
+      themeMenuOpened &&
+      !themeMenu.current.contains(document.activeElement)
+    ) {
+      setThemeMenuOpened(false);
+    }
+  }, [themeMenuOpened]);
+
   return (
     <>
       {mounted && (
@@ -54,10 +71,21 @@ const TheNavbar = (props: any) => {
                 {check != null ? (
                   <>
                     <li className="p-2 flex">
-                      <div className="dropdown dropdown-left">
+                      <div ref={themeMenu} className="dropdown dropdown-left">
                         <label
+                          ref={themeMenuButton}
                           tabIndex={0}
                           className="cursor-pointer bg-white p-2 rounded-lg"
+                          onBlur={(e) => {
+                            setThemeMenuOpened(false);
+                          }}
+                          onClick={(e) => {
+                            if (themeMenuOpened) {
+                              setThemeMenuOpened(false);
+                            } else {
+                              setThemeMenuOpened(true);
+                            }
+                          }}
                         >
                           <span className="avatar-custom">
                             <Avatar
@@ -76,19 +104,31 @@ const TheNavbar = (props: any) => {
                           <span className="align-middle">
                             {userInfo.user.username}
                           </span>
+                          {themeMenuOpened ? (
+                            <ArrowUp className="ml-3 inline" />
+                          ) : (
+                            <ArrowDown className="ml-3 inline" />
+                          )}
                         </label>
                         <ul
                           tabIndex={0}
                           className="dropdown-content menu p-2 shadow bg-white rounded-box w-52"
+                          onBlur={(e) => {
+                            themeMenuButton.current.focus();
+                          }}
+                          onFocus={(e) => {
+                            setThemeMenuOpened(true);
+                          }}
+                          onClick={() => document.activeElement.blur()}
                         >
-                          <li>
+                          <li onClick={() => document.activeElement.blur()}>
                             <Link href="/favorites">
                               <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Star className="w-6 h-6" /> Mis favoritos
                               </a>
                             </Link>
                           </li>
-                          <li>
+                          <li onClick={() => document.activeElement.blur()}>
                             <Link href="/edit">
                               <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Pencil className="w-6 h-6" /> Editar perfil
