@@ -40,17 +40,20 @@ const TheNavbar = (props: any) => {
     userToken != null ? userToken : userInfo != null ? userInfo.token : null;
 
   const [themeMenuOpened, setThemeMenuOpened] = useState(false);
-  const themeMenu = useRef(null);
-  const themeMenuButton = useRef(null);
+  const themeMenu = useRef<HTMLDivElement>(null);
+  const themeMenuButton = useRef<HTMLLabelElement>(null);
 
   useEffect(() => {
     if (!themeMenuOpened) {
-      document.activeElement.blur();
-    } else if (
-      themeMenuOpened &&
-      !themeMenu.current.contains(document.activeElement)
-    ) {
-      setThemeMenuOpened(false);
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    } else if (themeMenuOpened) {
+      if (themeMenu.current !== null) {
+        if (!themeMenu.current.contains(document.activeElement)) {
+          setThemeMenuOpened(false);
+        }
+      }
     }
   }, [themeMenuOpened]);
 
@@ -76,10 +79,10 @@ const TheNavbar = (props: any) => {
                           ref={themeMenuButton}
                           tabIndex={0}
                           className="cursor-pointer bg-white p-2 rounded-lg"
-                          onBlur={(e) => {
+                          onBlur={() => {
                             setThemeMenuOpened(false);
                           }}
-                          onClick={(e) => {
+                          onClick={() => {
                             if (themeMenuOpened) {
                               setThemeMenuOpened(false);
                             } else {
@@ -113,22 +116,42 @@ const TheNavbar = (props: any) => {
                         <ul
                           tabIndex={0}
                           className="dropdown-content menu p-2 shadow bg-white rounded-box w-52"
-                          onBlur={(e) => {
-                            themeMenuButton.current.focus();
+                          onBlur={() => {
+                            themeMenuButton?.current?.focus();
                           }}
                           onFocus={(e) => {
                             setThemeMenuOpened(true);
                           }}
-                          onClick={() => document.activeElement.blur()}
+                          onClick={() => {
+                            if (document.activeElement instanceof HTMLElement) {
+                              document.activeElement.blur();
+                            }
+                          }}
                         >
-                          <li onClick={() => document.activeElement.blur()}>
+                          <li
+                            onClick={() => {
+                              if (
+                                document.activeElement instanceof HTMLElement
+                              ) {
+                                document.activeElement.blur();
+                              }
+                            }}
+                          >
                             <Link href="/favorites">
                               <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Star className="w-6 h-6" /> Mis favoritos
                               </a>
                             </Link>
                           </li>
-                          <li onClick={() => document.activeElement.blur()}>
+                          <li
+                            onClick={() => {
+                              if (
+                                document.activeElement instanceof HTMLElement
+                              ) {
+                                document.activeElement.blur();
+                              }
+                            }}
+                          >
                             <Link href="/edit">
                               <a className="bg-white hover:bg-transparent active:bg-transparent active:text-primary">
                                 <Pencil className="w-6 h-6" /> Editar perfil
