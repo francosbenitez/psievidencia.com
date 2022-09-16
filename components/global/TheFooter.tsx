@@ -43,7 +43,7 @@ const HomeFooter = () => {
               <Instagram />
             </a>
             <a
-              href="mailto:psievidencia.com@gmail.com"
+              href="mailto:hola@psievidencia.com"
               target="_blank"
               rel="noreferrer"
             >
