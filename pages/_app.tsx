@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const loginRef = useRef();
   const registerRef = useRef();
-  // const resetRef = useRef();
+  const resetRef = useRef();
 
   const showLogin = () => {
     console.log("showLogin");
@@ -48,11 +48,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     flag.getAlert();
   };
 
-  // const showReset = () => {
-  //   console.log("showReset");
-  //   const flag = resetRef.current as unknown as any;
-  //   flag.getAlert();
-  // };
+  const showReset = () => {
+    console.log("showReset");
+    const flag = resetRef.current as unknown as any;
+    flag.getAlert();
+  };
 
   return (
     <>
@@ -67,6 +67,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             showLogin={showLogin}
             registerRef={registerRef}
             showRegister={showRegister}
+            resetRef={resetRef}
+            showReset={showReset}
           />
           <Component
             {...pageProps}

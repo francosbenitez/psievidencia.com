@@ -8,9 +8,11 @@ import EyeOffLined from "../../public/icons/eye-off-lined.svg";
 const TheLogin = ({
   showModal,
   showRegister,
+  showReset,
 }: {
   showModal?: any;
   showRegister: any;
+  showReset: any;
 }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
@@ -127,7 +129,12 @@ const TheLogin = ({
           Ingresar
         </button>
       </form>
-      <button className="block mt-3 underline">
+      <button
+        className="block mt-3 underline"
+        onClick={() => {
+          showModal(), showReset();
+        }}
+      >
         ¿Olvidaste tu contraseña?
       </button>
     </>

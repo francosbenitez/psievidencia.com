@@ -1,6 +1,12 @@
 import React from "react";
 
-const TheReset = () => {
+const TheReset = ({
+  showModal,
+  showLogin,
+}: {
+  showModal?: any;
+  showLogin: any;
+}) => {
   return (
     <div>
       <div>Restablecer mi contraseña</div>
@@ -9,7 +15,15 @@ const TheReset = () => {
         inferior.
       </div>
       <input />
-      <button>Enviar</button>
+      <button className="underline">Enviar</button>
+      <button
+        onClick={() => {
+          showModal(), showLogin();
+        }}
+        className="underline"
+      >
+        Volver al login
+      </button>
     </div>
   );
 };

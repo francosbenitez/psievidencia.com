@@ -17,9 +17,17 @@ import Magnifier from "@/public/icons/magnifier.svg";
 import Avatar from "boring-avatars";
 import ArrowDown from "@/public/icons/arrow-down.svg";
 import ArrowUp from "@/public/icons/arrow-up.svg";
+import TheReset from "./TheReset";
 
 const TheNavbar = (props: any) => {
-  const { showLogin, showRegister, loginRef, registerRef }: any = props;
+  const {
+    showLogin,
+    showRegister,
+    showReset,
+    loginRef,
+    registerRef,
+    resetRef,
+  }: any = props;
 
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
@@ -177,12 +185,27 @@ const TheNavbar = (props: any) => {
                         ref={loginRef}
                         button={<LoginBtn />}
                         title={"Ingresar"}
-                        content={<TheLogin showRegister={showRegister} />}
+                        content={
+                          <TheLogin
+                            showRegister={showRegister}
+                            showReset={showReset}
+                          />
+                        }
                         modalCentered={true}
                         modalMask={true}
                         showRegister={showRegister}
+                        showReset={showReset}
                       />
                     </li>
+                    <TheModal
+                      ref={resetRef}
+                      title={"Recuperá tu contraseña"}
+                      content={<TheReset showLogin={showLogin} />}
+                      modalCentered={true}
+                      modalMask={true}
+                      showReset={showReset}
+                      showLogin={showLogin}
+                    />
                     <li className="p-2">
                       <TheModal
                         ref={registerRef}
