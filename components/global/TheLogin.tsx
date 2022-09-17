@@ -126,10 +126,10 @@ const TheLogin = ({
         >
           Ingresar
         </button>
-        <button className="block mt-3 underline">
-          ¿Olvidaste tu contraseña?
-        </button>
       </form>
+      <button className="block mt-3 underline">
+        ¿Olvidaste tu contraseña?
+      </button>
     </>
   );
 };
