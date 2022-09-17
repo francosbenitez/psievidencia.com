@@ -16,8 +16,8 @@ const HomeFooter = () => {
         <div>
           <span className="footer-title">PROYECTO</span>
           <a className="link link-hover">Acerca</a>
-          <a className="link link-hover">Sugerencias</a>
           <a className="link link-hover">Colaborar</a>
+          <a className="link link-hover">Contacto</a>
         </div>
         <div>
           <span className="footer-title">Mi perfil</span>
