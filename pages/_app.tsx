@@ -34,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const loginRef = useRef();
   const registerRef = useRef();
+  // const resetRef = useRef();
 
   const showLogin = () => {
     console.log("showLogin");
@@ -46,6 +47,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     const flag = registerRef.current as unknown as any;
     flag.getAlert();
   };
+
+  // const showReset = () => {
+  //   console.log("showReset");
+  //   const flag = resetRef.current as unknown as any;
+  //   flag.getAlert();
+  // };
 
   return (
     <>
