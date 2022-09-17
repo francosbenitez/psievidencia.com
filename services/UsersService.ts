@@ -29,4 +29,13 @@ export default {
   verifyToken() {
     return Api().get("/verify-token");
   },
+  resetPasswordStepOne(form: any) {
+    return Api().post("/request-reset-email", form);
+  },
+  resetPasswordStepTwo(uidb64: any, token: string) {
+    return Api().get(`/request-reset-email/${uidb64}/${token}`);
+  },
+  resetPasswordStepThree(form: any) {
+    return Api().patch("password-reset-complete", form);
+  },
 };
