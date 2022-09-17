@@ -10,12 +10,17 @@ const TheReset = ({
 }) => {
   const [email, setEmail] = useState<string>("");
 
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       const form = {
         email: email,
-        redirect_url: "http://localhost:3000/reset",
+        redirect_url: origin + "/reset",
       };
 
       let formData = new FormData();
