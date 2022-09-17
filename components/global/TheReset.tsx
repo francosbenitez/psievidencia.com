@@ -15,7 +15,7 @@ const TheReset = ({
     try {
       const form = {
         email: email,
-        redirect_url: "http://localhost:3000",
+        redirect_url: "http://localhost:3000/reset",
       };
 
       let formData = new FormData();
