@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 
 export type SelectOption = {
-  label: string;
-  value: string | number;
+  id: string | number;
+  name: string;
 };
 
 type MultipleSelectProps = {
@@ -33,8 +33,8 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
 
   function selectOption(option: SelectOption) {
     if (multiple) {
-      if (value.includes(option)) {
-        onChange(value.filter((o) => o !== option));
+      if (value.some((e) => e.id === option.id)) {
+        onChange(value.filter((o) => o.id !== option.id));
       } else {
         onChange([...value, option]);
       }
@@ -44,7 +44,7 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
   }
 
   function isOptionSelected(option: SelectOption) {
-    return multiple ? value.includes(option) : option === value;
+    return multiple ? value.some((e) => e.id === option.id) : option === value;
   }
 
   useEffect(() => {
@@ -97,18 +97,18 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
         {multiple
           ? value.map((v) => (
               <button
-                key={v.value}
+                key={v.id}
                 onClick={(e) => {
                   e.stopPropagation();
                   selectOption(v);
                 }}
                 className={styles["option-badge"]}
               >
-                {v.label}
+                {v.name}
                 <span className={styles["remove-btn"]}>&times;</span>
               </button>
             ))
-          : value?.label}
+          : value?.name}
       </span>
       <button
         onClick={(e) => {
@@ -130,12 +130,12 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
               setIsOpen(false);
             }}
             onMouseEnter={() => setHighlightedIndex(index)}
-            key={option.value}
+            key={option.id}
             className={`${styles.option} ${
               isOptionSelected(option) ? styles.selected : ""
             } ${index === highlightedIndex ? styles.highlighted : ""}`}
           >
-            {option.label}
+            {option.name}
           </li>
         ))}
       </ul>

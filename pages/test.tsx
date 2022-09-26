@@ -3,16 +3,22 @@ import { TheSelect, SelectOption } from "@/components/edit/TheSelect";
 import { useState } from "react";
 
 const options = [
-  { label: "First", value: 1 },
-  { label: "Second", value: 2 },
-  { label: "Third", value: 3 },
-  { label: "Fourth", value: 4 },
-  { label: "Fifth", value: 5 },
+  { id: 1, name: "First" },
+  { id: 2, name: "Second" },
+  { id: 3, name: "Third" },
+  { id: 4, name: "Fourth" },
+  { id: 5, name: "Fifth" },
+];
+
+const selectedOptions = [
+  { id: 1, name: "First" },
+  { id: 2, name: "Second" },
+  { id: 3, name: "Third" },
 ];
 
 const Test = () => {
-  const [value1, setValue1] = useState<SelectOption[]>([options[0]]);
-  const [value2, setValue2] = useState<SelectOption | undefined>(options[0]);
+  const [value1, setValue1] = useState<SelectOption[]>(selectedOptions);
+  // const [value2, setValue2] = useState<SelectOption | undefined>(options[0]);
 
   return (
     <>
@@ -23,11 +29,11 @@ const Test = () => {
         onChange={(o) => setValue1(o)}
       />
       <br />
-      <TheSelect
+      {/* <TheSelect
         options={options}
         value={value2}
         onChange={(o) => setValue2(o)}
-      />
+      /> */}
     </>
   );
 };

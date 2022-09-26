@@ -38,4 +38,10 @@ export default {
   detail(id: string | string[] | undefined) {
     return Api().get(`psychologists/${id}`);
   },
+  profile() {
+    return Api().get("profile");
+  },
+  edit(form: any) {
+    return Api().patch("psychologists/edit", form);
+  },
 };

@@ -59,41 +59,9 @@ const TheCard = ({
         </header>
         <ul className="text-primary text-center break-words">
           <li className="mb-3">{psychologist.province}</li>
-          <li className="text-left">
-            {psychologist.therapeutic_model.split(",").map(
-              (item, index) =>
-                index < 3 && (
-                  <span
-                    className="bg-primary text-white break-all mr-1 px-1"
-                    key={item}
-                  >
-                    {item}
-                  </span>
-                )
-            )}
-            {psychologist.therapeutic_model.split(",").length > 3 && (
-              <span>...</span>
-            )}
-          </li>
-          <li className="text-left">
-            {psychologist.work_population.split(",").map(
-              (item, index) =>
-                index < 3 && (
-                  <span
-                    className="bg-primary text-white break-all mr-1 px-1"
-                    key={item}
-                  >
-                    {item}
-                  </span>
-                )
-            )}
-            {psychologist.work_population.split(",").length > 3 && (
-              <span>...</span>
-            )}
-          </li>
-          {psychologist.specialization !== "" && (
+          {psychologist.therapeutic_models.length > 0 && (
             <li className="text-left">
-              {psychologist.specialization.split(",").map(
+              {psychologist.therapeutic_models.map(
                 (item, index) =>
                   index < 3 && (
                     <span
@@ -104,9 +72,39 @@ const TheCard = ({
                     </span>
                   )
               )}
-              {psychologist.specialization.split(",").length > 3 && (
-                <span>...</span>
+              {psychologist.therapeutic_models.length > 3 && <span>...</span>}
+            </li>
+          )}
+          {psychologist.work_populations.length > 0 && (
+            <li className="text-left">
+              {psychologist.work_populations.map(
+                (item, index) =>
+                  index < 3 && (
+                    <span
+                      className="bg-primary text-white break-all mr-1 px-1"
+                      key={item}
+                    >
+                      {item}
+                    </span>
+                  )
               )}
+              {psychologist.work_populations.length > 3 && <span>...</span>}
+            </li>
+          )}
+          {psychologist.specializations.length > 0 && (
+            <li className="text-left">
+              {psychologist.specializations.map(
+                (item, index) =>
+                  index < 3 && (
+                    <span
+                      className="bg-primary text-white break-all mr-1 px-1"
+                      key={item}
+                    >
+                      {item}
+                    </span>
+                  )
+              )}
+              {psychologist.specializations.length > 3 && <span>...</span>}
             </li>
           )}
         </ul>
