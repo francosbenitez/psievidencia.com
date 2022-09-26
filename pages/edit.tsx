@@ -83,6 +83,8 @@ const Edit = () => {
                   return (
                     <Item
                       key={item}
+                      selectedName={psychologist.name}
+                      selectedGenderIdentity={psychologist.gender_identity}
                       selectedTM={psychologist.therapeutic_models}
                       setForm={setForm}
                     />

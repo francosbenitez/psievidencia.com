@@ -18,7 +18,7 @@ const selectedOptions = [
 
 const Test = () => {
   const [value1, setValue1] = useState<SelectOption[]>(selectedOptions);
-  // const [value2, setValue2] = useState<SelectOption | undefined>(options[0]);
+  const [value2, setValue2] = useState<SelectOption | undefined>(options[0]);
 
   return (
     <>
@@ -29,11 +29,11 @@ const Test = () => {
         onChange={(o) => setValue1(o)}
       />
       <br />
-      {/* <TheSelect
+      <TheSelect
         options={options}
         value={value2}
         onChange={(o) => setValue2(o)}
-      /> */}
+      />
     </>
   );
 };
