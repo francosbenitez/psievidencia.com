@@ -77,7 +77,11 @@ const Edit = () => {
             </ul>
 
             <SwitchComponents active={activeComponent}>
-              <form className="w-3/4" name="profile" onSubmit={handleSubmit}>
+              <form
+                className="w-3/4"
+                name="profile"
+                onSubmit={(e) => e.preventDefault()}
+              >
                 {Object.keys(EditProfileComponents).map((item) => {
                   const Item: any = ProfileComponents[item];
                   return (
@@ -92,7 +96,7 @@ const Edit = () => {
                 })}
                 <button
                   className="rounded bg-primary text-white p-2 border-white"
-                  type="submit"
+                  onClick={handleSubmit}
                 >
                   Guardar
                 </button>
