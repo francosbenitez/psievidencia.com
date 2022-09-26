@@ -6,6 +6,7 @@ import SwitchComponents from "@/components/edit/SwitchComponents";
 import Account from "@/public/icons/account.svg";
 import Profile from "@/public/icons/profile.svg";
 import PsychologistsService from "@/services/PsychologistsService";
+import toast, { Toaster } from "react-hot-toast";
 
 const Edit = () => {
   const ProfileComponents: Record<string, any> = EditProfileComponents;
@@ -27,8 +28,7 @@ const Edit = () => {
     })();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const updatePsychologist = async () => {
     try {
       if (Object.keys(form).length > 0) {
         const response = (await PsychologistsService.edit(form)).data;
@@ -37,6 +37,17 @@ const Edit = () => {
     } catch (err) {
       console.log("err", err);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const promesa = updatePsychologist();
+
+    toast.promise(promesa, {
+      loading: "Actualizando datos...",
+      success: "¡Datos actualizados!",
+      error: "Mil disculpas. Hubo un error actualizando tus datos",
+    });
   };
 
   return (
@@ -116,6 +127,7 @@ const Edit = () => {
           </div>
         </div>
       )}
+      <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );
 };
