@@ -46,8 +46,8 @@ const Edit = () => {
       {psychologist != null && Object.keys(psychologist).length > 0 && (
         <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
           <h2 className="text-3xl">Editá tus datos</h2>
-          <div className="flex">
-            <ul className="w-1/4">
+          <div className="block md:flex">
+            <ul className="w-full md:w-1/4 flex md:block">
               <li
                 onClick={() => setActiveComponent("profile")}
                 className="cursor-pointer my-4"
