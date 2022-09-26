@@ -9,7 +9,6 @@ const EditTherapeuticModel = ({
   selectedTM: any;
 }) => {
   const handleTherapeuticModel = (e: any) => {
-    console.log("e", e);
     setValue1(e);
     setForm((currentFormData: any) => {
       const nextFormData = {
