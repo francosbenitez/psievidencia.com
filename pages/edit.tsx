@@ -31,7 +31,8 @@ const Edit = () => {
     e.preventDefault();
     try {
       if (Object.keys(form).length > 0) {
-        await PsychologistsService.edit(form);
+        const response = (await PsychologistsService.edit(form)).data;
+        setPsychologist(response.data);
       }
     } catch (err) {
       console.log("err", err);
