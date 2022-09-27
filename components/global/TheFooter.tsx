@@ -14,7 +14,7 @@ const HomeFooter = () => {
           <p>Psievidencia</p>
         </div>
         <div>
-          <span className="footer-title">PROYECTO</span>
+          <span className="footer-title">Proyecto</span>
           <a className="link link-hover">Acerca</a>
           <a className="link link-hover">Colaborar</a>
           <a className="link link-hover">Contacto</a>
@@ -26,7 +26,7 @@ const HomeFooter = () => {
           <a className="link link-hover">Cerrar sesión</a>
         </div>
         <div>
-          <span className="footer-title">Social</span>
+          <span className="footer-title">Redes</span>
           <div className="grid grid-flow-col gap-4">
             <a
               href="https://twitter.com/psievidencia"
