@@ -15,18 +15,18 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
     {
       id: 1,
       title: "¿En cuáles modelos terapéuticos acredita formación?",
-      content: "therapeutic_model",
+      content: "therapeutic_models",
     },
     {
       id: 2,
       title:
         "Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional",
-      content: "specialization",
+      content: "specializations",
     },
     {
       id: 3,
       title: "Población de trabajo",
-      content: "work_population",
+      content: "work_populations",
     },
     {
       id: 4,
@@ -68,7 +68,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
     {
       id: 11,
       title: "Modalidad de Trabajo",
-      content: "work_modality",
+      content: "work_modalities",
     },
     {
       id: 12,
