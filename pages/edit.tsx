@@ -7,6 +7,7 @@ import Account from "@/public/icons/account.svg";
 import Profile from "@/public/icons/profile.svg";
 import PsychologistsService from "@/services/PsychologistsService";
 import toast, { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const Edit = () => {
   const ProfileComponents: Record<string, any> = EditProfileComponents;
@@ -14,6 +15,8 @@ const Edit = () => {
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
   const [form, setForm] = useState({});
+
+  const { userInfo } = useSelector((state: any) => state.userReducer);
 
   const [activeComponent, setActiveComponent] = useState("profile");
 
@@ -94,18 +97,24 @@ const Edit = () => {
                 name="profile"
                 onSubmit={(e) => e.preventDefault()}
               >
-                {Object.keys(EditProfileComponents).map((item) => {
-                  const Item: any = ProfileComponents[item];
-                  return (
-                    <Item
-                      key={item}
-                      selectedName={psychologist.name}
-                      selectedGenderIdentity={psychologist.gender_identity}
-                      selectedTM={psychologist.therapeutic_models}
-                      setForm={setForm}
-                    />
-                  );
-                })}
+                {userInfo.user.role !== "AUTHENTICATED" ? (
+                  <>
+                    {Object.keys(EditProfileComponents).map((item) => {
+                      const Item: any = ProfileComponents[item];
+                      return (
+                        <Item
+                          key={item}
+                          selectedName={psychologist.name}
+                          selectedGenderIdentity={psychologist.gender_identity}
+                          selectedTM={psychologist.therapeutic_models}
+                          setForm={setForm}
+                        />
+                      );
+                    })}
+                  </>
+                ) : (
+                  <p>Authenticated</p>
+                )}
                 <button
                   className="rounded bg-primary text-white p-2 border-white"
                   onClick={handleSubmit}
