@@ -2,7 +2,7 @@
 import axios from "axios";
 // import { getToken } from "../utils/helper";
 import { store } from "../store";
-// import Router from "next/router";
+import Router from "next/router";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -34,8 +34,9 @@ export default () => {
     (error) => {
       if (error.response.status === 401) {
         localStorage.removeItem("Token");
+        localStorage.removeItem("state");
         console.log("error.reponse", error.response);
-        // Router.push("/");
+        Router.push("/");
       }
       return Promise.reject(error);
     }
