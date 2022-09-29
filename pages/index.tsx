@@ -54,6 +54,7 @@ const Home = (props: any, ref: any) => {
   const [hasPerspective, setHasPerspective] = useState<string | undefined>(
     "all"
   );
+  const [hasPrepaid, setHasPrepaid] = useState<string | undefined>("all");
   const [pagination, setPagination] = useState(1);
   const [selectedOptionsSp, setSelectedOptionsSp] = useState<Data[]>([]);
   const [selectedOptionsTm, setSelectedOptionsTm] = useState<Data[]>([]);
@@ -148,6 +149,17 @@ const Home = (props: any, ref: any) => {
     }
   };
 
+  const handlePdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    if (target) {
+      if (target.checked) {
+        setHasPrepaid("si");
+      } else {
+        setHasPrepaid("all");
+      }
+    }
+  };
+
   const createVariables = () => {
     const selectedOptionsIdsSp = selectedOptionsSp.map((item) => item.id);
     const selectedOptionsIdsTm = selectedOptionsTm.map((item) => item.id);
@@ -190,7 +202,8 @@ const Home = (props: any, ref: any) => {
         selectedOptionNameEd,
         selectedOptionNamePr,
         selectedOptionNameGi,
-        hasPerspective
+        hasPerspective,
+        hasPrepaid
       )
     ).data;
     setPsychologists(data.results);
@@ -215,7 +228,8 @@ const Home = (props: any, ref: any) => {
           selectedOptionNameEd,
           selectedOptionNamePr,
           selectedOptionNameGi,
-          hasPerspective
+          hasPerspective,
+          hasPrepaid
         )
       ).data;
       setPsychologists((psychologists) => psychologists.concat(data.results));
@@ -249,6 +263,7 @@ const Home = (props: any, ref: any) => {
   const reinitialise = () => {
     setName(undefined);
     setHasPerspective("all");
+    setHasPrepaid("all");
     setSelectedOptionsSp([]);
     setSelectedOptionsTm([]);
     setSelectedOptionsWp([]);
@@ -290,6 +305,7 @@ const Home = (props: any, ref: any) => {
     selectedOptionPr,
     selectedOptionGi,
     hasPerspective,
+    hasPrepaid,
     userInfo,
   ]);
 
@@ -327,6 +343,8 @@ const Home = (props: any, ref: any) => {
           handleNameChange={handleNameChange}
           handleHpChange={handleHpChange}
           hasPerspective={hasPerspective}
+          handlePdChange={handlePdChange}
+          hasPrepaid={hasPrepaid}
           selectedOptionsSp={selectedOptionsSp}
           setSelectedOptionsSp={setSelectedOptionsSp}
           selectedOptionsTm={selectedOptionsTm}
@@ -368,6 +386,8 @@ const Home = (props: any, ref: any) => {
                 handleNameChange={handleNameChange}
                 handleHpChange={handleHpChange}
                 hasPerspective={hasPerspective}
+                handlePdChange={handlePdChange}
+                hasPrepaid={hasPrepaid}
                 selectedOptionsSp={selectedOptionsSp}
                 setSelectedOptionsSp={setSelectedOptionsSp}
                 selectedOptionsTm={selectedOptionsTm}
