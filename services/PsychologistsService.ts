@@ -12,7 +12,8 @@ export default {
     education: string,
     province: string,
     gender_identity: string,
-    has_perspective: string | undefined
+    has_perspective: string | undefined,
+    has_prepaid: string | undefined
   ) {
     return Api().get(`psychologists?page=${pageNumber}`, {
       params: {
@@ -25,6 +26,7 @@ export default {
         province: province,
         gender_identity: gender_identity,
         has_perspective: has_perspective,
+        has_prepaid: has_prepaid,
       },
     });
   },

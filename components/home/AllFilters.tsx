@@ -8,6 +8,8 @@ const AllFilters = ({
   handleNameChange,
   handleHpChange,
   hasPerspective,
+  handlePdChange,
+  hasPrepaid,
   selectedOptionsSp,
   setSelectedOptionsSp,
   selectedOptionsTm,
@@ -41,6 +43,8 @@ const AllFilters = ({
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleHpChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   hasPerspective: string | undefined;
+  handlePdChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  hasPrepaid: string | undefined;
   selectedOptionsSp: Data[];
   setSelectedOptionsSp: React.Dispatch<React.SetStateAction<Data[]>>;
   selectedOptionsTm: Data[];
@@ -80,8 +84,16 @@ const AllFilters = ({
 
         <div className="w-full sm:w-1/3 drop">
           <TheCheckbox
-            handleHpChange={handleHpChange}
-            hasPerspective={hasPerspective}
+            handleChange={handleHpChange}
+            has={hasPerspective}
+            text={"Perspectiva de género"}
+          />
+        </div>
+        <div className="w-full sm:w-1/3 drop">
+          <TheCheckbox
+            handleChange={handlePdChange}
+            has={hasPrepaid}
+            text={"Obra Social/Prepaga"}
           />
         </div>
       </div>
