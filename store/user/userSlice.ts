@@ -11,6 +11,7 @@ const userToken =
 const initialState = {
   loading: false,
   userInfo: null,
+  role: null,
   userToken,
   error: null,
   success: false,
@@ -24,6 +25,7 @@ const userSlice = createSlice({
       localStorage.removeItem("Token");
       state.loading = false;
       state.userInfo = null;
+      state.role = null;
       state.userToken = null;
       state.error = null;
     },
@@ -37,6 +39,7 @@ const userSlice = createSlice({
       builder.addCase(userLogin.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.userInfo = payload;
+        state.role = payload.user.role;
         state.userToken = payload.userToken;
       }),
       builder.addCase(userLogin.rejected, (state, { payload }: any) => {
