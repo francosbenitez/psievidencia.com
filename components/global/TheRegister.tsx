@@ -39,6 +39,7 @@ const TheRegister = ({
         username: username,
         email: email,
         password: password,
+        role: "AUTHENTICATED",
       };
 
       let formData = new FormData();
@@ -59,7 +60,7 @@ const TheRegister = ({
       {verificationSent ? (
         <div className="grid place-items-center text-2xl h-56">
           ¡Un paso más! Revisá tu correo para verificar tu cuenta (¡si no te
-          llego a tu correo principal, chequeá spam!)
+          llego a tu correo principal, chequeá Spam!)
         </div>
       ) : (
         <>
