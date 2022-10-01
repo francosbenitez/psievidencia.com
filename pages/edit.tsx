@@ -145,7 +145,7 @@ const Edit = () => {
                 })}
                 <p className="italic my-3">
                   ¡Por ahora, la funcionalidad de editar los datos de la Cuenta
-                  no está disponible! Disculpas las molestias.
+                  no está disponible! Disculpá las molestias.
                 </p>
                 <button
                   className="opacity-50 rounded bg-primary text-white p-2 border-white"
