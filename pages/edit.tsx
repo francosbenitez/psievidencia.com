@@ -14,6 +14,8 @@ import { EditGenderIdentity } from "@/components/edit/profile";
 import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
+import { tm, wm } from "@/utils/constants";
+
 const Edit = () => {
   const ProfileComponents: Record<string, any> = EditProfileComponents;
   const AccountComponents: Record<string, any> = EditAccountComponents;
@@ -128,37 +130,15 @@ const Edit = () => {
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
                       dataToChange={"therapeutic_models"}
-                      options={[
-                        {
-                          id: 1,
-                          name: "Terapias Cognitivo Conductuales",
-                        },
-                        {
-                          id: 2,
-                          name: "ACT",
-                        },
-                        {
-                          id: 3,
-                          name: "DBT",
-                        },
-                        {
-                          id: 4,
-                          name: "Mindfulness",
-                        },
-                        {
-                          id: 5,
-                          name: "Análisis de la Conducta Aplicado",
-                        },
-                        {
-                          id: 6,
-                          name: "Terapias Sistémicas",
-                        },
-                        {
-                          id: 7,
-                          name: "FAP",
-                        },
-                      ]}
+                      options={tm}
                       label={"Modelo terapéutico"}
+                    />
+                    <ProfileSelect
+                      selectedOptions={psychologist.work_modalities}
+                      setForm={setForm}
+                      dataToChange={"work_modalities"}
+                      options={wm}
+                      label={"Modalidades de trabajo"}
                     />
                     <EditGenderIdentity
                       selectedGenderIdentity={psychologist.gender_identity}
