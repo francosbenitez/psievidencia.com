@@ -8,11 +8,11 @@ import Profile from "@/public/icons/profile.svg";
 import PsychologistsService from "@/services/PsychologistsService";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
-import {
-  EditGenderIdentity,
-  EditTherapeuticModel,
-} from "@/components/edit/profile";
+
+import { EditGenderIdentity } from "@/components/edit/profile";
+
 import ProfileInput from "@/components/edit/profile/ProfileInput";
+import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
 const Edit = () => {
   const ProfileComponents: Record<string, any> = EditProfileComponents;
@@ -124,9 +124,41 @@ const Edit = () => {
                       label={"Nombre"}
                       dataToChange={"name"}
                     />
-                    <EditTherapeuticModel
-                      selectedTM={psychologist.therapeutic_models}
+                    <ProfileSelect
+                      selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
+                      dataToChange={"therapeutic_models"}
+                      options={[
+                        {
+                          id: 1,
+                          name: "Terapias Cognitivo Conductuales",
+                        },
+                        {
+                          id: 2,
+                          name: "ACT",
+                        },
+                        {
+                          id: 3,
+                          name: "DBT",
+                        },
+                        {
+                          id: 4,
+                          name: "Mindfulness",
+                        },
+                        {
+                          id: 5,
+                          name: "Análisis de la Conducta Aplicado",
+                        },
+                        {
+                          id: 6,
+                          name: "Terapias Sistémicas",
+                        },
+                        {
+                          id: 7,
+                          name: "FAP",
+                        },
+                      ]}
+                      label={"Modelo terapéutico"}
                     />
                     <EditGenderIdentity
                       selectedGenderIdentity={psychologist.gender_identity}
