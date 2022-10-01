@@ -16,7 +16,7 @@ const Edit = () => {
 
   const [form, setForm] = useState({});
 
-  const { userInfo } = useSelector((state: any) => state.userReducer);
+  const { role } = useSelector((state: any) => state.userReducer);
 
   const [activeComponent, setActiveComponent] = useState("profile");
 
@@ -52,6 +52,8 @@ const Edit = () => {
       error: "Mil disculpas. Hubo un error actualizando tus datos",
     });
   };
+
+  const EditName = ProfileComponents["EditName"];
 
   return (
     <>
@@ -97,7 +99,7 @@ const Edit = () => {
                 name="profile"
                 onSubmit={(e) => e.preventDefault()}
               >
-                {userInfo.user.role !== "AUTHENTICATED" ? (
+                {role !== "AUTHENTICATED" ? (
                   <>
                     {Object.keys(EditProfileComponents).map((item) => {
                       const Item: any = ProfileComponents[item];
@@ -113,7 +115,10 @@ const Edit = () => {
                     })}
                   </>
                 ) : (
-                  <p>Authenticated</p>
+                  <EditName
+                    selectedName={psychologist.name}
+                    setForm={setForm}
+                  />
                 )}
                 <button
                   className="rounded bg-primary text-white p-2 border-white"
@@ -129,8 +134,26 @@ const Edit = () => {
               >
                 {Object.keys(EditAccountComponents).map((item) => {
                   const Item: any = AccountComponents[item];
-                  return <Item key={item} />;
+                  return (
+                    <Item
+                      key={item}
+                      selectedUsername={psychologist.username}
+                      selectedEmail={psychologist.email}
+                      setForm={setForm}
+                    />
+                  );
                 })}
+                <p className="italic my-3">
+                  ¡Por ahora, la funcionalidad de editar los datos de la Cuenta
+                  no está disponible! Disculpas las molestias.
+                </p>
+                <button
+                  className="opacity-50 rounded bg-primary text-white p-2 border-white"
+                  onClick={handleSubmit}
+                  disabled
+                >
+                  Guardar
+                </button>
               </form>
             </SwitchComponents>
           </div>

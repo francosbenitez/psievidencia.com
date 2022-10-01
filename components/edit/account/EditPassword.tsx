@@ -7,10 +7,11 @@ const EditUsername = () => {
         Contraseña
       </label>
       <input
-        className="p-2 rounded w-96"
+        disabled
+        className="p-2 rounded-md w-96  border border-slate-300 shadow-sm placeholder-slate-400"
         id="username"
         type="text"
-        placeholder="Contraseña"
+        placeholder="******************"
       />
     </div>
   );
