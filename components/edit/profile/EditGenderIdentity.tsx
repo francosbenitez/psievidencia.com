@@ -19,6 +19,7 @@ const EditGenderIdentity = ({
   };
 
   const [value1, setValue1] = useState(selectedGenderIdentity);
+  const options = ["Mujer", "Varón", "No binarie"];
 
   return (
     <div className="my-4">
@@ -30,9 +31,11 @@ const EditGenderIdentity = ({
         defaultValue={value1}
         className="p-2 rounded w-96"
       >
-        <option value={"Mujer"}>Mujer</option>
-        <option value={"Varón"}>Varón</option>
-        <option value={"No binarie"}>No binarie</option>
+        {options.map((option) => (
+          <option value={option} key={option}>
+            {option}
+          </option>
+        ))}
       </select>
     </div>
   );

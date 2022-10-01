@@ -8,6 +8,11 @@ import Profile from "@/public/icons/profile.svg";
 import PsychologistsService from "@/services/PsychologistsService";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
+import {
+  EditGenderIdentity,
+  EditTherapeuticModel,
+} from "@/components/edit/profile";
+import ProfileInput from "@/components/edit/profile/ProfileInput";
 
 const Edit = () => {
   const ProfileComponents: Record<string, any> = EditProfileComponents;
@@ -53,7 +58,7 @@ const Edit = () => {
     });
   };
 
-  const EditName = ProfileComponents["EditName"];
+  // const ProfileInput = ProfileComponents["ProfileInput"];
 
   return (
     <>
@@ -101,23 +106,39 @@ const Edit = () => {
               >
                 {role !== "AUTHENTICATED" ? (
                   <>
-                    {Object.keys(EditProfileComponents).map((item) => {
-                      const Item: any = ProfileComponents[item];
-                      return (
-                        <Item
-                          key={item}
-                          selectedName={psychologist.name}
-                          selectedGenderIdentity={psychologist.gender_identity}
-                          selectedTM={psychologist.therapeutic_models}
-                          setForm={setForm}
-                        />
-                      );
-                    })}
+                    <ProfileInput
+                      selectedName={psychologist.additional_data}
+                      setForm={setForm}
+                      label={"Datos adicionales"}
+                      dataToChange={"additional_data"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.social_networks}
+                      setForm={setForm}
+                      label={"Redes sociales"}
+                      dataToChange={"social_networks"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.name}
+                      setForm={setForm}
+                      label={"Nombre"}
+                      dataToChange={"name"}
+                    />
+                    <EditTherapeuticModel
+                      selectedTM={psychologist.therapeutic_models}
+                      setForm={setForm}
+                    />
+                    <EditGenderIdentity
+                      selectedGenderIdentity={psychologist.gender_identity}
+                      setForm={setForm}
+                    />
                   </>
                 ) : (
-                  <EditName
+                  <ProfileInput
                     selectedName={psychologist.name}
                     setForm={setForm}
+                    label={"Nombre"}
+                    dataToChange={"name"}
                   />
                 )}
                 <button
