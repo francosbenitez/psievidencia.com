@@ -47,3 +47,10 @@ export const wm = [
     name: "Grupal",
   },
 ];
+
+export const wp = [
+  { id: 1, name: "Adultxs" },
+  { id: 2, name: "Infantojuvenil" },
+  { id: 3, name: "Adultxs Mayores" },
+  { id: 4, name: "Personas con discapacidad" },
+];

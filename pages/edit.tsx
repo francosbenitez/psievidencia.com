@@ -12,7 +12,7 @@ import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
 import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
-import { tm, wm } from "@/utils/constants";
+import { tm, wm, wp } from "@/utils/constants";
 
 const Edit = () => {
   const AccountComponents: Record<string, any> = EditAccountComponents;
@@ -121,6 +121,18 @@ const Edit = () => {
                       label={"Nombre"}
                       dataToChange={"name"}
                     />
+                    <ProfileInput
+                      selectedName={psychologist.city}
+                      setForm={setForm}
+                      label={"Ciudad"}
+                      dataToChange={"city"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.registration_number}
+                      setForm={setForm}
+                      label={"Número de matrícula"}
+                      dataToChange={"registration_number"}
+                    />
                     <ProfileSelectMultiple
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
@@ -134,6 +146,13 @@ const Edit = () => {
                       dataToChange={"work_modalities"}
                       options={wm}
                       label={"Modalidades de trabajo"}
+                    />
+                    <ProfileSelectMultiple
+                      selectedOptions={psychologist.work_populations}
+                      setForm={setForm}
+                      dataToChange={"work_populations"}
+                      options={wp}
+                      label={"Poblaciones de trabajo"}
                     />
                     <ProfileSelect
                       selectedOption={psychologist.gender_identity}
