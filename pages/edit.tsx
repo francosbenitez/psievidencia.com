@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import * as EditProfileComponents from "@/components/edit/profile";
 import * as EditAccountComponents from "@/components/edit/account";
 import SwitchComponents from "@/components/edit/SwitchComponents";
 import Account from "@/public/icons/account.svg";
@@ -9,15 +8,13 @@ import PsychologistsService from "@/services/PsychologistsService";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 
-import { EditGenderIdentity } from "@/components/edit/profile";
-
 import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
+import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
 import { tm, wm } from "@/utils/constants";
 
 const Edit = () => {
-  const ProfileComponents: Record<string, any> = EditProfileComponents;
   const AccountComponents: Record<string, any> = EditAccountComponents;
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
@@ -59,8 +56,6 @@ const Edit = () => {
       error: "Mil disculpas. Hubo un error actualizando tus datos",
     });
   };
-
-  // const ProfileInput = ProfileComponents["ProfileInput"];
 
   return (
     <>
@@ -140,9 +135,12 @@ const Edit = () => {
                       options={wm}
                       label={"Modalidades de trabajo"}
                     />
-                    <EditGenderIdentity
-                      selectedGenderIdentity={psychologist.gender_identity}
+                    <ProfileSelect
+                      selectedOption={psychologist.gender_identity}
                       setForm={setForm}
+                      label={"Identidad de género"}
+                      options={["Mujer", "Varón", "No binarie"]}
+                      dataToChange={"gender_identity"}
                     />
                   </>
                 ) : (
