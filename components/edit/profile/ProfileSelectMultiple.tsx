@@ -6,7 +6,7 @@ type Option = {
   name: string;
 };
 
-const ProfileSelect = ({
+const ProfileSelectMultiple = ({
   setForm,
   selectedOptions,
   dataToChange,
@@ -49,4 +49,4 @@ const ProfileSelect = ({
   );
 };
 
-export default ProfileSelect;
+export default ProfileSelectMultiple;

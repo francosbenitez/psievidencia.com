@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { EditGenderIdentity } from "@/components/edit/profile";
 
 import ProfileInput from "@/components/edit/profile/ProfileInput";
-import ProfileSelect from "@/components/edit/profile/ProfileSelect";
+import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
 
 import { tm, wm } from "@/utils/constants";
 
@@ -126,14 +126,14 @@ const Edit = () => {
                       label={"Nombre"}
                       dataToChange={"name"}
                     />
-                    <ProfileSelect
+                    <ProfileSelectMultiple
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
                       dataToChange={"therapeutic_models"}
                       options={tm}
                       label={"Modelo terapéutico"}
                     />
-                    <ProfileSelect
+                    <ProfileSelectMultiple
                       selectedOptions={psychologist.work_modalities}
                       setForm={setForm}
                       dataToChange={"work_modalities"}
