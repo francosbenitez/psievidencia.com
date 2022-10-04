@@ -287,7 +287,7 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                     />
                   );
                 })}
-                <p className="my-3 italic">
+                <p className="my-3 text-red-500">
                   Por ahora, la funcionalidad de editar los datos de la Cuenta
                   no está disponible. Disculpá las molestias.
                 </p>
