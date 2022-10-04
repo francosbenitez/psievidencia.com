@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 export type SelectOption = {
   id: string | number;
   name: string;
+  slug?: string;
 };
 
 type MultipleSelectProps = {
@@ -28,7 +29,7 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   function clearOptions() {
-    multiple ? onChange([]) : onChange(undefined);
+    multiple && onChange([]);
   }
 
   function selectOption(option: SelectOption) {
@@ -108,17 +109,21 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
                 <span className={styles["remove-btn"]}>&times;</span>
               </button>
             ))
+          : value?.hasOwnProperty("slug")
+          ? value?.slug
           : value?.name}
       </span>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          clearOptions();
-        }}
-        className={styles["clear-btn"]}
-      >
-        &times;
-      </button>
+      {multiple && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            clearOptions();
+          }}
+          className={styles["clear-btn"]}
+        >
+          &times;
+        </button>
+      )}
       <div className={styles.divider}></div>
       <div className={styles.caret}></div>
       <ul className={`${styles.options} ${isOpen ? styles.show : ""}`}>
@@ -135,7 +140,7 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
               isOptionSelected(option) ? styles.selected : ""
             } ${index === highlightedIndex ? styles.highlighted : ""}`}
           >
-            {option.name}
+            {option.hasOwnProperty("slug") ? option.slug : option.name}
           </li>
         ))}
       </ul>

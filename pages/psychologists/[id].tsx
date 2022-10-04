@@ -103,6 +103,11 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
         "Algún dato que quieras añadir y no se haya contemplado previamente en el cuestionario",
       content: "additional_data",
     },
+    {
+      id: 18,
+      title: "Provincia",
+      content: "province",
+    },
   ];
 
   const monthNames = [

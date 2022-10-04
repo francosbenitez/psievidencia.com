@@ -12,9 +12,11 @@ import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
 import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
-import { tm, wm, wp } from "@/utils/constants";
+import { TM, WM, WP, GI, ED } from "@/utils/constants";
+import { GetServerSideProps } from "next";
+import { Provinces } from "@/types";
 
-const Edit = () => {
+const Edit = ({ provinces }: { provinces: Provinces[] }) => {
   const AccountComponents: Record<string, any> = EditAccountComponents;
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
@@ -137,29 +139,50 @@ const Edit = () => {
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
                       dataToChange={"therapeutic_models"}
-                      options={tm}
+                      options={TM}
                       label={"Modelo terapéutico"}
                     />
                     <ProfileSelectMultiple
                       selectedOptions={psychologist.work_modalities}
                       setForm={setForm}
                       dataToChange={"work_modalities"}
-                      options={wm}
+                      options={WM}
                       label={"Modalidades de trabajo"}
                     />
                     <ProfileSelectMultiple
                       selectedOptions={psychologist.work_populations}
                       setForm={setForm}
                       dataToChange={"work_populations"}
-                      options={wp}
+                      options={WP}
                       label={"Poblaciones de trabajo"}
                     />
                     <ProfileSelect
-                      selectedOption={psychologist.gender_identity}
+                      selectedOption={provinces.filter(
+                        (option: any) => option.slug === psychologist.province
+                      )}
+                      setForm={setForm}
+                      label={"Provincia"}
+                      options={provinces}
+                      dataToChange={"province"}
+                    />
+                    <ProfileSelect
+                      selectedOption={GI.filter(
+                        (option: any) =>
+                          option.slug === psychologist.gender_identity
+                      )}
                       setForm={setForm}
                       label={"Identidad de género"}
-                      options={["Mujer", "Varón", "No binarie"]}
+                      options={GI}
                       dataToChange={"gender_identity"}
+                    />
+                    <ProfileSelect
+                      selectedOption={ED.filter(
+                        (option: any) => option.slug === psychologist.education
+                      )}
+                      setForm={setForm}
+                      label={"Educación"}
+                      options={ED}
+                      dataToChange={"education"}
                     />
                   </>
                 ) : (
@@ -193,9 +216,9 @@ const Edit = () => {
                     />
                   );
                 })}
-                <p className="italic my-3">
-                  ¡Por ahora, la funcionalidad de editar los datos de la Cuenta
-                  no está disponible! Disculpá las molestias.
+                <p className="my-3 italic">
+                  Por ahora, la funcionalidad de editar los datos de la Cuenta
+                  no está disponible. Disculpá las molestias.
                 </p>
                 <button
                   className="opacity-50 rounded bg-primary text-white p-2 border-white"
@@ -212,6 +235,14 @@ const Edit = () => {
       <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = (await PsychologistsService.lists(1, "provinces")).data;
+  const provinces = response.results;
+  return {
+    props: { provinces },
+  };
 };
 
 export default Edit;

@@ -30,7 +30,7 @@ export default {
       },
     });
   },
-  lists(pageNumber: number, type: string, name: string | undefined) {
+  lists(pageNumber: number, type: string, name?: string | undefined) {
     return Api().get(`psychologists/${type}?page=${pageNumber}`, {
       params: {
         name: name,

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { TheSelect } from "@/components/edit/TheSelect";
 
-const EditGenderIdentity = ({
+type Option = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
+const ProfileSelect = ({
   setForm,
   selectedOption,
   dataToChange,
@@ -11,37 +18,31 @@ const EditGenderIdentity = ({
   selectedOption: any;
   dataToChange: string;
   label: string;
-  options: string[];
+  options: Option[];
 }) => {
   const handleSelect = (e: any) => {
-    setValue(e.target.value);
+    setValue(e);
     setForm((currentFormData: any) => {
       const nextFormData = {
         ...currentFormData,
-        [dataToChange]: e.target.value,
+        [dataToChange]: e.slug,
       };
       return nextFormData;
     });
   };
 
-  const [value, setValue] = useState(selectedOption);
+  const [value, setValue] = useState(selectedOption[0]);
 
   return (
     <div className="my-4">
       <label className="block text-gray-700 text-1xl mb-2">{label}</label>
-      <select
-        onChange={handleSelect}
-        defaultValue={value}
-        className="p-2 rounded w-96"
-      >
-        {options.map((option) => (
-          <option value={option} key={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+      <TheSelect
+        options={options}
+        value={value}
+        onChange={(e) => handleSelect(e)}
+      />
     </div>
   );
 };
 
-export default EditGenderIdentity;
+export default ProfileSelect;

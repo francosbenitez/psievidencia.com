@@ -1,4 +1,4 @@
-export const tm = [
+export const TM = [
   {
     id: 1,
     name: "Terapias Cognitivo Conductuales",
@@ -29,7 +29,7 @@ export const tm = [
   },
 ];
 
-export const wm = [
+export const WM = [
   {
     id: 1,
     name: "Individual",
@@ -48,9 +48,62 @@ export const wm = [
   },
 ];
 
-export const wp = [
-  { id: 1, name: "Adultxs" },
-  { id: 2, name: "Infantojuvenil" },
-  { id: 3, name: "Adultxs Mayores" },
-  { id: 4, name: "Personas con discapacidad" },
+export const WP = [
+  {
+    id: 1,
+    name: "Adultxs",
+  },
+  {
+    id: 2,
+    name: "Infantojuvenil",
+  },
+  {
+    id: 3,
+    name: "Adultxs Mayores",
+  },
+  {
+    id: 4,
+    name: "Personas con discapacidad",
+  },
+];
+
+export const GI = [
+  {
+    id: 1,
+    name: "varon",
+    slug: "Hombre",
+  },
+  {
+    id: 2,
+    name: "mujer",
+    slug: "Mujer",
+  },
+  {
+    id: 3,
+    name: "no_binarie",
+    slug: "No binarie",
+  },
+];
+
+export const ED = [
+  {
+    id: 1,
+    name: "licenciatura",
+    slug: "Licenciatura",
+  },
+  {
+    id: 2,
+    name: "especialidad",
+    slug: "Especialización",
+  },
+  {
+    id: 3,
+    name: "maestria",
+    slug: "Master",
+  },
+  {
+    id: 4,
+    name: "doctorado",
+    slug: "Doctorado",
+  },
 ];
