@@ -12,7 +12,7 @@ import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
 import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
-import { TM, WM, WP, GI, ED } from "@/utils/constants";
+import { TM, WM, WP, GI, ED, BO, RT } from "@/utils/constants";
 import { GetServerSideProps } from "next";
 import { Provinces } from "@/types";
 
@@ -50,9 +50,9 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const promesa = updatePsychologist();
+    const promise = updatePsychologist();
 
-    toast.promise(promesa, {
+    toast.promise(promise, {
       loading: "Actualizando datos...",
       success: "¡Datos actualizados!",
       error: "Mil disculpas. Hubo un error actualizando tus datos",
@@ -184,6 +184,75 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                       options={ED}
                       dataToChange={"education"}
                     />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) =>
+                          option.slug === psychologist.gender_perspective
+                      )}
+                      setForm={setForm}
+                      label={"Perspectiva de género"}
+                      options={BO}
+                      dataToChange={"gender_perspective"}
+                    />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.invoice
+                      )}
+                      setForm={setForm}
+                      label={"Facturación"}
+                      options={BO}
+                      dataToChange={"invoice"}
+                    />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) =>
+                          option.slug === psychologist.sign_language
+                      )}
+                      setForm={setForm}
+                      label={"Lenguaje de señas"}
+                      options={BO}
+                      dataToChange={"sign_language"}
+                    />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.team
+                      )}
+                      setForm={setForm}
+                      label={"Equipo de salud"}
+                      options={BO}
+                      dataToChange={"team"}
+                    />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.prepaid
+                      )}
+                      setForm={setForm}
+                      label={"Obra Social/Prepaga"}
+                      options={BO}
+                      dataToChange={"prepaid"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.prepaid_type}
+                      setForm={setForm}
+                      label={"Obras Sociales/Prepagas"}
+                      dataToChange={"prepaid_type"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.institution}
+                      setForm={setForm}
+                      label={"Institución"}
+                      dataToChange={"institution"}
+                    />
+                    <ProfileSelect
+                      selectedOption={RT.filter(
+                        (option: any) =>
+                          option.name === psychologist.registration_type
+                      )}
+                      setForm={setForm}
+                      label={"Tipo de matrícula"}
+                      options={RT}
+                      dataToChange={"registration_type"}
+                    />
                   </>
                 ) : (
                   <ProfileInput
@@ -205,6 +274,8 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                 name="account"
                 onSubmit={(e) => e.preventDefault()}
               >
+                {/* TO-DO: Add the functionality to edit the mobile phone here */}
+
                 {Object.keys(EditAccountComponents).map((item) => {
                   const Item: any = AccountComponents[item];
                   return (

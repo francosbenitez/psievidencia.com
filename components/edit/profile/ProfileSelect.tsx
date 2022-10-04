@@ -4,7 +4,7 @@ import { TheSelect } from "@/components/edit/TheSelect";
 type Option = {
   id: number;
   name: string;
-  slug: string;
+  slug?: string;
 };
 
 const ProfileSelect = ({
@@ -25,7 +25,7 @@ const ProfileSelect = ({
     setForm((currentFormData: any) => {
       const nextFormData = {
         ...currentFormData,
-        [dataToChange]: e.slug,
+        [dataToChange]: e.hasOwnProperty("slug") ? e.slug : e.name,
       };
       return nextFormData;
     });

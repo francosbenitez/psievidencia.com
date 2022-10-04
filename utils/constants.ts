@@ -107,3 +107,27 @@ export const ED = [
     slug: "Doctorado",
   },
 ];
+
+export const BO = [
+  {
+    id: 1,
+    name: "si",
+    slug: "Sí",
+  },
+  {
+    id: 2,
+    name: "no",
+    slug: "No",
+  },
+];
+
+export const RT = [
+  {
+    id: 1,
+    name: "Provincial",
+  },
+  {
+    id: 2,
+    name: "Nacional",
+  },
+];
