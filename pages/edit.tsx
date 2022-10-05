@@ -234,6 +234,27 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                     <ProfileInput
                       selectedName={psychologist.prepaid_type}
                       setForm={setForm}
+                      label={"Tipo de Obra Social/Prepaga"}
+                      dataToChange={"prepaid_type"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.session_languages}
+                      setForm={setForm}
+                      label={"Idiomas"}
+                      dataToChange={"session_languages"}
+                    />
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.online
+                      )}
+                      setForm={setForm}
+                      label={"Online"}
+                      options={BO}
+                      dataToChange={"online"}
+                    />
+                    <ProfileInput
+                      selectedName={psychologist.prepaid_type}
+                      setForm={setForm}
                       label={"Obras Sociales/Prepagas"}
                       dataToChange={"prepaid_type"}
                     />
@@ -275,6 +296,13 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                 onSubmit={(e) => e.preventDefault()}
               >
                 {/* TO-DO: Add the functionality to edit the mobile phone here */}
+
+                <ProfileInput
+                  selectedName={psychologist.phone_number}
+                  setForm={setForm}
+                  label={"Número de teléfono"}
+                  dataToChange={"phone_number"}
+                />
 
                 {Object.keys(EditAccountComponents).map((item) => {
                   const Item: any = AccountComponents[item];
