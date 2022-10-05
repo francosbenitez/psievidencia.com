@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import * as EditAccountComponents from "@/components/edit/account";
 import SwitchComponents from "@/components/edit/SwitchComponents";
 import Account from "@/public/icons/account.svg";
 import Profile from "@/public/icons/profile.svg";
@@ -17,7 +16,6 @@ import { GetServerSideProps } from "next";
 import { Provinces } from "@/types";
 
 const Edit = ({ provinces }: { provinces: Provinces[] }) => {
-  const AccountComponents: Record<string, any> = EditAccountComponents;
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
   const [form, setForm] = useState({});
@@ -303,18 +301,35 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                   label={"Número de teléfono"}
                   dataToChange={"phone_number"}
                 />
+                <ProfileInput
+                  selectedName={psychologist.username}
+                  setForm={setForm}
+                  label={"Usuario"}
+                  dataToChange={"username"}
+                />
+                <ProfileInput
+                  selectedName={psychologist.email}
+                  setForm={setForm}
+                  label={"Email"}
+                  dataToChange={"email"}
+                />
 
-                {Object.keys(EditAccountComponents).map((item) => {
-                  const Item: any = AccountComponents[item];
-                  return (
-                    <Item
-                      key={item}
-                      selectedUsername={psychologist.username}
-                      selectedEmail={psychologist.email}
-                      setForm={setForm}
-                    />
-                  );
-                })}
+                <div className="my-4">
+                  <label
+                    className="block text-gray-700 text-1xl mb-2"
+                    htmlFor="username"
+                  >
+                    Contraseña
+                  </label>
+                  <input
+                    disabled
+                    className="p-2 rounded-md w-96  border border-slate-300 shadow-sm placeholder-slate-400"
+                    id="username"
+                    type="text"
+                    placeholder="******************"
+                  />
+                </div>
+
                 <p className="my-3 text-red-500">
                   Por ahora, la funcionalidad de editar los datos de la Cuenta
                   no está disponible. Disculpá las molestias.
