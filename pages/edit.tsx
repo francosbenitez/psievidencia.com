@@ -12,10 +12,8 @@ import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultip
 import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
 import { TM, WM, WP, GI, ED, BO, RT } from "@/utils/constants";
-import { GetServerSideProps } from "next";
-import { Provinces } from "@/types";
 
-const Edit = ({ provinces }: { provinces: Provinces[] }) => {
+const Edit = () => {
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
   const [form, setForm] = useState({});
@@ -155,12 +153,9 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
                       label={"Poblaciones de trabajo"}
                     />
                     <ProfileSelect
-                      selectedOption={provinces.filter(
-                        (option: any) => option.slug === psychologist.province
-                      )}
+                      selectedOption={psychologist.province}
                       setForm={setForm}
                       label={"Provincia"}
-                      options={provinces}
                       dataToChange={"province"}
                     />
                     <ProfileSelect
@@ -349,14 +344,6 @@ const Edit = ({ provinces }: { provinces: Provinces[] }) => {
       <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = (await PsychologistsService.lists(1, "provinces")).data;
-  const provinces = response.results;
-  return {
-    props: { provinces },
-  };
 };
 
 export default Edit;

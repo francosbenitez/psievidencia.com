@@ -21,9 +21,16 @@ type SingleSelectProps = {
 
 type SelectProps = {
   options: SelectOption[];
+  lastElementRef: any;
 } & (SingleSelectProps | MultipleSelectProps);
 
-export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
+export function TheSelect({
+  multiple,
+  value,
+  onChange,
+  options,
+  lastElementRef,
+}: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -45,7 +52,9 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
   }
 
   function isOptionSelected(option: SelectOption) {
-    return multiple ? value.some((e) => e.id === option.id) : option === value;
+    return multiple
+      ? value.some((e) => e.id === option.id)
+      : option.name === value?.name;
   }
 
   useEffect(() => {
@@ -127,22 +136,44 @@ export function TheSelect({ multiple, value, onChange, options }: SelectProps) {
       <div className={styles.divider}></div>
       <div className={styles.caret}></div>
       <ul className={`${styles.options} ${isOpen ? styles.show : ""}`}>
-        {options.map((option, index) => (
-          <li
-            onClick={(e) => {
-              e.stopPropagation();
-              selectOption(option);
-              setIsOpen(false);
-            }}
-            onMouseEnter={() => setHighlightedIndex(index)}
-            key={option.id}
-            className={`${styles.option} ${
-              isOptionSelected(option) ? styles.selected : ""
-            } ${index === highlightedIndex ? styles.highlighted : ""}`}
-          >
-            {option.hasOwnProperty("slug") ? option.slug : option.name}
-          </li>
-        ))}
+        {options.map((option, index) => {
+          if (options.length === index + 1) {
+            return (
+              <li
+                ref={lastElementRef}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(option);
+                  setIsOpen(false);
+                }}
+                onMouseEnter={() => setHighlightedIndex(index)}
+                key={option.id}
+                className={`${styles.option} ${
+                  isOptionSelected(option) ? styles.selected : ""
+                } ${index === highlightedIndex ? styles.highlighted : ""}`}
+              >
+                {option.hasOwnProperty("slug") ? option.slug : option.name}
+              </li>
+            );
+          } else {
+            return (
+              <li
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(option);
+                  setIsOpen(false);
+                }}
+                onMouseEnter={() => setHighlightedIndex(index)}
+                key={option.id}
+                className={`${styles.option} ${
+                  isOptionSelected(option) ? styles.selected : ""
+                } ${index === highlightedIndex ? styles.highlighted : ""}`}
+              >
+                {option.hasOwnProperty("slug") ? option.slug : option.name}
+              </li>
+            );
+          }
+        })}
       </ul>
     </div>
   );
