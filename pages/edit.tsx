@@ -156,6 +156,7 @@ const Edit = () => {
                       selectedOption={psychologist.province}
                       setForm={setForm}
                       label={"Provincia"}
+                      options={"provinces"}
                       dataToChange={"province"}
                     />
                     <ProfileSelect

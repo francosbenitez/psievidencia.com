@@ -19,7 +19,7 @@ const ProfileSelect = ({
   selectedOption: string | Option[];
   dataToChange: string;
   label: string;
-  options?: Option[];
+  options: string | Option[];
 }) => {
   const [fetchedOptions, setFetchedOptions] = useState([]);
   const [value, setValue] = useState(
@@ -84,20 +84,20 @@ const ProfileSelect = ({
   };
 
   useEffect(() => {
-    if (typeof selectedOption === "string" && !options) {
-      fetchSelectedOption("provinces", selectedOption);
+    if (typeof selectedOption === "string" && typeof options === "string") {
+      fetchSelectedOption(options, selectedOption);
     }
   }, [selectedOption]);
 
   useEffect(() => {
-    if (!options) {
-      fetchOptions("provinces", undefined);
+    if (typeof options === "string") {
+      fetchOptions(options, undefined);
     }
   }, []);
 
   useEffect(() => {
-    if (pagination > 1 && !options) {
-      fetchMoreOptions(pagination, "provinces", undefined);
+    if (pagination > 1 && typeof options === "string") {
+      fetchMoreOptions(pagination, options, undefined);
     }
   }, [pagination]);
 
@@ -105,7 +105,7 @@ const ProfileSelect = ({
     <div className="my-4">
       <label className="block text-gray-700 text-1xl mb-2">{label}</label>
       <TheSelect
-        options={options ? options : fetchedOptions}
+        options={Array.isArray(options) ? options : fetchedOptions}
         value={Array.isArray(value) ? value[0] : value}
         onChange={(e) => handleSelect(e)}
         lastElementRef={lastElementRef}
