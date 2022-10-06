@@ -130,4 +130,8 @@ export const RT = [
     id: 2,
     name: "Nacional",
   },
+  {
+    id: 3,
+    name: "Nacional y Provincial",
+  },
 ];

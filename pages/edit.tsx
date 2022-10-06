@@ -105,43 +105,103 @@ const Edit = () => {
               >
                 {role !== "AUTHENTICATED" ? (
                   <>
-                    <ProfileInput
-                      selectedName={psychologist.additional_data}
-                      setForm={setForm}
-                      label={"Datos adicionales"}
-                      dataToChange={"additional_data"}
-                    />
-                    <ProfileInput
-                      selectedName={psychologist.social_networks}
-                      setForm={setForm}
-                      label={"Redes sociales"}
-                      dataToChange={"social_networks"}
-                    />
+                    {/* Nombre y Apellido */}
                     <ProfileInput
                       selectedName={psychologist.name}
                       setForm={setForm}
-                      label={"Nombre"}
+                      label={"Nombre y Apellido"}
                       dataToChange={"name"}
                     />
-                    <ProfileInput
-                      selectedName={psychologist.city}
+
+                    {/* Identidad de Género */}
+                    <ProfileSelect
+                      selectedOption={GI.filter(
+                        (option: any) =>
+                          option.slug === psychologist.gender_identity
+                      )}
                       setForm={setForm}
-                      label={"Ciudad"}
-                      dataToChange={"city"}
+                      label={"Identidad de Género"}
+                      options={GI}
+                      dataToChange={"gender_identity"}
                     />
+
+                    {/* Tipo de Matrícula */}
+                    <ProfileSelect
+                      selectedOption={RT.filter(
+                        (option: any) =>
+                          option.name === psychologist.registration_type
+                      )}
+                      setForm={setForm}
+                      label={"Tipo de Matrícula"}
+                      options={RT}
+                      dataToChange={"registration_type"}
+                    />
+
+                    {/* Número de Matrícula (en caso de tener MN y MP, poner ambas en ese orden) */}
                     <ProfileInput
                       selectedName={psychologist.registration_number}
                       setForm={setForm}
-                      label={"Número de matrícula"}
+                      label={
+                        "Número de Matrícula (en caso de tener MN y MP, poner ambas en ese orden)"
+                      }
                       dataToChange={"registration_number"}
                     />
-                    <ProfileSelectMultiple
-                      selectedOptions={psychologist.specializations}
+
+                    {/* Añada el nombre de la institución o servicio en salud mental en caso de formar parte */}
+                    <ProfileInput
+                      selectedName={psychologist.institution}
                       setForm={setForm}
-                      dataToChange={"specializations"}
-                      options={"specializations"}
-                      label={"Especializaciones"}
+                      label={
+                        "Añada el nombre de la institución o servicio en salud mental en caso de formar parte"
+                      }
+                      dataToChange={"institution"}
                     />
+
+                    {/* ¿Integra un equipo de salud con Médicx Psiquiatra?
+                     */}
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.team
+                      )}
+                      setForm={setForm}
+                      label={
+                        "¿Integra un equipo de salud con Médicx Psiquiatra?"
+                      }
+                      options={BO}
+                      dataToChange={"team"}
+                    />
+
+                    {/* Jurisdicción */}
+                    <ProfileSelect
+                      selectedOption={psychologist.province}
+                      setForm={setForm}
+                      label={"Jurisdicción"}
+                      options={"provinces"}
+                      dataToChange={"province"}
+                    />
+
+                    {/* Acá podes especificar la localidad dentro de la provincia donde ejerces */}
+                    <ProfileInput
+                      selectedName={psychologist.city}
+                      setForm={setForm}
+                      label={
+                        "Acá podes especificar la localidad dentro de la provincia donde ejerces"
+                      }
+                      dataToChange={"city"}
+                    />
+
+                    {/* Mayor grado académico alcanzado */}
+                    <ProfileSelect
+                      selectedOption={ED.filter(
+                        (option: any) => option.slug === psychologist.education
+                      )}
+                      setForm={setForm}
+                      label={"Mayor grado académico alcanzado"}
+                      options={ED}
+                      dataToChange={"education"}
+                    />
+
+                    {/* ¿En cuáles de estos modelos terapéuticos acredita formación? */}
                     <ProfileSelectMultiple
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
@@ -149,142 +209,146 @@ const Edit = () => {
                       options={TM}
                       label={"Modelo terapéutico"}
                     />
-                    <ProfileSelectMultiple
-                      selectedOptions={psychologist.work_modalities}
-                      setForm={setForm}
-                      dataToChange={"work_modalities"}
-                      options={WM}
-                      label={"Modalidades de trabajo"}
-                    />
-                    <ProfileSelectMultiple
-                      selectedOptions={psychologist.work_populations}
-                      setForm={setForm}
-                      dataToChange={"work_populations"}
-                      options={WP}
-                      label={"Poblaciones de trabajo"}
-                    />
-                    <ProfileSelect
-                      selectedOption={psychologist.province}
-                      setForm={setForm}
-                      label={"Provincia"}
-                      options={"provinces"}
-                      dataToChange={"province"}
-                    />
-                    <ProfileSelect
-                      selectedOption={GI.filter(
-                        (option: any) =>
-                          option.slug === psychologist.gender_identity
-                      )}
-                      setForm={setForm}
-                      label={"Identidad de género"}
-                      options={GI}
-                      dataToChange={"gender_identity"}
-                    />
-                    <ProfileSelect
-                      selectedOption={ED.filter(
-                        (option: any) => option.slug === psychologist.education
-                      )}
-                      setForm={setForm}
-                      label={"Educación"}
-                      options={ED}
-                      dataToChange={"education"}
-                    />
+
+                    {/* Formación en Perspectiva de Género/LGBTIQ+ */}
                     <ProfileSelect
                       selectedOption={BO.filter(
                         (option: any) =>
                           option.slug === psychologist.gender_perspective
                       )}
                       setForm={setForm}
-                      label={"Perspectiva de género"}
+                      label={"Formación en Perspectiva de Género/LGBTIQ+"}
                       options={BO}
                       dataToChange={"gender_perspective"}
                     />
+
+                    {/* Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional */}
+                    <ProfileSelectMultiple
+                      selectedOptions={psychologist.specializations}
+                      setForm={setForm}
+                      dataToChange={"specializations"}
+                      options={"specializations"}
+                      label={
+                        "Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional"
+                      }
+                    />
+
+                    {/* Población de trabajo */}
+                    <ProfileSelectMultiple
+                      selectedOptions={psychologist.work_populations}
+                      setForm={setForm}
+                      dataToChange={"work_populations"}
+                      options={WP}
+                      label={"Población de trabajo"}
+                    />
+
+                    {/* Modalidad de Trabajo */}
+                    <ProfileSelectMultiple
+                      selectedOptions={psychologist.work_modalities}
+                      setForm={setForm}
+                      dataToChange={"work_modalities"}
+                      options={WM}
+                      label={"Modalidad de Trabajo"}
+                    />
+
+                    {/* Atención on-line */}
                     <ProfileSelect
                       selectedOption={BO.filter(
-                        (option: any) => option.slug === psychologist.invoice
+                        (option: any) => option.slug === psychologist.online
                       )}
                       setForm={setForm}
-                      label={"Facturación"}
+                      label={"Atención on-line"}
                       options={BO}
-                      dataToChange={"invoice"}
+                      dataToChange={"online"}
                     />
-                    <ProfileSelect
-                      selectedOption={BO.filter(
-                        (option: any) =>
-                          option.slug === psychologist.sign_language
-                      )}
-                      setForm={setForm}
-                      label={"Lenguaje de señas"}
-                      options={BO}
-                      dataToChange={"sign_language"}
-                    />
-                    <ProfileSelect
-                      selectedOption={BO.filter(
-                        (option: any) => option.slug === psychologist.team
-                      )}
-                      setForm={setForm}
-                      label={"Equipo de salud"}
-                      options={BO}
-                      dataToChange={"team"}
-                    />
+
+                    {/* ¿Trabaja con Obras Sociales / Prepagas? */}
                     <ProfileSelect
                       selectedOption={BO.filter(
                         (option: any) => option.slug === psychologist.prepaid
                       )}
                       setForm={setForm}
-                      label={"Obra Social/Prepaga"}
+                      label={"¿Trabaja con Obras Sociales / Prepagas?"}
                       options={BO}
                       dataToChange={"prepaid"}
                     />
+
+                    {/* Especificar cuáles */}
                     <ProfileInput
                       selectedName={psychologist.prepaid_type}
                       setForm={setForm}
                       label={"Tipo de Obra Social/Prepaga"}
                       dataToChange={"prepaid_type"}
                     />
+
+                    {/* ¿Facturás para realizar el reintegro en las Obras Sociales / Prepagas? */}
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) => option.slug === psychologist.invoice
+                      )}
+                      setForm={setForm}
+                      label={
+                        "¿Facturás para realizar el reintegro en las Obras Sociales / Prepagas?"
+                      }
+                      options={BO}
+                      dataToChange={"invoice"}
+                    />
+
+                    {/* ¿Utiliza Lengua de Señas? (manejo fluido para una sesión) */}
+                    <ProfileSelect
+                      selectedOption={BO.filter(
+                        (option: any) =>
+                          option.slug === psychologist.sign_language
+                      )}
+                      setForm={setForm}
+                      label={
+                        "¿Utiliza Lengua de Señas? (manejo fluido para una sesión)"
+                      }
+                      options={BO}
+                      dataToChange={"sign_language"}
+                    />
+
+                    {/* Además de Español, ¿tiene manejo de otro/s idioma/s fluido/s para una sesión? */}
                     <ProfileInput
                       selectedName={psychologist.session_languages}
                       setForm={setForm}
-                      label={"Idiomas"}
+                      label={
+                        "Además de Español, ¿tiene manejo de otro/s idioma/s fluido/s para una sesión?"
+                      }
                       dataToChange={"session_languages"}
                     />
-                    <ProfileSelect
-                      selectedOption={BO.filter(
-                        (option: any) => option.slug === psychologist.online
-                      )}
-                      setForm={setForm}
-                      label={"Online"}
-                      options={BO}
-                      dataToChange={"online"}
-                    />
+
+                    {/* Redes Sociales */}
                     <ProfileInput
-                      selectedName={psychologist.prepaid_type}
+                      selectedName={psychologist.social_networks}
                       setForm={setForm}
-                      label={"Obras Sociales/Prepagas"}
-                      dataToChange={"prepaid_type"}
+                      label={"Redes Sociales"}
+                      dataToChange={"social_networks"}
                     />
+
+                    {/* Número o Mail de contacto */}
                     <ProfileInput
-                      selectedName={psychologist.institution}
+                      selectedName={psychologist.phone_number}
                       setForm={setForm}
-                      label={"Institución"}
-                      dataToChange={"institution"}
+                      label={"Número o Mail de contacto"}
+                      dataToChange={"phone_number"}
                     />
-                    <ProfileSelect
-                      selectedOption={RT.filter(
-                        (option: any) =>
-                          option.name === psychologist.registration_type
-                      )}
+
+                    {/* Algún dato que quieras añadir y no se haya contemplado previamente en el cuestionario */}
+                    <ProfileInput
+                      selectedName={psychologist.additional_data}
                       setForm={setForm}
-                      label={"Tipo de matrícula"}
-                      options={RT}
-                      dataToChange={"registration_type"}
+                      label={
+                        "Algún dato que quieras añadir y no se haya contemplado previamente en el cuestionario"
+                      }
+                      dataToChange={"additional_data"}
                     />
                   </>
                 ) : (
                   <ProfileInput
                     selectedName={psychologist.name}
                     setForm={setForm}
-                    label={"Nombre"}
+                    label={"Nombre y Apellido"}
                     dataToChange={"name"}
                   />
                 )}
@@ -300,12 +364,6 @@ const Edit = () => {
                 name="account"
                 onSubmit={(e) => e.preventDefault()}
               >
-                <ProfileInput
-                  selectedName={psychologist.phone_number}
-                  setForm={setForm}
-                  label={"Número de teléfono"}
-                  dataToChange={"phone_number"}
-                />
                 <ProfileInput
                   selectedName={psychologist.username}
                   setForm={setForm}
