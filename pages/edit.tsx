@@ -296,28 +296,17 @@ const Edit = () => {
                 name="account"
                 onSubmit={(e) => e.preventDefault()}
               >
-                {/* TO-DO: Add the functionality to edit the mobile phone here */}
-
                 <ProfileInput
-                  disabled={true}
                   selectedName={psychologist.phone_number}
                   setForm={setForm}
                   label={"Número de teléfono"}
                   dataToChange={"phone_number"}
                 />
                 <ProfileInput
-                  disabled={true}
                   selectedName={psychologist.username}
                   setForm={setForm}
                   label={"Usuario"}
                   dataToChange={"username"}
-                />
-                <ProfileInput
-                  disabled={true}
-                  selectedName={psychologist.email}
-                  setForm={setForm}
-                  label={"Email"}
-                  dataToChange={"email"}
                 />
 
                 <div className="my-4">
@@ -326,14 +315,22 @@ const Edit = () => {
                   </label>
                   <input
                     disabled
-                    className="p-2 rounded w-96"
+                    className="p-2 rounded w-96 border border-primary focus-visible:outline-none"
                     placeholder="******************"
                   />
                 </div>
 
+                <ProfileInput
+                  disabled={true}
+                  selectedName={psychologist.email}
+                  setForm={setForm}
+                  label={"Email"}
+                  dataToChange={"email"}
+                />
+
                 <p className="my-3 text-red-500">
-                  Por ahora, la funcionalidad de editar los datos de la Cuenta
-                  no está disponible. Disculpá las molestias.
+                  Por ahora, las funcionalidades de editar tu email y tu
+                  contraseña no están disponibles. Disculpá las molestias.
                 </p>
                 <button
                   className="opacity-50 rounded bg-primary text-white p-2 border-white"
