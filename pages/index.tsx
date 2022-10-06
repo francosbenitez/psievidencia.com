@@ -25,6 +25,7 @@ import { useIntl } from "react-intl";
 // import LoadingSpinner from "@/components/home/LoadingSpinner";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { GI, ED, WM } from "@/utils/constants";
 
 const Home = (props: any, ref: any) => {
   const intl = useIntl();
@@ -67,66 +68,10 @@ const Home = (props: any, ref: any) => {
   const [sp, setSp] = useState<Data[]>([]);
   const [tm, setTm] = useState<Data[]>([]);
   const [wp, setWp] = useState<Data[]>([]);
-  const [wm, setWm] = useState<Data[]>([
-    {
-      id: 1,
-      name: "Individual",
-    },
-    {
-      id: 2,
-      name: "Pareja",
-    },
-    {
-      id: 3,
-      name: "Familiar",
-    },
-    {
-      id: 4,
-      name: "Grupal",
-    },
-  ]);
-  const [ed, setEd] = useState<Data[]>([
-    {
-      id: 1,
-      name: "licenciatura",
-      slug: intl.formatMessage({ id: "education.licentiate" }),
-    },
-    {
-      id: 2,
-      name: "especialidad",
-      slug: intl.formatMessage({ id: "education.specialist" }),
-    },
-    {
-      id: 3,
-      name: "maestria",
-      slug: intl.formatMessage({ id: "education.master" }),
-    },
-    {
-      id: 4,
-      name: "doctorado",
-      slug: intl.formatMessage({ id: "education.doctoral" }),
-    },
-  ]);
-
+  const [wm, setWm] = useState<Data[]>(WM);
+  const [ed, setEd] = useState<Data[]>(ED);
   const [pr, setPr] = useState<Data[]>([]);
-
-  const [gi, setGi] = useState<Data[]>([
-    {
-      id: 1,
-      name: "varon",
-      slug: intl.formatMessage({ id: "gender.man" }),
-    },
-    {
-      id: 2,
-      name: "mujer",
-      slug: intl.formatMessage({ id: "gender.woman" }),
-    },
-    {
-      id: 3,
-      name: "no_binarie",
-      slug: intl.formatMessage({ id: "gender.non_binary" }),
-    },
-  ]);
+  const [gi, setGi] = useState<Data[]>(GI);
 
   const { userInfo } = useSelector((state: any) => state.userReducer);
 

@@ -1,3 +1,9 @@
+export type Provinces = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
 export type Psychologist = {
   additional_data: string;
   city: string;
