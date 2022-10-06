@@ -100,6 +100,7 @@ const Edit = () => {
 
               <SwitchComponents active={activeComponent}>
                 <form
+                  key={1}
                   className="w-3/4"
                   name="profile"
                   onSubmit={(e) => e.preventDefault()}
@@ -362,6 +363,7 @@ const Edit = () => {
                   </button>
                 </form>
                 <form
+                  key={2}
                   className="w-3/4"
                   name="account"
                   onSubmit={(e) => e.preventDefault()}
