@@ -5,11 +5,13 @@ const ProfileInput = ({
   setForm,
   label,
   dataToChange,
+  disabled,
 }: {
   selectedName: any;
   setForm: any;
   label: string;
   dataToChange: string;
+  disabled?: boolean;
 }) => {
   const handleInput = (e: any) => {
     setValue(e.target.value);
@@ -28,6 +30,7 @@ const ProfileInput = ({
     <div className="my-4">
       <label className="block text-gray-700 text-1xl mb-2">{label}</label>
       <input
+        disabled={disabled}
         className="p-2 rounded w-96"
         value={value}
         onChange={(e) => handleInput(e)}

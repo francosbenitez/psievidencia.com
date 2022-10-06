@@ -132,6 +132,13 @@ const Edit = () => {
                       dataToChange={"registration_number"}
                     />
                     <ProfileSelectMultiple
+                      selectedOptions={psychologist.specializations}
+                      setForm={setForm}
+                      dataToChange={"specializations"}
+                      options={"specializations"}
+                      label={"Especializaciones"}
+                    />
+                    <ProfileSelectMultiple
                       selectedOptions={psychologist.therapeutic_models}
                       setForm={setForm}
                       dataToChange={"therapeutic_models"}
@@ -292,18 +299,21 @@ const Edit = () => {
                 {/* TO-DO: Add the functionality to edit the mobile phone here */}
 
                 <ProfileInput
+                  disabled={true}
                   selectedName={psychologist.phone_number}
                   setForm={setForm}
                   label={"Número de teléfono"}
                   dataToChange={"phone_number"}
                 />
                 <ProfileInput
+                  disabled={true}
                   selectedName={psychologist.username}
                   setForm={setForm}
                   label={"Usuario"}
                   dataToChange={"username"}
                 />
                 <ProfileInput
+                  disabled={true}
                   selectedName={psychologist.email}
                   setForm={setForm}
                   label={"Email"}
@@ -311,17 +321,12 @@ const Edit = () => {
                 />
 
                 <div className="my-4">
-                  <label
-                    className="block text-gray-700 text-1xl mb-2"
-                    htmlFor="username"
-                  >
+                  <label className="block text-gray-700 text-1xl mb-2">
                     Contraseña
                   </label>
                   <input
                     disabled
-                    className="p-2 rounded-md w-96  border border-slate-300 shadow-sm placeholder-slate-400"
-                    id="username"
-                    type="text"
+                    className="p-2 rounded w-96"
                     placeholder="******************"
                   />
                 </div>
