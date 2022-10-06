@@ -31,7 +31,9 @@ const ProfileInput = ({
       <label className="block text-gray-700 text-1xl mb-2">{label}</label>
       <input
         disabled={disabled}
-        className="p-2 rounded w-96 border border-primary focus-visible:outline-none"
+        className={`p-2 rounded w-96 border border-primary focus-visible:outline-none ${
+          disabled ? "cursor-not-allowed" : ""
+        }`}
         value={value}
         onChange={(e) => handleInput(e)}
       />

@@ -13,6 +13,8 @@ import ProfileSelect from "@/components/edit/profile/ProfileSelect";
 
 import { TM, WM, WP, GI, ED, BO, RT } from "@/utils/constants";
 
+import ProfilePassword from "@/components/edit/profile/ProfilePassword";
+
 const Edit = () => {
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
@@ -375,16 +377,7 @@ const Edit = () => {
                     dataToChange={"username"}
                   />
 
-                  <div className="my-4">
-                    <label className="block text-gray-700 text-1xl mb-2">
-                      Contraseña
-                    </label>
-                    <input
-                      disabled
-                      className="p-2 rounded w-96 border border-primary focus-visible:outline-none"
-                      placeholder="******************"
-                    />
-                  </div>
+                  <ProfilePassword />
 
                   <ProfileInput
                     disabled={true}
@@ -394,10 +387,17 @@ const Edit = () => {
                     dataToChange={"email"}
                   />
 
-                  <p className="my-3 text-red-500">
-                    Por ahora, las funcionalidades de editar tu email y tu
-                    contraseña no están disponibles. Disculpá las molestias.
+                  <p className="my-3">
+                    Contactá con{" "}
+                    <a
+                      href="mailto:hola@psievidencia.com"
+                      className="font-bold underline"
+                    >
+                      soporte
+                    </a>{" "}
+                    para modificar tu email
                   </p>
+
                   <button
                     className="rounded bg-primary text-white p-2 border-white"
                     onClick={handleSubmit}
