@@ -66,7 +66,9 @@ const Edit = () => {
           <div className="block md:flex">
             <ul className="w-full md:w-1/4 flex md:block">
               <li
-                onClick={() => setActiveComponent("profile")}
+                onClick={() => {
+                  setActiveComponent("profile"), setForm({});
+                }}
                 className="cursor-pointer my-4"
               >
                 <div
@@ -79,7 +81,9 @@ const Edit = () => {
                 </div>
               </li>
               <li
-                onClick={() => setActiveComponent("account")}
+                onClick={() => {
+                  setActiveComponent("account"), setForm({});
+                }}
                 className="cursor-pointer my-4"
               >
                 <div
@@ -333,9 +337,8 @@ const Edit = () => {
                   contraseña no están disponibles. Disculpá las molestias.
                 </p>
                 <button
-                  className="opacity-50 rounded bg-primary text-white p-2 border-white"
+                  className="rounded bg-primary text-white p-2 border-white"
                   onClick={handleSubmit}
-                  disabled
                 >
                   Guardar
                 </button>
