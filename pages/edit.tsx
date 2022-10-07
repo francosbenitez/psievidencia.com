@@ -377,7 +377,7 @@ const Edit = () => {
                     dataToChange={"username"}
                   />
 
-                  <ProfilePassword />
+                  <ProfilePassword email={psychologist.email} />
 
                   <ProfileInput
                     disabled={true}
