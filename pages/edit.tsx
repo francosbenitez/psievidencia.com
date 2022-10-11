@@ -5,7 +5,8 @@ import Account from "@/public/icons/account.svg";
 import Profile from "@/public/icons/profile.svg";
 import PsychologistsService from "@/services/PsychologistsService";
 import toast, { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUsername } from "@/store/user/userSlice";
 
 import ProfileInput from "@/components/edit/profile/ProfileInput";
 import ProfileSelectMultiple from "@/components/edit/profile/ProfileSelectMultiple";
@@ -15,10 +16,16 @@ import { TM, WM, WP, GI, ED, BO, RT } from "@/utils/constants";
 
 import ProfilePassword from "@/components/edit/profile/ProfilePassword";
 
+type Form = {
+  username?: string;
+};
+
 const Edit = () => {
   const [psychologist, setPsychologist] = useState<Record<string, any>>();
 
-  const [form, setForm] = useState({});
+  const dispatch = useDispatch();
+
+  const [form, setForm] = useState<Form>({});
 
   const { role } = useSelector((state: any) => state.userReducer);
 
@@ -40,6 +47,10 @@ const Edit = () => {
       if (Object.keys(form).length > 0) {
         const response = (await PsychologistsService.edit(form)).data;
         setPsychologist(response.data);
+
+        if (form.hasOwnProperty("username")) {
+          dispatch(updateUsername(form.username));
+        }
       }
     } catch (err) {
       console.log("err", err);
