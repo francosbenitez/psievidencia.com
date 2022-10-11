@@ -45,11 +45,23 @@ const ProfileSelect = ({
   );
 
   const handleSelect = (e: any) => {
+    const oneToMany = [
+      "gender_identity",
+      "province",
+      "prepaid",
+      "education",
+      "gender_perspective",
+    ];
+
     setValue(e);
     setForm((currentFormData: any) => {
       const nextFormData = {
         ...currentFormData,
-        [dataToChange]: e.hasOwnProperty("slug") ? e.slug : e.name,
+        [dataToChange]: oneToMany.includes(dataToChange)
+          ? e
+          : e.hasOwnProperty("slug")
+          ? e.slug
+          : e.name,
       };
       return nextFormData;
     });
