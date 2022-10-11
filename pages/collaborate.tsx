@@ -22,6 +22,7 @@ const Collaborate = () => {
               <a
                 href="https://github.com/francosbenitez/psievidencia.com"
                 target="_blank"
+                rel="noreferrer"
                 className="underline"
               >
                 pull request
@@ -53,6 +54,7 @@ const Collaborate = () => {
                 href="https://cafecito.app/psievidencia"
                 className="underline"
                 target="_blank"
+                rel="noreferrer"
               >
                 Cafecito
               </a>
