@@ -5,8 +5,21 @@ import Twitter from "@/public/icons/twitter.svg";
 import Email from "@/public/icons/email.svg";
 import Magnifier from "@/public/icons/magnifier.svg";
 import Link from "next/link";
+import { logout } from "@/store/user/userSlice";
+import UsersService from "@/services/UsersService";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 const HomeFooter = () => {
+  const router = useRouter();
+
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await UsersService.logout();
+    dispatch(logout());
+    router.push("/");
+  };
+
   return (
     <div className="footer-custom">
       <footer className="footer p-10 container w-11/12 mx-auto">
@@ -34,7 +47,9 @@ const HomeFooter = () => {
           <Link href="/edit">
             <a className="link link-hover">Editar perfil</a>
           </Link>
-          <a className="link link-hover">Cerrar sesión</a>
+          <a className="link link-hover" onClick={() => handleLogout()}>
+            Cerrar sesión
+          </a>
         </div>
         <div>
           <span className="footer-title">Redes</span>
@@ -47,7 +62,7 @@ const HomeFooter = () => {
               <Twitter />
             </a>
             <a
-              href="https://www.instagram.com/psievidencia_com/"
+              href="https://www.instagram.com/psievidencia_app/"
               target="_blank"
               rel="noreferrer"
             >

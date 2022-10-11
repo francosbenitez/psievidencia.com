@@ -405,6 +405,10 @@ const Home = (props: any, ref: any) => {
 
         {psychologists != null && psychologists.length > 0 ? (
           <>
+            <div className="my-12">
+              <p className="font-bold text-xl">{count} psicoterapeutas</p>
+            </div>
+
             <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {psychologists.map((psychologist: Psychologist) => {
                 return (

@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
       <h2 className="text-3xl text-center underline">Acerca</h2>
-      <div className="text-2xl leading-normal mt-6">
+      <div className="text-xl leading-normal mt-6">
         <p className="mb-6">
           Psievidencia es un proyecto que surge con base en la necesidad de toda
           una comunidad —compuesta tanto por psicólogues, como por estudiantes y
