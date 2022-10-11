@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Collaborate = () => {
   return (
@@ -17,9 +18,19 @@ const Collaborate = () => {
           <li className="mb-6">
             <span className="font-bold">Programación</span>
             <p>
-              En Programación, podés colaborar ya sea generando un Pull Request
-              o contactándonos para dar una mano más de cerca con aspectos de
-              desarrollo.
+              En esta área podés colaborar ya sea generando un{" "}
+              <a
+                href="https://github.com/francosbenitez/psievidencia.com"
+                target="_blank"
+                className="underline"
+              >
+                pull request
+              </a>{" "}
+              o{" "}
+              <Link href="/contact">
+                <a className="underline">contactándonos</a>
+              </Link>{" "}
+              para dar una mano más de cerca con aspectos de desarrollo.
             </p>
           </li>
           <li className="mb-6">
@@ -27,17 +38,29 @@ const Collaborate = () => {
             <p>
               Como sabrás, este sitio aún no cuenta con las mejores prácticas en
               términos de UX/UI, ni el mejor logo, etc. Si te gustaría aportar
-              desde este lado, ¡sos más que bienvenide!
+              desde este lado, ¡sos{" "}
+              <Link href="/contact">
+                <a className="underline">más que bienvenide</a>
+              </Link>
+              !
             </p>
           </li>
           <li className="mb-6">
             <span className="font-bold">Cafecito</span>
             <p>
-              Contamos con un Cafecito, principalmente para paliar todas las
-              cuestiones relativas al servidor, hosting y dominio del sitio.
-              Además, el Cafecito funciona como un medio para incentivar el
-              laburo que venimos haciendo todes. (En realidad, yo prefiero una
-              pizza, pero un Cafecito viene súper bien).
+              Contamos con un{" "}
+              <a
+                href="https://cafecito.app/psievidencia"
+                className="underline"
+                target="_blank"
+              >
+                Cafecito
+              </a>
+              , principalmente para paliar todas las cuestiones relativas al
+              servidor, hosting y dominio del sitio. Además, el Cafecito
+              funciona como un medio para incentivar el laburo que venimos
+              haciendo entre todes. (En realidad, yo prefiero una pizza, pero un
+              Cafecito viene súper bien).
             </p>
           </li>
           <li className="mb-6">
@@ -46,7 +69,11 @@ const Collaborate = () => {
               Este sitio siempre va a estar en continua construcción, tratando
               de paliar al máximo tanto las necesidades de los psicólogues, como
               aquellas provenientes de les usuaries. Así que, por ello, ¡te
-              invitamos a escribirnos con cualquier sugerencia que tengas!
+              invitamos a{" "}
+              <Link href="/contact">
+                <a className="underline">escribirnos</a>
+              </Link>{" "}
+              con cualquier sugerencia que tengas!
             </p>
           </li>
         </ol>
