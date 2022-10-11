@@ -90,7 +90,7 @@ const TheRegister = ({
             {error !== null && error.username && (
               <>
                 {error.username.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -110,7 +110,7 @@ const TheRegister = ({
             {error !== null && error.email && (
               <>
                 {error.email.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -139,7 +139,7 @@ const TheRegister = ({
             {error !== null && error.password && (
               <>
                 {error.password.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
