@@ -21,6 +21,12 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    updateUsername: (state, { payload }) => {
+      if (state.userInfo) {
+        const userInfo: { user: { username: string } } = state.userInfo;
+        userInfo.user.username = payload;
+      }
+    },
     logout: (state) => {
       localStorage.removeItem("Token");
       state.loading = false;
@@ -64,5 +70,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, updateUsername } = userSlice.actions;
 export default userSlice.reducer;

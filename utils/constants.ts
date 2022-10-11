@@ -94,12 +94,12 @@ export const ED = [
   {
     id: 2,
     name: "especialidad",
-    slug: "Especialización",
+    slug: "Especialidad",
   },
   {
     id: 3,
     name: "maestria",
-    slug: "Master",
+    slug: "Maestría",
   },
   {
     id: 4,
@@ -129,5 +129,9 @@ export const RT = [
   {
     id: 2,
     name: "Nacional",
+  },
+  {
+    id: 3,
+    name: "Nacional y Provincial",
   },
 ];
