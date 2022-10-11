@@ -4,6 +4,7 @@ import Instagram from "@/public/icons/instagram.svg";
 import Twitter from "@/public/icons/twitter.svg";
 import Email from "@/public/icons/email.svg";
 import Magnifier from "@/public/icons/magnifier.svg";
+import Link from "next/link";
 
 const HomeFooter = () => {
   return (
@@ -15,14 +16,24 @@ const HomeFooter = () => {
         </div>
         <div>
           <span className="footer-title">Proyecto</span>
-          <a className="link link-hover">Acerca</a>
-          <a className="link link-hover">Colaborar</a>
-          <a className="link link-hover">Contacto</a>
+          <Link href="/about">
+            <a className="link link-hover">Acerca</a>
+          </Link>
+          <Link href="/collaborate">
+            <a className="link link-hover">Colaborar</a>
+          </Link>
+          <Link href="/contact">
+            <a className="link link-hover">Contacto</a>
+          </Link>
         </div>
         <div>
           <span className="footer-title">Mi perfil</span>
-          <a className="link link-hover">Mis favoritos</a>
-          <a className="link link-hover">Editar perfil</a>
+          <Link href="/favorites">
+            <a className="link link-hover">Mis favoritos</a>
+          </Link>
+          <Link href="/edit">
+            <a className="link link-hover">Editar perfil</a>
+          </Link>
           <a className="link link-hover">Cerrar sesión</a>
         </div>
         <div>
