@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import UsersService from "@/services/UsersService";
+import LoadingSpinner from "@/components/home/LoadingSpinner";
 
 const ProfilePassword = ({ email }: { email: string }) => {
+  const [loading, setLoading] = useState(false);
+
   const origin =
     typeof window !== "undefined" && window.location.origin
       ? window.location.origin
@@ -20,9 +23,12 @@ const ProfilePassword = ({ email }: { email: string }) => {
         formData.append(key, value);
       });
 
+      setLoading(true);
       await UsersService.resetPasswordStepOne(formData);
+      setLoading(false);
     } catch (error) {
       console.log("error", error);
+      setLoading(false);
     }
   };
   return (
@@ -31,14 +37,15 @@ const ProfilePassword = ({ email }: { email: string }) => {
       <div className="w-96 flex">
         <input
           disabled
-          className="p-2 rounded border border-primary focus-visible:outline-none cursor-not-allowed"
+          className="p-2 rounded border border-primary focus-visible:outline-none cursor-not-allowed mr-2"
           placeholder="******************"
         />
         <button
-          className="rounded bg-primary text-white p-2 border-white ml-auto"
+          disabled={loading}
+          className="w-full rounded bg-primary text-white p-2 border-white ml-auto"
           onClick={handleReset}
         >
-          Cambiar contraseña
+          {loading ? <LoadingSpinner btn={true} /> : "Cambiar contraseña"}
         </button>
       </div>
     </div>
