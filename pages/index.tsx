@@ -403,6 +403,10 @@ const Home = (props: any, ref: any) => {
           setData={setPr}
         />
 
+        <div className="my-12">
+          <p className="font-bold text-xl">{count} psicoterapeutas</p>
+        </div>
+
         {psychologists != null && psychologists.length > 0 ? (
           <>
             <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
