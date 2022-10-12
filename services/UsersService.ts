@@ -5,6 +5,9 @@ export default {
   create(form: any) {
     return Api().post("/suggestions/create", form);
   },
+  contact(form: any) {
+    return Api().post("/contact", form);
+  },
   suggestions() {
     return Api().get("/suggestions");
   },
