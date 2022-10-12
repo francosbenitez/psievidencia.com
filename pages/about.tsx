@@ -13,9 +13,9 @@ const About = () => {
         <div className="text-xl leading-normal mt-6">
           <p className="mb-6">
             Psievidencia es un proyecto que surge con base en la necesidad de
-            toda una comunidad —compuesta tanto por psicólogues, como por
-            estudiantes y usuaries—, que busca reunir los servicios de la
-            Psicoterapia Basada en Evidencia (PBE) en un solo lugar.
+            toda una comunidad —compuesta por psicólogues, estudiantes y
+            usuaries—, que busca reunir los servicios de la Psicoterapia Basada
+            en Evidencia (PBE) en un solo lugar.
           </p>
           <p className="mb-6">
             Este proyecto es de código abierto, no posee ánimos de lucro y
