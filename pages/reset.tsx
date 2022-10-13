@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import UsersService from "@/services/UsersService";
 import Head from "next/head";
 // import Link from "next/link";
+import LoadingSpinner from "@/components/home/LoadingSpinner";
 
 const Reset = ({
   token_valid,
@@ -101,7 +102,11 @@ const Reset = ({
               type="submit"
               className="bg-primary text-white py-2 px-4 rounded w-full"
             >
-              Confirmá tu contraseña nueva
+              {loading ? (
+                <LoadingSpinner btn={true} />
+              ) : (
+                "Confirmá tu contraseña nueva"
+              )}
             </button>
           </form>
         )}

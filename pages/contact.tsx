@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import UsersService from "@/services/UsersService";
+import LoadingSpinner from "@/components/home/LoadingSpinner";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [fromEmail, setFromEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [status, setStatus] = useState<string>("");
 
   const handleContact = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -21,9 +24,13 @@ const Contact = () => {
         formData.append(key, value);
       });
 
-      (await UsersService.contact(formData)).data.data;
+      setLoading(true);
+      const response = await UsersService.contact(formData);
+      setLoading(false);
+      setStatus(response.data.status);
     } catch (error) {
-      console.log("error", error);
+      setStatus(error.response.data.status);
+      setLoading(false);
     }
   };
 
@@ -86,10 +93,27 @@ const Contact = () => {
                 </div>
                 <span className="block rounded-md shadow-sm">
                   <button
+                    disabled={
+                      loading || (status !== "" && status === "success")
+                    }
                     type="submit"
-                    className="mt-5 w-full px-6 py-3 border border-transparent text-sm leading-4 rounded-md text-white bg-primary hover:bg-white hover:text-primary hover:border-primary focus:outline-none transition ease-in-out duration-150"
+                    className={`mt-5 w-full px-6 py-3 border border-transparent text-sm leading-4 rounded-md text-white bg-primary focus:outline-none transition ease-in-out duration-150 ${
+                      status !== ""
+                        ? status === "failed"
+                          ? "bg-red-500"
+                          : "bg-green-500"
+                        : ""
+                    }  `}
                   >
-                    Enviar mensaje
+                    {loading ? (
+                      <LoadingSpinner btn={true} />
+                    ) : status === "" ? (
+                      "Enviar mensaje"
+                    ) : status === "failed" ? (
+                      "Ha habido un error"
+                    ) : (
+                      "Mensaje enviado exitósamente"
+                    )}
                   </button>
                 </span>
               </form>
