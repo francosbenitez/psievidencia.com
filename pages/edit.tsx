@@ -16,6 +16,8 @@ import { TM, WM, WP, GI, ED, BO, RT } from "@/utils/constants";
 
 import ProfilePassword from "@/components/edit/profile/ProfilePassword";
 
+import withAuth from "@/hoc/withAuth";
+
 type Form = {
   username?: string;
 };
@@ -426,4 +428,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default withAuth(Edit);

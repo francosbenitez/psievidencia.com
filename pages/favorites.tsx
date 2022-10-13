@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import TheCard from "../components/home/TheCard";
 import Head from "next/head";
 
+import withAuth from "@/hoc/withAuth";
+
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
@@ -46,4 +48,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default withAuth(Favorites);
