@@ -6,7 +6,7 @@ import Router from "next/router";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://secret-hamlet-81810.herokuapp.com/api/";
+  "https://web-production-979a.up.railway.app/api/";
 
 export default () => {
   // const token: string | null = typeof window !== "undefined" ? getToken() : "";
