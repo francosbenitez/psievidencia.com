@@ -3,6 +3,7 @@ import TheSuggestions from "./TheSuggestions";
 import Instagram from "@/public/icons/instagram.svg";
 import Twitter from "@/public/icons/twitter.svg";
 import Email from "@/public/icons/email.svg";
+import Coffee from "@/public/icons/coffee.svg";
 import Magnifier from "@/public/icons/magnifier.svg";
 import Link from "next/link";
 import { logout } from "@/store/user/userSlice";
@@ -74,6 +75,13 @@ const HomeFooter = () => {
               rel="noreferrer"
             >
               <Email />
+            </a>
+            <a
+              href="https://cafecito.app/psievidencia"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Coffee />
             </a>
           </div>
         </div>
