@@ -5,7 +5,7 @@ import UsersService from "@/services/UsersService";
 const withAuth = (Component: any) => {
   const AuthenticatedComponent = (props: any) => {
     const router = useRouter();
-    const [success, setSuccess] = useState<boolean>();
+    const [success, setSuccess] = useState<boolean>(false);
 
     useEffect(() => {
       const getUser = async () => {
