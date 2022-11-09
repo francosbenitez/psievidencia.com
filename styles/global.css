@@ -370,3 +370,18 @@ body {
   display: inline;
   margin-right: 0.5rem;
 }
+
+/* Animation */
+.message-appear {
+  opacity: 0.01;
+}
+
+.message-appear-active {
+  opacity: 1;
+  transition: all 10000ms ease-out;
+}
+
+/* Disabled */
+.disabled {
+  opacity: 0.75;
+}

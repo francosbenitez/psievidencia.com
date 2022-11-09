@@ -9,6 +9,7 @@ const TheReset = ({
   showLogin: any;
 }) => {
   const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
   const origin =
     typeof window !== "undefined" && window.location.origin
@@ -28,10 +29,13 @@ const TheReset = ({
         formData.append(key, value);
       });
 
+      setLoading(true);
       await UsersService.resetPasswordStepOne(formData);
+      setLoading(false);
       showModal();
     } catch (error) {
       console.log("error", error);
+      setLoading(false);
     }
   };
 
@@ -50,8 +54,11 @@ const TheReset = ({
           </div>
         </label>
         <button
+          disabled={loading}
           type="submit"
-          className="bg-primary text-white py-2 px-4 rounded"
+          className={`bg-primary text-white py-2 px-4 rounded ${
+            loading ? "disabled cursor-not-allowed" : ""
+          }`}
         >
           Recuperar
         </button>
