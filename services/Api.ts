@@ -5,8 +5,7 @@ import { store } from "../store";
 import Router from "next/router";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://web-develop-ecb4.up.railway.app/api/";
+  process.env.NEXT_PUBLIC_API_URL || "https://web-main.up.railway.app/api/";
 
 export default () => {
   // const token: string | null = typeof window !== "undefined" ? getToken() : "";
