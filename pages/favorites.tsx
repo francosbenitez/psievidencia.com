@@ -1,9 +1,10 @@
 import React from "react";
 import UsersService from "../services/UsersService";
-// import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 import TheCard from "../components/home/TheCard";
 import Head from "next/head";
+
+import withAuth from "@/hoc/withAuth";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -47,13 +48,4 @@ const Favorites = () => {
   );
 };
 
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const favorites = (await UsersService.favorites()).data;
-//   return {
-//     props: {
-//       favorites,
-//     },
-//   };
-// };
-
-export default Favorites;
+export default withAuth(Favorites);

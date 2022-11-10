@@ -1,8 +1,15 @@
 import { createWrapper } from "next-redux-wrapper";
 import masterReducer from "./reducers/masterReducer";
 import { configureStore } from "@reduxjs/toolkit";
+import { loadState, saveState } from "./tests";
 
-export const store = configureStore({ reducer: masterReducer });
+const preloadedState = loadState();
+
+export const store = configureStore({ reducer: masterReducer, preloadedState });
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 const makeStore = () => store;
 

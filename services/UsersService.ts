@@ -5,6 +5,9 @@ export default {
   create(form: any) {
     return Api().post("/suggestions/create", form);
   },
+  contact(form: any) {
+    return Api().post("/contact", form);
+  },
   suggestions() {
     return Api().get("/suggestions");
   },
@@ -28,5 +31,14 @@ export default {
   },
   verifyToken() {
     return Api().get("/verify-token");
+  },
+  resetPasswordStepOne(form: any) {
+    return Api().post("/request-reset-email", form);
+  },
+  resetPasswordStepTwo(uidb64: any, token: string) {
+    return Api().get(`/request-reset-email/${uidb64}/${token}`);
+  },
+  resetPasswordStepThree(form: any) {
+    return Api().patch("password-reset-complete", form);
   },
 };

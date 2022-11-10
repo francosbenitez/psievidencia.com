@@ -30,7 +30,7 @@ export default {
       },
     });
   },
-  lists(pageNumber: number, type: string, name: string | undefined) {
+  lists(pageNumber: number, type: string, name?: string | undefined) {
     return Api().get(`psychologists/${type}?page=${pageNumber}`, {
       params: {
         name: name,
@@ -39,5 +39,11 @@ export default {
   },
   detail(id: string | string[] | undefined) {
     return Api().get(`psychologists/${id}`);
+  },
+  profile() {
+    return Api().get("profile");
+  },
+  edit(form: any) {
+    return Api().patch("psychologists/edit", form);
   },
 };

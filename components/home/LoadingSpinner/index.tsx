@@ -4,8 +4,7 @@ import styles from "./styles.module.css";
 const LoadingSpinner = ({ btn }: { btn?: boolean }) => {
   return (
     <div
-      className={`${styles["loader"]} ${styles["loader--visible"]}`}
-      style={{ position: btn ? "relative" : "absolute" }}
+      className={`${btn ? "" : styles["loader"]} ${styles["loader--visible"]}`}
     >
       <div
         className={`${

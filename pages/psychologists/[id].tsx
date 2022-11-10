@@ -13,92 +13,88 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
 
   const accordionData = [
     {
-      id: 1,
-      title: "¿En cuáles modelos terapéuticos acredita formación?",
-      content: "therapeutic_model",
-    },
-    {
-      id: 2,
-      title:
-        "Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional",
-      content: "specialization",
-    },
-    {
-      id: 3,
-      title: "Población de trabajo",
-      content: "work_population",
-    },
-    {
-      id: 4,
       title: "Identidad de Género",
       content: "gender_identity",
     },
     {
-      id: 5,
       title: "Tipo de Matrícula",
       content: "registration_type",
     },
     {
-      id: 6,
       title:
         "Número de Matrícula (en caso de tener MN y MP, poner ambas en ese orden)",
       content: "registration_number",
     },
     {
-      id: 7,
       title:
         "Añada el nombre de la institución o servicio en salud mental en caso de formar parte",
       content: "institution",
     },
     {
-      id: 8,
       title: "¿Integra un equipo de salud con Médicx Psiquiatra?",
       content: "team",
     },
     {
-      id: 9,
+      title: "Jurisdicción",
+      content: "province",
+    },
+    {
+      title:
+        "Acá podes especificar la localidad dentro de la provincia donde ejerces",
+      content: "city",
+    },
+    {
       title: "Mayor grado académico alcanzado",
       content: "education",
     },
     {
-      id: 10,
+      title: "¿En cuáles de estos modelos terapéuticos acredita formación?",
+      content: "therapeutic_models",
+    },
+    {
       title: "Formación en Perspectiva de Género/LGBTIQ+",
       content: "gender_perspective",
     },
     {
-      id: 11,
-      title: "Modalidad de Trabajo",
-      content: "work_modality",
+      title:
+        "Otras formaciones realizadas que puedan ayudar a especificar tu perfil profesional",
+      content: "specializations",
     },
     {
-      id: 12,
+      title: "Población de trabajo",
+      content: "work_populations",
+    },
+    {
+      title: "Modalidad de Trabajo",
+      content: "work_modalities",
+    },
+    {
+      title: "Atención on-line",
+      content: "online",
+    },
+    {
       title: "¿Trabaja con Obras Sociales / Prepagas?",
       content: "prepaid",
     },
     {
-      id: 13,
       title: "Especificar cuáles",
       content: "prepaid_type",
     },
     {
-      id: 14,
       title:
         "¿Facturás para realizar el reintegro en las Obras Sociales / Prepagas?",
       content: "invoice",
     },
     {
-      id: 15,
       title: "¿Utiliza Lengua de Señas? (manejo fluido para una sesión)",
       content: "sign_language",
     },
     {
-      id: 16,
       title:
         "Además de Español, ¿tiene manejo de otro/s idioma/s fluido/s para una sesión?",
       content: "session_languages",
     },
     {
-      id: 17,
       title:
         "Algún dato que quieras añadir y no se haya contemplado previamente en el cuestionario",
       content: "additional_data",
@@ -195,10 +191,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
             </p>
             <div className="grid grid-cols-2 gap-4">
               <p className="break-words">
-                <span className="underline">
-                  <FormattedMessage id="social.networks" />
-                </span>
-                :{" "}
+                <span className="underline">Redes Sociales</span>:{" "}
                 {psychologist.social_networks !== "" ? (
                   <>{psychologist.social_networks}</>
                 ) : (
@@ -208,10 +201,7 @@ const PsychologistsDetail = ({ psychologist }: { psychologist: any }) => {
                 )}
               </p>
               <p className="text-right break-words">
-                <span className="underline">
-                  <FormattedMessage id="phone.or.email" />
-                </span>
-                :{" "}
+                <span className="underline">Número o Mail de contacto</span>:{" "}
                 {psychologist.phone_number !== "" ? (
                   <>{psychologist.phone_number}</>
                 ) : (

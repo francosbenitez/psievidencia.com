@@ -1,8 +1,18 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
 
-const Accordion = ({ title, content }: { title: string; content: string }) => {
+const Accordion = ({
+  title,
+  content,
+}: {
+  title: string;
+  content: string | string[];
+}) => {
   const [isActive, setIsActive] = useState(false);
+
+  if (typeof content !== "string") {
+    content = content.join(", ");
+  }
 
   return (
     <>

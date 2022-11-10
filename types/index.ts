@@ -1,3 +1,9 @@
+export type Provinces = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
 export type Psychologist = {
   additional_data: string;
   city: string;
@@ -21,11 +27,11 @@ export type Psychologist = {
   session_languages: string;
   sign_language: string;
   social_networks: string;
-  specialization: string;
+  specializations: string[];
   team: string;
-  therapeutic_model: string;
-  work_modality: string;
-  work_population: string;
+  therapeutic_models: string[];
+  work_modalities: string[];
+  work_populations: string[];
   liked: boolean;
 };
 

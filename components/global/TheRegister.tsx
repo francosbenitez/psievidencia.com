@@ -39,6 +39,7 @@ const TheRegister = ({
         username: username,
         email: email,
         password: password,
+        role: "AUTHENTICATED",
       };
 
       let formData = new FormData();
@@ -58,8 +59,8 @@ const TheRegister = ({
     <>
       {verificationSent ? (
         <div className="grid place-items-center text-2xl h-56">
-          ¡Un paso más! Revisá tu correo para verificar tu cuenta (¡si no te
-          llegó a tu correo principal, chequeá Spam!).
+          ¡Un paso más! Revisá tu correo para verificar tu cuenta (si no te
+          llegó a tu correo principal, chequeá Spam).
         </div>
       ) : (
         <>
@@ -89,7 +90,7 @@ const TheRegister = ({
             {error !== null && error.username && (
               <>
                 {error.username.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -109,7 +110,7 @@ const TheRegister = ({
             {error !== null && error.email && (
               <>
                 {error.email.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -138,7 +139,7 @@ const TheRegister = ({
             {error !== null && error.password && (
               <>
                 {error.password.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}

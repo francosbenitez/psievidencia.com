@@ -6,3 +6,5 @@
 - Create a /team page, to mention every person who collaborated with the website, directly and indirectly.
   - With photos hosted on Google Drive.
 - Implement skeletons.
+- Add a custom loading with the logo and a white background while checking the token of the user.
+- Allow logging in using either the username or the email. NOT only via the username. What happens if the user forget their username?

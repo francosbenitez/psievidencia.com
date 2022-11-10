@@ -11,6 +11,7 @@ const userToken =
 const initialState = {
   loading: false,
   userInfo: null,
+  role: null,
   userToken,
   error: null,
   success: false,
@@ -20,10 +21,17 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    updateUsername: (state, { payload }) => {
+      if (state.userInfo) {
+        const userInfo: { user: { username: string } } = state.userInfo;
+        userInfo.user.username = payload;
+      }
+    },
     logout: (state) => {
       localStorage.removeItem("Token");
       state.loading = false;
       state.userInfo = null;
+      state.role = null;
       state.userToken = null;
       state.error = null;
     },
@@ -37,6 +45,7 @@ const userSlice = createSlice({
       builder.addCase(userLogin.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.userInfo = payload;
+        state.role = payload.user.role;
         state.userToken = payload.userToken;
       }),
       builder.addCase(userLogin.rejected, (state, { payload }: any) => {
@@ -61,5 +70,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, updateUsername } = userSlice.actions;
 export default userSlice.reducer;

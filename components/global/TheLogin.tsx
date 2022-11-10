@@ -8,9 +8,11 @@ import EyeOffLined from "../../public/icons/eye-off-lined.svg";
 const TheLogin = ({
   showModal,
   showRegister,
+  showReset,
 }: {
   showModal?: any;
   showRegister: any;
+  showReset: any;
 }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
@@ -71,7 +73,7 @@ const TheLogin = ({
         {error !== null && error.username && (
           <>
             {error.username.map((item: string) => (
-              <p key={item} className="text-red-500 text-center">
+              <p key={item} className="text-red-500 text-center my-3">
                 {item}
               </p>
             ))}
@@ -96,7 +98,7 @@ const TheLogin = ({
             {error.password && (
               <>
                 {error.password.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -105,14 +107,14 @@ const TheLogin = ({
             {error.detail && (
               <>
                 {/* {error.detail.map((item: string) => ( */}
-                <p className="text-red-500 text-center">{error.detail}</p>
+                <p className="text-red-500 text-center my-3">{error.detail}</p>
                 {/* ))} */}
               </>
             )}
             {error.non_field_errors && (
               <>
                 {error.non_field_errors.map((item: string) => (
-                  <p key={item} className="text-red-500 text-center">
+                  <p key={item} className="text-red-500 text-center my-3">
                     {item}
                   </p>
                 ))}
@@ -127,6 +129,14 @@ const TheLogin = ({
           Ingresar
         </button>
       </form>
+      <button
+        className="block mt-3 underline"
+        onClick={() => {
+          showModal(), showReset();
+        }}
+      >
+        ¿Olvidaste tu contraseña?
+      </button>
     </>
   );
 };

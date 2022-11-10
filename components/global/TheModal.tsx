@@ -7,12 +7,13 @@ import React, {
 // import { useScrollBlock } from "@/hooks/useScrollBlock";
 
 type Props = {
-  button: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+  button?: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   title: string;
   content: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   modalCentered?: boolean;
   showRegister: any;
   showLogin: any;
+  showReset: any;
   modalMask?: boolean;
   count?: number;
 };
@@ -27,6 +28,7 @@ const TheModal = (props: any, ref: any) => {
     modalCentered,
     showRegister,
     showLogin,
+    showReset,
     modalMask,
     count,
   }: Props = props;
@@ -46,12 +48,12 @@ const TheModal = (props: any, ref: any) => {
 
   return (
     <>
-      {React.cloneElement(button, { showModal: showModal })}
+      {button && React.cloneElement(button, { showModal: showModal })}
       {show && (
         <div className={`${modalCentered ? "modal-wrapper" : ""}`}>
           {modalMask && <div className="modal-mask"></div>}
           <div
-            className={`modal ${modalCentered ? "modal-centered" : ""}`}
+            className={`modal-custom ${modalCentered ? "modal-centered" : ""}`}
             id="modal"
             style={{
               height: `${count && "100%"}`,
@@ -69,11 +71,12 @@ const TheModal = (props: any, ref: any) => {
                 showModal: showModal,
                 showLogin: showLogin,
                 showRegister: showRegister,
+                showReset: showReset,
               })}
             </div>
             {count && (
               <button
-                className="btn bg-primary text-white rounded px-6 py-3 flex m-auto"
+                className="bg-primary text-white rounded px-6 py-3 flex m-auto"
                 onClick={showModal}
               >
                 <p>Ver {count} psicoterapeutas</p>
