@@ -4,9 +4,7 @@ import axios from "axios";
 import { store } from "../store";
 import Router from "next/router";
 
-const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://web-develop-ecb4.up.railway.app/api/";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default () => {
   // const token: string | null = typeof window !== "undefined" ? getToken() : "";
