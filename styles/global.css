@@ -385,3 +385,6 @@ body {
 .disabled {
   opacity: 0.75;
 }
+
+/* Skeleton */
+@import "react-loading-skeleton/dist/skeleton.css";

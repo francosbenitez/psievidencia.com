@@ -5,13 +5,22 @@ import TheCard from "../components/home/TheCard";
 import Head from "next/head";
 
 import withAuth from "@/hoc/withAuth";
+import Skeleton from "react-loading-skeleton";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchFavorites = async () => {
-    const result = (await UsersService.favorites()).data;
-    setFavorites(result);
+    try {
+      setLoading(true);
+      const response = (await UsersService.favorites()).data;
+      setFavorites(response);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      console.log("err", err);
+    }
   };
 
   useEffect(() => {
@@ -26,7 +35,11 @@ const Favorites = () => {
       </Head>
       <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
         <h2 className="text-3xl text-center underline">Mis favoritos</h2>
-        {favorites != null && favorites.length > 0 ? (
+        {loading ? (
+          <div className="mt-6">
+            <Skeleton height={30} />
+          </div>
+        ) : favorites != null && favorites.length > 0 ? (
           <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {favorites.map((psychologist: any) => {
               return (

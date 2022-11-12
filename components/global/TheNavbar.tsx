@@ -31,7 +31,7 @@ const TheNavbar = (props: any) => {
 
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
-  const { userInfo, userToken } = useSelector(
+  const { isLoggedIn, userInfo } = useSelector(
     (state: any) => state.userReducer
   );
   const dispatch = useDispatch();
@@ -43,9 +43,6 @@ const TheNavbar = (props: any) => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const check =
-    userToken != null ? userToken : userInfo != null ? userInfo.token : null;
 
   const [themeMenuOpened, setThemeMenuOpened] = useState(false);
   const themeMenu = useRef<HTMLDivElement>(null);
@@ -79,7 +76,7 @@ const TheNavbar = (props: any) => {
                 </Link>
               </li>
               <div className="flex ml-auto">
-                {check != null ? (
+                {isLoggedIn ? (
                   <>
                     <li className="p-2 flex">
                       <div ref={themeMenu} className="dropdown dropdown-left">
