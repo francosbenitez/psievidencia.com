@@ -36,9 +36,9 @@ const TheNavbar = (props: any) => {
   );
   const dispatch = useDispatch();
   const handleLogout = async () => {
+    router.push("/");
     await UsersService.logout();
     dispatch(logout());
-    router.push("/");
   };
   useEffect(() => {
     setMounted(true);

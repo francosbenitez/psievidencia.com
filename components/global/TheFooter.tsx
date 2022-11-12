@@ -24,9 +24,9 @@ const TheFooter = (props: Props) => {
 
   const dispatch = useDispatch();
   const handleLogout = async () => {
+    router.push("/");
     await UsersService.logout();
     dispatch(logout());
-    router.push("/");
   };
 
   return (
