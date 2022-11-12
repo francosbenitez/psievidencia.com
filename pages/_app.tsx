@@ -70,13 +70,15 @@ function MyApp({ Component, pageProps }: AppProps) {
             resetRef={resetRef}
             showReset={showReset}
           />
-          <Component
-            {...pageProps}
-            loading={loading}
-            setLoading={setLoading}
-            loginRef={loginRef}
-            showLogin={showLogin}
-          />
+          <main className="min-h-screen">
+            <Component
+              {...pageProps}
+              loading={loading}
+              setLoading={setLoading}
+              loginRef={loginRef}
+              showLogin={showLogin}
+            />
+          </main>
           <TheFooter showLogin={showLogin} />
         </ScrollToTop>
       </IntlProvider>
