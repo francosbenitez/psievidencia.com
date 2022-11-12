@@ -135,7 +135,7 @@ const TheLogin = ({
           showModal(), showReset();
         }}
       >
-        ¿Olvidaste tu contraseña?
+        ¿Olvidaste tu contraseña y/o usuario?
       </button>
     </>
   );
