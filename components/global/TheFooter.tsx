@@ -74,12 +74,14 @@ const TheFooter = (props: Props) => {
               Editar perfil
             </a>
           </Link>
-          <a
-            className="link link-hover"
-            onClick={isLoggedIn ? () => handleLogout() : () => showLogin()}
-          >
-            Cerrar sesión
-          </a>
+          <Link href="/">
+            <a
+              className="link link-hover"
+              onClick={isLoggedIn ? () => handleLogout() : () => showLogin()}
+            >
+              Cerrar sesión
+            </a>
+          </Link>
         </div>
         <div>
           <span className="footer-title">Redes</span>
