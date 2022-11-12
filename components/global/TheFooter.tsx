@@ -62,7 +62,7 @@ const TheFooter = (props: Props) => {
               Mis favoritos
             </a>
           </Link>
-          <Link href={`${isLoggedIn ? "/favorites" : ""}`}>
+          <Link href={`${isLoggedIn ? "/edit" : ""}`}>
             <a
               className="link link-hover"
               onClick={
