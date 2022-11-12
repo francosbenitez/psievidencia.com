@@ -12,6 +12,7 @@ const initialState = {
   loading: false,
   userInfo: null,
   role: null,
+  isLoggedIn: false,
   userToken,
   error: null,
   success: false,
@@ -32,6 +33,7 @@ const userSlice = createSlice({
       state.loading = false;
       state.userInfo = null;
       state.role = null;
+      state.isLoggedIn = false;
       state.userToken = null;
       state.error = null;
     },
@@ -47,6 +49,7 @@ const userSlice = createSlice({
         state.userInfo = payload;
         state.role = payload.user.role;
         state.userToken = payload.userToken;
+        state.isLoggedIn = true;
       }),
       builder.addCase(userLogin.rejected, (state, { payload }: any) => {
         state.loading = false;
@@ -62,6 +65,7 @@ const userSlice = createSlice({
         state.success = true;
         state.userInfo = payload;
         state.userToken = payload.userToken;
+        state.isLoggedIn = true;
       }),
       builder.addCase(registerUser.rejected, (state, { payload }: any) => {
         state.loading = false;

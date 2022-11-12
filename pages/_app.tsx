@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             loginRef={loginRef}
             showLogin={showLogin}
           />
-          <TheFooter />
+          <TheFooter showLogin={showLogin} />
         </ScrollToTop>
       </IntlProvider>
     </>

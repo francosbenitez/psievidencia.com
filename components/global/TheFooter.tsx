@@ -9,10 +9,18 @@ import Link from "next/link";
 import { logout } from "@/store/user/userSlice";
 import UsersService from "@/services/UsersService";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const HomeFooter = () => {
+type Props = {
+  showLogin: () => void;
+};
+
+const TheFooter = (props: Props) => {
+  const { showLogin }: Props = props;
+
   const router = useRouter();
+
+  const { isLoggedIn } = useSelector((state: any) => state.userReducer);
 
   const dispatch = useDispatch();
   const handleLogout = async () => {
@@ -42,13 +50,34 @@ const HomeFooter = () => {
         </div>
         <div>
           <span className="footer-title">Mi perfil</span>
-          <Link href="/favorites">
-            <a className="link link-hover">Mis favoritos</a>
+          <Link href={`${isLoggedIn ? "/favorites" : ""}`}>
+            <a
+              className="link link-hover"
+              onClick={
+                isLoggedIn
+                  ? () => console.log("user is logged in!")
+                  : () => showLogin()
+              }
+            >
+              Mis favoritos
+            </a>
           </Link>
-          <Link href="/edit">
-            <a className="link link-hover">Editar perfil</a>
+          <Link href={`${isLoggedIn ? "/favorites" : ""}`}>
+            <a
+              className="link link-hover"
+              onClick={
+                isLoggedIn
+                  ? () => console.log("user is logged in!")
+                  : () => showLogin()
+              }
+            >
+              Editar perfil
+            </a>
           </Link>
-          <a className="link link-hover" onClick={() => handleLogout()}>
+          <a
+            className="link link-hover"
+            onClick={isLoggedIn ? () => handleLogout() : () => showLogin()}
+          >
             Cerrar sesión
           </a>
         </div>
@@ -93,4 +122,4 @@ const HomeFooter = () => {
   );
 };
 
-export default HomeFooter;
+export default TheFooter;

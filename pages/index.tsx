@@ -13,13 +13,7 @@ import DropdownBtn from "../components/global/DropdownBtn";
 import AllFilters from "../components/home/AllFilters";
 import TheDropdownOptionsIds from "../components/home/TheDropdownOptionsIds";
 import TheDropdownOptionsName from "../components/home/TheDropdownOptionsName";
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useRef,
-  useImperativeHandle,
-} from "react";
+import React, { useState, useEffect, useImperativeHandle } from "react";
 import { useIntl } from "react-intl";
 // import UsersService from "@/services/UsersService";
 // import LoadingSpinner from "@/components/home/LoadingSpinner";
