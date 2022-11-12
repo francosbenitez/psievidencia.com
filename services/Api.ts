@@ -31,10 +31,10 @@ export default () => {
     },
     (error) => {
       if (error.response.status === 401) {
-        // localStorage.removeItem("Token");
-        // localStorage.removeItem("state");
+        localStorage.removeItem("Token");
+        localStorage.removeItem("state");
         console.log("error.reponsefrom Api.ts", error.response);
-        // Router.push("/");
+        Router.push("/");
       }
       return Promise.reject(error);
     }
