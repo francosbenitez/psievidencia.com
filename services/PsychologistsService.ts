@@ -46,4 +46,7 @@ export default {
   edit(form: any) {
     return Api().patch("psychologists/edit", form);
   },
+  create(form: any) {
+    return Api().post("psychologists/create", form);
+  },
 };
