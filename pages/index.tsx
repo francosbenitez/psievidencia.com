@@ -20,6 +20,7 @@ import { useIntl } from "react-intl";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { GI, ED, WM } from "@/utils/constants";
+import Script from "next/script";
 
 const Home = (props: any, ref: any) => {
   const intl = useIntl();
@@ -272,6 +273,17 @@ const Home = (props: any, ref: any) => {
           content="SunVWUveAt2rjkQwOP05PRn3LsPQ8T24-Aji_ACkSik"
         />
       </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${process.env.NEXT_PUBLIC_GTM_ID}');`}
+      </Script>
       <div className="container min-h-screen w-11/12 mx-auto pt-20 pb-40">
         {/* {hasDataLoaded && hasVerifiedToken ? (
           <> */}
