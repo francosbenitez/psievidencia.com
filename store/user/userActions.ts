@@ -9,11 +9,6 @@ export const registerUser = createAsyncThunk(
       localStorage.setItem("Token", response.token);
       return response;
     } catch (error) {
-      // if (error.response && error.response.data.message) {
-      //   return rejectWithValue(error.response.data.message);
-      // } else {
-      // return rejectWithValue(error.message);
-      // }
       return rejectWithValue(error.response.data);
     }
   }
@@ -27,11 +22,6 @@ export const userLogin = createAsyncThunk(
       localStorage.setItem("Token", response.token);
       return response;
     } catch (error) {
-      // if (error.response && error.response.data.message) {
-      //   return rejectWithValue(error.response.data.message);
-      // } else {
-      //   return rejectWithValue(error.message);
-      // }
       return rejectWithValue(error.response.data);
     }
   }
