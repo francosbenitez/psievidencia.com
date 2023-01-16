@@ -70,7 +70,7 @@ const TheLogin = ({
             />
           </div>
         </label>
-        {error !== null && error.username && (
+        {error && error.username && (
           <>
             {error.username.map((item: string) => (
               <p key={item} className="text-red-500 text-center my-3">
@@ -93,7 +93,7 @@ const TheLogin = ({
             </i>{" "}
           </div>
         </label>
-        {error !== null && (
+        {error && (
           <>
             {error.password && (
               <>

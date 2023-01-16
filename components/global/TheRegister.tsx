@@ -87,7 +87,7 @@ const TheRegister = ({
                 />
               </div>
             </label>
-            {error !== null && error.username && (
+            {error && error.username && (
               <>
                 {error.username.map((item: string) => (
                   <p key={item} className="text-red-500 text-center my-3">
@@ -107,7 +107,7 @@ const TheRegister = ({
                 />
               </div>
             </label>
-            {error !== null && error.email && (
+            {error && error.email && (
               <>
                 {error.email.map((item: string) => (
                   <p key={item} className="text-red-500 text-center my-3">
@@ -136,7 +136,7 @@ const TheRegister = ({
                 </i>{" "}
               </div>
             </label>
-            {error !== null && error.password && (
+            {error && error.password && (
               <>
                 {error.password.map((item: string) => (
                   <p key={item} className="text-red-500 text-center my-3">

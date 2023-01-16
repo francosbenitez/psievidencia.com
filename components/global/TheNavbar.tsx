@@ -100,7 +100,7 @@ const TheNavbar = (props: any) => {
                     </li>
                     {isLoggedIn ? (
                       <>
-                        <li className="p-2 flex">
+                        <li className="block sm:inline my-4 sm:ml-2">
                           <div
                             ref={themeMenu}
                             className="dropdown dropdown-left"
