@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.4",
     "@reduxjs/toolkit": "^1.8.3",
     "@svgr/webpack": "^6.2.1",
     "@types/react-transition-group": "^4.4.5",

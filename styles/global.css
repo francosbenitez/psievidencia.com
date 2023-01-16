@@ -204,8 +204,12 @@ body {
 }
 
 /* Navbar */
-.navbar {
+.custom-navbar {
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 5px;
+}
+
+#menu-toggle:checked + #menu {
+  display: block;
 }
 
 /* Home */

@@ -18,16 +18,7 @@ const Collaborate = () => {
             <li className="mb-6">
               <span className="font-bold">Programación</span>
               <p>
-                En esta área podés colaborar ya sea generando un{" "}
-                <a
-                  href="https://github.com/francosbenitez/psievidencia.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline"
-                >
-                  pull request
-                </a>{" "}
-                o{" "}
+                En esta área podés colaborar{" "}
                 <Link href="/contact">
                   <a className="underline">contactándonos</a>
                 </Link>{" "}
